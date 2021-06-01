@@ -73,6 +73,21 @@ botaoSalvarTarefas.addEventListener('click', salvarTarefas);
 function salvarTarefas() {
   localStorage.clear();
   const listaTarefas = document.querySelector('#lista-tarefas');
-  /* Não preciso de for porque o ID lista-tarefas já tem todo o HTML*/
+  /* Não preciso de 'For' porque o ID lista-tarefas já tem todo o HTML*/
   localStorage.setItem('tarefas', listaTarefas.innerHTML);
+}
+
+const botaoMoverCima = document.querySelector('#mover-cima');
+botaoMoverCima.addEventListener('click', moverCima);
+function moverCima() {
+  /* Primeiro, descobre qual o li selecionado */
+  const liSelecionado = document.querySelector('.selected')
+  const liAcima = liSelecionado.previousElementSibling
+  /* Se não houver erro com a seleção acima do selecionado */
+  if (liAcima) {
+    /* Move o liSelecionado para cima com este método */
+    liSelecionado.parentNode.insertBefore(liSelecionado, liAcima)
+  } else {
+    alert('Não é possível subir mais esta tarefa!')
+  }
 }
