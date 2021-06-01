@@ -32,7 +32,7 @@ function selecionaTarefa(item) {
   item.classList.add('selected');
 }
 
-function completaTarefa(item){
+function completaTarefa(item) {
   if (item.classList.contains('completed')) {
     item.classList.remove('completed');
   } else {
@@ -40,7 +40,7 @@ function completaTarefa(item){
   }
 }
 
-function apagaTudo(){
+function apagaTudo() {
   const botaoApagaTudo = document.querySelectorAll('.tarefa')
   for (let index = 0; index < botaoApagaTudo.length; index += 1) {
     botaoApagaTudo[index].remove()
@@ -48,5 +48,14 @@ function apagaTudo(){
   botaoApagaTudo.classList.remove('tarefa')
 }
 
+function removeFinalizados() {
+  const botaoRemoveFinalizados = document.querySelectorAll('.completed')
+  for (let index = 0; index < botaoRemoveFinalizados.length; index += 1) {
+    botaoRemoveFinalizados[index].remove()
+  }
+  botaoRemoveFinalizados.classList.remove('completed')
+  
+}
 
 botaoApagaTudo.addEventListener('click', apagaTudo);
+botaoRemoveFinalizados.addEventListener('click', removeFinalizados);
