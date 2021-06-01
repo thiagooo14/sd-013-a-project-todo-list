@@ -1,21 +1,20 @@
-// Elementos
+/* Elementos */
 const elementButtonCriarTarefa = document.getElementById('criar-tarefa');
 const elementOl = document.getElementById('lista-tarefas');
 let elementLi = document.getElementsByClassName('tarefa');
 const elementTarefa = document.getElementById('texto-tarefa');
 
-
 const pegaListaTarefas = localStorage.getItem('tarefas')
 const listaTarefas = document.querySelector('#lista-tarefas');
 listaTarefas.innerHTML = pegaListaTarefas;
 
-// Eventos
+/* Eventos */
 elementButtonCriarTarefa.addEventListener('click', criaTarefa)
 
-//Funções
+/* Funções */
 function criaTarefa() {
   const item = document.createElement('li');
-  item.className = 'tarefa'
+  item.className = 'tarefa';
   item.innerHTML = elementTarefa.value;
   elementOl.appendChild(item);
   elementTarefa.value = null;
@@ -44,13 +43,11 @@ function completaTarefa(item) {
   }
 }
 
-
-
 /* Movimento dos Botões com suas funções */
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 botaoApagaTudo.addEventListener('click', apagaTudo);
 function apagaTudo() {
-  const botaoApagaTudo = document.querySelectorAll('.tarefa')
+  const botaoApagaTudo = document.querySelectorAll('.tarefa');
   for (let index = 0; index < botaoApagaTudo.length; index += 1) {
     botaoApagaTudo[index].remove();
   }
@@ -81,13 +78,34 @@ const botaoMoverCima = document.querySelector('#mover-cima');
 botaoMoverCima.addEventListener('click', moverCima);
 function moverCima() {
   /* Primeiro, descobre qual o li selecionado */
-  const liSelecionado = document.querySelector('.selected')
-  const liAcima = liSelecionado.previousElementSibling
+  const liSelecionado = document.querySelector('.selected');
+  const liAcima = liSelecionado.previousElementSibling;
   /* Se não houver erro com a seleção acima do selecionado */
   if (liAcima) {
     /* Move o liSelecionado para cima com este método */
-    liSelecionado.parentNode.insertBefore(liSelecionado, liAcima)
+    liSelecionado.parentNode.insertBefore(liSelecionado, liAcima);
   } else {
-    alert('Não é possível subir mais esta tarefa!')
+    alert('Não é possível subir mais esta tarefa!');
   }
+}
+
+const botaoMoverBaixo = document.querySelector('#mover-baixo');
+botaoMoverBaixo.addEventListener('click', moverBaixo);
+function moverBaixo() {
+  /* Descobrindo o Li selecionado */
+  const liSelecionado = document.querySelector('.selected');
+  const liAbaixo = liSelecionado.nextElementSibling;
+  if (liAbaixo) {
+    /* Move o liSelecionado para baixo, notado que agora a sequencia inverteu */ 
+    liSelecionado.parentNode.insertBefore(liAbaixo, liSelecionado);
+  } else {
+    alert('Não é possível abaixar mais esta tarefa!');
+  }
+}
+
+const botaoRemoverSelecionado = document.querySelector('remover-selecionado');
+botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
+function removerSelecionado() {
+  const liSelecionado = document.querySelector('.selected');
+  liSelecionado.remove();
 }
