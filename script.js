@@ -4,7 +4,6 @@ const elementOl = document.getElementById('lista-tarefas');
 let elementLi = document.getElementsByClassName('tarefa');
 const elementTarefa = document.getElementById('texto-tarefa');
 
-const buttonApagaTudo = document.querySelectorAll('selected')
 
 // Eventos
 elementButtonCriarTarefa.addEventListener('click', criaTarefa)
@@ -40,3 +39,14 @@ function completaTarefa(item){
     item.classList.add('completed');
   }
 }
+
+function apagaTudo(){
+  const botaoApagaTudo = document.querySelectorAll('.tarefa')
+  for (let index = 0; index < botaoApagaTudo.length; index += 1) {
+    botaoApagaTudo[index].remove()
+  }
+  botaoApagaTudo.classList.remove('tarefa')
+}
+
+
+botaoApagaTudo.addEventListener('click', apagaTudo);
