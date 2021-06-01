@@ -1,7 +1,6 @@
 /* Elementos */
 const elementButtonCriarTarefa = document.getElementById('criar-tarefa');
 const elementOl = document.getElementById('lista-tarefas');
-/* xxxxxxxlet elementLi = document.getElementsByClassName('tarefa'); */
 const elementTarefa = document.getElementById('texto-tarefa');
 
 const pegaListaTarefas = localStorage.getItem('tarefas');
