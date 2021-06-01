@@ -1,33 +1,14 @@
 /* Elementos */
 const elementButtonCriarTarefa = document.getElementById('criar-tarefa');
 const elementOl = document.getElementById('lista-tarefas');
-let elementLi = document.getElementsByClassName('tarefa');
+/* xxxxxxxlet elementLi = document.getElementsByClassName('tarefa'); */
 const elementTarefa = document.getElementById('texto-tarefa');
 
-const pegaListaTarefas = localStorage.getItem('tarefas')
+const pegaListaTarefas = localStorage.getItem('tarefas');
 const listaTarefas = document.querySelector('#lista-tarefas');
 listaTarefas.innerHTML = pegaListaTarefas;
 
-/* Eventos */
-elementButtonCriarTarefa.addEventListener('click', criaTarefa)
-
 /* Funções */
-function criaTarefa() {
-  const item = document.createElement('li');
-  item.className = 'tarefa';
-  item.innerHTML = elementTarefa.value;
-  elementOl.appendChild(item);
-  elementTarefa.value = null;
-
-  item.addEventListener('dblclick', function () {
-    completaTarefa(item); /* completedItem */
-  });
-  
-  item.addEventListener('click', function () {
-    selecionaTarefa(item); /* selectedItem */
-  });
-}
-
 function selecionaTarefa(item) {
   if (document.getElementsByClassName('selected')[0] != null) {
     document.getElementsByClassName('selected')[0].classList.remove('selected');
@@ -43,21 +24,33 @@ function completaTarefa(item) {
   }
 }
 
+function criaTarefa() {
+  const item = document.createElement('li');
+  item.className = 'tarefa';
+  item.innerHTML = elementTarefa.value;
+  elementOl.appendChild(item);
+  elementTarefa.value = null;
+  item.addEventListener('dblclick', function () {
+    completaTarefa(item); /* completedItem */
+  });
+  item.addEventListener('click', function () {
+    selecionaTarefa(item); /* selectedItem */
+  });
+}
+
 /* Movimento dos Botões com suas funções */
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
-botaoApagaTudo.addEventListener('click', apagaTudo);
 function apagaTudo() {
-  const botaoApagaTudo = document.querySelectorAll('.tarefa');
-  for (let index = 0; index < botaoApagaTudo.length; index += 1) {
-    botaoApagaTudo[index].remove();
+  const botaoApagaTudo2 = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < botaoApagaTudo2.length; index += 1) {
+    botaoApagaTudo2[index].remove();
   }
   localStorage.clear();
 }
 
 const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
-botaoApagaFinalizados.addEventListener('click', apagaFinalizados);
 function apagaFinalizados() {
-  const finalizados = document.querySelectorAll('.completed')
+  const finalizados = document.querySelectorAll('.completed');
   for (let index = 0; index < finalizados.length; index += 1) {
     if (finalizados[index].classList.contains('completed')) {
       finalizados[index].remove();
@@ -66,16 +59,14 @@ function apagaFinalizados() {
 }
 
 const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
-botaoSalvarTarefas.addEventListener('click', salvarTarefas);
 function salvarTarefas() {
   localStorage.clear();
-  const listaTarefas = document.querySelector('#lista-tarefas');
-  /* Não preciso de 'For' porque o ID lista-tarefas já tem todo o HTML*/
-  localStorage.setItem('tarefas', listaTarefas.innerHTML);
+  const listaTarefas2 = document.querySelector('#lista-tarefas');
+  /* Não preciso de 'For' porque o ID lista-tarefas já tem todo o HTML */
+  localStorage.setItem('tarefas', listaTarefas2.innerHTML);
 }
 
 const botaoMoverCima = document.querySelector('#mover-cima');
-botaoMoverCima.addEventListener('click', moverCima);
 function moverCima() {
   /* Primeiro, descobre qual o li selecionado */
   const liSelecionado = document.querySelector('.selected');
@@ -92,14 +83,13 @@ function moverCima() {
 }
 
 const botaoMoverBaixo = document.querySelector('#mover-baixo');
-botaoMoverBaixo.addEventListener('click', moverBaixo);
 function moverBaixo() {
   /* Descobrindo o Li selecionado */
   const liSelecionado = document.querySelector('.selected');
   if (liSelecionado) {
     const liAbaixo = liSelecionado.nextElementSibling;
     if (liAbaixo) {
-      /* Move o liSelecionado para baixo, notado que agora a sequencia inverteu */ 
+      /* Move o liSelecionado para baixo, notado que agora a sequencia inverteu */
       liSelecionado.parentNode.insertBefore(liAbaixo, liSelecionado);
     } else {
       alert('Não é possível abaixar mais esta tarefa!');
@@ -108,8 +98,16 @@ function moverBaixo() {
 }
 
 const botaoRemoverSelecionado = document.querySelector('#remover-selecionado');
-botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
 function removerSelecionado() {
   const liSelecionado = document.querySelector('.selected');
   liSelecionado.remove();
 }
+
+/* Eventos */
+elementButtonCriarTarefa.addEventListener('click', criaTarefa);
+botaoMoverBaixo.addEventListener('click', moverBaixo);
+botaoApagaTudo.addEventListener('click', apagaTudo);
+botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
+botaoMoverCima.addEventListener('click', moverCima);
+botaoSalvarTarefas.addEventListener('click', salvarTarefas);
+botaoApagaFinalizados.addEventListener('click', apagaFinalizados);
