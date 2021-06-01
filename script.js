@@ -54,17 +54,18 @@ function apagaTudo() {
   for (let index = 0; index < botaoApagaTudo.length; index += 1) {
     botaoApagaTudo[index].remove();
   }
-  botaoApagaTudo.classList.remove('tarefa');
+  localStorage.clear();
 }
 
 const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
-botaoApagaFinalizados.addEventListener('click', removeFinalizados);
-function removeFinalizados() {
-  const botaoApagaFinalizados = document.querySelectorAll('.completed')
-  for (let index = 0; index < botaoApagaFinalizados.length; index += 1) {
-    botaoApagaFinalizados[index].remove();
+botaoApagaFinalizados.addEventListener('click', apagaFinalizados);
+function apagaFinalizados() {
+  const finalizados = document.querySelectorAll('.completed')
+  for (let index = 0; index < finalizados.length; index += 1) {
+    if (finalizados[index].classList.contains('completed')) {
+      finalizados[index].remove();
+    }
   }
-  botaoApagaFinalizados.classList.remove('completed');
 }
 
 const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
