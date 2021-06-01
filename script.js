@@ -17,7 +17,7 @@ function adicionaLista() {
   //* elementLiAdd.addEventListener('click', function () {*/
   /*  elementLiAdd.style.backgroundColor = 'rgb(128,128,128)'}) */
   elementLiAdd.addEventListener('click', alteraBackground);
-  elementOl.appendChild(elementLiAdd); 
+  elementOl.appendChild(elementLiAdd);
   elementTarefa.value = '';
 }
 
