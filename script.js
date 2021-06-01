@@ -79,13 +79,15 @@ botaoMoverCima.addEventListener('click', moverCima);
 function moverCima() {
   /* Primeiro, descobre qual o li selecionado */
   const liSelecionado = document.querySelector('.selected');
-  const liAcima = liSelecionado.previousElementSibling;
   /* Se não houver erro com a seleção acima do selecionado */
-  if (liAcima) {
-    /* Move o liSelecionado para cima com este método */
-    liSelecionado.parentNode.insertBefore(liSelecionado, liAcima);
-  } else {
-    alert('Não é possível subir mais esta tarefa!');
+  if (liSelecionado) {
+    const liAcima = liSelecionado.previousElementSibling;
+    if (liAcima) {
+      /* Move o liSelecionado para cima com este método */
+      liSelecionado.parentNode.insertBefore(liSelecionado, liAcima);
+    } else {
+      alert('Não é possível subir mais esta tarefa!');
+    }
   }
 }
 
@@ -94,16 +96,18 @@ botaoMoverBaixo.addEventListener('click', moverBaixo);
 function moverBaixo() {
   /* Descobrindo o Li selecionado */
   const liSelecionado = document.querySelector('.selected');
-  const liAbaixo = liSelecionado.nextElementSibling;
-  if (liAbaixo) {
-    /* Move o liSelecionado para baixo, notado que agora a sequencia inverteu */ 
-    liSelecionado.parentNode.insertBefore(liAbaixo, liSelecionado);
-  } else {
-    alert('Não é possível abaixar mais esta tarefa!');
+  if (liSelecionado) {
+    const liAbaixo = liSelecionado.nextElementSibling;
+    if (liAbaixo) {
+      /* Move o liSelecionado para baixo, notado que agora a sequencia inverteu */ 
+      liSelecionado.parentNode.insertBefore(liAbaixo, liSelecionado);
+    } else {
+      alert('Não é possível abaixar mais esta tarefa!');
+    }
   }
 }
 
-const botaoRemoverSelecionado = document.querySelector('remover-selecionado');
+const botaoRemoverSelecionado = document.querySelector('#remover-selecionado');
 botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
 function removerSelecionado() {
   const liSelecionado = document.querySelector('.selected');
