@@ -5,6 +5,10 @@ let elementLi = document.getElementsByClassName('tarefa');
 const elementTarefa = document.getElementById('texto-tarefa');
 
 
+const pegaListaTarefas = localStorage.getItem('tarefas')
+const listaTarefas = document.querySelector('#lista-tarefas');
+listaTarefas.innerHTML = pegaListaTarefas;
+
 // Eventos
 elementButtonCriarTarefa.addEventListener('click', criaTarefa)
 
@@ -67,9 +71,7 @@ const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
 botaoSalvarTarefas.addEventListener('click', salvarTarefas);
 function salvarTarefas() {
   localStorage.clear();
-  const botaoSalvarTarefas = document.querySelectorAll('.tarefa')
-  for (let index = 0; index < botaoSalvarTarefas.length; index += 1) {
-    console.log(botaoSalvarTarefas[index])
-    localStorage.setItem('Tarefa', botaoSalvarTarefas[index].innerHTML);
-  }
+  const listaTarefas = document.querySelector('#lista-tarefas');
+  /* Não preciso de for porque o ID lista-tarefas já tem todo o HTML*/
+  localStorage.setItem('tarefas', listaTarefas.innerHTML);
 }
