@@ -40,22 +40,36 @@ function completaTarefa(item) {
   }
 }
 
+
+
+/* Movimento dos Botões com suas funções */
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
+botaoApagaTudo.addEventListener('click', apagaTudo);
 function apagaTudo() {
   const botaoApagaTudo = document.querySelectorAll('.tarefa')
   for (let index = 0; index < botaoApagaTudo.length; index += 1) {
-    botaoApagaTudo[index].remove()
+    botaoApagaTudo[index].remove();
   }
-  botaoApagaTudo.classList.remove('tarefa')
+  botaoApagaTudo.classList.remove('tarefa');
 }
 
+const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
+botaoApagaFinalizados.addEventListener('click', removeFinalizados);
 function removeFinalizados() {
-  const botaoRemoveFinalizados = document.querySelectorAll('.completed')
-  for (let index = 0; index < botaoRemoveFinalizados.length; index += 1) {
-    botaoRemoveFinalizados[index].remove()
+  const botaoApagaFinalizados = document.querySelectorAll('.completed')
+  for (let index = 0; index < botaoApagaFinalizados.length; index += 1) {
+    botaoApagaFinalizados[index].remove();
   }
-  botaoRemoveFinalizados.classList.remove('completed')
-  
+  botaoApagaFinalizados.classList.remove('completed');
 }
 
-botaoApagaTudo.addEventListener('click', apagaTudo);
-botaoRemoveFinalizados.addEventListener('click', removeFinalizados);
+const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
+botaoSalvarTarefas.addEventListener('click', salvarTarefas);
+function salvarTarefas() {
+  localStorage.clear();
+  const botaoSalvarTarefas = document.querySelectorAll('.tarefa')
+  for (let index = 0; index < botaoSalvarTarefas.length; index += 1) {
+    console.log(botaoSalvarTarefas[index])
+    localStorage.setItem('Tarefa', botaoSalvarTarefas[index].innerHTML);
+  }
+}
