@@ -28,6 +28,7 @@ function completeTask(event) {
   } else {
     event.target.classList.add('completed');
   }
+  event.target.classList.remove('selected');
 }
 
 // Req 5, 6 e preparo para o 7, 8 e 9
