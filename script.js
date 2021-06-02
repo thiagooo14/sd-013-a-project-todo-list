@@ -2,6 +2,7 @@ const listaTasks = document.getElementById('lista-tarefas');
 const btnAddTask = document.getElementById('criar-tarefa');
 const itemTasks = document.getElementsByClassName('task-list');
 const bntClearItem = document.getElementById('apaga-tudo');
+const bntClearSelectItem = document.getElementById('remover-finalizados');
 
 // Função que add a tafera a lista
 function addTasks() {
@@ -30,23 +31,32 @@ function addColorItem(event) {
 
 // Função que coloca sublinhado no item.
 function underlinedItem(event) {
-  if(event.target.className === 'task-list'){
-    event.target.className += ' completed'
-  }else if(event.target.className === 'task-list completed'){
+  if (event.target.className === 'task-list') {
+    event.target.className += ' completed';
+  } else if (event.target.className === 'task-list completed') {
     event.target.className = 'task-list';
-    console.log(event.target)
   }
 }
 
 // Fonte https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
 //  Deleta todos os Item da Lista
-function clearTasksList(){
-  while(listaTasks.firstChild){
-    listaTasks.removeChild(listaTasks.firstChild)
+function clearTasksList() {
+  while (listaTasks.firstChild) {
+    listaTasks.removeChild(listaTasks.firstChild);
+  }
+}
+
+// Deleta so os selecionado
+function clearSelectItem() {
+  const selectItem = document.querySelectorAll('.task-list.completed');
+  for (const item of selectItem) {
+    console.log(item);
+    listaTasks.removeChild(item);
   }
 }
 
 btnAddTask.addEventListener('click', addTasks);
 listaTasks.addEventListener('click', addColorItem);
 listaTasks.addEventListener('dblclick', underlinedItem);
-bntClearItem.addEventListener('click', clearTasksList)
+bntClearItem.addEventListener('click', clearTasksList);
+bntClearSelectItem.addEventListener('click', clearSelectItem);
