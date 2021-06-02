@@ -1,4 +1,12 @@
 #texto-tarefa {
   width: 300px;
+  
+}
+
+#criar-tarefa {
+  width: 100px;
+  height: 20px;
+  background-color: aqua;
+  border-radius: 30px;
 }
 
