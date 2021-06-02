@@ -1,0 +1,101 @@
+@font-face {
+  font-family: Roboto-Regular;
+  src: url('assets/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: Roboto-Thin;
+  src: url('assets/Roboto-Thin.ttf');
+}
+
+body {
+  background-color: rgb(61 , 33 , 104);
+}
+
+#title {
+  color: black;
+  font-family: Roboto-Regular, sans-serif;
+  font-size: 30px;
+}
+
+p {
+  color: rgb(32 , 32 , 32);
+  font-family: Roboto-Thin, sans-serif;
+  font-size: 19px;
+  font-style: oblique;
+}
+
+ol {
+  padding: 10px;
+}
+
+#center {
+  width: 805px;
+  height: 290px;
+  background-color: rgb(254 , 255 , 254);
+  margin-top: 80px;
+  margin-left: 100px;
+  padding: 25px 40px 50px 60px;
+  border: transparent;
+  border-radius: 33px;
+  box-shadow: 15px 13px rgb(170 , 170 , 170);
+}
+
+input {
+  font-family: Roboto-Regular, sans-serif;
+  background-color: rgb(254 , 255 , 254);
+  height: 4px;
+  width: 150px;
+  padding: 13px;
+  border: 1px solid rgb(54 , 65 , 62);
+  border-radius: 13px;
+}
+
+input:focus {
+  background-color: aliceblue;
+  outline: none;
+}
+
+button {
+  background-color: rgb(32 , 176 , 102);
+  color: rgb(254 , 255 , 254);
+  padding: 7px 15px;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  margin-left: 7px;
+}
+
+ol + button {
+  margin-left: 0;
+}
+
+button:hover {
+  filter: brightness(93%);
+}
+
+.move {
+  background-color: rgb(131 , 145 , 157);
+}
+
+#remover-finalizados {
+  background-color: rgb(57 , 160 , 237);
+}
+
+#apaga-tudo {
+  background-color: rgb(206 , 45 , 79);
+}
+
+img {
+  height: 89px;
+  width: 89px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  opacity: 60%;
+  transition: 0.4s;
+}
+
+img:hover {
+  opacity: 93%;
+}
