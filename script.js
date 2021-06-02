@@ -7,6 +7,7 @@ const clearCompletedBtn = document.getElementById('remover-finalizados');
 const saveBtn = document.getElementById('salvar-tarefas');
 const upBtn = document.getElementById('mover-cima');
 const downBtn = document.getElementById('mover-baixo');
+const removeSelectedBtn = document.getElementById('remover-selecionado');
 
 // Função para deixar de ser selecionada
 function notSelectItems() {
@@ -87,4 +88,10 @@ downBtn.addEventListener('click', () => {
     olList.insertBefore(selectedItem.nextElementSibling, selectedItem);
     selectItem();
   }
+});
+
+// Função para excluir a tarefa selecionada
+removeSelectedBtn.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  selectedItem.remove();
 });
