@@ -7,15 +7,25 @@ buttao.addEventListener('click', function addTask() {
   newLi.innerHTML = newTask;
   list.appendChild(newLi);
   newLi.classList.add('item');
-  list.clear();
+  document.getElementById('texto-tarefa').value = "";
 });
+
+buttao.addEventListener('click', function addTask() {
+  let newTask = document.getElementById('texto-tarefa').value;
+  newTask = '';
+})
+
 let itemObj = document.getElementsByClassName('item');
+
 list.addEventListener('click', function changeColor(clickEvent) {
   let listObj = clickEvent.target;
-  if(document.getElementsByClassName('grayTask').length !== 0)
-  for(i = 0; i <= itemObj.length; i += 1){
-    itemObj[i].classList.remove('grayTask');listObj.classList.add('grayTask');
-  }
+  let varia = document.getElementsByClassName('grayTask')[0]
+
+    itemObj[0].classList.remove('grayTask');
+
+
+    listObj.classList.add('grayTask');
+  
 
   listObj.classList.add('grayTask');
   // let grayItem = document.getElementsByClassName('grayTask')[0];
@@ -31,3 +41,13 @@ list.addEventListener('dblclick', function taskCompleted(dblclickEvent) {
     dblclickEvent.target.classList.remove('completed')
   }
 });
+
+let bClear = document.getElementById("apaga-tudo");
+
+bClear.addEventListener('click', function clear() {
+  for(i = 0; i < document.getElementsByClassName('item').length; i += 1){
+    let removeItem =  document.getElementsByClassName('item')[i]
+    let lista = document.getElementById('lista-tarefas')
+    lista.removeChild(removeItem);
+  }
+})
