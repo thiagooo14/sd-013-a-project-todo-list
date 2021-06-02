@@ -1,0 +1,8 @@
+.container {
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  background-color: slateblue;
+  color: white;
+  padding: 10px;
+}
