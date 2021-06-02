@@ -20,11 +20,13 @@ window.onload = function() {
     if (event.target.classList.contains('tarefa')) {
       if (event.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        event.target.classList.add('selected');
       }
       const taskArray = document.getElementsByClassName('tarefa');
       for (let i = 0; i < taskArray.length; i += 1) {
         if (taskArray[i] !== event.target){
-          taskArray[i].style.backgroundColor = ''
+          taskArray[i].style.backgroundColor = '';
+          taskArray[i].classList.remove('selected');
        }
       }
     }
@@ -53,7 +55,7 @@ window.onload = function() {
 
   document.getElementById('apaga-tudo').addEventListener('click', clearTaskList);
 
-  /*https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom*/
+  /*Referência consultada para remoção https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom*/
   function removeFinished(event) {
     let finishedArray = document.getElementsByClassName('completed');
     const ordList = document.getElementById('lista-tarefas');
@@ -69,5 +71,36 @@ window.onload = function() {
     localStorage.setItem('save-list', ordList.innerHTML);
   };
 
-  document.getElementById("salvar-tarefas").addEventListener('click', saveList)
+  document.getElementById("salvar-tarefas").addEventListener('click', saveList);
+
+  function moveUp (event) {
+    const selectedItem = document.getElementsByClassName('selected')[0];
+    const taskArray = document.getElementsByClassName('tarefa');
+    for (let i = 0; i < taskArray.length ; i += 1) {
+      if(taskArray[i] == selectedItem && i > 0) {
+        let before = taskArray[i - 1];
+        before.insertAdjacentElement('beforebegin', selectedItem);
+      }
+    }
+  };
+
+  document.getElementById("mover-cima").addEventListener('click', moveUp);
+
+  document.getElementById("salvar-tarefas").addEventListener('click', saveList);
+
+  function moveDown (event) {
+    const selectedItem = document.getElementsByClassName('selected')[0];
+    const taskArray = document.getElementsByClassName('tarefa');
+    for (let i = 0; i < taskArray.length; i += 1) {
+      if(taskArray[i] == selectedItem && i < taskArray.length - 1) {
+        console.log('entrou')
+        let after = taskArray[i + 1];
+        after.insertAdjacentElement('afterend', selectedItem);
+        i = taskArray.length;
+      }
+    }
+  };
+
+  document.getElementById("mover-baixo").addEventListener('click', moveDown);
+
 };
