@@ -15,3 +15,11 @@
 	background-color: black;
 	cursor: pointer;
 }
+
+.gray {
+	background-color: rgb(128, 128, 128);
+}
+
+.sublimed {
+	text-decoration: line-through solid rgb(0, 0, 0);
+}
