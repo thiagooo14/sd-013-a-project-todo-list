@@ -11,3 +11,14 @@ function adicionaTarefa() {
   });
 }
 adicionaTarefa();
+
+function selecionarTarefa() {
+  lista.addEventListener('click', function(event){
+  for (let i = 0; i < lista.children.length; i += 1) {
+    lista.children[i].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+  lista.classList.remove('selected');
+  })
+}
+selecionarTarefa();
