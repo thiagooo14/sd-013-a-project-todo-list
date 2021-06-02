@@ -74,3 +74,19 @@ function clearTasks() {
   })
 }
 clearTasks();
+
+// Cria funcao para remover tarefas finalizadas.
+function removeFinishedTasks() {
+
+  let btnFinished = document.getElementById('remover-finalizados');
+
+  btnFinished.addEventListener('click', function () {
+    let tasks = document.querySelectorAll('.completed');
+    let taskList = document.getElementById('lista-tarefas')
+
+    for (let element of tasks) {
+      taskList.removeChild(element);
+    }
+  })
+}
+removeFinishedTasks();
