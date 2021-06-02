@@ -42,9 +42,9 @@ function selectListItem() {
 
 function completeListItem() {
   const list = getListItems();
-  let show = true;
 
   list.forEach((listItem) => {
+    let show = true;
     listItem.addEventListener('dblclick', (event) => {
       const item = event.target;
       if (show) {
@@ -55,6 +55,16 @@ function completeListItem() {
       show = !show;
     });
   });
+}
+
+function clearListItems() {
+  const button = document.querySelector('#apaga-tudo');
+  const list = getListOl();
+
+  button.addEventListener('click', () => {
+    list.innerHTML = ''
+  })
+
 }
 
 function addTask() {
@@ -72,6 +82,8 @@ function addTask() {
     completeListItem();
   });
 }
+
+clearListItems();
 
 selectListItem();
 
