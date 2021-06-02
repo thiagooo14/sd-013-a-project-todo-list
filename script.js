@@ -1,5 +1,6 @@
 const listaTasks = document.getElementById('lista-tarefas');
 const btnAddTask = document.getElementById('criar-tarefa');
+const itemTasks = document.getElementsByClassName('task-list');
 
 // Função que add a tafera a lista
 function addTasks() {
@@ -13,15 +14,24 @@ function addTasks() {
 }
 
 
-function changeColorList(event) {
-  const itemTasks = document.getElementsByClassName('task-list');
-
+function addColorItem(event) {
   // Um for mais simples para remove os style do item da lista.
   for (let item of itemTasks) {
-    item.removeAttribute('style')
+
+    // So remove o style 
+    if(event.target.className === 'task-list'){
+      item.removeAttribute('style')
+    }
+
+    if(event.target.className === 'task-list'){
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    }else {
+    }
+    console.log(event.target);
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
 
+
+
 btnAddTask.addEventListener('click', addTasks);
-listaTasks.addEventListener('click', changeColorList)
+listaTasks.addEventListener('click', addColorItem)
