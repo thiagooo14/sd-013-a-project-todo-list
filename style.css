@@ -1,0 +1,88 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  opacity: 1;
+}
+body {
+  text-align: center;
+  display: inline-block;
+  padding: 50px;
+  background-image: url(/fundo-de-palco-iluminado-neon_23-2148292707.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 2em;
+}
+h1, h2 {
+  text-align: center;
+  margin: 30px;
+}
+section {
+  display:block;
+  text-align: center;
+}
+button:active {
+  background-color: rgb(50, 50, 50);
+}
+input:focus {
+  border-radius: 5px;
+  background-color:  rgba(19, 41, 7, 0.541);
+}
+ol, ul, li {
+  color: rgb(13, 68, 11);
+  margin-left: 10%;
+  margin-right: 2%;
+}
+ol {
+  list-style:disc;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+li {
+  border-radius: 100px;
+  text-transform: uppercase;
+  line-height: 1.2em;
+  margin-bottom: 10px;
+  margin-left: 60px;
+}
+.selected {
+  list-style: circle;
+  background-color: rgb(128, 128, 128)
+}
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+div .main {
+  background-color: rgba(184, 23, 170, 0.3);
+  border: 1px black;
+  border-radius: 50px;
+  margin-left: 10em;
+  margin-right:10em;
+}
+.lista {
+  padding-top: 15px;
+  min-height: 500px;
+  background-image: url(/notebook.jpg);
+}
+.main {
+  background-color: rgba(28, 32, 32, 0.486);
+  background-size: contain;
+  min-height: 350px;
+  border-radius: 60px;
+  padding: 30px;
+  margin: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.auxiliar {
+  padding: 30px;
+  background-color: rgba(21, 168, 46, 0.432);
+}
+button, input {
+  padding: 12px 30px 12px;
+  color: beige;
+  background-color: rgba(41, 207, 69, 0.432);
+  font-size: 1.1em;
+  border: 3px solid black;
+  border-radius: 5px;
+}
