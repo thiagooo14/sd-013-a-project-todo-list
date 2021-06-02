@@ -1,6 +1,7 @@
 const listaTasks = document.getElementById('lista-tarefas');
 const btnAddTask = document.getElementById('criar-tarefa');
 const itemTasks = document.getElementsByClassName('task-list');
+const bntClearItem = document.getElementById('apaga-tudo');
 
 // Função que add a tafera a lista
 function addTasks() {
@@ -36,7 +37,16 @@ function underlinedItem(event) {
     console.log(event.target)
   }
 }
-''.startsWith
+
+// Fonte https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
+//  Deleta todos os Item da Lista
+function clearTasksList(){
+  while(listaTasks.firstChild){
+    listaTasks.removeChild(listaTasks.firstChild)
+  }
+}
+
 btnAddTask.addEventListener('click', addTasks);
 listaTasks.addEventListener('click', addColorItem);
 listaTasks.addEventListener('dblclick', underlinedItem);
+bntClearItem.addEventListener('click', clearTasksList)
