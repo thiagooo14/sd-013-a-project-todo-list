@@ -5,19 +5,21 @@ const items = document.getElementsByClassName('task');
 const clearAllBtn = document.getElementById('apaga-tudo');
 const clearCompletedBtn = document.getElementById('remover-finalizados');
 const saveBtn = document.getElementById('salvar-tarefas');
+const upBtn = document.getElementById('mover-cima');
+const downBtn = document.getElementById('mover-baixo');
 
 // Função para deixar de ser selecionada
 function notSelectItems() {
   for (let i = 0; i < items.length; i += 1) {
-    items[i].style.backgroundColor = '';
+    items[i].classList.remove('selected');
   }
 }
 // Função para selecionar a tarefa
 function selectItem() {
   for (let i = 0; i < items.length; i += 1) {
-    items[i].addEventListener('click', (e) => {
+    items[i].addEventListener('click', () => {
       notSelectItems();
-      e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      items[i].classList.add('selected');
     });
   }
 }
@@ -69,3 +71,20 @@ function loadTasks() {
   }
 }
 loadTasks();
+
+// Função para mover task para cima
+upBtn.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem.previousElementSibling) {
+    olList.insertBefore(selectedItem, selectedItem.previousElementSibling);
+    selectItem();
+  }
+});
+// Função para mover task para baixo
+downBtn.addEventListener('click', () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem && selectedItem.nextElementSibling) {
+    olList.insertBefore(selectedItem.nextElementSibling, selectedItem);
+    selectItem();
+  }
+});
