@@ -38,7 +38,6 @@ window.onload = function() {
     listaDeTarefas.addEventListener('dblclick', (event)=> {
 
       if(event.target.classList.contains('item-da-lista')) {
-        console.log(event.target);
         event.target.classList.toggle('completed');
       }
     });
@@ -56,8 +55,18 @@ window.onload = function() {
   limparLista();
 
 
-
-
+  function removerFinalizados() {
+    let btnRemoverFinalizados = document.querySelector('#remover-finalizados');
+    btnRemoverFinalizados.addEventListener('click', ()=> {
+      let tarefasFinalizadas = document.querySelectorAll('#lista-tarefas .completed');
+      console.log(tarefasFinalizadas);
+      for (let i = 0; i < tarefasFinalizadas.length; i += 1) {
+        let parent = tarefasFinalizadas[i].parentElement;
+        parent.removeChild(tarefasFinalizadas[i]);
+      }
+    })
+  }
+  removerFinalizados();
 
 
 
