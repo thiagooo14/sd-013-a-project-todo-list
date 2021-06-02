@@ -62,8 +62,21 @@ function clearListItems() {
   const list = getListOl();
 
   button.addEventListener('click', () => {
-    list.innerHTML = ''
-  })
+    list.innerHTML = '';
+  });
+}
+
+function clearCompletedItems() {
+  const button = document.querySelector('#remover-finalizados');
+  const list = document.getElementsByClassName('completed');
+
+  button.addEventListener('click', () => {
+    for (const item in list) {
+      if (Object.hasOwnProperty.call(list, item)) {
+        list[item].remove();
+      }
+    }
+  });
 
 }
 
@@ -82,6 +95,8 @@ function addTask() {
     completeListItem();
   });
 }
+
+clearCompletedItems();
 
 clearListItems();
 
