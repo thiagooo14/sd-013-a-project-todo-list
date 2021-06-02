@@ -1,0 +1,7 @@
+task {
+  background-color: rgb(255,255,255);
+}
+
+task selected {
+  background-color: rgb(128,128,128);
+}
