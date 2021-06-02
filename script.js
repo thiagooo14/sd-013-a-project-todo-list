@@ -7,16 +7,20 @@ function addTasks() {
   taskList.className = "task-list"
 
   // Pega o calor do input e coloca na li.
-  taskList.innerText = document.getElementById('texto-tarefa').value;  
+  taskList.innerText = document.getElementById('texto-tarefa').value;
   document.getElementById('texto-tarefa').value = ''; // Reseta o input
   listaTasks.appendChild(taskList);
 }
 
 
-function changeColorList(event){
-  if(event.target.className === 'task-list'){
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+function changeColorList(event) {
+  const itemTasks = document.getElementsByClassName('task-list');
+
+  // Um for mais simples para remove os style do item da lista.
+  for (let item of itemTasks) {
+    item.removeAttribute('style')
   }
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
 
 btnAddTask.addEventListener('click', addTasks);
