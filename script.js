@@ -30,3 +30,13 @@ function createToDoList() {
 }
 
 createToDoList();
+
+function createButton() {
+  const inputBoxContainer = document.querySelector('#input-box');
+  const newButton = document.createElement('button');
+  newButton.setAttribute('id', 'criar-tarefa');
+  inputBoxContainer.appendChild(newButton);
+}
+
+createButton();
+

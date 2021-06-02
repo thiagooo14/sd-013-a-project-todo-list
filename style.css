@@ -1,3 +1,16 @@
 body {
   margin: 10px;
 }
+
+#criar-tarefa {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  margin-left: 20px;
+  padding: 9px;
+}
+
+#texto-tarefa {
+  width: auto;
+  height: 30px;
+}
