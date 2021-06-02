@@ -1,3 +1,4 @@
+//================================================================
 const clickB = document.getElementById('criar-tarefa');
 const lista = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
@@ -10,4 +11,12 @@ function tarefa(evento) {
   input.value = '';
 }
 
-clickB.addEventListener('click', tarefa)
+clickB.addEventListener('click', tarefa);
+
+//================================================================
+function selectLi(evento) {
+  console.log('ok')
+  evento.target.style.backgroundColor = 'rgb(128, 128, 128)'
+} 
+
+lista.addEventListener('click', selectLi);
