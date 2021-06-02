@@ -35,3 +35,8 @@ header {
 .completed {
   text-decoration: line-through;
 }
+
+#center-erase-button {
+  text-align: center;
+  margin: 20px;
+}

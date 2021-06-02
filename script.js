@@ -23,11 +23,17 @@ taskList.addEventListener('click', (event) => {
 });
 
 // Adiciona efeito "riscado" à lista
-let tasks = document.querySelector('#lista-tarefas');
-tasks.addEventListener('dblclick', function(event) {
+const tasks = document.querySelector('#lista-tarefas');
+tasks.addEventListener('dblclick', function (event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
+});
+
+// Adiciona botão de apagar tudo
+const eraseButton = document.querySelector('#apaga-tudo');
+eraseButton.addEventListener('click', function () {
+  tasks.innerHTML = '';
 })
