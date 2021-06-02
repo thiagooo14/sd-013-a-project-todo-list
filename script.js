@@ -15,7 +15,7 @@ function setButtonToAddTask(){
     let text = input.value;
     let task = createTask(text);
     assignTaskToList(task);
-    input.innerHTML = '';
+    input.value = '';
   })
 }
 setButtonToAddTask();
