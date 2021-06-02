@@ -1,6 +1,17 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 const botaoAdicionar = document.querySelector('#criar-tarefa');
+const botaoApagar = document.querySelector('#apaga-tudo');
+const botãoRemoveFinalizadas = document.querySelector('#remover-finalizados');
+
+function apagaFinalizadas() {
+  const listaCompletas = document.getElementsByClassName('completed');
+  const tamanhoOriginal = listaCompletas.length;
+  console.log(listaCompletas);
+  for (let i = 0; i < tamanhoOriginal; i += 1) {
+    listaTarefas.removeChild(document.querySelector('.completed'));
+  }
+}
 
 function completarTarefa(event) {
   if (event.target.className === 'completed') {
@@ -8,6 +19,13 @@ function completarTarefa(event) {
   } else {
     event.target.classList.add('completed');
   }
+}
+function apagaLista() {
+  let tamanhoDalista = listaTarefas.children.length;
+  for (let i = 0; i < tamanhoDalista; i += 1) {
+    listaTarefas.removeChild(listaTarefas.lastElementChild);
+  }
+  tamanhoDalista = 0;
 }
 
 function trocaCorTarefa(event) {
@@ -28,3 +46,5 @@ function criarTarefa() {
 }
 
 botaoAdicionar.addEventListener('click', criarTarefa);
+botaoApagar.addEventListener('click', apagaLista);
+botãoRemoveFinalizadas.addEventListener('click', apagaFinalizadas);
