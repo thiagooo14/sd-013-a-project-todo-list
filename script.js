@@ -9,7 +9,7 @@ function adicionarTarefa() {
   li.innerText = textoDigitado.value;
   li.addEventListener('click', paintBack);
   lista.appendChild(li);
-  textoDigitado.value = ' ';
+  textoDigitado.value = '';
 }
 function paintBack(event) {
   for(let i =0; i < item.length; i += 1){
