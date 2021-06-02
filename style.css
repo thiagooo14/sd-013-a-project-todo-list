@@ -16,5 +16,8 @@ h1 {
 }
 
 #main {
-
+  background-color: rgb(234, 229, 229);
+  height: 800px;
+  padding: 10px;
+  margin-top: -10px;
 }
