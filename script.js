@@ -40,4 +40,11 @@ window.onload = function() {
   }
 
   document.addEventListener('dblclick', strikeThrough , false);
+
+  function clearTaskList() {
+    const list = document.getElementById('lista-tarefas');
+    list.innerHTML = ''
+  }
+
+  document.getElementById('apaga-tudo').addEventListener('click', clearTaskList);
 };
