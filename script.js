@@ -21,5 +21,9 @@ function focusColorList(){
 focusColorList();
 
 function changeColorFocus(event){
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  let actualFocus = document.querySelector('.selected');
+  if ( actualFocus ){
+    actualFocus.className = 'item-list';
+  }
+  event.target.className = 'item-list selected';
 }
