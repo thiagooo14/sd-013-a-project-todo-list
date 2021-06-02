@@ -10,13 +10,6 @@ body {
   margin: auto;
 }
 
-#content {
-  background: rgb(218, 216, 216);
-  margin: 20px;
-  border-radius: 50px;
-  padding: 1px;
-}
-
 h1 {
   font-size: 50px;
   color: rgb(10, 59, 13);
@@ -33,4 +26,15 @@ p {
   font-size: 18px;
   color: rgb(10, 59, 13);
   margin-top: 0px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#content {
+  background: rgb(218, 216, 216);
+  margin: 20px;
+  border-radius: 50px;
+  padding: 1px;
 }
