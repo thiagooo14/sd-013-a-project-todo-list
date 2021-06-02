@@ -54,11 +54,20 @@ completedTask();
 const buttonRmvAll = document.getElementById('apaga-tudo');
 
 function removeAll() {
-  function removeTodos() {
-    while (ol.firstChild) {
-      ol.removeChild(ol.firstChild);
+  while (ol.firstChild) {
+    ol.removeChild(ol.firstChild);
+  }
+}
+buttonRmvAll.addEventListener('click', removeAll);
+
+// Botão para remover tarefas completas
+const buttonRmvCompleted = document.querySelector('#remover-finalizados');
+
+function removeCompleted() {
+  for (let i = 0; i < arrayList.length; i += 1) {
+    if (arrayList[i].classList.contains('completed')) {
+      arrayList[i].remove();
     }
   }
-  buttonRmvAll.addEventListener('click', removeTodos);
 }
-removeAll();
+buttonRmvCompleted.addEventListener('click', removeCompleted);
