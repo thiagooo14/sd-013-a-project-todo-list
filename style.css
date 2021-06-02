@@ -26,6 +26,8 @@ header {
   list-style-position: inside;
   width: 300px;
   margin: 0 auto;
+  background-color: #bfdbf7;
+  border-radius: 12px;
 }
 
 #lista-tarefas li {
@@ -39,4 +41,13 @@ header {
 #center-erase-button {
   text-align: center;
   margin: 20px;
+}
+
+#center-erase-button button {
+  margin: 5px;
+  background-color: #090446;
+  color: white;
+  width: 200px;
+  padding: 20px;
+  border-radius: 12px;
 }

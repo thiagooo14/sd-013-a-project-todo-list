@@ -37,3 +37,12 @@ const eraseButton = document.querySelector('#apaga-tudo');
 eraseButton.addEventListener('click', function () {
   tasks.innerHTML = '';
 })
+
+// Adiciona botão de remover finalizados
+const doneButton = document.querySelector('#remover-finalizados');
+doneButton.addEventListener('click', function () {
+  let completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    completed[index].remove();
+  };
+});
