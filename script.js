@@ -56,3 +56,21 @@ saveTasks.addEventListener('click', function () {
   let tasksList = tasks.innerHTML;
   localStorage.setItem('taskList', tasksList);
 });
+
+// Adiciona botão de mover para cima e para baixo
+let moveAbove = document.querySelector('#mover-cima');
+let moveBellow = document.querySelector('#mover-baixo');
+
+moveAbove.addEventListener('click', function () {
+  let selected = document.querySelector('.selected');
+  if (selected !== null && selected.previousElementSibling !== null) {
+    tasks.insertBefore(selected, selected.previousElementSibling);
+  }
+});
+
+moveBellow.addEventListener('click', function () {
+  let selected = document.querySelector('.selected');
+  if (selected !== null && selected.nextElementSibling !== null) {
+    tasks.insertBefore(selected.nextElementSibling, selected);
+  }
+});
