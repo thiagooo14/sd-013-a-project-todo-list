@@ -35,7 +35,7 @@ window.onload = function () {
   function crossed (evento) {
 		let lineChoose = evento.target
       lineChoose.classList.toggle('completed') 
-  }
+  }  
   
 	
 	
