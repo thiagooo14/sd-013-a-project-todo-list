@@ -1,0 +1,44 @@
+#title {
+  font-family: sans-serif;
+  font-size: 25px;
+}
+
+#funcionamento {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+#texto-tarefa {
+  font-size: 10px;
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 3px;
+  font-size: 11px;
+}
+
+#criar-tarefa {
+  background-color: rgb(85, 196, 85);
+}
+
+#apaga-tudo {
+  background-color: rgb(120, 120, 241);
+}
+
+#remover-finalizados {
+  background-color: rgb(120, 120, 241);
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+li {
+  font-size: 10px;
+}
