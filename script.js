@@ -6,4 +6,8 @@ buttao.addEventListener('click', function addTask() {
   let newLi = document.createElement('li');
   newLi.innerHTML = newTask;
   listO.appendChild(newLi);
+});
+
+listO.addEventListener('click', function changeColor(clickEvent) {
+  clickEvent.target.style.backgroundColor = 'rgb(128,128,128)'
 })
