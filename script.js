@@ -1,6 +1,4 @@
 const lista = document.querySelector('#lista-tarefas');
-const clearAllButton = document.querySelector('#apaga-tudo');
-const clearCompleteButton = document.querySelector('#remover-finalizados');
 function selectItem() {
   const itensLista = document.getElementsByTagName('li');
   for (let i = 0; i < itensLista.length; i += 1) {
@@ -33,14 +31,28 @@ function createListItem() {
     selectItem();
   });
 }
+const clearAllButton = document.querySelector('#apaga-tudo');
 clearAllButton.addEventListener('click', () => {
   lista.innerHTML = '';
 });
+const clearCompleteButton = document.querySelector('#remover-finalizados');
 clearCompleteButton.addEventListener('click', () => {
   const completos = document.querySelectorAll('.completed');
   for (let i = 0; i < completos.length; i += 1) {
     completos[i].remove();
   }
 });
-createListItem();
-selectItem();
+const saveListButton = document.getElementById('salvar-tarefas');
+saveListButton.addEventListener('click', () => {
+  localStorage.setItem('lista', lista.innerHTML);
+});
+window.onload = () => {
+  lista.innerHTML = localStorage.getItem('lista');
+  createListItem();
+  selectItem();
+};
+const removeCurrentlySelected = document.getElementById('remover-selecionado');
+removeCurrentlySelected.addEventListener('click', () => {
+  const selected = document.getElementById('selected');
+  selected.remove();
+});
