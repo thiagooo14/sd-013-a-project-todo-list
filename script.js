@@ -27,4 +27,17 @@ window.onload = function() {
 
   document.addEventListener('click', selectItem , false);
 
+  function strikeThrough(event) {
+    if (event.target.classList.contains('tarefa')) {
+      if (event.target.style.textDecoration === 'line-through solid rgb(0, 0, 0)') {
+        event.target.style.textDecoration = 'none';
+        event.target.classList.remove('completed');
+      } else {
+        event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)'
+        event.target.classList.add('completed');
+      }
+    }
+  }
+
+  document.addEventListener('dblclick', strikeThrough , false);
 };
