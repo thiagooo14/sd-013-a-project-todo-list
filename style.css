@@ -1,6 +1,8 @@
 li {
   float: left;
   clear: both;
+  cursor: pointer;
+  user-select: none;
 }
 
 #controls-container {
