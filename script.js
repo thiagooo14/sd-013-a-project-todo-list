@@ -17,7 +17,7 @@ function addingTask() {
   })
 }
 
-// Cria função de remover classes.
+// Cria função de remover classes. Obs: parametro 'element' pode ser também uma classe ou id;
 function removeClass(element, eClass) {
   element = document.querySelectorAll(element);
   for (let iterator of element) {
@@ -34,18 +34,43 @@ function taskSelected() {
     let task = event.target;
     if (task.classList.contains('task')) {
 
-
-
       removeClass('li', 'selected');
+      task.classList.add('selected');
 
-
-      if (task.classList.contains('selected')) {
-        task.classList.remove('selected');
-      } else {
-        task.classList.add('selected');
-      }
     }
   })
 }
 
 taskSelected();
+
+// Cria funcao de riscar tarefas já completadas.
+function completedTasks() {
+
+  document.addEventListener('dblclick', function (event) {
+    let task = event.target;
+    if (task.classList.contains('task')) {
+      if (task.classList.contains('completed')) {
+        task.classList.remove('completed')
+      } else {
+        task.classList.add('completed');
+      }
+    }
+  })
+}
+completedTasks();
+
+// Cria funcao de limpar as tarefas.
+function clearTasks() {
+
+  let btnClear = document.getElementById('apaga-tudo');
+
+  btnClear.addEventListener('click', function () {
+    let taskList = document.getElementById('lista-tarefas');
+
+    let tasks = document.querySelectorAll('.task');
+    for (element of tasks) {
+      taskList.removeChild(element);
+    }
+  })
+}
+clearTasks();
