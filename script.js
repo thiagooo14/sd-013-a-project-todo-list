@@ -11,7 +11,7 @@ window.onload = function() {
     let inputValue = document.getElementById('texto-tarefa').value;
     listItem.innerHTML = inputValue;
     taskList.appendChild(listItem);
-    document.getElementById('texto-tarefa').value = '';
+    document.getElementById('texto-tarefa').value = null;
   };
 
   document.getElementById('criar-tarefa').addEventListener('click', addTarefa);
@@ -103,4 +103,10 @@ window.onload = function() {
 
   document.getElementById("mover-baixo").addEventListener('click', moveDown);
 
+  function removeSelected(event) {
+    let selected = document.getElementsByClassName('selected')[0];
+    selected.parentNode.removeChild(selected);
+  }
+
+  document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
 };
