@@ -2,15 +2,21 @@ const listaTarefas = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 const botaoAdicionar = document.querySelector('#criar-tarefa');
 const botaoApagar = document.querySelector('#apaga-tudo');
-const botãoRemoveFinalizadas = document.querySelector('#remover-finalizados');
+const botaoRemoveFinalizadas = document.querySelector('#remover-finalizados');
+const botaoRemoveSelec = document.querySelector('#remover-selecionado');
+
+function removeSelect() {
+  listaTarefas.removeChild(document.querySelector('.selected'));
+}
 
 function apagaFinalizadas() {
   const listaCompletas = document.getElementsByClassName('completed');
-  const tamanhoOriginal = listaCompletas.length;
+  let tamanhoOriginal = listaCompletas.length;
   console.log(listaCompletas);
   for (let i = 0; i < tamanhoOriginal; i += 1) {
     listaTarefas.removeChild(document.querySelector('.completed'));
   }
+  tamanhoOriginal = 0;
 }
 
 function completarTarefa(event) {
@@ -32,7 +38,9 @@ function trocaCorTarefa(event) {
   const unicacor = document.querySelectorAll('li');
   for (let i = 0; i < unicacor.length; i += 1) {
     unicacor[i].style.backgroundColor = '';
+    unicacor[i].classList.remove('selected');
   }
+  event.target.classList.add('selected');
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
@@ -47,4 +55,5 @@ function criarTarefa() {
 
 botaoAdicionar.addEventListener('click', criarTarefa);
 botaoApagar.addEventListener('click', apagaLista);
-botãoRemoveFinalizadas.addEventListener('click', apagaFinalizadas);
+botaoRemoveFinalizadas.addEventListener('click', apagaFinalizadas);
+botaoRemoveSelec.addEventListener('click', removeSelect);
