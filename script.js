@@ -39,7 +39,7 @@ window.onload = function() {
     }
   }
 
-  document.addEventListener('dblclick', strikeThrough , false);
+  document.addEventListener('dblclick', strikeThrough);
 
   function clearTaskList() {
     const list = document.getElementById('lista-tarefas');
@@ -47,4 +47,15 @@ window.onload = function() {
   }
 
   document.getElementById('apaga-tudo').addEventListener('click', clearTaskList);
+
+  /*https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom*/
+  function removeFinished(event) {
+    let finishedArray = document.getElementsByClassName('completed');
+    const ordList = document.getElementById('lista-tarefas');
+    while (finishedArray[0]) {
+      finishedArray[0].parentNode.removeChild(finishedArray[0]);
+    }
+  }
+
+  document.getElementById('remover-finalizados').addEventListener('click', removeFinished);
 };
