@@ -7,7 +7,7 @@ function clearInputText() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
-function getList() {
+function getListOl() {
   const list = document.querySelector('#lista-tarefas');
   return list;
 }
@@ -21,7 +21,7 @@ function addTask() {
   const button = document.querySelector('#criar-tarefa');
 
   button.addEventListener('click', () => {
-    const list = getList();
+    const list = getListOl();
     const li = document.createElement('li');
 
     li.innerHTML = getInputText();
@@ -32,17 +32,27 @@ function addTask() {
   });
 }
 
+function unselectOtherItems(selectedItem) {
+  const list = getListItems();
+
+  list.forEach((item) => {
+    if (selectedItem !== item) {
+      item.classList.remove('selected');
+    }
+  });
+}
+
 function selectListItem() {
   const list = getListItems();
 
-  for (let listIndex = 0; listIndex < list.length; listIndex++) {
-    list[listIndex].addEventListener('click', (event) => {
+  list.forEach((listItem) => {
+    listItem.addEventListener('click', (event) => {
       const item = event.target;
 
       item.classList.add('selected');
-      // item.style.backgroundColor = 'rgb(128,128,128)';
+      unselectOtherItems(event.target);
     });
-  }
+  });
 
 }
 
