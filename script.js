@@ -42,13 +42,17 @@ function selectListItem() {
 
 function completeListItem() {
   const list = getListItems();
+  let show = true;
 
   list.forEach((listItem) => {
     listItem.addEventListener('dblclick', (event) => {
       const item = event.target;
-      // const classes = item.classList;
-      // console.log(classes)
-      item.classList.toggle('completed');
+      if (show) {
+        item.classList.add('completed');
+      } else {
+        item.classList.remove('completed');
+      }
+      show = !show;
     });
   });
 }
