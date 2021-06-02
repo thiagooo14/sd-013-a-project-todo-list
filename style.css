@@ -1,0 +1,17 @@
+* {
+	margin: 0;
+}
+
+.butao {
+	color: black;
+	background-color: white;
+	border-color: blue;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.butao:hover {
+	color: white;
+	background-color: black;
+	cursor: pointer;
+}
