@@ -3,7 +3,7 @@ const botao = document.querySelector('#criar-tarefa')
 const input = document.querySelector('#texto-tarefa')
 const li = document.createElement('li')
 
-var textoNulo = "";
+var textoNulo = ""
 
 botao.addEventListener('click', adicionarTarefa)
 
