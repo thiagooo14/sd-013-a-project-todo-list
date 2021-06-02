@@ -19,12 +19,36 @@ function eraseText() {
 }
 eraseText();
 
-function changeColorList() {
-    let listas = document.querySelector('ol');
-    listas.addEventListener('click', function (event) {
-            event.target.style.backgroundColor = 'rgb(128,128,128)';
+function selected() {
+    lista = document.querySelector('ol');
+    lista.addEventListener('click', function (event) {
+        listas = document.getElementsByTagName('li');
+        for (let i = 0; i < listas.length; i++) {
+            listas[i].className = listas[i].className.replace('selected', '')//.replace verifica se contém a class 'selected' e a troca por ''.
+        }
+        event.target.className += ' selected'
     })
 }
-changeColorList();
+selected();
 
-console.log(document.getElementById('texto-tarefa').value)
+function riscarItem() {
+    lista = document.querySelector('ol');
+    lista.addEventListener('dblclick', function (event) {
+        if (event.target.classList.contains('completed')) {
+            event.target.className = event.target.className.replace('completed', '');
+        } else {
+            event.target.className += ' completed';
+        }
+
+    })
+}
+riscarItem()
+
+function eraseAll() {
+    let button = document.getElementById('apaga-tudo');
+    button.addEventListener('click', function () {
+    let listas = document.getElementById('lista-tarefas');
+    listas.innerText = '';
+    })
+}
+eraseAll();
