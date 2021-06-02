@@ -30,6 +30,12 @@ window.onload = function () {
       }
   }
 	
+  listaOrd.addEventListener('dblclick', crossed);
+
+  function crossed (evento) {
+		let lineChoose = evento.target
+      lineChoose.classList.toggle('completed') 
+  }
   
 	
 	
