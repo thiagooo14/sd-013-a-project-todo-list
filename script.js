@@ -17,21 +17,6 @@ function getListItems() {
   return listItems;
 }
 
-function addTask() {
-  const button = document.querySelector('#criar-tarefa');
-
-  button.addEventListener('click', () => {
-    const list = getListOl();
-    const li = document.createElement('li');
-
-    li.innerHTML = getInputText();
-    li.classList.add('list-item')
-    list.appendChild(li);
-    clearInputText();
-    selectListItem();
-  });
-}
-
 function unselectOtherItems(selectedItem) {
   const list = getListItems();
 
@@ -53,7 +38,35 @@ function selectListItem() {
       unselectOtherItems(event.target);
     });
   });
+}
 
+function completeListItem() {
+  const list = getListItems();
+
+  list.forEach((listItem) => {
+    listItem.addEventListener('dblclick', (event) => {
+      const item = event.target;
+      // const classes = item.classList;
+      // console.log(classes)
+      item.classList.toggle('completed');
+    });
+  });
+}
+
+function addTask() {
+  const button = document.querySelector('#criar-tarefa');
+
+  button.addEventListener('click', () => {
+    const list = getListOl();
+    const li = document.createElement('li');
+
+    li.innerHTML = getInputText();
+    li.classList.add('list-item');
+    list.appendChild(li);
+    clearInputText();
+    selectListItem();
+    completeListItem();
+  });
 }
 
 selectListItem();
