@@ -12,3 +12,9 @@ input {
   color: white;
   border: 0;
 }
+
+
+.selecionado {
+  background-color: rgb(128, 128, 128);
+
+}
