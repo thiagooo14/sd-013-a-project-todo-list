@@ -4,6 +4,14 @@ const botaoAdicionar = document.querySelector('#criar-tarefa');
 const botaoApagar = document.querySelector('#apaga-tudo');
 const botaoRemoveFinalizadas = document.querySelector('#remover-finalizados');
 const botaoRemoveSelec = document.querySelector('#remover-selecionado');
+const botaoSubir = document.querySelector('#mover-cima');
+const botaoDescer = document.querySelector('#mover-baixo');
+
+function subirItem() {
+  // const elemento = document.querySelector('#selected');
+  // console.log(elemento.previousElementSibling);
+  // listaTarefas.insertBefore(elemento, elemento.previousElementSibling);
+}
 
 function removeSelect() {
   listaTarefas.removeChild(document.querySelector('.selected'));
@@ -11,16 +19,15 @@ function removeSelect() {
 
 function apagaFinalizadas() {
   const listaCompletas = document.getElementsByClassName('completed');
-  let tamanhoOriginal = listaCompletas.length;
-  console.log(listaCompletas);
+  const tamanhoOriginal = listaCompletas.length;
   for (let i = 0; i < tamanhoOriginal; i += 1) {
     listaTarefas.removeChild(document.querySelector('.completed'));
   }
-  tamanhoOriginal = 0;
 }
 
 function completarTarefa(event) {
-  if (event.target.className === 'completed') {
+  const listaClasses = event.target.className;
+  if (listaClasses === 'completed selected' || listaClasses === 'selected completed') {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
@@ -57,3 +64,4 @@ botaoAdicionar.addEventListener('click', criarTarefa);
 botaoApagar.addEventListener('click', apagaLista);
 botaoRemoveFinalizadas.addEventListener('click', apagaFinalizadas);
 botaoRemoveSelec.addEventListener('click', removeSelect);
+botaoSubir.addEventListener('click', subirItem);

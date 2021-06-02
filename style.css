@@ -1,3 +1,41 @@
+body {
+  background-color: #439775;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
+
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 5px;
+}
+
+header p {
+  margin-top: 0;
+}
+
+#lista-tarefas li {
+  width: 50%;
+  margin: auto;
+  line-height: 30px;
+}
+
+#sessao {
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #df7373;
+  width: 60%;
+  margin: auto;
+}
+
+#sessao h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
 }
