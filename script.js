@@ -25,21 +25,10 @@ function addTask() {
 addTask();
 
 // Troca a cor de background de uma 'li' quando clicada
-function changeColor() {
-  lista.addEventListener('click', (event) => {
-    const evento = event.target;
-
-    if(evento.classList.contains('item')) {
-      evento.classList.toggle('selected');
-    }
-  });
-}
-changeColor();
+const arrayList = document.getElementsByClassName('item');
+const ol = document.getElementById('lista-tarefas');
 
 function changeSelected() {
-  const arrayList = document.getElementsByClassName('item');
-  const ol = document.getElementById('lista-tarefas');
-
   function changeIntoElements(event) {
     for (let index = 0; index < arrayList.length; index += 1) {
       if (arrayList[index].classList.contains('selected')) {
@@ -52,3 +41,12 @@ function changeSelected() {
   ol.addEventListener('click', changeIntoElements);
 }
 changeSelected();
+
+// DoubleClick para remover item da lista
+function completedTask() {
+ 
+  ol.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+completedTask();
