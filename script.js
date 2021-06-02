@@ -12,6 +12,7 @@ function CreateTask() {
       const list = document.createElement('li'); //cria uma lista
       list.classList = 'lista'; //lista ganha classe
       list.addEventListener('click', ChangeBackground);
+      list.addEventListener('dblclick', riscar);
       list.innerHTML = inputtext.value; //insere o valor
       ol.appendChild(list); //filho da ol
     }
@@ -27,4 +28,8 @@ function ChangeBackground(event) {
     arrayList[index].classList.remove('selected');
   }
   event.target.classList.add('selected');
+}
+
+function riscar(event) {
+  event.target.classList.toggle('completed');
 }
