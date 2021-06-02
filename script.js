@@ -7,6 +7,7 @@ function adicionaTarefa() {
     const item = document.createElement('li');
     item.className = 'item';
     lista.appendChild(item).innerText = inputTarefa.value;
+    inputTarefa.value = '';
   });
 }
 adicionaTarefa();
