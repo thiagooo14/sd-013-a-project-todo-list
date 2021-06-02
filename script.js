@@ -40,23 +40,20 @@ window.onload = function() {
       if(event.target.classList.contains('item-da-lista')) {
         console.log(event.target);
         event.target.classList.toggle('completed');
-        
-        // event.target.classList.toggle('completed');
-
-        // if(event.target.classList.contains('riscado')) {
-        //   event.target.classList.remove('riscado');
-        // } else if () {
-        //   event.target.classList.add('riscado');
-        // }
-          
-        // }
       }
     });
   }
   riscarTarefa();
 
+  function limparLista() {
+    let btnLimparLista = document.querySelector('#apaga-tudo');
+    let listaDeTarefas = document.querySelector('#lista-tarefas');
 
-
+    btnLimparLista.addEventListener('click', () => {
+      listaDeTarefas.innerHTML = "";
+    });
+  }
+  limparLista();
 
 
 
