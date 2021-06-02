@@ -44,9 +44,21 @@ changeSelected();
 
 // DoubleClick para remover item da lista
 function completedTask() {
- 
   ol.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
   });
 }
 completedTask();
+
+// Botão para apagar todos o itens da lista ordenada
+const buttonRmvAll = document.getElementById('apaga-tudo');
+
+function removeAll() {
+  function removeTodos() {
+    while (ol.firstChild) {
+      ol.removeChild(ol.firstChild);
+    }
+  }
+  buttonRmvAll.addEventListener('click', removeTodos);
+}
+removeAll();
