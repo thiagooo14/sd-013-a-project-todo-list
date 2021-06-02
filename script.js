@@ -4,6 +4,7 @@ const inputTask = document.getElementById('texto-tarefa');
 const items = document.getElementsByClassName('task');
 const clearAllBtn = document.getElementById('apaga-tudo');
 const clearCompletedBtn = document.getElementById('remover-finalizados');
+const saveBtn = document.getElementById('salvar-tarefas');
 
 // Função para deixar de ser selecionada
 function notSelectItems() {
@@ -55,3 +56,16 @@ clearCompletedBtn.addEventListener('click', () => {
     olList.removeChild(completedItems[i]);
   }
 });
+
+// Função para salvar lista de tarefas
+saveBtn.addEventListener('click', () => {
+  localStorage.setItem('taskList', olList.innerHTML);
+});
+
+// Iniciando página com lista salva
+function loadTasks() {
+  if (localStorage.getItem('taskList')) {
+    olList.innerHTML = localStorage.getItem('taskList');
+  }
+}
+loadTasks();
