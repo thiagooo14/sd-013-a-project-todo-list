@@ -1,11 +1,29 @@
 const orderList = document.querySelector('#lista-tarefas');
 
 // Muda cor de fundo do item da lista selecionado
+function onlySelected(indexValue) {
+  const taskList = orderList.children;
+  const lengthTaskList = taskList.length;
+  let indexSelected = indexValue;
+  let cont = 0;
+  while (cont < indexSelected) {
+    taskList[cont].style.backgroundColor = 'white';
+    cont += 1;
+  }
+  while (indexSelected + 1 < lengthTaskList) {
+    indexSelected += 1;
+    taskList[indexSelected].style.backgroundColor = 'white';
+  }
+}
+
 function changeBgItemList() {
   const lengthTaskList = orderList.children;
   for (let index = 0; index < lengthTaskList.length; index += 1) {
     lengthTaskList[index].addEventListener('click', () => {
       lengthTaskList[index].style.backgroundColor = 'rgb(128,128,128)';
+      if (lengthTaskList[index].getAttribute('style') === 'background-color: rgb(128, 128, 128);') {
+        onlySelected(index);
+      }
     });
   }
 }
