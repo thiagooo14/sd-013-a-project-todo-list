@@ -1,0 +1,12 @@
+body {
+  font-family: serif;
+  background-color: darkgray;
+}
+
+input:focus {
+  background: cornflowerblue;
+}
+
+#lista-tarefas li:active {
+  background-color: rgb(128,128,128);
+}
