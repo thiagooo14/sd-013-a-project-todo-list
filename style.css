@@ -5,4 +5,10 @@
   background-color: slateblue;
   color: white;
   padding: 10px;
+  border-radius: 10px;
+}
+
+header{
+  text-align: center;
+  font: normal 20pt Arial;
 }
