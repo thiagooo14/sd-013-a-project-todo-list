@@ -1,0 +1,15 @@
+input[type="text"] {
+  width: 200px;
+  height: 20px;
+  padding-right: 50px;
+}
+
+#criar-tarefa {
+  margin: -25px;
+  height: 25px;
+  width: 100px;
+  background: blue;
+  color: white;
+  border: 0;
+  -webkit-appearance: none;
+}
