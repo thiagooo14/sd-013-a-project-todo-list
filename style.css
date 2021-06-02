@@ -8,10 +8,10 @@ li {
   margin-left: 30px;
 }
 
-li.selected {
-  background-color: rgb(128, 128, 128);
+.selected {
+  background-color: gray;
 }
 
-li.completed {
+.completed {
   text-decoration: line-through solid black;
 }

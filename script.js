@@ -3,6 +3,7 @@ const createItemBtn = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
 const items = document.getElementsByClassName('task');
 const clearAllBtn = document.getElementById('apaga-tudo');
+const clearCompletedBtn = document.getElementById('remover-finalizados');
 
 // Função para deixar de ser selecionada
 function notSelectItems() {
@@ -45,4 +46,12 @@ createItem();
 // Função para apagar lista
 clearAllBtn.addEventListener('click', () => {
   olList.innerHTML = '';
+});
+
+// Função para apagar finalizados
+clearCompletedBtn.addEventListener('click', () => {
+  const completedItems = document.querySelectorAll('.completed');
+  for (let i = 0; i < completedItems.length; i += 1) {
+    olList.removeChild(completedItems[i]);
+  }
 });
