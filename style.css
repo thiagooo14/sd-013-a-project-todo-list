@@ -1,4 +1,4 @@
-input[type="text"] {
+input {
   width: 200px;
   height: 20px;
   padding-right: 50px;
@@ -11,5 +11,4 @@ input[type="text"] {
   background: blue;
   color: white;
   border: 0;
-  -webkit-appearance: none;
 }
