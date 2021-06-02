@@ -11,6 +11,11 @@ function AdicionarCorDeFundoSeClicado(event) {
     elemento.classList.add('selected')
   }
 }
+document.querySelector('input').addEventListener('keyup', (event) => {
+  if (event.keyCode === 13){
+    adicionarTarefaAoLiEResetaInput()
+  }
+});
 
 function adicionarTarefaAoLiEResetaInput() {
   let tarefa = document.querySelector('input');

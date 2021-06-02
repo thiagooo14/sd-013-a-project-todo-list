@@ -8,12 +8,13 @@ body {
   text-align: center;
   display: inline-block;
   padding: 50px;
-  background-image: url(/fundo-de-palco-iluminado-neon_23-2148292707.jpg);
+  background-image: url(/walppaergreen.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 2em;
 }
 h1, h2 {
+  color: rgb(41, 207, 69);
   text-align: center;
   margin: 30px;
 }
@@ -60,6 +61,7 @@ div .main {
   margin-right:10em;
 }
 .lista {
+  border-radius: 0px 0px 50px 50px;
   padding-top: 15px;
   min-height: 500px;
   background-image: url(/notebook.jpg);
@@ -74,7 +76,8 @@ div .main {
   margin-left: 10%;
   margin-right: 10%;
 }
-.auxiliar {
+.auxiliar1 {
+  border-radius: 50px 50px 0px 0px;
   padding: 30px;
   background-color: rgba(21, 168, 46, 0.432);
 }
@@ -85,4 +88,9 @@ button, input {
   font-size: 1.1em;
   border: 3px solid black;
   border-radius: 5px;
+}
+.auxiliar {
+  border-radius: 20px 20px 20px 20px;
+  padding: 30px;
+  background-color: rgba(21, 168, 46, 0.432);
 }
