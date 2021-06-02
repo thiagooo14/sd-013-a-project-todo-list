@@ -64,10 +64,10 @@ buttonRmvAll.addEventListener('click', removeAll);
 const buttonRmvCompleted = document.querySelector('#remover-finalizados');
 
 function removeCompleted() {
-  for (let i = 0; i < arrayList.length; i += 1) {
-    if (arrayList[i].classList.contains('completed')) {
-      arrayList[i].remove();
-    }
+  const completedItem = document.querySelectorAll('.completed');
+
+  for (let i = 0; i < completedItem.length; i += 1) {
+    completedItem[i].parentNode.removeChild(completedItem[i]);
   }
 }
 buttonRmvCompleted.addEventListener('click', removeCompleted);
