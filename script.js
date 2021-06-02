@@ -14,10 +14,7 @@ addItemList();
 
 function eraseText() {
     getButton.addEventListener('click', function () {
-        let texto = document.getElementById('texto-tarefa').value;
-        if (texto.value !== "") {
-            texto.value = '';
-        }
+        document.getElementById('texto-tarefa').value = "";
     })
 }
 eraseText();
@@ -29,3 +26,5 @@ function changeColorList() {
     })
 }
 changeColorList();
+
+console.log(document.getElementById('texto-tarefa').value)
