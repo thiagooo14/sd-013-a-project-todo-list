@@ -41,8 +41,18 @@ eraseButton.addEventListener('click', function () {
 // Adiciona botão de remover finalizados
 const doneButton = document.querySelector('#remover-finalizados');
 doneButton.addEventListener('click', function () {
-  let completed = document.querySelectorAll('.completed');
+  const completed = document.querySelectorAll('.completed');
   for (let index = 0; index < completed.length; index += 1) {
     completed[index].remove();
   };
+});
+
+// Recupera itens da lista no localStorage
+tasks.innerHTML = localStorage.getItem('taskList');
+
+// Adiciona botão de salvar tarefas
+const saveTasks = document.querySelector('#salvar-tarefas');
+saveTasks.addEventListener('click', function () {
+  let tasksList = tasks.innerHTML;
+  localStorage.setItem('taskList', tasksList);
 });
