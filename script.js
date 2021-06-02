@@ -74,3 +74,10 @@ moveBellow.addEventListener('click', function () {
     tasks.insertBefore(selected.nextElementSibling, selected);
   }
 });
+
+// Adiciona botão de remover selecionado
+const removeSelectButton = document.querySelector('#remover-selecionado');
+removeSelectButton.addEventListener('click', function () {
+  let selected = document.querySelector('.selected');
+  selected.remove();
+})
