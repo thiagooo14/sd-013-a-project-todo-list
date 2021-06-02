@@ -1,4 +1,9 @@
 window.onload = function() {
+  if (localStorage.getItem('save-list')) {
+    const ordList = document.getElementById('lista-tarefas');
+    ordList.innerHTML = localStorage.getItem('save-list');
+  }
+
   function addTarefa () {
     const listItem = document.createElement('li');
     listItem.classList.add('tarefa')
@@ -58,4 +63,11 @@ window.onload = function() {
   }
 
   document.getElementById('remover-finalizados').addEventListener('click', removeFinished);
+
+  function saveList (event) {
+    const ordList = document.getElementById('lista-tarefas');
+    localStorage.setItem('save-list', ordList.innerHTML);
+  };
+
+  document.getElementById("salvar-tarefas").addEventListener('click', saveList)
 };
