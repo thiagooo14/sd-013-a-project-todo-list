@@ -21,3 +21,12 @@ function createInputBox() {
 }
 
 createInputBox();
+
+function createToDoList() {
+  const tdlContainer = document.querySelector('#tdl-container');
+  const newOrderList = document.createElement('ol');
+  newOrderList.setAttribute('id', 'lista-tarefas');
+  tdlContainer.appendChild(newOrderList);
+}
+
+createToDoList();
