@@ -68,11 +68,26 @@ window.onload = function() {
   }
   removerFinalizados();
 
+  function salvarTarefas() {
+    let btnSalvarTarfeas = document.querySelector('#salvar-tarefas');
+    btnSalvarTarfeas.addEventListener('click', () => {
+      let lista = document.querySelector('#lista-tarefas').innerHTML;
+      console.log(lista);
+      localStorage.setItem('todoList', "");
+      localStorage.setItem('todoList', JSON.stringify(lista));
+    })
+  }
+  salvarTarefas();
 
-
-
-
-
+  function recuperarLista() {
+    let lista = JSON.parse(localStorage.getItem('todoList'));
+    if (lista) {
+      let listaDeTarefas = document.querySelector('#lista-tarefas');
+      listaDeTarefas.innerHTML = lista;
+    }
+    
+  }
+  recuperarLista();
 
 
 }
