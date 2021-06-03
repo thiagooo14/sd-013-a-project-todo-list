@@ -26,9 +26,19 @@ p {
 }
 
 li {
+  color: rgb(73, 81, 111);
   font-family: Roboto-Regular, sans-serif;
   font-size: 18px;
   margin: 15px 10px;
+}
+
+.selected {
+  color: rgb(32 , 32 , 32);
+  background-color: rgb(128, 128, 128);
+}
+
+.selected::marker {
+  color: rgb(73, 81, 111);
 }
 
 .completed {
@@ -101,6 +111,10 @@ button:hover {
 
 #apaga-tudo {
   background-color: rgb(206 , 45 , 79);
+}
+
+#salvar-tarefas {
+  background-color: #593C71;
 }
 
 img {
