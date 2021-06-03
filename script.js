@@ -17,17 +17,26 @@ function criaTarefa() {
 
 botaoCriarTask.addEventListener('click', criaTarefa);
 
+// Matheus Camillo me ajudou a reduzir este código, por capricho, atribuíndo estilo na classe selected no CSS e não aqui.
 function coloreItem(origem) {
   const itemSelecionado = document.querySelector('.selected');
   if (origem.target.className === 'tarefa') {
     origem.target.classList.add('selected');
     if (itemSelecionado !== null) {
-      itemSelecionado.style.backgroundColor = "white";
       itemSelecionado.classList.remove('selected');
     }
-    const novoItemSelecionado = document.querySelector('.selected');
-    novoItemSelecionado.style.backgroundColor = 'rgb(128,128,128)';
   } 
 }
 
 listaOrdenada.addEventListener('click', coloreItem);
+
+function riscaItem(origem) {
+  const itemFinalizado = document.querySelector('completed');
+  if (origem.target.classList.contains('completed') === false) {
+    origem.target.classList.add('completed');
+  } else if (origem.target.classList.contains('completed')) {
+  origem.target.classList.remove('completed');
+  }
+}
+
+listaOrdenada.addEventListener('dblclick', riscaItem);
