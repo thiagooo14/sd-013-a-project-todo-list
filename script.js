@@ -12,13 +12,13 @@ function getListOl() {
   return list;
 }
 
-function getListItems() {
+function getListItemsNode() {
   const listItems = document.querySelectorAll('.list-item');
   return listItems;
 }
 
 function unselectOtherItems(selectedItem) {
-  const list = getListItems();
+  const list = getListItemsNode();
 
   list.forEach((item) => {
     if (selectedItem !== item) {
@@ -28,7 +28,7 @@ function unselectOtherItems(selectedItem) {
 }
 
 function selectListItem() {
-  const list = getListItems();
+  const list = getListItemsNode();
 
   list.forEach((listItem) => {
     listItem.addEventListener('click', (event) => {
@@ -41,7 +41,7 @@ function selectListItem() {
 }
 
 function completeListItem() {
-  const list = getListItems();
+  const list = getListItemsNode();
 
   list.forEach((listItem) => {
     let show = true;
@@ -71,13 +71,10 @@ function clearCompletedItems() {
   const list = document.getElementsByClassName('completed');
 
   button.addEventListener('click', () => {
-    for (const item in list) {
-      if (Object.hasOwnProperty.call(list, item)) {
-        list[item].remove();
-      }
+    for (const item of list) {
+      list[item].remove();
     }
   });
-
 }
 
 function addTask() {
