@@ -3,13 +3,14 @@ const btnAddTask = document.getElementById('criar-tarefa');
 const itemTasks = document.getElementsByClassName('task-list');
 const bntClearItem = document.getElementById('apaga-tudo');
 const bntClearSelectItem = document.getElementById('remover-finalizados');
+const bntSalveStorege = document.getElementById('salvar-tarefas');
 
 // Função que add a tafera a lista
 function addTasks() {
   const taskList = document.createElement('li');
   taskList.className = 'task-list';
 
-  // Pega o calor do input e coloca na li.
+  // Pega o color do input e coloca na li.
   taskList.innerText = document.getElementById('texto-tarefa').value;
   document.getElementById('texto-tarefa').value = ''; // Reseta o input
   listaTasks.appendChild(taskList);
@@ -50,8 +51,39 @@ function clearTasksList() {
 function clearSelectItem() {
   const selectItem = document.querySelectorAll('.task-list.completed');
   for (const item of selectItem) {
-    console.log(item);
     listaTasks.removeChild(item);
+  }
+}
+
+// Salva a lista de Tarefas
+https://stackoverflow.com/questions/34336960/what-is-the-es6-equivalent-of-python-enumerate-for-a-sequence
+function setListStorage() {
+  localStorage.clear()
+  const objListItemTasks = []
+  // Criar um Objeto com todos os dados importe pra salva.
+  for (let item of itemTasks) {
+    objListItemTasks.push({
+      'text': item.innerText,
+      'class': item.className,
+      'style': item.getAttribute('style')
+    })
+  }
+
+  localStorage.setItem('tasks', JSON.stringify(objListItemTasks))
+  console.log(localStorage)
+}
+
+// Carregar os dados Salvos
+function getSalveItem() {
+  const objItemSalvo = JSON.parse(localStorage.tasks);
+  if (objItemSalvo) {
+    for (let item of objItemSalvo) {
+      let li = document.createElement('li');
+      if (item.style) { li.style = item.style };
+      li.innerHTML = item.text;
+      li.className = item.class;
+      listaTasks.appendChild(li)
+    }
   }
 }
 
@@ -60,3 +92,4 @@ listaTasks.addEventListener('click', addColorItem);
 listaTasks.addEventListener('dblclick', underlinedItem);
 bntClearItem.addEventListener('click', clearTasksList);
 bntClearSelectItem.addEventListener('click', clearSelectItem);
+bntSalveStorege.addEventListener('click', setListStorage)
