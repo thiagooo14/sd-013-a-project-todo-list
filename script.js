@@ -2,6 +2,7 @@ const input = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btn = document.querySelector('#criar-tarefa');
 const selectItem = document.getElementsByClassName('items');
+const btnSave = document.querySelector('#salvar-tarefas');
 
 function generateList() {
   if (input.value === '') {
@@ -59,6 +60,32 @@ function clearFinished() {
 
 const btnClear = document.querySelector('#remover-finalizados');
 btnClear.addEventListener('click', clearFinished);
+
+function clearSelected() {
+  const select = document.getElementsByClassName('selected');
+  while (select.length > 0) {
+    select[0].parentNode.removeChild(select[0]);
+  }
+}
+
+const btnDelSelect = document.querySelector('#remover-selecionado');
+btnDelSelect.addEventListener('click', clearSelected);
+
+function saveTasks() {
+  const listTasks = taskList.innerHTML;
+  localStorage.setItem('saveList', listTasks);
+}
+
+function recoverTasks() {
+  const saveList = localStorage.getItem('saveList');
+  if (saveList !== null) {
+    taskList.innerHTML = saveList;
+  }
+}
+
+recoverTasks();
+
+btnSave.addEventListener('click', recoverTasks);
 
 // function moveUp() {
 //   const teste = this.parentElement;
