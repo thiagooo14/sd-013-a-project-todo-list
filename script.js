@@ -1,5 +1,6 @@
 const lista = document.querySelector('#lista-tarefas');
 const botaoCriarTarefa = document.querySelector('#criar-tarefa');
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const inputTarefa = document.querySelector('#texto-tarefa');
 
 function adicionaTarefa() {
@@ -30,3 +31,10 @@ lista.addEventListener('dblclick', function(event) {
     event.target.classList.add('completed');
   };
 })
+
+function apagaTudo() {
+  botaoApagaTudo.addEventListener('click', function() {
+    lista.innerHTML = '';
+  });
+}
+apagaTudo();
