@@ -63,6 +63,7 @@ function clearSelectItem() {
   selectItem.forEach((item) => listaTasks.removeChild(item));
 }
 
+// Dica dada pelo Mathues Duarte github https://github.com/Fraitz
 // Salva a lista de Tarefas
 function setListStorage() {
   const listaHtml = listaTasks.innerHTML;
@@ -80,7 +81,7 @@ function getSalveItem() {
 // Move para cima
 function moveUp() {
   const position = document.getElementById('select');
-  if(position){
+  if (position) {
     if (position !== itemTasks[0]) {
       listaTasks.insertBefore(position, position.previousSibling);
     }
@@ -90,7 +91,7 @@ function moveUp() {
 // Move para cima
 function moveDown() {
   const position = document.getElementById('select');
-  if(position){
+  if (position) {
     if (position !== itemTasks[itemTasks.length - 1]) {
       listaTasks.insertBefore(position.nextSibling, position);
     }
@@ -103,15 +104,17 @@ function remoceSeleteLine() {
   listaTasks.removeChild(selectLine);
 }
 
-btnAddTask.addEventListener('click', addTasks);
-listaTasks.addEventListener('click', addColorItem);
-listaTasks.addEventListener('dblclick', underlinedItem);
-bntClearItem.addEventListener('click', clearTasksList);
-bntClearSelectItem.addEventListener('click', clearSelectItem);
-bntSalveStorege.addEventListener('click', setListStorage);
-bntmoverCima.addEventListener('click', moveUp);
-bntmoverBaixo.addEventListener('click', moveDown);
-bntRemoveSelect.addEventListener('click', remoceSeleteLine);
+
+
 window.onload = () => {
   getSalveItem();
+  btnAddTask.addEventListener('click', addTasks);
+  listaTasks.addEventListener('click', addColorItem);
+  listaTasks.addEventListener('dblclick', underlinedItem);
+  bntClearItem.addEventListener('click', clearTasksList);
+  bntClearSelectItem.addEventListener('click', clearSelectItem);
+  bntSalveStorege.addEventListener('click', setListStorage);
+  bntmoverCima.addEventListener('click', moveUp);
+  bntmoverBaixo.addEventListener('click', moveDown);
+  bntRemoveSelect.addEventListener('click', remoceSeleteLine);
 };

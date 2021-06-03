@@ -11,21 +11,29 @@
 
 <body>
   <ul>
-    <header>
-      <h1>
-        Minha Lista de Tarefas
-      </h1>
-      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
-    <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa">Adicionar Tarefa</button>
-    <button id="apaga-tudo">Apaga Tudo</button>
-    <button id="remover-finalizados">Remover-finalizados</button>
-    <button id="salvar-tarefas">Salvar Tarefas</button>
-    <button id="mover-cima">Pra cima</button>
-    <button id="mover-baixo">Pra Baixo</button>
-    <button id="remover-selecionado">Remover Selecionado</button>
-    <ol id="lista-tarefas"></ol>
+    <section>
+      <header>
+        <h1>
+          Minha Lista de Tarefas
+        </h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </header>
+      <section class="bnt-section">
+        <input type="text" id="texto-tarefa">
+        <button id="criar-tarefa">Adicionar Tarefa</button>
+        <button id="apaga-tudo">Apaga Tudo</button>
+        <button id="remover-finalizados">Remover-finalizados</button>
+        <button id="salvar-tarefas">Salvar Tarefas</button>
+        <button id="mover-cima">Pra cima</button>
+        <button id="mover-baixo">Pra Baixo</button>
+        <button id="remover-selecionado">Remover Selecionado</button>
+      </section>
+    </section>
+
+    <section class="list-section">
+      <ol id="lista-tarefas"></ol>
+    </section>
+    
   </ul>
 </body>
 <script src="script.js"></script>
