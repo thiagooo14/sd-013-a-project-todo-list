@@ -80,18 +80,20 @@ function getSalveItem() {
 // Move para cima
 function moveUp() {
   const position = document.getElementById('select');
-
-  if (position !== itemTasks[0]) {
-    listaTasks.insertBefore(position, position.previousSibling);
+  if(position){
+    if (position !== itemTasks[0]) {
+      listaTasks.insertBefore(position, position.previousSibling);
+    }
   }
 }
 
 // Move para cima
 function moveDown() {
   const position = document.getElementById('select');
-
-  if (position !== itemTasks[itemTasks.length - 1]) {
-    listaTasks.insertBefore(position.nextSibling, position);
+  if(position){
+    if (position !== itemTasks[itemTasks.length - 1]) {
+      listaTasks.insertBefore(position.nextSibling, position);
+    }
   }
 }
 
