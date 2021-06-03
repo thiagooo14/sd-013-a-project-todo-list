@@ -47,11 +47,15 @@ function taskEnd() {
   const lengthTaskList = orderList.children;
   for (let index = 0; index < lengthTaskList.length; index += 1) {
     lengthTaskList[index].addEventListener('dblclick', () => {
-      lengthTaskList[index].className = 'completed';
+      if (lengthTaskList[index].classList[0] === 'completed') {
+        lengthTaskList[index].className = '';
+      } else {
+        lengthTaskList[index].className = 'completed';
+      }
     });
   }
 }
-taskEnd();
+document.onclick = taskEnd;
 
 // Limpa Tarefa
 function clearTask() {
