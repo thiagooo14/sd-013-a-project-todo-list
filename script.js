@@ -2,7 +2,10 @@ const CriarTarefaBtn = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 
 function selecionaItem(event) {
+  document.querySelector('#selected').style.backgroundColor = 'white';
+  document.querySelector('#selected').removeAttribute('id');
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.id = 'selected';
 }
 
 function addTarefa() {
