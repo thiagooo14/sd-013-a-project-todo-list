@@ -1,3 +1,5 @@
+
+
 const ol = document.createElement('ol');
 ol.id = 'lista-tarefas';
 document.body.appendChild(ol);
@@ -43,8 +45,8 @@ no css colocou a classe completed que faz o riscado.*/
 
 function EraseAll(){
  const ListAgain= document.querySelectorAll('.lista');
- const Listorder= document.querySelector('#lista-tarefas');
  for (let index = 0; index < ListAgain.length; index += 1) {
+  const Listorder= document.querySelector('#lista-tarefas');
  Listorder.removeChild(ListAgain[index])
 }
 }
@@ -52,3 +54,14 @@ function EraseAll(){
 
 buttonEraseTask.addEventListener('click', EraseAll);
 
+function RemoveCompleted() {
+  const taskCompleted = document.querySelectorAll('.completed');//procura todos com a classe completed
+  for (let index = 0; index < taskCompleted.length; index += 1) { //um for passa por todos 
+    const Order= document.querySelector('#lista-tarefas');
+      Order.removeChild(taskCompleted[index]);  //remove da ol todos os filhos com a classe completed
+    }
+  }
+
+  const buttonRemove =document.querySelector("#remover-finalizados")
+
+  buttonRemove.addEventListener('click',RemoveCompleted )
