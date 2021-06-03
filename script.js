@@ -88,6 +88,78 @@ btnRemoverFinalizados.addEventListener('click', function() {
   // }
 })
 
+let btnSalvarTarefas = document.getElementById('salvar-tarefas');
+btnSalvarTarefas.addEventListener('click', function() {
+  let allList = document.getElementsByTagName('li');  
+  // let objListToSave = {};
+  // objListToSave.indice = indice;
+  // objListToSave.valor = valor;
+  
+  // let arrMarker = [];
+  let arrClass = [];
+  let arrInnerText = [];
+  
+  for (let index = 0; index < allList.length; index += 1) {
+    arrClass.push(allList[index].className);
+    arrInnerText.push(allList[index].innerHTML);
+  }
+
+  localStorage.setItem("class", arrClass);
+  localStorage.setItem("innerHtml", arrInnerText);
+
+  // localStorage.setItem("class", allList[index].className);
+  // localStorage.setItem("backColor", allList[index].style.backgroundColor);
+  // localStorage.setItem("textDecor", allList[index].style.textDecoration);
+  // localStorage.setItem("innerHtml", allList[index].innerHTML);
+  // localStorage.setItem("tag", allList[index].localName);
+
+})
+
+document.addEventListener('load', recoverData())
+
+function recoverData() {
+  
+  let arrayOfKeys = Object.keys(localStorage);
+  let arrayOfValues = Object.values(localStorage);
+  
+  let arrClass = arrayOfValues[0].split(",");
+  let arrInnerText = arrayOfValues[1].split(",");
+
+  // let dictTask = {};
+
+  for (let index = 0; index < arrClass.length; index += 1) {
+    strClass = arrClass[index]; // Class e InnerHTML    
+    strInnerHtml = arrInnerText[index]; // valores        
+    
+    // dictTask = {
+    //   Class: strKey,
+    //   InnerHtml: strValues      
+    // }    
+    
+    fnInputDataOfLocalStorage(strClass, strInnerHtml);
+  }
+
+}
+
+function fnInputDataOfLocalStorage(strClass, strInnerHtml) {  
+  document.getElementById('texto-tarefa').value = strInnerHtml
+  let strText = document.getElementById('texto-tarefa').value; // texto do input  
+  if (strText != "") {
+    let elementLi = document.createElement('LI'); // Criei um elemento li
+    elementLi.className = strClass;
+    let strTextNode = document.createTextNode(strText);
+    // elementLi.innerHTML = strText;
+    elementLi.appendChild(strTextNode); // Primeiro eu appendo o textNode no elemento li      
+    elementLi.addEventListener('click', respondSingleClick);
+    elementLi.addEventListener('dblclick', respondDoubleClick);
+    let getOrderList = document.getElementById('lista-tarefas');
+    getOrderList.appendChild(elementLi);
+  }
+  document.getElementById('texto-tarefa').value = "";
+  // addListenerClickToList();
+  // addListenerDoublelClickToList();
+}
+
 // function addListenerClickToList() {
 //   let listElements = document.getElementsByTagName('li');  
 //   for (let index = 0; index < listElements.length; index += 1) {
