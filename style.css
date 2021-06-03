@@ -9,6 +9,8 @@
 
 #lista-tarefas li {
   cursor: pointer;
+  max-width: 50%;
+  user-select: none;
 }
 
 .selected {

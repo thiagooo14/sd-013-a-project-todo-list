@@ -1,5 +1,11 @@
+
 window.onload = function () {
   addingTask();
+  taskSelected();
+  completedTasks();
+  clearTasks();
+  removeFinishedTasks();
+  saveSession();
 }
 
 // Cria função para criação de tarefas.
@@ -41,8 +47,6 @@ function taskSelected() {
   })
 }
 
-taskSelected();
-
 // Cria funcao de riscar tarefas já completadas.
 function completedTasks() {
 
@@ -57,7 +61,6 @@ function completedTasks() {
     }
   })
 }
-completedTasks();
 
 // Cria funcao de limpar as tarefas.
 function clearTasks() {
@@ -73,11 +76,9 @@ function clearTasks() {
     }
   })
 }
-clearTasks();
 
 // Cria funcao para remover tarefas finalizadas.
 function removeFinishedTasks() {
-
   let btnFinished = document.getElementById('remover-finalizados');
 
   btnFinished.addEventListener('click', function () {
@@ -89,4 +90,49 @@ function removeFinishedTasks() {
     }
   })
 }
-removeFinishedTasks();
+
+// Cria elemento com li com classe
+function createTask(eClass, text) {
+  let taskBoard = document.getElementById('lista-tarefas');
+
+  for (let i = 0; i < eClass.length; i += 1) {
+    let task = document.createElement('li');
+    task.className = eClass[i];
+    task.innerText = text[i];
+    taskBoard.appendChild(task);
+  }
+}
+
+// Cria funcao para salvar a lista de tarefas.
+function saveSession() {
+
+  let btnSaveSession = document.getElementById('salvar-tarefas');
+
+  btnSaveSession.addEventListener('click', function () {
+    let tasks = document.getElementsByClassName('task');
+    let content = [];
+    let eClass = [];
+    let task = {}
+    for (let iterator of tasks) {
+      eClass.push(iterator.className);
+      content.push(iterator.innerText);
+      task.class = eClass;
+      task.text = content;
+    }
+    localStorage.setItem('elements', JSON.stringify(task));
+  })
+}
+
+// Cria funcao para abrir a sessao salva.
+function openSession() {
+
+  let task = JSON.parse(localStorage.getItem('elements'));
+  if (task) {
+    let eClass = task['class'];
+    let text = task['text'];
+    createTask(eClass, text);
+  }
+
+}
+openSession();
+
