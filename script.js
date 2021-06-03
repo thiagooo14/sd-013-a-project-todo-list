@@ -43,8 +43,10 @@ function giveCompleted(element) {
 taskList.addEventListener('dblclick', giveCompleted);
 
 // https://www.codecademy.com/forum_questions/4fc4e20c48eae700030456bb
+// https://stackoverflow.com/questions/30816119/how-do-i-clear-localstorage-with-a-button
 function clearList() {
   taskList.innerHTML = '';
+  localStorage.clear();
 }
 
 const btnDelete = document.querySelector('#apaga-tudo');
@@ -55,12 +57,14 @@ function clearFinished() {
   const element = document.getElementsByClassName('completed');
   while (element.length > 0) {
     element[0].parentNode.removeChild(element[0]);
+    localStorage.removeItem('completed');
   }
 }
 
 const btnClear = document.querySelector('#remover-finalizados');
 btnClear.addEventListener('click', clearFinished);
 
+// https://www.codegrepper.com/code-examples/javascript/remove+element+with+class+name+javascript
 function clearSelected() {
   const select = document.getElementsByClassName('selected');
   while (select.length > 0) {
@@ -73,7 +77,9 @@ btnDelSelect.addEventListener('click', clearSelected);
 
 function saveTasks() {
   const listTasks = taskList.innerHTML;
-  localStorage.setItem('saveList', listTasks);
+  if (listTasks !== '') {
+    localStorage.setItem('saveList', listTasks);
+  }
 }
 
 function recoverTasks() {
@@ -85,7 +91,7 @@ function recoverTasks() {
 
 recoverTasks();
 
-btnSave.addEventListener('click', recoverTasks);
+btnSave.addEventListener('click', saveTasks);
 
 // function moveUp() {
 //   const teste = this.parentElement;
