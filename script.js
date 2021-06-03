@@ -1,7 +1,7 @@
 // butao de add da lista
 
 const lista = document.getElementById('lista-tarefas');
-const butao = document.getElementById('criar-tarefa');
+const butaoCriar = document.getElementById('criar-tarefa');
 const tarefa = document.getElementById('texto-tarefa');
 
 function addTarefa() {
@@ -13,7 +13,7 @@ function addTarefa() {
   selecao ();
 }
 
-butao.addEventListener('click', addTarefa);
+butaoCriar.addEventListener('click', addTarefa);
 
 tarefa.addEventListener('keypress', function (e) {
   if (e.key === 'Enter' && tarefa.value.length > 0) {
@@ -59,3 +59,14 @@ function completo(event) {
 }
 
 lista.addEventListener('dblclick', completo)
+
+// Buttaum de apagar
+
+const butaoApagar = document.getElementById('apaga-tudo');
+
+butaoApagar.addEventListener('click', apagarTudo);
+
+function apagarTudo() {
+  lista.innerHTML = "";
+}
+
