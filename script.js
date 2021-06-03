@@ -2,7 +2,8 @@ window.onload = function () {
 
 	let addTaskButton = document.getElementById('criar-tarefa')
 	let listaOrd = document.getElementById('lista-tarefas'); 
-  let eraseButton = document.getElementById('apaga-tudo')
+  let eraseButton = document.getElementById('apaga-tudo');
+  let finalizedButton = document.getElementById('remover-finalizados');
 	
 		
 	addTaskButton.addEventListener('click', addTask);
@@ -47,5 +48,21 @@ window.onload = function () {
       olList[j].parentNode.removeChild(olList[j]);
     };    
   };
+
+  finalizedButton.addEventListener('click', eraseCrossed);
+
+  function eraseCrossed () {
+    let olList = document.querySelectorAll('li');
+    for (let j = 0; j < olList.length; j += 1) {
+      if(olList[j].classList.contains('completed') == true)
+      olList[j].parentNode.removeChild(olList[j]);
+    };
+  }
+
+  
+
+
+
+
   	
 };
