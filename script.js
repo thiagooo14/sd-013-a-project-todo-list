@@ -3,6 +3,8 @@ let taskList =document.querySelector('#lista-tarefas');
 let buttonClearAll = document.querySelector('#apaga-tudo');
 let buttonRemoveFinished = document.querySelector('#remover-finalizados');
 let buttonSaveTasks = document.querySelector('#salvar-tarefas');
+let buttonMoveUp = document.querySelector('#mover-cima');
+let buttonMoveDown = document.querySelector('#mover-baixo');
 
 function createTask(){
   let taskTextInput = document.querySelector('#texto-tarefa').value;
@@ -11,32 +13,32 @@ function createTask(){
   newTask.innerHTML = taskTextInput;
   taskList.appendChild(newTask);
   document.querySelector('#texto-tarefa').value = '';
-  focusColorList();
+  focusList();
 }
 createTaskButton.addEventListener('click', createTask);
 
-function focusColorList(){
+function focusList(){
   let taskListItems = document.querySelectorAll('.item-list');
   for (let i = 0; i < taskListItems.length; i += 1){
-    taskListItems[i].addEventListener('click', changeColorFocus);
+    taskListItems[i].addEventListener('click', changeFocus);
     taskListItems[i].addEventListener('dblclick', setCompletedStatus)
   }
 }
-focusColorList();
+focusList();
 
-function changeColorFocus(event){
+function changeFocus(event){
   let taskListItems = document.querySelectorAll('.item-list');
   for (let i = 0; i < taskListItems.length; i += 1){
-    taskListItems[i].style.backgroundColor = '';
+    taskListItems[i].classList.remove('selected');
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('selected');
 }
 
 function setCompletedStatus(event){
-  if ( event.target.className == 'item-list completed'){
-    event.target.className = 'item-list';
+  if ( event.target.classList.contains('completed')){
+    event.target.classList.remove('completed');
   } else {
-  event.target.className += ' completed';
+  event.target.classList.add('completed');
   }
 }
 
@@ -63,8 +65,23 @@ function saveTasks(){
 buttonSaveTasks.addEventListener('click', saveTasks);
 
 function recoverTasks(){
-  console.log(localStorage.getItem('tasks'));
   taskList.innerHTML = localStorage.getItem('tasks');
-  focusColorList();
+  focusList();
 }
-recoverTasks()
+recoverTasks();
+
+function moveUp(){
+  let elementsFocused = document.querySelector('.selected');
+  if (elementsFocused && elementsFocused.previousSibling){
+    taskList.insertBefore(elementsFocused, elementsFocused.previousSibling)
+  }
+}
+buttonMoveUp.addEventListener('click', moveUp);
+
+function moveDown(){
+  let elementsFocused = document.querySelector('.selected');
+  if (elementsFocused && elementsFocused.nextSibling){
+    taskList.insertBefore(elementsFocused.nextSibling, elementsFocused);
+  }
+}
+buttonMoveDown.addEventListener('click', moveDown);
