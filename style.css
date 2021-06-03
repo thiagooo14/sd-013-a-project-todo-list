@@ -5,7 +5,7 @@
 
 p {
   font-size: small;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #texto-tarefa {
@@ -16,5 +16,11 @@ p {
 #criar-tarefa {
   height: 30px;
   padding: 5px;
-  font: bold;
+}
+
+.liTask {
+  width: 200px;
+  border-bottom: black solid 2.5px;
+  border-radius: 10%;
+  margin: 5px;
 }
