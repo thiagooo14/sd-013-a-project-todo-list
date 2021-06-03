@@ -41,6 +41,7 @@ function giveCompleted(element) {
 
 taskList.addEventListener('dblclick', giveCompleted);
 
+// https://www.codecademy.com/forum_questions/4fc4e20c48eae700030456bb
 function clearList() {
     taskList.innerHTML = '';
 }
