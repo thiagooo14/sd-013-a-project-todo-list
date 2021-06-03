@@ -1,5 +1,7 @@
 let createTaskButton = document.querySelector('#criar-tarefa');
 let taskList =document.querySelector('#lista-tarefas');
+let buttonClearAll = document.querySelector('#apaga-tudo');
+let buttonRemoveFinished = document.querySelector('#remover-finalizados');
 
 function createTask(){
   let taskTextInput = document.querySelector('#texto-tarefa').value;
@@ -36,3 +38,18 @@ function setCompletedStatus(event){
   event.target.className += ' completed';
   }
 }
+
+function clearAll(){
+  let itemsToClear = document.querySelector('#lista-tarefas');
+  itemsToClear.innerHTML = '';
+}
+buttonClearAll.addEventListener('click', clearAll);
+
+function removeFinished(){
+  let itemsToRemove = document.querySelectorAll('.completed');
+  let allItems = document.querySelector('#lista-tarefas');
+  for (let i=0; i < itemsToRemove.length; i += 1){
+    allItems.removeChild(itemsToRemove[i]);
+  }
+}
+buttonRemoveFinished.addEventListener('click', removeFinished);
