@@ -85,4 +85,11 @@ function RemoveCompleted() {
 moveDownbtn.addEventListener('click',moveDown )
 
 
+function RemoveSelect(){
+const selected = document.querySelector('.selected')
+  ol.removeChild(selected); 
+}
 
+
+const selectbutton= document.querySelector("#remover-selecionado")
+selectbutton.addEventListener('click', RemoveSelect)
