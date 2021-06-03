@@ -1,19 +1,51 @@
+* {
+  padding: 3px;
+
+}
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #eeede7;
 }
 
 h1 {
-    text-align: center;
-    font-weight: 700;
+  font-weight: 700;
+  border-style: dashed;
+  border: 1px solid black;
+  display: inline;
+  background-color: #0056ff;
+  color: white;
+  box-shadow:2px 2px 5px black;
+  border-radius: 10px;  
 }
 
 h2 {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .selected {
-    background-color: rgb(128, 128, 128);
+  background-color: rgb(128, 128, 128);
 }
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
+}
+
+#input{
+    text-align: center;
+}
+
+#titulo {
+    text-align: center;
+}
+
+#listComponents {
+    text-align: center;
+    display: block;
+}
+#lista-tarefas {
+    display: inline-block;
+}
+
+#salar-tarefas, #remover-finalizados, #apaga-tudo {
+    display: inline;
+    
 }
