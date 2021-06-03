@@ -4,14 +4,6 @@ const lista = document.getElementById('lista-tarefas');
 const butao = document.getElementById('criar-tarefa');
 const tarefa = document.getElementById('texto-tarefa');
 
-butao.addEventListener('click', addTarefa);
-tarefa.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter' && tarefa.value.length > 0) {
-    addTarefa();
-    //gostei dessa funssaum de colocar enter, testar mais depois
-  }
-});
-
 function addTarefa() {
   const texto = document.createElement('li');
   lista.appendChild(texto);
@@ -20,6 +12,18 @@ function addTarefa() {
   tarefa.value = "";
   selecao ();
 }
+
+butao.addEventListener('click', addTarefa);
+
+tarefa.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter' && tarefa.value.length > 0) {
+    addTarefa();
+  }
+});
+    //gostei dessa funssaum de colocar enter, testar mais depois
+ 
+
+
 
 // cores ao clicar
 
@@ -44,3 +48,14 @@ function selecao() {
   }
 }
 
+// Adicionar a classe completed para riscar usando o css
+
+function completo(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+lista.addEventListener('dblclick', completo)
