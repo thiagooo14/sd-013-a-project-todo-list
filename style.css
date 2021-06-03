@@ -1,4 +1,4 @@
-#criar-tarefa {
+#criar-tarefa #apaga-tudo #remover-finalizados {
   width: 150px;
   height: 20px;
 }
@@ -12,7 +12,4 @@
 
 }
 
-#apaga-tudo {
-  width: 150px;
-  height: 20px;
-}
+
