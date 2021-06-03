@@ -1,7 +1,6 @@
 const input = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btn = document.querySelector('#criar-tarefa');
-const selectItem = document.getElementsByClassName('items');
 const btnSave = document.querySelector('#salvar-tarefas');
 
 function generateList() {
