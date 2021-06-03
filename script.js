@@ -16,14 +16,23 @@ function focusColorList(){
   let taskListItems = document.querySelectorAll('.item-list');
   for (let i = 0; i < taskListItems.length; i += 1){
     taskListItems[i].addEventListener('click', changeColorFocus);
+    taskListItems[i].addEventListener('dblclick', setCompletedStatus)
   }
 }
 focusColorList();
 
 function changeColorFocus(event){
-  let actualFocus = document.querySelector('.selected');
-  if ( actualFocus ){
-    actualFocus.className = 'item-list';
+  let taskListItems = document.querySelectorAll('.item-list');
+  for (let i = 0; i < taskListItems.length; i += 1){
+    taskListItems[i].style.backgroundColor = '';
   }
-  event.target.className = 'item-list selected';
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+
+function setCompletedStatus(event){
+  if ( event.target.className == 'item-list completed'){
+    event.target.className = 'item-list';
+  } else {
+  event.target.className += ' completed';
+  }
 }
