@@ -1,0 +1,66 @@
+* {
+  margin: 0 auto;
+  font-family: Ubuntu, Cantarell, sans-serif;
+}
+
+header {
+  text-align: center;
+  background-color: rgb(34 , 34 , 34);
+  color: whitesmoke;
+  padding: 5px;
+}
+
+#main-content {
+  text-align: center;
+  background-image: url('/images/cover.jpg');
+  background-size: cover;
+  height: 900px;
+}
+
+li {
+  list-style: none;
+  margin: 3px;
+  background-color: rgba(255 , 255 , 255 , 0.795);
+  border: 0.02em solid rgb(116 , 114 , 114);
+}
+
+ol {
+  padding: 0;
+  margin: 0 10%;
+}
+
+p {
+  font-size: 12px;
+}
+
+#task-options {
+  margin: 9px;
+}
+
+#texto-tarefa {
+  margin: 9px;
+}
+
+button {
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(40 , 40 , 40);
+  color: white;
+  border-radius: 1px;
+  box-shadow: 0 3px 5px rgba(0 , 0 , 0 , 0.18);
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+button:active {
+  background-color: white;
+  color: rgb(40 , 40 , 40);
+}
