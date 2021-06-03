@@ -1,13 +1,22 @@
+
+window.onload = function backData() {
+  let listaOrd = document.getElementById('lista-tarefas');
+  listaOrd = localStorage.getItem('list');
+}
+
 window.onload = function () {
+
+  
 
 	let addTaskButton = document.getElementById('criar-tarefa')
 	let listaOrd = document.getElementById('lista-tarefas'); 
   let eraseButton = document.getElementById('apaga-tudo');
   let finalizedButton = document.getElementById('remover-finalizados');
+  let saveButton = document.getElementById('salvar-tarefas');
+  let eraseSelectedButton = document.getElementById('remover-selecionado');
 	
-		
-	addTaskButton.addEventListener('click', addTask);
-	
+  addTaskButton.addEventListener('click', addTask);
+
 	function addTask() {
 	  let textValue = document.getElementById('texto-tarefa').value;
 		if (textValue != "") {
@@ -59,10 +68,21 @@ window.onload = function () {
     };
   }
 
-  
+  saveButton.addEventListener('click', saveData);
 
+  function saveData(){
+    olList = document.querySelectorAll('li');
+    localStorage.setItem('list', olList)
+  }
 
+  eraseSelectedButton.addEventListener('click', eraseSelected);
 
+  function eraseSelected () {
+    let olList = document.querySelectorAll('li');
+    for (let m = 0; m < olList.length; m += 1) {
+      if(olList[m].classList.contains('selected') == true)
+      olList[m].parentNode.removeChild(olList[m]);
+    };
+  }
 
-  	
 };
