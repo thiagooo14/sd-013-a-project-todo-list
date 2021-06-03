@@ -2,6 +2,8 @@ window.onload = function () {
 
 	let addTaskButton = document.getElementById('criar-tarefa')
 	let listaOrd = document.getElementById('lista-tarefas'); 
+  let eraseButton = document.getElementById('apaga-tudo')
+	
 		
 	addTaskButton.addEventListener('click', addTask);
 	
@@ -37,14 +39,13 @@ window.onload = function () {
       lineChoose.classList.toggle('completed') 
   }  
   
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
+  eraseButton.addEventListener('click', erase);
+
+  function erase() {
+    let olList = document.querySelectorAll('li');
+	  for (let j = 0; j < olList.length; j += 1) {
+      olList[j].parentNode.removeChild(olList[j]);
+    };    
+  };
+  	
+};
