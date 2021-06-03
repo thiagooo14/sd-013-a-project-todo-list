@@ -17,7 +17,7 @@ let lista = document.querySelector('#lista-tarefas');
 const itemLista =  document.querySelectorAll('.pinta');
 
 function select (event){
-  for (let index = 0; index < itemLista.length; index += 1 ) {
+  for (let index = 0; index < itemLista.length; index += 1 ){
     itemLista[index].classList.add(' for');
   }
   event.target.className = 'cinza';
