@@ -136,3 +136,64 @@ function openSession() {
 }
 openSession();
 
+// Cria funcao para subir um item da lista.
+function taskUp() {
+  let btnUp = document.getElementById('mover-cima');
+  let taskSelected = document.querySelector('.selected');
+
+
+
+  btnUp.addEventListener('click', function () {
+    let taskSelected = document.querySelector('.selected');
+    if (taskSelected) {
+      if (taskSelected.previousElementSibling) {
+
+        let taskAbove = taskSelected.previousSibling;
+        let elementSupport = taskAbove.innerText;
+        let classAbove = taskAbove.className;
+
+        taskAbove.innerText = taskSelected.innerText;
+        taskAbove.className = taskSelected.className;
+        taskSelected.classList.remove('selected');
+        taskSelected.className = classAbove;
+        taskSelected.innerText = elementSupport;
+      }
+    }
+  })
+
+}
+taskUp();
+
+// Cria funcao para descer um item da lista.
+function taskDown() {
+  let btnDown = document.getElementById('mover-baixo');
+  btnDown.addEventListener('click', function () {
+    let taskSelected = document.querySelector('.selected');
+    if (taskSelected) {
+      if (taskSelected.nextElementSibling) {
+
+        let taskAbove = taskSelected.nextSibling;
+        let elementSupport = taskAbove.innerText;
+        let classAbove = taskAbove.className;
+        taskAbove.innerText = taskSelected.innerText;
+        taskAbove.className = taskSelected.className;
+        taskSelected.classList.remove('selected');
+        taskSelected.className = classAbove;
+        taskSelected.innerText = elementSupport;
+      }
+    }
+  })
+}
+taskDown();
+
+// Cria funcao para remover item selecionado da lista.
+function removeSelected() {
+  let btnRemove = document.getElementById('remover-selecionado');
+  let list = document.getElementById('lista-tarefas');
+  btnRemove.addEventListener('click', function () {
+    let itemSelected = document.getElementsByClassName('selected')[0];
+    list.removeChild(itemSelected);
+
+  })
+}
+removeSelected();
