@@ -71,6 +71,23 @@ btnApagaTudo.addEventListener('click', function() {
   }
 });
 
+let btnRemoverFinalizados = document.getElementById('remover-finalizados');
+btnRemoverFinalizados.addEventListener('click', function() {
+  // let finishList = document.getElementsByClassName('completed');
+  // finishList.parentNode.removeChild(finishList);
+  let allList = document.getElementsByTagName('li');  
+  for (let index = allList.length - 1; index >= 0; index -= 1) {
+    if (allList[index].className == 'completed') {
+      allList[index].remove();
+  }
+}
+  // for (let list of allList) {    
+  //   if (list.className == 'completed') {
+  //     list.remove();
+  //   }
+  // }
+})
+
 // function addListenerClickToList() {
 //   let listElements = document.getElementsByTagName('li');  
 //   for (let index = 0; index < listElements.length; index += 1) {
