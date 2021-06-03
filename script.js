@@ -49,6 +49,28 @@ function respondSingleClick(Event) {
   }
 }
 
+function respondDoubleClick(Event) {
+  let actualClass = Event.target.className;
+  if (actualClass != 'completed') {
+    Event.target.className = 'completed';
+    Event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
+    Event.target.style.backgroundColor = 'rgb(255,255,255)';
+  } else {
+    Event.target.className = 'task';
+    Event.target.style.textDecoration = 'none';
+    Event.target.style.backgroundColor = 'rgb(255,255,255)';
+  }
+}
+
+let btnApagaTudo = document.getElementById('apaga-tudo');
+btnApagaTudo.addEventListener('click', function() {
+  // Só funciona com o querySelector pois o 'Child' é usado para os nós (Nodes)
+  let olTasks = document.querySelector('#lista-tarefas');   
+  while (olTasks.hasChildNodes()) {
+    olTasks.removeChild(olTasks.firstChild);
+  }
+});
+
 // function addListenerClickToList() {
 //   let listElements = document.getElementsByTagName('li');  
 //   for (let index = 0; index < listElements.length; index += 1) {
@@ -80,19 +102,6 @@ function respondSingleClick(Event) {
 //   }
 // }
 
-function respondDoubleClick(Event) {
-  let actualClass = Event.target.className;
-  if (actualClass != 'completed') {
-    Event.target.className = 'completed';
-    Event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
-    Event.target.style.backgroundColor = 'rgb(255,255,255)';
-  } else {
-    Event.target.className = 'task';
-    Event.target.style.textDecoration = 'none';
-    Event.target.style.backgroundColor = 'rgb(255,255,255)';
-  }
-}
-
 // function addListenerDoublelClickToList() {
 //   let listElements = document.getElementsByTagName('li');  
 //   for (let index = 0; index < listElements.length; index += 1) {
@@ -113,3 +122,4 @@ function respondDoubleClick(Event) {
 //     })
 //   }
 // }
+
