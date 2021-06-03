@@ -1,13 +1,15 @@
 const buttonCriarTarefa = document.querySelector('#criar-tarefa');
 const buttonApagaTudo = document.querySelector('#apaga-tudo');
+const buttonRemoverFinalizados = document.querySelector('#remover-finalizados');
+const buttonSalvarTarefas = document.querySelector('#salvar-tarefas');
 const inputCriarTarefa = document.querySelector('#texto-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
-const buttonRemoverFinalizados = document.querySelector('#remover-finalizados');
+
 let tarefas = [];
 let gray = '';
 let sublimed = [];
 
-// função para adicionar uma tarefa na lista através do botão CriarTarefa
+// Função para adicionar uma tarefa na lista clicando no botão CriarTarefa
 buttonCriarTarefa.addEventListener('click', () => {
 	if (inputCriarTarefa.value != '') {
 		let li = document.createElement('li');
@@ -16,7 +18,7 @@ buttonCriarTarefa.addEventListener('click', () => {
 		listaTarefas.appendChild(li);
 		inputCriarTarefa.value = '';
 		li = document.querySelector('#lista-tarefas').lastElementChild;
-		tarefas.push(li);
+		tarefas.push(li.innerHTML);
 	}
 })
 
@@ -37,14 +39,14 @@ listaTarefas.addEventListener('click', (event) => {
 // Adiciona um risco na frente do texto das li's
 listaTarefas.addEventListener('dblclick', (event) => {
 	if (event.target == listaTarefas) {
-	} else if (event.target.classList.contains('sublimed')) {
-		event.target.classList.remove('sublimed')
-		let sub = event.target
-		sublimed.pop(sub)
+	} else if (event.target.classList.contains('completed')) {
+		event.target.classList.remove('completed')
+		let sub = event.target;
+		sublimed.pop(sub);
 	} else {
-		event.target.classList.add('sublimed');
-		let sub = event.target
-		sublimed.push(sub)
+		event.target.classList.add('completed');
+		let sub = event.target;
+		sublimed.push(sub);
 	}
 })
 
@@ -59,6 +61,35 @@ buttonRemoverFinalizados.addEventListener('click', () => {
 		sublimed[index].remove();
 	}
 	sublimed = [];
+})
+
+// Função para adicionar uma tarefa na lista apertando enter
+inputCriarTarefa.addEventListener('keypress', (event) => {
+	if (event.keyCode == 13) {
+		if (inputCriarTarefa.value != '') {
+		let li = document.createElement('li');
+		li.innerText = inputCriarTarefa.value;
+		li.className = 'task';
+		listaTarefas.appendChild(li);
+		inputCriarTarefa.value = '';
+		li = document.querySelector('#lista-tarefas').lastElementChild;
+		tarefas.push(li.innerHTML);
+		}
+	}
+})
+
+// Utilizando  para manter as li's ao fechar a página
+buttonSalvarTarefas.addEventListener('click', () => {
+	if (localStorage.length == 0) {
+		if (tarefas != '') {
+			let tarefasAdicionadas = tarefas;
+			localStorage.setItem('tasks', tarefasAdicionadas);
+		}
+
+	} else {
+		tarefasAdicionadas = tarefas;
+	}
+
 })
 
 // Apaga de um em um
