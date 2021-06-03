@@ -35,6 +35,15 @@
           liClicado.classList.add("color");
       }
       listaOrdenada.addEventListener("click", justOneElement);
+
+      /*Requisito 9*/
+
+      function riscaItem (event) {
+          let liClicado = event.target;
+          liClicado.classList.add("completed");
+      }
+    
+      listaOrdenada.addEventListener("dblclick", riscaItem);
        
   
 
