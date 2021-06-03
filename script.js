@@ -3,6 +3,11 @@ const inputValue = document.querySelector('#texto-tarefa');
 const btnAdd = document.querySelector('#criar-tarefa');
 const btnClear = document.querySelector('#apaga-tudo');
 const btnEnd = document.querySelector('#remover-finalizados');
+const btnSaveTasks = document.querySelector('#salvar-tarefas');
+
+window.onload = () => {
+  orderList.innerHTML = localStorage.getItem('taskList');
+};
 
 // Cria uma nova tarefa
 function newTask() {
@@ -53,3 +58,9 @@ function removeTaskEnd() {
   }
 }
 btnEnd.addEventListener('click', removeTaskEnd);
+
+// Salvar Tarefas
+function saveTask() {
+  localStorage.setItem('taskList', orderList.innerHTML);
+}
+btnSaveTasks.addEventListener('click', saveTask);
