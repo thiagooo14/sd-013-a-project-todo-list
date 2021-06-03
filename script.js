@@ -60,7 +60,7 @@ function completo(event) {
 
 lista.addEventListener('dblclick', completo)
 
-// Buttaum de apagar
+// Buttaum de apagar tudo
 
 const butaoApagar = document.getElementById('apaga-tudo');
 
@@ -70,3 +70,15 @@ function apagarTudo() {
   lista.innerHTML = "";
 }
 
+// Buttaum de apagar finalizados
+
+const butaoApagarFinalizados = document.getElementById('remover-finalizados')
+
+function apagarFinalizados() {
+  const completos = document.querySelectorAll('.completed')
+  for (let i = 0; i < completos.length; i+=1) {
+    lista.removeChild(completos[i])
+  }
+}
+
+butaoApagarFinalizados.addEventListener('click', apagarFinalizados)
