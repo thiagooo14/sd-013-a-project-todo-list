@@ -69,6 +69,7 @@ btnApagaTudo.addEventListener('click', function() {
   while (olTasks.hasChildNodes()) {
     olTasks.removeChild(olTasks.firstChild);
   }
+  localStorage.clear();
 });
 
 let btnRemoverFinalizados = document.getElementById('remover-finalizados');
@@ -115,30 +116,39 @@ btnSalvarTarefas.addEventListener('click', function() {
 
 })
 
-document.addEventListener('load', recoverData())
+// document.addEventListener('load', recoverData())
+
+window.onload = recoverData
+
+// recoverData();
 
 function recoverData() {
+  // alert('pagina carregada');
+  // if (location.reload == true) {  
+    // Consultado no stackoverflow ====================
+    // let arrayOfKeys = Object.keys(localStorage);
+    let arrayOfValues = Object.values(localStorage);
+    // ===================================================
+    if (arrayOfValues.length > 0) {
+      // return;
+      let arrClass = arrayOfValues[0].split(",");
+      let arrInnerText = arrayOfValues[1].split(",");
   
-  let arrayOfKeys = Object.keys(localStorage);
-  let arrayOfValues = Object.values(localStorage);
+      // let dictTask = {};
   
-  let arrClass = arrayOfValues[0].split(",");
-  let arrInnerText = arrayOfValues[1].split(",");
-
-  // let dictTask = {};
-
-  for (let index = 0; index < arrClass.length; index += 1) {
-    strClass = arrClass[index]; // Class e InnerHTML    
-    strInnerHtml = arrInnerText[index]; // valores        
-    
-    // dictTask = {
-    //   Class: strKey,
-    //   InnerHtml: strValues      
-    // }    
-    
-    fnInputDataOfLocalStorage(strClass, strInnerHtml);
-  }
-
+      for (let index = 0; index < arrClass.length; index += 1) {
+        strClass = arrClass[index]; // Class e InnerHTML    
+        strInnerHtml = arrInnerText[index]; // valores        
+        
+        // dictTask = {
+        //   Class: strKey,
+        //   InnerHtml: strValues      
+        // }    
+        
+        fnInputDataOfLocalStorage(strClass, strInnerHtml);
+      }      
+    } 
+  // }
 }
 
 function fnInputDataOfLocalStorage(strClass, strInnerHtml) {  
