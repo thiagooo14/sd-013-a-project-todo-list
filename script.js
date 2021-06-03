@@ -12,7 +12,7 @@ function CreateTask() {
       const list = document.createElement('li'); //cria uma lista
       list.classList = 'lista'; //lista ganha classe
       list.addEventListener('click', ChangeBackground);
-      list.addEventListener('dblclick', riscar);
+      list.addEventListener('dblclick', Strikeout);
       list.innerHTML = inputtext.value; //insere o valor
       ol.appendChild(list); //filho da ol
     }
@@ -29,7 +29,26 @@ function ChangeBackground(event) {
   }
   event.target.classList.add('selected');
 }
+/* Com a ajuda do Zezé coloquei essa função para ser ouvida pela li assim que ela foi criada, pega toda a lista
+faz um for para percorrer ela toda, e remove a classe selecionada, e onde eu clicar que é o alvo adiciona a classe
+o elemento que ganha essa classe , no css colocou a classe selected e colocou para ganhar a cor cinza*/ 
 
-function riscar(event) {
+function Strikeout(event) {
   event.target.classList.toggle('completed');
 }
+
+/*Com a ajuda da Luiza Antiques ela explicou o toggle, o toggle ele adiciona a classe e remove a classe. O que é bem 
+útil nesse exercício já que vários elementos precisam ser riscados, daí todos ganham essa classe, e depois clicando duas vezes eles perdem a classe
+no css colocou a classe completed que faz o riscado.*/
+
+function EraseAll(){
+ const ListAgain= document.querySelectorAll('.lista');
+ const Listorder= document.querySelector('#lista-tarefas');
+ for (let index = 0; index < ListAgain.length; index += 1) {
+ Listorder.removeChild(ListAgain[index])
+}
+}
+ const buttonEraseTask = document.querySelector('#apaga-tudo')
+
+buttonEraseTask.addEventListener('click', EraseAll);
+
