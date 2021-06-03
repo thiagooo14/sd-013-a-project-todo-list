@@ -5,6 +5,7 @@ let buttonRemoveFinished = document.querySelector('#remover-finalizados');
 let buttonSaveTasks = document.querySelector('#salvar-tarefas');
 let buttonMoveUp = document.querySelector('#mover-cima');
 let buttonMoveDown = document.querySelector('#mover-baixo');
+let buttonRemoveItem = document.querySelector('#remover-selecionado');
 
 function createTask(){
   let taskTextInput = document.querySelector('#texto-tarefa').value;
@@ -85,3 +86,9 @@ function moveDown(){
   }
 }
 buttonMoveDown.addEventListener('click', moveDown);
+
+function removeItem(){
+  let itemRemove = document.querySelector('.selected');
+  itemRemove.remove();
+}
+buttonRemoveItem.addEventListener('click', removeItem);
