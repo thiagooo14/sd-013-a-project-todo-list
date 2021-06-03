@@ -2,6 +2,7 @@ let createTaskButton = document.querySelector('#criar-tarefa');
 let taskList =document.querySelector('#lista-tarefas');
 let buttonClearAll = document.querySelector('#apaga-tudo');
 let buttonRemoveFinished = document.querySelector('#remover-finalizados');
+let buttonSaveTasks = document.querySelector('#salvar-tarefas');
 
 function createTask(){
   let taskTextInput = document.querySelector('#texto-tarefa').value;
@@ -53,3 +54,17 @@ function removeFinished(){
   }
 }
 buttonRemoveFinished.addEventListener('click', removeFinished);
+
+function saveTasks(){
+  let allItems = document.querySelector('#lista-tarefas');
+  console.log(allItems.innerHTML);
+  localStorage.setItem('tasks', allItems.innerHTML);
+}
+buttonSaveTasks.addEventListener('click', saveTasks);
+
+function recoverTasks(){
+  console.log(localStorage.getItem('tasks'));
+  taskList.innerHTML = localStorage.getItem('tasks');
+  focusColorList();
+}
+recoverTasks()
