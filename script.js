@@ -1,16 +1,13 @@
-let buttonCreateTask = document.querySelector('#criar-tarefa');
+const buttonCreateTask = document.querySelector('#criar-tarefa');
 
-function addTask (event) {
-  let taskText = document.querySelector('#texto-tarefa');
+function addTask () {
+  const task = document.querySelector('#texto-tarefa');
+  const taskText = document.querySelector('#texto-tarefa').value;
   let ol = document.querySelector('#lista-tarefas');
-  let taskItem = document.createElement('li');
-  ol.appendChild(taskItem);
-  taskI
-
-
-  // let taskText = document.getElementById('texto-tarefa').innerHTML = txt;
-
-  event.target. = cssStyle;
+  let li = document.createElement('li');
+  li.innerHTML = taskText;
+  ol.appendChild(li);
+  task.value = '';
 }
 
 buttonCreateTask.addEventListener('click', addTask);
