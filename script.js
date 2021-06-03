@@ -14,11 +14,18 @@ function changeBg(event) {
   event.target.classList.add('selectLi');
 }
 
-function line(event) {
-  event.target.classList.toggle('completed');
+function line(list) {
+  list.target.classList.toggle('completed');
 }
 
 function clearList() {
-let liList = document.getElementById("lista-tarefas");
-while(liList.firstChild) liList.removeChild(liList.firstChild);
+  let liList = document.getElementById("lista-tarefas");
+  while(liList.firstChild) liList.removeChild(liList.firstChild);
+}
+
+function removeFinished() {
+  let list = document.getElementsByClassName("completed");
+  while(list.length > 0){
+  list[0].parentNode.removeChild(list[0]);
+  }
 }
