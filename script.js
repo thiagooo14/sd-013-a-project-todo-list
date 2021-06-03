@@ -46,8 +46,7 @@ no css colocou a classe completed que faz o riscado.*/
 function EraseAll(){
  const ListAgain= document.querySelectorAll('.lista');
  for (let index = 0; index < ListAgain.length; index += 1) {
-  const Listorder= document.querySelector('#lista-tarefas');
- Listorder.removeChild(ListAgain[index])
+ ol.removeChild(ListAgain[index])
 }
 }
  const buttonEraseTask = document.querySelector('#apaga-tudo')
@@ -57,11 +56,33 @@ buttonEraseTask.addEventListener('click', EraseAll);
 function RemoveCompleted() {
   const taskCompleted = document.querySelectorAll('.completed');//procura todos com a classe completed
   for (let index = 0; index < taskCompleted.length; index += 1) { //um for passa por todos 
-    const Order= document.querySelector('#lista-tarefas');
-      Order.removeChild(taskCompleted[index]);  //remove da ol todos os filhos com a classe completed
+      ol.removeChild(taskCompleted[index]);  //remove da ol todos os filhos com a classe completed
     }
   }
 
   const buttonRemove =document.querySelector("#remover-finalizados")
 
   buttonRemove.addEventListener('click',RemoveCompleted )
+
+  function moveUp() {
+    const selected = document.querySelector('.selected');//primeiro busquei o elemento com  a classe  selecionado
+    if (selected !== ol.firstElementChild) { //se o elemento selecionado nao for o primeiro
+      ol.insertBefore(selected, selected.previousSibling); //a primeira parte é o item no caso o elemento selcioando, a segunda parte onde quero por,inserir o elemento antes do que vem acima que é o ṕrevious sibling
+    }
+  }
+
+   const moveUpbtn= document.querySelector('#mover-cima')
+  moveUpbtn.addEventListener('click', moveUp);
+
+  function moveDown(){
+    const selected = document.querySelector('.selected')
+    if(selected !==ol.lastElementChild){
+      ol.insertBefore(selected.nextSibling, selected);// o elemento seguinte seja adicionado antes do elemento selcionado, assim o elemento selecionado cai para baixo 
+    }
+  }
+
+  const moveDownbtn= document.querySelector('#mover-baixo')
+moveDownbtn.addEventListener('click',moveDown )
+
+
+
