@@ -59,9 +59,23 @@ document.querySelector('#remover-finalizados').addEventListener('click', () => {
     }
   }
 })
-// 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
-// O que será verificado:
 
-// Será verificado que existe um elemento button com o id remover-finalizados
+document.querySelector('#salvar-tarefas').addEventListener('click', () => {
+  localStorage.clear();
+  const itensDaLista = document.querySelectorAll('li');
+  for (let i = 0; i < itensDaLista.length; i += 1) {
+    localStorage.setItem(i,itensDaLista[i].innerText)
+  }
+  localStorage.sort()
+})
 
-// Será verificado que, ao clicar no botão, todos os elementos marcados como feitos são removidos da lista
+window.onload = recebeDadosSalvos;
+
+function recebeDadosSalvos() {
+  armazenamento = localStorage
+  const lista = document.querySelector('#lista-tarefas');
+  for (let i = 0; i < armazenamento.length; i += 1){
+    const elementoLi = document.createElement('li');
+    lista.appendChild(elementoLi).innerText = armazenamento.getItem(armazenamento.key(i));
+  }
+}
