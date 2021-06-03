@@ -1,6 +1,7 @@
 const input = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btn = document.querySelector('#criar-tarefa');
+const item = document.querySelector('.items')
 
 function generateList() {
   if (input.value === '') {
@@ -29,6 +30,7 @@ function giveClass(element) {
 const giveProp = document.querySelector('#lista-tarefas');
 giveProp.addEventListener('click', giveClass);
 
+//feito com ajuda do Matheus Duarte. O cara é bom d+
 function giveCompleted(element) {
   if (element.target.classList.contains('completed') === false) {
     element.target.classList.add('completed');
@@ -38,3 +40,10 @@ function giveCompleted(element) {
 }
 
 taskList.addEventListener('dblclick', giveCompleted);
+
+function clearList() {
+    taskList.innerHTML = '';
+}
+
+const btnClear = document.querySelector('#apaga-tudo');
+btnClear.addEventListener('click', clearList);
