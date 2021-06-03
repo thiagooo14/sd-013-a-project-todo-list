@@ -9,5 +9,5 @@ selectButton.addEventListener('click', () => {
   const ol = document.querySelector('#lista-tarefas');
   li.innerHTML = valueInput;
   ol.appendChild(li);
-  createTask.value = ' ';
+  createTask.value = '';
 });
