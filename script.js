@@ -56,7 +56,6 @@ function clearFinished() {
   const element = document.getElementsByClassName('completed');
   while (element.length > 0) {
     element[0].parentNode.removeChild(element[0]);
-    localStorage.removeItem('completed');
   }
 }
 
@@ -92,23 +91,29 @@ recoverTasks();
 
 btnSave.addEventListener('click', saveTasks);
 
-// function moveUp() {
-//   const teste = this.parentElement;
+// evento de subir e descer o item na lista foi feito com a ajuda do Matheus Duarte e seu projeto. mlk é brabo!
+function moveUp() {
+  const selectItem = document.querySelector('.selected');
+  if (selectItem !== null) {
+    const previousItem = selectItem.previousElementSibling;
+    if (selectItem !== taskList.firstChild) {
+      taskList.insertBefore(selectItem, previousItem);
+    }
+  }
+}
 
-//   if (teste.previousElementSibling) {
-//     teste.parentNode.insertBefore(teste, teste.previousElementSibling);
-//   }
-// }
+const btnUp = document.querySelector('#mover-cima');
+btnUp.addEventListener('click', moveUp);
 
-// function moveDown() {
-//   // if (selectItem.classList.contains('.selected')) {
-//     const teste = this.parentElement;
+function moveDown() {
+  const selectItem = document.querySelector('.selected');
+  if (selectItem !== null) {
+    const nextItem = selectItem.nextElementSibling;
+    if (selectItem !== taskList.lastChild) {
+      taskList.insertBefore(selectItem, nextItem.nextElementSibling);
+    }
+  }
+}
 
-//     if (teste.nextElementSibling) {
-//       teste.parentNode.insertBefore(teste.nextElementSibling, teste);
-//     // }
-//   }
-// }
-
-// const btnDown = document.querySelector('#mover-baixo');
-// btnDown.addEventListener('click', moveDown);
+const btnDown = document.querySelector('#mover-baixo');
+btnDown.addEventListener('click', moveDown);
