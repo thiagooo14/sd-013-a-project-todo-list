@@ -41,3 +41,26 @@ function newTask() {
   });
 }
 newTask();
+
+// Riscar tarefa ao clicar duas vezes
+function taskEnd() {
+  const lengthTaskList = orderList.children;
+  for (let index = 0; index < lengthTaskList.length; index += 1) {
+    lengthTaskList[index].addEventListener('dblclick', () => {
+      lengthTaskList[index].className = 'completed';
+    });
+  }
+}
+taskEnd();
+
+// Limpa Tarefa
+function clearTask() {
+  const lengthTaskList = orderList;
+  const btnClear = document.querySelector('#apaga-tudo');
+  btnClear.addEventListener('click', () => {
+    while (lengthTaskList.firstChild) {
+      lengthTaskList.removeChild(lengthTaskList.firstChild);
+    }
+  });
+}
+clearTask();
