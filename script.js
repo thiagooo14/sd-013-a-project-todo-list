@@ -43,28 +43,29 @@ tarefas.addEventListener('dblclick', (event) => {
  
     event.target.classList.add('completed');
     completed = document.querySelector('.completed');
-})
- 
-tarefas.addEventListener('dblclick', (event) => {
-    completed.classList.remove('completed');
-    event.target.classList.add('completed');
-    completed = document.querySelector('.completed');
-})
+})}
+
+// function req92(){
+//   let tarefas = document.querySelector('#lista-tarefas');
+
+//   tarefas.addEventListener('dblclick', (event) => {
+//     if (event.target.className === 'completed') {
+//       tarefas.innerHTML = '';
+//     }
+// })
   
-}
+// }
 
 req9();
 
+// req92();
+
 function req10() {
+  const lista = document.querySelector('#lista-tarefas');
+  const clear = document.querySelector('#apaga-tudo');
 
-  let button = document.querySelector('#apaga-tudo');
- 
-
-  button.addEventListener('click', function(){
-    let lista = document.querySelector('#lista-tarefa');
-
-    lista.innerTex
-
+  clear.addEventListener('click', () => {
+    lista.innerHTML = '';
   })
 
 }
