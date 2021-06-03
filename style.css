@@ -8,6 +8,13 @@ header {
 
 }
 
+.completed {
+  text-decoration: line-through;
+}
+.selectLi {
+  background-color: rgb(128, 128, 128); 
+}
+
 .title {
   margin: 0 0 0 20px;
   padding-top: 10px;

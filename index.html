@@ -8,18 +8,16 @@
 </head>    
 <body>
 <header>
-  <h1 class="title">Minha Lista de Tarefas</h1>
+  <h1 class="title bgcolor">Minha Lista de Tarefas</h1>
   <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 </header>
 <section class="section-input">
-  <input id ="texto-tarefa"type="text" name="search" placeholder="Adicionar item...">
+  <input id ="texto-tarefa"type="text" placeholder="Adicionar item...">
   <div>
-    <ol id="lista-tarefas">
-      <li>CSS</li>
-      <li>HTML</li>
-      <li>JAVASCRIPT</li>
+    <ol id="lista-tarefas" onclick="changeBg(event)" ondblclick="line(event)">
     </ol>
     <button id ="criar-tarefa" type="button" onclick="getInput()">Adicionar tarefa</button>
+    <button id ="apaga-tudo" type="button" onclick="clearList()">Apaga tudo</button>
   </div>
 </section>
 <script type="text/javascript" src="script.js"></script>
