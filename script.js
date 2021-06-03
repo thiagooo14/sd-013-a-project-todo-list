@@ -1,6 +1,7 @@
 const listaOrdenada = document.querySelector('#lista-tarefas');
 const botaoCriarTask = document.getElementById('criar-tarefa');
 const inputField = document.querySelector('#texto-tarefa');
+const botaoRemoveTudo = document.querySelector('#apaga-tudo');
 
 function criaTarefa() {
   const inputTask = inputField.value;
@@ -31,7 +32,6 @@ function coloreItem(origem) {
 listaOrdenada.addEventListener('click', coloreItem);
 
 function riscaItem(origem) {
-  const itemFinalizado = document.querySelector('completed');
   if (origem.target.classList.contains('completed') === false) {
     origem.target.classList.add('completed');
   } else if (origem.target.classList.contains('completed')) {
@@ -40,3 +40,13 @@ function riscaItem(origem) {
 }
 
 listaOrdenada.addEventListener('dblclick', riscaItem);
+
+function apagaTudo() {
+  while (listaOrdenada.lastElementChild !== null) {
+    listaOrdenada.removeChild(listaOrdenada.lastElementChild);
+  }
+}
+
+botaoRemoveTudo.addEventListener('click', apagaTudo);
+
+

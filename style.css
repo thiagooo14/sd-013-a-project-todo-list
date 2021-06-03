@@ -1,9 +1,51 @@
 
 /* Id's */
+body {
+  background-color: rgb(236, 236, 236);
+}
+
+header {
+  margin-left: 37%;
+}
+
+ol {
+  margin-left: 35%;
+}
+
+#sidenav {
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(78, 129, 121);
+  overflow-x: hidden;
+  box-shadow:  0px 0px 5px 5px rgba(114, 114, 114, 0.404);
+}
+
+#topSideMenu {
+  background:white;
+  width: 100%;
+  top: 0;
+  padding: 20px 30px 10px;
+  margin-bottom: 40px;
+}
+
+#titleSideMenu {
+  margin:0;
+}
+
+/* Menu do Input -- Início */
+#menuDoInput {
+  margin-left: 20px;
+}
+
 #texto-tarefa {
-  display: inline-block;
+  display: block;
   border-radius: 50px;
-  width: 40%;
+  margin-bottom: 15px;
+  width: 90%;
   height: 40px;
   border: 1px solid rgb(250, 250, 250);
   box-shadow: 0 2px 4px 1px rgba(114, 114, 114, 0.404);
@@ -22,27 +64,91 @@
 }
 
 #criar-tarefa {
-  display: inline-block;
+  display: block;
   border-radius: 50px;
-  margin-left: 10px;
-  width: 100px;
+  width: 91%;
   height: 45px;
   border: 0;
-  box-shadow: 0 2px 4px 1px rgba(114, 114, 114, 0.404);
+  background-color: rgb(80, 21, 136);
+  color: white;
+  box-shadow: 0 2px 4px 1px rgba(73, 73, 73, 0.61);
 }
 
 #criar-tarefa:hover {
-  box-shadow: 0 2px 10px 1px rgba(114, 114, 114, 0.76);
+  box-shadow: 0 2px 10px 1px rgba(49, 49, 49, 0.76);
+  background-color: rgb(62, 16, 105);
   cursor: pointer;
 }
 
 #criar-tarefa:active {
-  background-color: rgb(219, 219, 219);
+  background-color: rgb(80, 21, 136);
+  box-shadow: 0 0 0 0 rgba(151, 151, 151, 0.76);
+  font-size: 13px;
+}
+
+/* Menu do Input -- Final */
+/* Menu dos Botões -- Início */
+
+#menuBotoes {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#apaga-tudo {
+  display: inline-block;
+  border-radius: 50px;
+  width: 43%;
+  height: 45px;
+  border: 0;
+  background-color: rgb(199, 199, 199);
+  color: rgb(0, 0, 0);
+  box-shadow: 0 2px 4px 1px rgba(73, 73, 73, 0.61);
+}
+
+#apaga-tudo:hover {
+  box-shadow: 0 2px 10px 1px rgba(49, 49, 49, 0.76);
+  background-color: rgb(180, 180, 180);
+  cursor: pointer;
+}
+
+#apaga-tudo:active {
+  background-color: rgb(199, 199, 199);
+  box-shadow: 0 0 0 0 rgba(151, 151, 151, 0.76);
+  font-size: 13px;
+}
+#remover-finalizados {
+  display: inline-block;
+  border-radius: 50px;
+  width: 43%;
+  margin-left: 10px;
+  height: 45px;
+  border: 0;
+  background-color: rgb(199, 199, 199);
+  color: rgb(0, 0, 0);
+  box-shadow: 0 2px 4px 1px rgba(73, 73, 73, 0.61);
+}
+
+#remover-finalizados:hover {
+  box-shadow: 0 2px 10px 1px rgba(49, 49, 49, 0.76);
+  background-color: rgb(180, 180, 180);
+  cursor: pointer;
+}
+
+#remover-finalizados:active {
+  background-color: rgb(199, 199, 199);
   box-shadow: 0 0 0 0 rgba(151, 151, 151, 0.76);
   font-size: 13px;
 }
 
 /* Classes */
+
+.tarefa {
+  padding: 15px;
+  margin: 10px;
+  background-color:white;
+  max-width: 95%;
+  box-shadow: 0 2px 4px 1px rgba(73, 73, 73, 0.61);
+}
 
 .selected {
   background-color:rgb(128,128,128);
@@ -54,4 +160,8 @@
 
 .completed {
   text-decoration: line-through;
+}
+
+.fas {
+  margin-right: 7px;
 }
