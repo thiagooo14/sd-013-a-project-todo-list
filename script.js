@@ -10,6 +10,18 @@ function createTask() {
   input.value = null;
 }
 
+function selectTask(e) {
+  if (e.target.parentElement.id === 'lista-tarefas') {
+    const previousSelected = document.querySelector('.selected');
+
+    e.target.classList.add('selected');
+    if (previousSelected) {
+      previousSelected.classList.remove('selected');
+    }
+  }
+}
+
 window.onload = () => {
   btn.addEventListener('click', createTask);
+  document.addEventListener('click', selectTask);
 };
