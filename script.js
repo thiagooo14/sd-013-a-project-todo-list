@@ -6,12 +6,13 @@ function createTask() {
   const li = document.createElement('li');
 
   li.innerText = input.value;
+  li.className = 'task';
   taskList.appendChild(li);
   input.value = null;
 }
 
 function selectTask(e) {
-  if (e.target.parentElement.id === 'lista-tarefas') {
+  if (e.target.classList.contains('task')) {
     const previousSelected = document.querySelector('.selected');
 
     e.target.classList.add('selected');
@@ -21,7 +22,12 @@ function selectTask(e) {
   }
 }
 
+function completeTask(e) {
+  if (e.target.classList.contains('task')) e.target.classList.toggle('completed');
+}
+
 window.onload = () => {
   btn.addEventListener('click', createTask);
   document.addEventListener('click', selectTask);
+  document.addEventListener('dblclick', completeTask);
 };
