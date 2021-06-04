@@ -33,6 +33,7 @@ function createTaskList(list) {
 function selectTask(e) {
   if (e.target.classList.contains('task')) {
     const previousSelected = document.querySelector('.selected');
+    if (previousSelected === e.target) return;
 
     e.target.classList.add('selected');
     if (previousSelected) {
