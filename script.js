@@ -1,14 +1,19 @@
 const listTasks = document.querySelector('#lista-tarefas');
 const taskText = document.querySelector('#texto-tarefa');
 
-function moveTask(direction) {
+function moveUp() {
   const element = document.querySelector('.selected');
-
-  if (direction === 'up' && element.previousElementSibling) {
+  if (element === null) return;
+  if (element.previousElementSibling) {
     element.parentNode.insertBefore(element, element.previousElementSibling);
   }
+}
 
-  if (direction === 'down' && element.nextElementSibling) {
+function moveDown() {
+  const element = document.querySelector('.selected');
+  if (element === null) return;
+  if (element.nextElementSibling) {
+    console.log('down');
     element.parentNode.insertBefore(element.nextElementSibling, element);
   }
 }
@@ -113,10 +118,10 @@ window.onload = () => {
   btnSaveAll.addEventListener('click', () => {
     saveList();
   });
-  btnMoveUp.addEventListener('click', () => {
-    moveTask('up');
+  btnMoveUp.addEventListener('click', (e) => {
+    moveUp();
   });
-  btnMoveDown.addEventListener('click', () => {
-    moveTask('down');
+  btnMoveDown.addEventListener('click', (e) => {
+    moveDown();
   });
 };
