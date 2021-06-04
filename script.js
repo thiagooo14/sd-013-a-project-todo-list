@@ -34,3 +34,14 @@ function selecionaCor(event) {
 }
 
 recuperaOl.addEventListener('click', selecionaCor);
+
+// ======================================================================================
+// Função que adiciona classe 'scratched', risca tarefa completa e faz o inverso
+// ======================================================================================
+
+function riscado (event) {
+  let elementoClicado = event.target;
+  elementoClicado.classList.toggle('completed');
+}
+
+recuperaOl.addEventListener('dblclick', riscado);
