@@ -1,22 +1,24 @@
 
-let getButton = document.getElementById('criar-tarefa');
-let input = document.getElementById('texto-tarefa');
-let listaOrdenada = document.getElementById('lista-tarefas');
 function addItemList() {
+    let input = document.getElementById('texto-tarefa');
+    let getButton = document.getElementById('criar-tarefa');
+    let listaOrdenada = document.getElementById('lista-tarefas');
     getButton.addEventListener('click', function () {
         tarefa = document.createElement('li');
         listaOrdenada.appendChild(tarefa);
-        if (document.getElementById('texto-tarefa').value !==""){
-        let texto = document.getElementById('texto-tarefa').value;
-        tarefa.innerText = texto;
+        let texto = input.value;
+        if (input.value !== "") {
+            tarefa.innerText = texto;
         } else {
-            return;
+            alert('tarefa vazia!');
+            tarefa.remove();
         }
     })
 }
 addItemList();
 
 function eraseText() {
+    let getButton = document.getElementById('criar-tarefa');
     getButton.addEventListener('click', function () {
         document.getElementById('texto-tarefa').value = "";
     })
@@ -28,9 +30,9 @@ function selected() {
     lista.addEventListener('click', function (event) {
         listas = document.getElementsByTagName('li');
         for (let i = 0; i < listas.length; i++) {
-            listas[i].className = listas[i].className.replace('selected', '')//.replace verifica se contém a class 'selected' e a troca por ''.
+            listas[i].classList.remove('selected');
         }
-        event.target.className += ' selected'
+        event.target.classList.add('selected');
     })
 }
 selected();
@@ -39,12 +41,13 @@ function riscarItem() {
     lista = document.querySelector('ol');
     lista.addEventListener('dblclick', function (event) {
         if (event.target.classList.contains('completed')) {
-            event.target.className = event.target.className.replace('completed', '');
+            event.target.classList.remove('completed');
         } else {
-            event.target.className += ' completed';
+            event.target.classList.add('completed');
         }
-
     })
+    lista.style.backgroundColor = "#eeede7";
+    lista.classList.remove('selected');
 }
 riscarItem()
 
@@ -81,7 +84,7 @@ eraseAll();
 
 function removeCompleted() {
     button = document.getElementById('remover-finalizados');
-    button.addEventListener('click',function () {
+    button.addEventListener('click', function () {
         lista = document.querySelectorAll('li')
         for (let i = 0; i < lista.length; i++) {
             const element = lista[i];
@@ -94,33 +97,30 @@ function removeCompleted() {
 }
 removeCompleted();
 
-function saveTasks (){
+function saveTasks() {
     lista = document.getElementsByTagName('li');
     for (let i = 0; i < lista.length; i++) {
         const element = lista[i];
-        element.addEventListener('click',save());
+        element.addEventListener('click', save());
     }
 }
-function save(){
+function save() {
     lista = document.getElementsByTagName('li');
     let armazenamento = [];
-    for (let i = 0; i< lista.length; i++) {
-      const element = lista[i];
-      armazenamento.push(element.innerText);
-      let array = armazenamento;
+    for (let i = 0; i < lista.length; i++) {
+        const element = lista[i];
+        armazenamento.push(element.innerText);
+        var armazenamentoJson = JSON.stringify(armazenamento);
     }
-    console.log(array);
-    localStorage.setItem('tarefas', array);
-    localStorage.getItem('tarefas');
+    localStorage.setItem('savedtasks', armazenamento);
 }
-
-function removeSelected(){
+function removeSelected() {
     let button = document.getElementById('remover-selecionado');
-    button.addEventListener('click', function(){
+    button.addEventListener('click', function () {
         let lista = document.querySelectorAll('li');
         for (let i = 0; i < lista.length; i++) {
             const element = lista[i];
-            if (element.className ==" selected"){
+            if (element.classList.contains("selected")) {
                 element.remove();
             }
         }
