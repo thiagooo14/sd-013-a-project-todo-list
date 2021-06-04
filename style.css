@@ -1,5 +1,6 @@
 #texto-tarefa {
-  width: 208px;
+  width: 256px;
+  margin-bottom: 20px;
 }
 
 #criar-tarefa {
@@ -10,7 +11,13 @@
   text-decoration: line-through;
 }
 
-#apaga-tudo {
+#remover-finalizados {
   width: auto;
   margin-left: 50px;
+}
+
+#apaga-tudo {
+  width: auto;
+  display: block;
+  margin-top: 40px;
 }

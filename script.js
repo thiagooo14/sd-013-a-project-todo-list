@@ -1,5 +1,6 @@
 const CriarTarefaBtn = document.querySelector('#criar-tarefa');
-const apagaBtn = document.querySelector('#apaga-tudo');
+const apagaBtn = document.querySelector('#remover-finalizados');
+const apagaTudoBtn = document.querySelector('#apaga-tudo');
 const ol = document.querySelector('#lista-tarefas');
 
 function selecionaItem(event) {
@@ -27,10 +28,18 @@ function addTarefa() {
   tarefa.focus();
 }
 
+function apagaConc() {
+  const completedList = document.querySelectorAll('.completed');
+  for (let i = 0; i < completedList.length; i += 1) {
+    completedList[i].remove();
+  }
+}
+
 function apagaTudo() {
   ol.innerText = '';
   document.querySelector('.campo').id = 'selected';
 }
 
 CriarTarefaBtn.addEventListener('click', addTarefa);
-apagaBtn.addEventListener('click', apagaTudo);
+apagaBtn.addEventListener('click', apagaConc);
+apagaTudoBtn.addEventListener('click', apagaTudo);
