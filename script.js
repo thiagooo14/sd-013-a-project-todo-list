@@ -1,4 +1,3 @@
-
 function addItemList() {
     let input = document.getElementById('texto-tarefa');
     let getButton = document.getElementById('criar-tarefa');
@@ -98,22 +97,16 @@ function removeCompleted() {
 removeCompleted();
 
 function saveTasks() {
-    lista = document.getElementsByTagName('li');
-    for (let i = 0; i < lista.length; i++) {
-        const element = lista[i];
-        element.addEventListener('click', save());
-    }
+    let button = document.getElementById('salvar-tarefas')
+    button.addEventListener('click', function() {
+        lista = document.getElementById('lista-tarefas');
+        localStorage.setItem('savedtasks',lista.innerHTML);
+})
 }
-function save() {
-    lista = document.getElementsByTagName('li');
-    let armazenamento = [];
-    for (let i = 0; i < lista.length; i++) {
-        const element = lista[i];
-        armazenamento.push(element.innerText);
-        var armazenamentoJson = JSON.stringify(armazenamento);
-    }
-    localStorage.setItem('savedtasks', armazenamento);
-}
+saveTasks();
+lista = document.getElementById('lista-tarefas');
+lista.innerHTML = localStorage.getItem('savedTasks');
+
 function removeSelected() {
     let button = document.getElementById('remover-selecionado');
     button.addEventListener('click', function () {
@@ -128,4 +121,6 @@ function removeSelected() {
 }
 removeSelected();
 
+lista = document.getElementById('lista-tarefas');
+lista.innerHTML = localStorage.getItem('savedtasks');
 // estilo CSS do id listComponents adquirido do site: https://stackoverflow.com/questions/40915850/css-ordered-list-styling-before-margins
