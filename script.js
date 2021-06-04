@@ -49,6 +49,7 @@ recuperaOl.addEventListener('dblclick', riscado);
 // ======================================================================================
 //     Função de apagar todos os itens da lista ao clicar no botão 'apaga tudo'
 // ======================================================================================
+
 const recuperaBotaoApagar = document.querySelector('#apaga-tudo');
 
 function apagaTudo() {
@@ -59,3 +60,18 @@ function apagaTudo() {
 }
 
 recuperaBotaoApagar.addEventListener('click', apagaTudo);
+
+// ======================================================================================
+//     Função de apagar todos os itens da lista marcados como concluídos
+// ======================================================================================
+
+const recuperaBotaoApagarConcluidos = document.querySelector('#remover-finalizados');
+
+function removeConcluidos() {
+  const recuperaTarefasConcluidasNode = document.querySelectorAll('.completed');
+  for (let index = 0; index < recuperaTarefasConcluidasNode.length; index += 1) {
+    recuperaTarefasConcluidasNode[index].remove();
+  }
+}
+
+recuperaBotaoApagarConcluidos.addEventListener('click', removeConcluidos);
