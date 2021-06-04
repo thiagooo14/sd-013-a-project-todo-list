@@ -31,7 +31,7 @@ input {
 button {
   padding: 5px;
   border-radius: 10%;
-  background-color: rgb(73, 73, 153);
+  background-color:rgb(73, 73, 153);
   color: aliceblue;
 }
 
@@ -42,4 +42,8 @@ ol {
 li {
   margin: 5px;
   text-align: left;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
