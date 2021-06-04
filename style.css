@@ -1,0 +1,16 @@
+#funcionamento {}
+
+#texto-tarefa {}
+
+#lista-tarefas {}
+
+#criar-tarefa {
+
+    width: 80px;
+    height: 20px;
+}
+
+.listaCor {
+
+    background-color: rgb(128, 128, 128)
+}
