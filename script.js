@@ -1,5 +1,12 @@
 const listTasks = document.querySelector('#lista-tarefas');
 const taskText = document.querySelector('#texto-tarefa');
+const btnCreateTask = document.querySelector('#criar-tarefa');
+const btnEraseAll = document.querySelector('#apaga-tudo');
+const btnEraseCompleted = document.querySelector('#remover-finalizados');
+const btnSaveAll = document.querySelector('#salvar-tarefas');
+const btnEraseSelected = document.querySelector('#remover-selecionado');
+const btnMoveUp = document.querySelector('#mover-cima');
+const btnMoveDown = document.querySelector('#mover-baixo');
 
 function moveUp() {
   const element = document.querySelector('.selected');
@@ -90,38 +97,13 @@ function getList() {
   }
 }
 
-// eslint-disable-next-line max-lines-per-function
 window.onload = () => {
-  const btnCreateTask = document.querySelector('#criar-tarefa');
-  const btnEraseAll = document.querySelector('#apaga-tudo');
-  const btnEraseCompleted = document.querySelector('#remover-finalizados');
-  const btnSaveAll = document.querySelector('#salvar-tarefas');
-  const btnEraseSelected = document.querySelector('#remover-selecionado');
-  const btnMoveUp = document.querySelector('#mover-cima');
-  const btnMoveDown = document.querySelector('#mover-baixo');
-
   getList();
-  // localStorage.clear();
-  btnCreateTask.addEventListener('click', () => {
-    createTask();
-  });
-  btnEraseAll.addEventListener('click', () => {
-    eraseAll();
-  });
-  btnEraseCompleted.addEventListener('click', () => {
-    eraseOnlyCompletedTasks();
-  });
-
-  btnEraseSelected.addEventListener('click', () => {
-    eraseOnlySelected();
-  });
-  btnSaveAll.addEventListener('click', () => {
-    saveList();
-  });
-  btnMoveUp.addEventListener('click', (e) => {
-    moveUp();
-  });
-  btnMoveDown.addEventListener('click', (e) => {
-    moveDown();
-  });
+  btnCreateTask.addEventListener('click', () => createTask());
+  btnEraseAll.addEventListener('click', () => eraseAll());
+  btnEraseCompleted.addEventListener('click', () => eraseOnlyCompletedTasks());
+  btnEraseSelected.addEventListener('click', () => eraseOnlySelected());
+  btnSaveAll.addEventListener('click', () => saveList());
+  btnMoveUp.addEventListener('click', () => moveUp());
+  btnMoveDown.addEventListener('click', () => moveDown());
 };
