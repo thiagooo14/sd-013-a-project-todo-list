@@ -1,17 +1,20 @@
 function clearInput() {
-  const inputElement = document.getElementById('texto-tarefa');
-  inputElement.value = '';
+  document.getElementById('texto-tarefa').value = '';
 }
-function setupTaskLineStyle(event) {
+function setupTaskClick(event) {
+  const currentSelectedTask = document.getElementsByClassName('selected')[0];
   const element = event.target;
-  element.style.backgroundColor = 'rgb(128,128,128)';
+  if (currentSelectedTask != undefined) {
+    currentSelectedTask.classList.toggle('selected');
+  }
+  element.classList.toggle('selected');
 }
 function addTask() {
   const inputText = document.getElementById('texto-tarefa').value;
   const orderedList = document.getElementById('lista-tarefas');
   const newLine = document.createElement('li');
   newLine.innerText = inputText;
-  newLine.addEventListener('click', setupTaskLineStyle);
+  newLine.addEventListener('click', setupTaskClick);
   orderedList.appendChild(newLine);
   clearInput();
 }
