@@ -1,6 +1,7 @@
 const buttonCreateTask = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const clearButton = document.querySelector('#apaga-tudo');
+const clearFinishedButton = document.querySelector('#remover-finalizados');
 
 buttonCreateTask.addEventListener('click', function createTask() {
   const task = document.querySelector('#texto-tarefa');
@@ -10,25 +11,28 @@ buttonCreateTask.addEventListener('click', function createTask() {
   li.innerHTML = taskText;
   ol.appendChild(li);
   task.value = '';
-  li.addEventListener('click', taskSelect);
-  li.addEventListener('dblclick', taskFinished);
-});
-
-function taskSelect(event) {
-  const li = document.querySelectorAll('.liTask');
-  for (let i = 0; i < li.length; i += 1) {
-    li[i].removeAttribute('id');
-  }
-  event.target.id = 'selected-task';
-}
-
-function taskFinished(event) {
-  event.target.classList.toggle('completed');
-}
+  li.addEventListener('click', function taskSelect(event) {
+    const li = document.querySelectorAll('.liTask');
+    for (let i = 0; i < li.length; i += 1) {
+      li[i].removeAttribute('id');
+    }
+    event.target.id = 'selected-task';
+  })
+  li.addEventListener('dblclick', function taskFinished(event) {
+    event.target.classList.toggle('completed'); 
+  })
+})
 
 clearButton.addEventListener('click', function clearAllTasks() {
-  let li = document.querySelectorAll('.liTask');
+  const li = document.querySelectorAll('.liTask');
   for (let j = 0; j < li.length; j += 1) {
     ol.removeChild(li[j]);
+  }
+})
+
+clearFinishedButton.addEventListener('click', function clearFinishedOnes() {
+  const finishedTasks = document.querySelectorAll('.completed');
+  for (let g = 0; g < finishedTasks.length; g += 1) {
+    ol.removeChild(finishedTasks[g]);
   }
 });
