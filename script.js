@@ -109,3 +109,14 @@ function moveTask() {
   });
 }
 moveTask();
+
+// Criar função para remover item selecionado
+const buttonRmvItem = document.querySelector('#remover-selecionado');
+
+function removeItem() {
+  buttonRmvItem.addEventListener('click', () => {
+    const selectedEl = document.querySelector('.selected');
+    selectedEl.parentNode.removeChild(selectedEl);
+  })
+}
+removeItem();
