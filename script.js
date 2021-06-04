@@ -1,10 +1,12 @@
 function clearInput() {
   document.getElementById('texto-tarefa').value = '';
 }
+
 function setupTaskDubleClick(event) {
   const element = event.target;
   element.classList.toggle('completed');
 }
+
 function setupTaskClick(event) {
   const currentSelectedTask = document.getElementsByClassName('selected')[0];
   const element = event.target;
@@ -13,10 +15,12 @@ function setupTaskClick(event) {
   }
   element.classList.toggle('selected');
 }
+
 function addTaskEvents(task) {
   task.addEventListener('click', setupTaskClick);
   task.addEventListener('dblclick', setupTaskDubleClick);
 }
+
 function enterTask(taskText, taskClass) {
   const orderedList = document.getElementById('lista-tarefas');
   const newTask = document.createElement('li');
@@ -25,15 +29,18 @@ function enterTask(taskText, taskClass) {
   addTaskEvents(newTask);
   orderedList.appendChild(newTask);
 }
+
 function addTask() {
   const inputText = document.getElementById('texto-tarefa').value;
   if (inputText === '') return;
   enterTask(inputText, '');
   clearInput();
 }
+
 function deleteTasks() {
   document.getElementById('lista-tarefas').innerHTML = '';
 }
+
 function deleteDoneTasks() {
   const li = document.querySelectorAll('.completed');
   console.log(li);
@@ -41,18 +48,40 @@ function deleteDoneTasks() {
     li[i].parentNode.removeChild(li[i]);
   }
 }
+
 function deleteSelectedTask() {
   const li = document.querySelector('.selected');
-  console.log(li);
   if (li === null) return;
   li.parentNode.removeChild(li);
 }
+
+function moveUp() {
+  const li = document.querySelector('.selected');
+  if (li === null) return;
+  if (li.previousElementSibling) {
+    li.parentNode.insertBefore(li, li.previousElementSibling);
+  }
+}
+
+function moveDown() {
+  const li = document.querySelector('.selected');
+  if (li === null) return;
+  if (li.nextElementSibling) {
+    li.parentNode.insertBefore(li, (li.nextElementSibling).nextElementSibling);
+  }
+}
+
 function saveTasks() {
   const tasks = Array.from(document.getElementsByTagName('li'), (line) => line.innerText);
-  const status = Array.from(document.getElementsByTagName('li'), (line) => line.className);
+  const status = Array.from(document.getElementsByTagName('li'), (line) => {
+    let res = '';
+    if (line.className.includes('completed')) res = 'completed';
+    return res;
+  });
   localStorage.setItem('tasks', tasks);
   localStorage.setItem('status', status);
 }
+
 function loadTasks() {
   if (localStorage.tasks === undefined) return;
   const tasks = localStorage.getItem('tasks').split(',');
@@ -62,11 +91,15 @@ function loadTasks() {
     if (tasks[task] !== '') enterTask(tasks[task], status[task]);
   }
 }
+
 function configButtonClick(idButton, func) {
   document.getElementById(idButton).addEventListener('click', func);
 }
+
 window.onload = function startPage() {
   configButtonClick('criar-tarefa', addTask);
+  configButtonClick('mover-cima', moveUp);
+  configButtonClick('mover-baixo', moveDown);
   configButtonClick('salvar-tarefas', saveTasks);
   configButtonClick('remover-selecionado', deleteSelectedTask);
   configButtonClick('apaga-tudo', deleteTasks);
