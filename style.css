@@ -1,5 +1,5 @@
 * {
-  padding: 3px;
+  padding: 5px;
 
 }
 body {
@@ -46,6 +46,23 @@ h2 {
 }
 
 #salar-tarefas, #remover-finalizados, #apaga-tudo {
-    display: inline;
-    
+    display: inline-block;    
+}
+
+#buttons {
+  margin: auto;
+  border-style: dashed;
+  border: 1px solid black;
+  display: inline-block;
+  background-color: #0056ff;
+  color: white;
+  box-shadow:2px 2px 5px black;
+  border-radius: 10px;  
+  height:27px;
+}
+#criar-tarefa, #apaga-tudo, #remover-finalizados, #salvar-tarefas {
+  background-color: white;
+  border-radius: 10px;  
+  font-weight: 700;
+
 }

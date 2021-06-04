@@ -9,6 +9,8 @@ function addItemList() {
         if (document.getElementById('texto-tarefa').value !==""){
         let texto = document.getElementById('texto-tarefa').value;
         tarefa.innerText = texto;
+        } else {
+            return;
         }
     })
 }
@@ -91,3 +93,23 @@ function removeCompleted() {
     })
 }
 removeCompleted();
+
+function saveTasks (){
+    lista = document.getElementsByTagName('li');
+    for (let i = 0; i < lista.length; i++) {
+        const element = lista[i];
+        element.addEventListener('click',save());
+    }
+}
+function save(){
+    lista = document.getElementsByTagName('li');
+    let armazenamento = [];
+    for (let i = 0; i< lista.length; i++) {
+      const element = lista[i];
+      armazenamento.push(element.innerText);
+      let array = armazenamento;
+    }
+    console.log(array);
+    localStorage.setItem('tarefas', array);
+    localStorage.getItem('tarefas');
+}
