@@ -10,6 +10,7 @@ buttonCreateTask.addEventListener('click', function createTask() {
   ol.appendChild(li);
   task.value = '';
   li.addEventListener('click', taskSelect);
+  li.addEventListener('dblclick', taskFinished);
 });
 
 function taskSelect(event) {
@@ -17,6 +18,9 @@ function taskSelect(event) {
   for (let i = 0; i < li.length; i += 1) {
     li[i].removeAttribute('id');
   }
-
   event.target.id = 'selected-task';
+}
+
+function taskFinished(event) {
+  event.target.classList.toggle('completed');
 }
