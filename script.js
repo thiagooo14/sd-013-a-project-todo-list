@@ -1,24 +1,22 @@
-
-
 const ol = document.createElement('ol');
 ol.id = 'lista-tarefas';
 document.body.appendChild(ol);
 
 function CreateTask() {
-  inputtext = document.querySelector('#texto-tarefa'); //criei variavel para o input
-  buttonAddTask = document.querySelector('#criar-tarefa'); //variavel para o botao
+   const inputtext = document.querySelector('#texto-tarefa'); // criei variavel para o input
+   const buttonAddTask = document.querySelector('#criar-tarefa'); // variavel para o botao
   buttonAddTask.addEventListener('click', function () {
-    //botao ao clicar
+    // botao ao clicar
     if (inputtext.value !== '') {
-      //se estiver diferente de vazio , ou seja você escreveu
-      const list = document.createElement('li'); //cria uma lista
-      list.classList = 'lista'; //lista ganha classe
+      // se estiver diferente de vazio , ou seja você escreveu
+      const list = document.createElement('li'); // cria uma lista
+      list.classList = 'lista'; // lista ganha classe
       list.addEventListener('click', ChangeBackground);
       list.addEventListener('dblclick', Strikeout);
-      list.innerHTML = inputtext.value; //insere o valor
-      ol.appendChild(list); //filho da ol
+      list.innerHTML = inputtext.value; // insere o valor
+      ol.appendChild(list); // filho da ol
     }
-    inputtext.value = ''; //zera
+    inputtext.value = ''; // zera
   });
 }
 
@@ -39,7 +37,7 @@ function Strikeout(event) {
   event.target.classList.toggle('completed');
 }
 
-/*Com a ajuda da Luiza Antiques ela explicou o toggle, o toggle ele adiciona a classe e remove a classe. O que é bem 
+/* Com a ajuda da Luiza Antiques ela explicou o toggle, o toggle ele adiciona a classe e remove a classe. O que é bem 
 útil nesse exercício já que vários elementos precisam ser riscados, daí todos ganham essa classe, e depois clicando duas vezes eles perdem a classe
 no css colocou a classe completed que faz o riscado.*/
 
@@ -65,11 +63,11 @@ function RemoveCompleted() {
   buttonRemove.addEventListener('click',RemoveCompleted )
 
 
-  /*fonte:https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_insertbefore*/
+  /* fonte:https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_insertbefore*/
   function moveUp() {
-    const selected = document.querySelector('.selected');//primeiro busquei o elemento com  a classe  selecionado
-    if ( selected!== null && selected !== ol.firstElementChild) { //se o elemento selecionado nao for o primeiro
-      ol.insertBefore(selected, selected.previousSibling); //a primeira parte é o item no caso o elemento selcioando, a segunda parte onde quero por,inserir o elemento antes do que vem acima que é o ṕrevious sibling
+    const selected = document.querySelector('.selected');// primeiro busquei o elemento com  a classe  selecionado
+    if ( selected!== null && selected !== ol.firstElementChild) { // se o elemento selecionado nao for o primeiro
+      ol.insertBefore(selected, selected.previousSibling); // a primeira parte é o item no caso o elemento selcioando, a segunda parte onde quero por,inserir o elemento antes do que vem acima que é o ṕrevious sibling
     }
   }
 
@@ -78,7 +76,7 @@ function RemoveCompleted() {
 
   function moveDown(){
     const selected = document.querySelector('.selected')
-    if(selected !== null && selected !==ol.lastElementChild){//null foi colocado aí para mostrar que algum elemento esta selecioando, e satisfazer o requisito "Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botões não altera a lista"
+    if(selected !== null && selected !==ol.lastElementChild){// null foi colocado aí para mostrar que algum elemento esta selecioando, e satisfazer o requisito "Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botões não altera a lista"
       ol.insertBefore(selected.nextSibling, selected);// o elemento seguinte seja adicionado antes do elemento selcionado, assim o elemento selecionado cai para baixo 
     }
   }
