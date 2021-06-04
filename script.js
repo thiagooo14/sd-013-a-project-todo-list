@@ -1,26 +1,38 @@
 window.onload = function () {
   function waitCreateTasks() {
-    let createTasks = document.getElementById('criar-tarefa');
+    const createTasks = document.getElementById('criar-tarefa');
     createTasks.addEventListener("click", addTasks, false);
   }
   waitCreateTasks();
 
   function addTasks() {
-    let inputValue = document.getElementById('texto-tarefa');
-    let tasksList = document.getElementById('lista-tarefas');
-    let newTasks = document.createElement('li');
-    newTasks.textContent=inputValue.value;
+    const inputValue = document.getElementById('texto-tarefa');
+    const tasksList = document.getElementById('lista-tarefas');
+    const newTasks = document.createElement('li');
+    const contTasks = document.querySelectorAll('li');
+    newTasks.id = contTasks.length + 1;
+    newTasks.textContent = inputValue.value;
     tasksList.appendChild(newTasks);
-    inputValue.value="";
+    inputValue.value = '';
   }
 
   function waitItemSelect() {
-    let itemSelect = document.getElementById('lista-tarefas');
+    const itemSelect = document.getElementById('lista-tarefas');
     itemSelect.addEventListener("click", function(i){markItem(i.target.id)}, false)
   }
   waitItemSelect();
 
   function markItem(idItem) {
-
+    const itemSelected = document.getElementById(idItem);
+    const liItems = document.querySelectorAll('li');
+    for (let i= 0; i < liItems.length; i += 1) {
+      if(liItems[i].id !== idItem) {
+        const noColor = document.getElementById(liItems[i].id);
+        noColor.style.backgroundColor = 'transparent';
+      } else {
+        const color = document.getElementById(liItems[i].id);
+        color.style.backgroundColor = 'rgb(128,128,128)';
+      }
+    }
   }
 }
