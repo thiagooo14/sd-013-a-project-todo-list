@@ -5,6 +5,8 @@ const li = document.createElement('li')
 
 var textoNulo = ""
 
+// teste
+
 botao.addEventListener('click', adicionarTarefa)
 
 function adicionarTarefa () {
