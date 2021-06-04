@@ -33,6 +33,7 @@ function apagaConc() {
   for (let i = 0; i < completedList.length; i += 1) {
     completedList[i].remove();
   }
+  document.querySelector('.campo').id = 'selected';
 }
 
 function apagaTudo() {
