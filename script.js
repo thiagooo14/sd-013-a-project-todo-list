@@ -19,6 +19,7 @@ function addTaskEvents(task) {
 }
 function addTask() {
   const inputText = document.getElementById('texto-tarefa').value;
+  if (inputText === '') return;
   const orderedList = document.getElementById('lista-tarefas');
   const newTask = document.createElement('li');
   newTask.innerText = inputText;
@@ -35,20 +36,11 @@ function deleteDoneTasks() {
     li[i].parentNode.removeChild(li[i]);
   }
 }
-function setupAddButton() {
-  const addBt = document.getElementById('criar-tarefa');
-  addBt.addEventListener('click', addTask);
-}
-function setupDeleteButton() {
-  const delBt = document.getElementById('apaga-tudo');
-  delBt.addEventListener('click', deleteTasks);
-}
-function setupDeleteDoneButton() {
-  const delDoneBt = document.getElementById('remover-finalizados');
-  delDoneBt.addEventListener('click', deleteDoneTasks);
+function configButtonClick(idButton, func) {
+  document.getElementById(idButton).addEventListener('click', func);
 }
 window.onload = function startPage() {
-  setupAddButton();
-  setupDeleteButton();
-  setupDeleteDoneButton();
+  configButtonClick('criar-tarefa', addTask);
+  configButtonClick('apaga-tudo', deleteTasks);
+  configButtonClick('remover-finalizados', deleteDoneTasks);
 };
