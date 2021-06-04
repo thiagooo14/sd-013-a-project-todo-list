@@ -9,15 +9,14 @@ buttonCreateTask.addEventListener('click', function createTask() {
   li.innerHTML = taskText;
   ol.appendChild(li);
   task.value = '';
-  li.addEventListener('click', taskSelect)
+  li.addEventListener('click', taskSelect);
 });
 
 function taskSelect(event) {
-  let li = document.querySelectorAll('.liTask');
+  const li = document.querySelectorAll('.liTask');
   for (let i = 0; i < li.length; i += 1) {
-    if (li[i].id = 'selected-task') {
-      li[i].removeAttribute('id');
-    }
+    li[i].removeAttribute('id');
   }
+
   event.target.id = 'selected-task';
-};
+}
