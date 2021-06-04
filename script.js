@@ -1,7 +1,8 @@
 const button = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
-const buttonRemove = document.getElementById('apaga-tudo')
+const buttonRemoveAll = document.getElementById('apaga-tudo');
+const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
 
 //Botão para adicionar o texto do input na lista "ol".
 function addTask() {
@@ -45,10 +46,23 @@ function completed() {
 }
 completed();
 
-// Botão para remover tarefas da lista.
+// Botão para remover todas as tarefas da lista.
 function remove() {
   while (list.firstElementChild !== null) { /* Laço while retirado deste link https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/while */   
     list.removeChild(list.firstElementChild); // Se o primeiro elemento filho for diferente de null (vazio), ele é removido.
   }
   }
-buttonRemove.addEventListener('click', remove); // Aciona o evento com um clique.
+buttonRemoveAll.addEventListener('click', remove); // Aciona o evento com um clique.
+
+
+// Botão para remover tarefas finalizadas da lista.
+function removeCompleted() {
+  let completedTasks = document.querySelectorAll('.completed');
+  
+  for (let i2 = 0; i2 < completedTasks.length; i2 += 1) { // Para percorrer todas as tarefas dentro da lista.
+    if (completedTasks[i2].classList.contains('completed')) {
+      list.removeChild(completedTasks[i2]); // Cada item na lista que tiver a classe "completed" vai ser removido.
+    }
+  }
+}
+buttonRemoveCompleted.addEventListener('click', removeCompleted);
