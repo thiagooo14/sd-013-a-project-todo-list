@@ -3,6 +3,8 @@ const btnCreate = document.getElementById('criar-tarefa');
 const btnClear = document.getElementById('apaga-tudo');
 const btnClearCompleted = document.getElementById('remover-finalizados');
 const btnSave = document.getElementById('salvar-tarefas');
+const btnUp = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
 const taskList = document.getElementById('lista-tarefas');
 
 /**
@@ -74,12 +76,32 @@ function retrieveTaskListFromLocalStorage() {
   }
 }
 
+function moveSelectedTaskUp() {
+  const taskSelected = document.querySelector('.selected');
+  if (!taskSelected) return;
+
+  if (taskSelected !== taskList.firstChild) {
+    taskList.insertBefore(taskSelected, taskSelected.previousElementSibling);
+  }
+}
+
+function moveSelectedTaskDown() {
+  const taskSelected = document.querySelector('.selected');
+  if (!taskSelected) return;
+
+  if (taskSelected !== taskList.lastChild) {
+    taskSelected.nextElementSibling.insertAdjacentElement('afterend', taskSelected);
+  }
+}
+
 window.onload = () => {
   retrieveTaskListFromLocalStorage();
   btnCreate.addEventListener('click', createTask);
   btnClear.addEventListener('click', clearTaskList);
   btnClearCompleted.addEventListener('click', clearTasksCompleted);
   btnSave.addEventListener('click', save);
+  btnUp.addEventListener('click', moveSelectedTaskUp);
+  btnDown.addEventListener('click', moveSelectedTaskDown);
   document.addEventListener('click', selectTask);
   document.addEventListener('dblclick', completeTask);
 };
