@@ -32,15 +32,23 @@ function deleteTasks() {
 }
 function deleteDoneTasks() {
   const li = document.querySelectorAll('.completed');
+  console.log(li);
   for (let i = 0; i < li.length; i += 1) {
     li[i].parentNode.removeChild(li[i]);
   }
+}
+function deleteSelectedTask() {
+  const li = document.querySelector('.selected');
+  console.log(li);
+  if (li === null) return;
+  li.parentNode.removeChild(li);
 }
 function configButtonClick(idButton, func) {
   document.getElementById(idButton).addEventListener('click', func);
 }
 window.onload = function startPage() {
   configButtonClick('criar-tarefa', addTask);
+  configButtonClick('remover-selecionado', deleteSelectedTask);
   configButtonClick('apaga-tudo', deleteTasks);
   configButtonClick('remover-finalizados', deleteDoneTasks);
 };
