@@ -43,6 +43,13 @@ button {
   color: aliceblue;
 }
 
+#remover-finalizados {
+  padding: 5px;
+  border-radius: 10%;
+  background-color:rgb(32, 118, 139);
+  color: aliceblue;
+}
+
 ol {
   margin-top: 20px;
 }

@@ -39,11 +39,9 @@ window.onload = function () {
   function doubleClick(idDoubleClick) {
     const itemCompleted = document.getElementById(idDoubleClick).className;
     if (itemCompleted.indexOf('completed') !== -1) {
-      console.log('achou');
       const noMark = document.getElementById(idDoubleClick);
       noMark.classList.remove('completed');
     } else {
-      console.log('não achou');
       const mark = document.getElementById(idDoubleClick);
       mark.classList.add('completed');
     }
@@ -57,8 +55,8 @@ window.onload = function () {
 
   function deleteAll() {
     const liItems = document.querySelectorAll('li');
-    for (let i = 1; i <= liItems.length; i += 1) {
-      const deleteItem = document.getElementById(i).remove();
+    for (let i = 0; i < liItems.length; i += 1) {
+      const deleteItem = document.getElementById(liItems[i].id).remove();
     }
   }
 
@@ -67,4 +65,17 @@ window.onload = function () {
     deleteEvent.addEventListener('click', deleteAll, false);
   }
   waitDeleteAll();
+
+  function deleteAllFinalized() {
+    const finalizeds = document.querySelectorAll('.completed');
+    for (let i = 0; i < finalizeds.length; i += 1) {
+      const deleteFinalized = document.getElementById(finalizeds[i].id).remove();
+    }
+  }
+
+  function waitDeleteAllFinalized() {
+    const deleteEvent = document.getElementById('remover-finalizados');
+    deleteEvent.addEventListener('click', deleteAllFinalized, false);
+  }
+  waitDeleteAllFinalized();
 }
