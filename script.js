@@ -30,18 +30,22 @@ const arrayList = document.getElementsByClassName('item');
 const ol = document.getElementById('lista-tarefas');
 
 function changeSelected() {
-  function changeIntoElements(event) {
-    if (event.target.classList.contains('item')) {
-      for (let index = 0; index < arrayList.length; index += 1) {
-        if (arrayList[index].classList.contains('selected')) {
-          arrayList[index].classList.remove('selected');
-        }
+  function takeTheClass() {
+    for (let index = 0; index < arrayList.length; index += 1) {
+      if (arrayList[index].classList.contains('selected')) {
+        arrayList[index].classList.remove('selected');
       }
+    }
+  }
+
+  function putTheClass(event) {
+    takeTheClass();
+    if (event.target.classList.contains('item')) {
       event.target.classList.add('selected');
     }
   }
 
-  ol.addEventListener('click', changeIntoElements);
+  ol.addEventListener('click', putTheClass);
 }
 changeSelected();
 
@@ -83,13 +87,13 @@ function loadList() {
     localStorage.setItem('lista-de-tarefas', ol.innerHTML);
   });
 }
-  ol.innerHTML = localStorage.getItem('lista-de-tarefas');
+ol.innerHTML = localStorage.getItem('lista-de-tarefas');
 
 loadList();
 
 // Criar botão que mova item selecionado para cima ou para baixo na lista de tarefas
 const buttonUp = document.querySelector('#mover-cima');
-const buttonDown = document.querySelector('#mover-baixo')
+const buttonDown = document.querySelector('#mover-baixo');
 
 function moveTask() {
   buttonUp.addEventListener('click', () => {
@@ -99,7 +103,7 @@ function moveTask() {
     }
   });
 
-// Funções criadas com ajuda do Erick Santos (turma 13 - tribo A)
+  // Funções criadas com ajuda do Erick Santos (turma 13 - tribo A)
 
   buttonDown.addEventListener('click', () => {
     const selectedElement = document.querySelector('.selected');
@@ -117,6 +121,6 @@ function removeItem() {
   buttonRmvItem.addEventListener('click', () => {
     const selectedEl = document.querySelector('.selected');
     selectedEl.parentNode.removeChild(selectedEl);
-  })
+  });
 }
 removeItem();
