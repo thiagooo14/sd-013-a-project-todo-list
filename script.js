@@ -31,12 +31,14 @@ const ol = document.getElementById('lista-tarefas');
 
 function changeSelected() {
   function changeIntoElements(event) {
-    for (let index = 0; index < arrayList.length; index += 1) {
-      if (arrayList[index].classList.contains('selected')) {
-        arrayList[index].classList.remove('selected');
+    if (event.target.classList.contains('item')) {
+      for (let index = 0; index < arrayList.length; index += 1) {
+        if (arrayList[index].classList.contains('selected')) {
+          arrayList[index].classList.remove('selected');
+        }
       }
+      event.target.classList.add('selected');
     }
-    event.target.classList.add('selected');
   }
 
   ol.addEventListener('click', changeIntoElements);
@@ -77,11 +79,33 @@ buttonRmvCompleted.addEventListener('click', removeCompleted);
 const buttonSave = document.querySelector('#salvar-tarefas');
 
 function loadList() {
-  buttonSave.addEventListener('click', (event) => {
+  buttonSave.addEventListener('click', () => {
     localStorage.setItem('lista-de-tarefas', ol.innerHTML);
   });
 }
-window.onload = function () {
   ol.innerHTML = localStorage.getItem('lista-de-tarefas');
-}
+
 loadList();
+
+// Criar botão que mova item selecionado para cima ou para baixo na lista de tarefas
+const buttonUp = document.querySelector('#mover-cima');
+const buttonDown = document.querySelector('#mover-baixo')
+
+function moveTask() {
+  buttonUp.addEventListener('click', () => {
+    const selectedElement = document.querySelector('.selected');
+    if (selectedElement && selectedElement.previousElementSibling) {
+      ol.insertBefore(selectedElement, selectedElement.previousElementSibling);
+    }
+  });
+
+// Funções criadas com ajuda do Erick Santos (turma 13 - tribo A)
+
+  buttonDown.addEventListener('click', () => {
+    const selectedElement = document.querySelector('.selected');
+    if (selectedElement && selectedElement.nextElementSibling) {
+      ol.insertBefore(selectedElement.nextElementSibling, selectedElement);
+    }
+  });
+}
+moveTask();
