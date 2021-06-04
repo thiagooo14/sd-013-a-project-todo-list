@@ -52,7 +52,7 @@ function EraseAll(){
  const buttonEraseTask = document.querySelector('#apaga-tudo')
 
 buttonEraseTask.addEventListener('click', EraseAll);
-
+/* Com a ajuda da Julia eu vi que a lógica estava certa, mas eu estava esquecendo de por a #*/
 function RemoveCompleted() {
   const taskCompleted = document.querySelectorAll('.completed');//procura todos com a classe completed
   for (let index = 0; index < taskCompleted.length; index += 1) { //um for passa por todos 
@@ -64,9 +64,11 @@ function RemoveCompleted() {
 
   buttonRemove.addEventListener('click',RemoveCompleted )
 
+
+  /*fonte:https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_insertbefore*/
   function moveUp() {
     const selected = document.querySelector('.selected');//primeiro busquei o elemento com  a classe  selecionado
-    if (selected !== ol.firstElementChild) { //se o elemento selecionado nao for o primeiro
+    if ( selected!== null && selected !== ol.firstElementChild) { //se o elemento selecionado nao for o primeiro
       ol.insertBefore(selected, selected.previousSibling); //a primeira parte é o item no caso o elemento selcioando, a segunda parte onde quero por,inserir o elemento antes do que vem acima que é o ṕrevious sibling
     }
   }
@@ -76,7 +78,7 @@ function RemoveCompleted() {
 
   function moveDown(){
     const selected = document.querySelector('.selected')
-    if(selected !==ol.lastElementChild){
+    if(selected !== null && selected !==ol.lastElementChild){
       ol.insertBefore(selected.nextSibling, selected);// o elemento seguinte seja adicionado antes do elemento selcionado, assim o elemento selecionado cai para baixo 
     }
   }
@@ -89,7 +91,5 @@ function RemoveSelect(){
 const selected = document.querySelector('.selected')
   ol.removeChild(selected); 
 }
-
-
 const selectbutton= document.querySelector("#remover-selecionado")
 selectbutton.addEventListener('click', RemoveSelect)
