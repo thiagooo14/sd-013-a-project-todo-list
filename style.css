@@ -1,0 +1,23 @@
+.selected{
+    background-color: rgb(128, 128, 128)
+}
+
+.button-group, button{
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button-group{
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    border: solid;
+}
+
+ header{
+     border: solid;
+ }
+
