@@ -1,5 +1,6 @@
 const buttonCreateTask = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
+const clearButton = document.querySelector('#apaga-tudo');
 
 buttonCreateTask.addEventListener('click', function createTask() {
   const task = document.querySelector('#texto-tarefa');
@@ -24,3 +25,10 @@ function taskSelect(event) {
 function taskFinished(event) {
   event.target.classList.toggle('completed');
 }
+
+clearButton.addEventListener('click', function clearAllTasks() {
+  let li = document.querySelectorAll('.liTask');
+  for (let j = 0; j < li.length; j += 1) {
+    ol.removeChild(li[j]);
+  }
+});

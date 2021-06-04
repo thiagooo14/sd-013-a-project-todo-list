@@ -10,12 +10,13 @@ p {
 
 #texto-tarefa {
   height: 30px;
-  width: 300px;
+  width: 250px;
 }
 
 #criar-tarefa {
   height: 30px;
   padding: 5px;
+  display: inline-block;
 }
 
 .liTask {
@@ -31,4 +32,8 @@ p {
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+#apaga-tudo {
+  display: inline-block;
 }
