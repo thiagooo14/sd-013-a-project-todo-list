@@ -1,6 +1,7 @@
 const button = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
+const buttonRemove = document.getElementById('apaga-tudo')
 
 //Botão para adicionar o texto do input na lista "ol".
 function addTask() {
@@ -16,10 +17,10 @@ function addTask() {
   }
   button.addEventListener('click', newListItem);
   }
-addTask(); //Chama a função
+addTask(); //Chama a função.
 
 
-/* Adicionar a cor rgb(128, 128, 128) ao clicar nos itens da lista */
+/* Adicionar a cor rgb(128, 128, 128) ao clicar nos itens da lista. */
 function changeColor() {
   function itemColorChange(event) {
     let listaLi = document.getElementsByTagName('li');
@@ -30,12 +31,12 @@ function changeColor() {
     }
     event.target.classList.add('color-change');
   }
-  list.addEventListener('click', itemColorChange); //Evento "ao clicar" realiza a função para mudar a cor de fundo
+  list.addEventListener('click', itemColorChange); //Evento "ao clicar" realiza a função para mudar a cor de fundo.
 }
   
 changeColor();
 
-// Clique duplo para riscar tarefa completada
+// Clique duplo para riscar tarefa completada.
 function completed() {
   list.addEventListener('dblclick', (event) => { // "dbclick" evento para o clique duplo
     event.target.classList.toggle('completed'); /* Toggle - Quando apenas um argumento está presente: Toggle class value; Ou seja, se a classe existir, em seguida, removê-lo e retornar false, se não, então adicioná-lo e retornar true.
@@ -43,3 +44,11 @@ function completed() {
   })
 }
 completed();
+
+// Botão para remover tarefas da lista.
+function remove() {
+  while (list.firstElementChild !== null) { /* Laço while retirado deste link https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/while */   
+    list.removeChild(list.firstElementChild); // Se o primeiro elemento filho for diferente de null (vazio), ele é removido.
+  }
+  }
+buttonRemove.addEventListener('click', remove); // Aciona o evento com um clique.
