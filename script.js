@@ -39,9 +39,23 @@ recuperaOl.addEventListener('click', selecionaCor);
 // Função que adiciona classe 'scratched', risca tarefa completa e faz o inverso
 // ======================================================================================
 
-function riscado (event) {
-  let elementoClicado = event.target;
+function riscado(event) {
+  const elementoClicado = event.target;
   elementoClicado.classList.toggle('completed');
 }
 
 recuperaOl.addEventListener('dblclick', riscado);
+
+// ======================================================================================
+//     Função de apagar todos os itens da lista ao clicar no botão 'apaga tudo'
+// ======================================================================================
+const recuperaBotaoApagar = document.querySelector('#apaga-tudo');
+
+function apagaTudo() {
+  const recuperaTarefasNode = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < recuperaTarefasNode.length; index += 1) {
+    recuperaTarefasNode[index].remove();
+  }
+}
+
+recuperaBotaoApagar.addEventListener('click', apagaTudo);
