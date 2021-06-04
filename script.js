@@ -1,9 +1,12 @@
-let listTarefa = document.querySelector('#lista-tarefas');
-let textoTarefa = document.querySelector('#texto-tarefa');
-let buttonAdicionar = document.querySelector('#criar-tarefa');
+const listTarefa = document.querySelector('#lista-tarefas');
+const textoTarefa = document.querySelector('#texto-tarefa');
+const buttonAdicionar = document.querySelector('#criar-tarefa');
+const buttonClear = document.querySelector('.apaga-tudo');
+const buttonSelected = document.querySelector('.remover-finalizados');
 const getLi = document.getElementsByTagName('li');
 
 function adicionar() {
+  buttonAdicionar.addEventListener('click', adicionar);
   let lis = document.createElement('li');
   let texto = textoTarefa.value;
 
@@ -14,7 +17,7 @@ function adicionar() {
   }
 }
 
-buttonAdicionar.addEventListener('click', adicionar);
+adicionar();
 
 // Desafio 7 foi com a ajuda de Thiago Carboneri
 
@@ -37,3 +40,18 @@ function selectedClass_2() {
 }
 
 selectedClass_2();
+
+
+function deleteList() {
+  buttonClear.addEventListener('click', deleteList);
+
+  while (getLi.length > 0) {
+    for (let n = 0; n < getLi.length; n += 1) {
+      let t = getLi[n];
+      listTarefa.removeChild(t);
+    }
+  }
+}
+
+deleteList();
+
