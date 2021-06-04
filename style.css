@@ -17,14 +17,107 @@ main {
   box-shadow: 1px 1px 6px 1px rgba(0 , 0 , 0 , 0.1);
 }
 
+section {
+  margin-top: 15px;
+}
+
+#criar-tarefa , #texto-tarefa {
+  padding: 5px;
+  margin-top: 20px;
+}
+
+#criar-tarefa {
+  cursor: pointer;
+  background-color: darkkhaki;
+  border: 2px solid darkkhaki;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+#criar-tarefa:hover {
+  transition: 0.2s;
+  background-color: sandybrown;
+  border: 2px solid sandybrown;
+}
+
+.container-buttons button {
+  padding: 5px;
+  cursor: pointer;
+}
+
 #lista-tarefas {
-  margin: 10px 20px;
+  margin: 15px 0;
+  padding: 20px;
+  list-style-position: inside;
+  background-color: rgb(235 , 235 , 241);
+  border-radius: 2px;
+}
+
+#lista-tarefas li {
+  padding: 3px;
 }
 
 .selected {
   background-color: gray;
+  border-radius: 2px;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+.danger {
+  background-color: darkred;
+  border: 2px solid darkred;
+  color: white;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+.danger:hover {
+  transition: 0.2s;
+  background-color: red;
+  border: 2px solid red;
+}
+
+.dark {
+  background-color: rgb(17 , 17 , 17);
+  border: 2px solid rgb(17 , 17 , 17);
+  color: white;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+.dark:hover {
+  transition: 0.2s;
+  background-color: rgb(41 , 41 , 41);
+  border: 2px solid rgb(41 , 41 , 41);
+}
+
+.blue {
+  background-color: darkblue;
+  border: 2px solid darkblue;
+  color: white;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+.blue:hover {
+  transition: 0.2s;
+  background-color: blue;
+  border: 2px solid blue;
+}
+
+.green {
+  background-color: darkgreen;
+  border: 2px solid darkgreen;
+  color: white;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+.green:hover {
+  transition: 0.2s;
+  background-color: green;
+  border: 2px solid green;
 }

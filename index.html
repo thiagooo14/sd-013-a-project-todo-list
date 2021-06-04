@@ -17,9 +17,14 @@
     </header>
     <section>
       <ol id="lista-tarefas"></ol>
-      <button id="apaga-tudo">Limpar Lista</button>
-      <button id="remover-finalizados">Limpar Finalidados</button>
-      <button id="salvar-tarefas">Salvar Tarefas</button>
+      <div class="container-buttons">
+        <button id="remover-selecionado" class="danger">X</button>
+        <button id="mover-cima" class="dark">&xwedge;</button>
+        <button id="mover-baixo" class="dark">&xvee;</button>
+        <button id="apaga-tudo" class="blue">Limpar Lista</button>
+        <button id="remover-finalizados" class="blue">Limpar Finalidados</button>
+        <button id="salvar-tarefas" class="green">Salvar Tarefas</button>
+      </div>
     </section>
   </main>
   <script src="script.js"></script>
