@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, sans-serif;
+  color: black;
+  background-color: #F8F8FF;
+}
+
+header {
+  padding: 50px 50px 50px;
+  text-align: justify;
+  font-size: 35px;
+  font-weight: 700;;
+}
+
+
+#funcionamento {
+  font-weight: 500;
+  font-size: 17px;
+  padding: 25px 0px 25px;
+  font-style: italic;
+}
+
+#left {
+  float: left;
+  width: 600px;
+  height: 800px;
+  background-color: #789ec9;
+  box-shadow: 2px 0 50px 5px black;
+}
+
+#texto-tarefa {
+  width: 400px;
+  height: 30px;
+  justify-content: center;
+  border: 1px solid black;
+  margin-left: 60px;
+}
+
+#criar-tarefa {
+  width: 90px;
+  height: 25px;
+  margin-left: 20px;
+}
+
+#lista-tarefas {
+  margin: 50px 0 50px;
+}
+
+#right {
+  float: right;
+  width: 45%;
+}
+
+.items-task {
+  font-size: 20px;
+  padding: 15px 0 15px
+}
