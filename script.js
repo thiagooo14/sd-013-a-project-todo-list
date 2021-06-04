@@ -78,7 +78,7 @@ function RemoveCompleted() {
 
   function moveDown(){
     const selected = document.querySelector('.selected')
-    if(selected !== null && selected !==ol.lastElementChild){
+    if(selected !== null && selected !==ol.lastElementChild){//null foi colocado aí para mostrar que algum elemento esta selecioando, e satisfazer o requisito "Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botões não altera a lista"
       ol.insertBefore(selected.nextSibling, selected);// o elemento seguinte seja adicionado antes do elemento selcionado, assim o elemento selecionado cai para baixo 
     }
   }
@@ -93,3 +93,19 @@ const selected = document.querySelector('.selected')
 }
 const selectbutton= document.querySelector("#remover-selecionado")
 selectbutton.addEventListener('click', RemoveSelect)
+
+
+function saveTask() {
+  const allList = ol.innerHTML;
+  localStorage.setItem('savetask', allList);
+}
+
+let savedTask= localStorage.getItem('savetask');
+ol.innerHTML=savedTask
+
+
+const saveButton= document.querySelector("#salvar-tarefas");
+saveButton.addEventListener('click', saveTask);
+
+/* A resolução do salvar foi baseado no vídeo que existe no curso da Trybe, do bloco 5.4, no minuto 24. 
+Temos que guardar o item, e depois recuperar ele com o get item.*/
