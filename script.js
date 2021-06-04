@@ -113,3 +113,17 @@ function save(){
     localStorage.setItem('tarefas', array);
     localStorage.getItem('tarefas');
 }
+
+function removeSelected(){
+    let button = document.getElementById('remover-selecionado');
+    button.addEventListener('click', function(){
+        let lista = document.querySelectorAll('li');
+        for (let i = 0; i < lista.length; i++) {
+            const element = lista[i];
+            if (element.className ==" selected"){
+                element.remove();
+            }
+        }
+    })
+}
+removeSelected();
