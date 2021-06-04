@@ -1,9 +1,4 @@
 window.onload = function () {
-  function waitCreateTasks() {
-    const createTasks = document.getElementById('criar-tarefa');
-    createTasks.addEventListener('click', addTasks, false);
-  }
-  waitCreateTasks();
 
   function addTasks() {
     const inputValue = document.getElementById('texto-tarefa');
@@ -16,11 +11,11 @@ window.onload = function () {
     inputValue.value = '';
   }
 
-  function waitItemSelect() {
-    const itemSelect = document.getElementById('lista-tarefas');
-    itemSelect.addEventListener('click', function(i) {markItem(i.target.id)} , false);
+  function waitCreateTasks() {
+    const createTasks = document.getElementById('criar-tarefa');
+    createTasks.addEventListener('click', addTasks, false);
   }
-  waitItemSelect();
+  waitCreateTasks();
 
   function markItem(idItem) {
     const liItems = document.querySelectorAll('li');
@@ -35,11 +30,11 @@ window.onload = function () {
     }
   }
 
-  function waitDoubleClick() {
+  function waitItemSelect() {
     const itemSelect = document.getElementById('lista-tarefas');
-    itemSelect.addEventListener('dblclick', function(i) {doubleClick(i.target.id)} , false);
+    itemSelect.addEventListener('click', function(i) { markItem(i.target.id) }, false);
   }
-  waitDoubleClick();
+  waitItemSelect();
 
   function doubleClick(idDoubleClick) {
     const itemCompleted = document.getElementById(idDoubleClick).className;
@@ -52,5 +47,24 @@ window.onload = function () {
       const mark = document.getElementById(idDoubleClick);
       mark.classList.add('completed');
     }
-  } 
+  }
+
+  function waitDoubleClick() {
+    const itemSelect = document.getElementById('lista-tarefas');
+    itemSelect.addEventListener('dblclick', function(i) { doubleClick(i.target.id) }, false);
+  }
+  waitDoubleClick();
+
+  function deleteAll() {
+    const liItems = document.querySelectorAll('li');
+    for (let i = 1; i <= liItems.length; i += 1) {
+      const deleteItem = document.getElementById(i).remove();
+    }
+  }
+
+  function waitDeleteAll() {
+    const deleteEvent = document.getElementById('apaga-tudo');
+    deleteEvent.addEventListener('click', deleteAll, false);
+  }
+  waitDeleteAll();
 }
