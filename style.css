@@ -1,7 +1,16 @@
+#texto-tarefa {
+  width: 208px;
+}
+
 #criar-tarefa {
   width: auto;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+#apaga-tudo {
+  width: auto;
+  margin-left: 50px;
 }

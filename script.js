@@ -1,4 +1,5 @@
 const CriarTarefaBtn = document.querySelector('#criar-tarefa');
+const apagaBtn = document.querySelector('#apaga-tudo');
 const ol = document.querySelector('#lista-tarefas');
 
 function selecionaItem(event) {
@@ -26,4 +27,10 @@ function addTarefa() {
   tarefa.focus();
 }
 
+function apagaTudo() {
+  ol.innerText = '';
+  document.querySelector('.campo').id = 'selected';
+}
+
 CriarTarefaBtn.addEventListener('click', addTarefa);
+apagaBtn.addEventListener('click', apagaTudo);
