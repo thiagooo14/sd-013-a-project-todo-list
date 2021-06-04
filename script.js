@@ -1,5 +1,6 @@
 const input = document.getElementById('texto-tarefa');
-const btn = document.getElementById('criar-tarefa');
+const btnCreate = document.getElementById('criar-tarefa');
+const btnClear = document.getElementById('apaga-tudo');
 const taskList = document.getElementById('lista-tarefas');
 
 function createTask() {
@@ -26,8 +27,13 @@ function completeTask(e) {
   if (e.target.classList.contains('task')) e.target.classList.toggle('completed');
 }
 
+function clearTaskList() {
+  while (taskList.firstChild) taskList.firstChild.remove();
+}
+
 window.onload = () => {
-  btn.addEventListener('click', createTask);
+  btnCreate.addEventListener('click', createTask);
+  btnClear.addEventListener('click', clearTaskList);
   document.addEventListener('click', selectTask);
   document.addEventListener('dblclick', completeTask);
 };
