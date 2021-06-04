@@ -15,6 +15,7 @@ function addTask() {
   }
 
   button.addEventListener('click', add);
+
   input.addEventListener('keydown', (event) => {
     const key = event.code;
     if (key === 'Enter' || key === 'NumpadEnter') {
@@ -71,3 +72,16 @@ function removeCompleted() {
   }
 }
 buttonRmvCompleted.addEventListener('click', removeCompleted);
+
+// Botão para salvar a lista de tarefas
+const buttonSave = document.querySelector('#salvar-tarefas');
+
+function loadList() {
+  buttonSave.addEventListener('click', (event) => {
+    localStorage.setItem('lista-de-tarefas', ol.innerHTML);
+  });
+}
+window.onload = function () {
+  ol.innerHTML = localStorage.getItem('lista-de-tarefas');
+}
+loadList();
