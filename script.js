@@ -12,23 +12,23 @@ buttonCreateTask.addEventListener('click', function createTask() {
   ol.appendChild(li);
   task.value = '';
   li.addEventListener('click', function taskSelect(event) {
-    const li = document.querySelectorAll('.liTask');
-    for (let i = 0; i < li.length; i += 1) {
-      li[i].removeAttribute('id');
+    const allLi = document.querySelectorAll('.liTask');
+    for (let i = 0; i < allLi.length; i += 1) {
+      allLi[i].removeAttribute('id');
     }
     event.target.id = 'selected-task';
-  })
+  });
   li.addEventListener('dblclick', function taskFinished(event) {
     event.target.classList.toggle('completed'); 
-  })
-})
+  });
+});
 
 clearButton.addEventListener('click', function clearAllTasks() {
   const li = document.querySelectorAll('.liTask');
   for (let j = 0; j < li.length; j += 1) {
     ol.removeChild(li[j]);
   }
-})
+});
 
 clearFinishedButton.addEventListener('click', function clearFinishedOnes() {
   const finishedTasks = document.querySelectorAll('.completed');
