@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+}
+body {
+  background-color: rgb(179, 179, 179);
+}
+.header {
+  max-width: 80%;
+  height: 8em;
+  margin: auto;
+  margin-top: 2em;
+  background-color: rgb(164, 201, 235);
+  border-radius: 12px;
+  border: 2px solid rgb(138, 138, 138);
+  box-shadow: 4px 8px 4px rgba(44, 44, 44, 0.6);
+}
+.text-box {
+  text-align: center;
+  margin-top: 2em
+}
+.text-box h1 {
+  color: rgb(51, 51, 51);
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px 2px rgba(78, 78, 78, 0.6);
+}
+.text-box p {
+  font-size: 18px;
+  margin-top: 4px;
+  font-style: italic;
+  color: rgb(77, 77, 77);
+}
+main {
+  max-width: 80%;
+  height: 26em;
+  margin: auto;
+  margin-top: 3em;
+  background-color: white;
+  border-radius: 12px;
+  border: 2px solid rgb(138, 138, 138);
+  box-shadow: 4px 8px 4px rgba(44, 44, 44, 0.6);
+}
+.new-task-group {
+  width: 20em;
+  height: 4em;
+  margin-top: 3em;
+  margin-left: 5em;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.input-box {
+  float: left;
+}
+#texto-tarefa {
+  margin-top: 9px;
+  padding: 4px 18px;
+  border-radius: 8px;
+}
+.button-box {
+  margin-left: 16em;
+}
+#criar-tarefa {
+  color: rgb(224, 224, 224);
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background-color: rgb(15, 170, 231);
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.8);
+}
+#criar-tarefa:hover {
+  background-color: rgb(67, 182, 228);
+}
+.list-box {
+  width: 20em;
+  margin-left: 4em;
+}
+#lista-tarefas {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 24px;
+}
