@@ -34,3 +34,12 @@ function changeColor() {
 }
   
 changeColor();
+
+// Clique duplo para riscar tarefa completada
+function completed() {
+  list.addEventListener('dblclick', (event) => { // "dbclick" evento para o clique duplo
+    event.target.classList.toggle('completed'); /* Toggle - Quando apenas um argumento está presente: Toggle class value; Ou seja, se a classe existir, em seguida, removê-lo e retornar false, se não, então adicioná-lo e retornar true.
+    Quando um segundo argumento está presente: Se o segundo argumento é avaliado como true, adicione o valor especificado da classe e, se ele for avaliado como false, remova-o. Retirado deste link https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList */
+  })
+}
+completed();
