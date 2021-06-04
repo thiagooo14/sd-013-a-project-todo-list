@@ -1,0 +1,17 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+.selected {
+background-color: rgb(128, 128, 128);
+}
+
+ol {
+width: 300px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0,0,0);
+}
+
