@@ -1,27 +1,27 @@
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
 
-#texto-tarefa {
-  text-align: center;
-}
+  #texto-tarefa {
+    text-align: center;
+  }
 
-header {
-  margin: 0 auto;
-  text-align: center;
-  background-color: rgb(245, 63, 63);
-}
+  header {
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(245, 63, 63);
+  }
 
-.container {
-  display: flex;
-  justify-content: center;
-  margin: 50px;
-}
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+  }
 
-.itens2 {
-  display: flex;
-  text-align: center;
-  justify-content: center
-}
+  .itens2 {
+    display: flex;
+    text-align: center;
+    justify-content: center
+  }
