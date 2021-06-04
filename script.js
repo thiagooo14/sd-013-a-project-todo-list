@@ -127,3 +127,5 @@ function removeSelected() {
     })
 }
 removeSelected();
+
+// estilo CSS do id listComponents adquirido do site: https://stackoverflow.com/questions/40915850/css-ordered-list-styling-before-margins

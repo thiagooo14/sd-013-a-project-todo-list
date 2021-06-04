@@ -41,30 +41,30 @@ h2 {
     text-align: center;
     display: block;
 }
-  #lista-tarefas {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
+#lista-tarefas { 
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
   
-  #lista-tarefas li {
-    counter-increment: step-counter;
-    margin-bottom: 10px;
-  }
+#lista-tarefas li {
+  counter-increment: step-counter;
+  margin-bottom: 10px;
+}
   
-  #lista-tarefas li:before {
-    content: counter(step-counter);
-    margin-right: 5px;
-    font-size: 80%;
-    background-color: blue;
-    color: white;
-    font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 3px;
-  }
+#lista-tarefas li:before {
+  content: counter(step-counter);
+  margin-right: 5px;
+  font-size: 80%;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
 
 #salar-tarefas, #remover-finalizados, #apaga-tudo {
-    display: inline-block;    
+  display: inline-block;    
 }
 
 #buttons {
