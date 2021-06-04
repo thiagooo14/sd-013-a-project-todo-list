@@ -1,15 +1,23 @@
 const buttonCreateTask = document.querySelector('#criar-tarefa');
+const ol = document.querySelector('#lista-tarefas');
 
 buttonCreateTask.addEventListener('click', function createTask() {
   const task = document.querySelector('#texto-tarefa');
   const taskText = document.querySelector('#texto-tarefa').value;
-  const ol = document.querySelector('#lista-tarefas');
   const li = document.createElement('li');
-  li.className = 'liTask'
+  li.className = 'liTask';
   li.innerHTML = taskText;
   ol.appendChild(li);
   task.value = '';
-  li.addEventListener('click', function printNewBG() {
-    li.style.backgroundColor = 'rgb(128, 128, 128)';
-  });
+  li.addEventListener('click', taskSelect)
 });
+
+function taskSelect(event) {
+  let li = document.querySelectorAll('.liTask');
+  for (let i = 0; i < li.length; i += 1) {
+    if (li[i].id = 'selected-task') {
+      li[i].removeAttribute('id');
+    }
+  }
+  event.target.id = 'selected-task';
+};
