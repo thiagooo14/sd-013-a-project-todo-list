@@ -16,13 +16,20 @@
 
     <main>
       <section class="adiciona-tarefas">
-        <input id="texto-tarefa" type="text" />
-        <button id="criar-tarefa">Adicionar</button>
-        <button id="salvar-tarefas">Salvar Lista</button>
+        <div>
+          <input
+            id="texto-tarefa"
+            type="text"
+            placeholder="Sua tarefa"
+            autofocus
+          />
+          <button id="criar-tarefa">Adicionar</button>
+          <button id="salvar-tarefas">Salvar Lista</button>
+        </div>
         <ol id="lista-tarefas"></ol>
       </section>
 
-      <section class="buttons">
+      <section class="acoes">
         <button id="remover-selecionado">X</button>
         <button id="mover-cima">Cima</button>
         <button id="mover-baixo">Baixo</button>
