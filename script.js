@@ -26,10 +26,29 @@ function addTask() {
   orderedList.appendChild(newTask);
   clearInput();
 }
+function deleteTasks() {
+  document.getElementById('lista-tarefas').innerHTML = '';
+}
+function deleteDoneTasks() {
+  const li = document.querySelectorAll('.completed');
+  for (let i = 0; i < li.length; i += 1) {
+    li[i].parentNode.removeChild(li[i]);
+  }
+}
 function setupAddButton() {
   const addBt = document.getElementById('criar-tarefa');
   addBt.addEventListener('click', addTask);
 }
+function setupDeleteButton() {
+  const delBt = document.getElementById('apaga-tudo');
+  delBt.addEventListener('click', deleteTasks);
+}
+function setupDeleteDoneButton() {
+  const delDoneBt = document.getElementById('remover-finalizados');
+  delDoneBt.addEventListener('click', deleteDoneTasks);
+}
 window.onload = function startPage() {
   setupAddButton();
+  setupDeleteButton();
+  setupDeleteDoneButton();
 };
