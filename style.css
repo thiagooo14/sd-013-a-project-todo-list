@@ -1,19 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+body {
+  background-color: rgb(255, 107, 102);
+  
+}
 header{
   font-family: Indie Flower, sans-serif;
   text-align: center;
+  color: rgb(97, 26, 202);
 }
 
 #lista-botoes {
+  background-color: rgb(255, 216, 59);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  width: 400px;
+  border-radius: 10px;
+  font-family: Indie Flower, sans-serif;
+}
+#criar-tarefa {
+  font-family: Indie Flower, sans-serif;
+  color: rgb(97, 26, 202);
 }
 
+#texto-tarefa {
+  margin: 10px;
+  font-family: Indie Flower, sans-serif;
+  
+}
 li {
   margin: 10px;
+  color: rgb(97, 26, 202);
 }
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0,0,0);
+}
+.selected {
+  background-color: rgb(128, 128, 128)
 }
