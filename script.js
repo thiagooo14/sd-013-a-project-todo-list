@@ -4,7 +4,7 @@ function clearInput() {
 function setupTaskClick(event) {
   const currentSelectedTask = document.getElementsByClassName('selected')[0];
   const element = event.target;
-  if (currentSelectedTask != undefined) {
+  if (currentSelectedTask !== undefined) {
     currentSelectedTask.classList.toggle('selected');
   }
   element.classList.toggle('selected');
