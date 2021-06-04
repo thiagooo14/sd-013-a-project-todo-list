@@ -16,7 +16,7 @@ function createTask(obj) {
   li.className = 'task';
   if (obj.target !== btnCreate) {
     li.innerText = obj.text;
-    if (obj.completed) li.classList.add('selected');
+    if (obj.completed) li.classList.add('completed');
   } else {
     li.innerText = input.value;
     input.value = null;
@@ -59,7 +59,7 @@ function save() {
   Array.prototype.map.call(taskList.children, (task) => {
     listObj.push({
       text: task.innerHTML,
-      completed: task.classList.contains('selected'),
+      completed: task.classList.contains('completed'),
     });
   });
 
