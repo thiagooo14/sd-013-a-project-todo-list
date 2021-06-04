@@ -104,8 +104,6 @@ function remoceSeleteLine() {
   listaTasks.removeChild(selectLine);
 }
 
-
-
 window.onload = () => {
   getSalveItem();
   btnAddTask.addEventListener('click', addTasks);

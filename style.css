@@ -56,11 +56,6 @@ ol {
   width: 732px;
 }
 
-#texto-tarefa:focus {
-  border: 1px solid red;
-  box-shadow: 0 0 10px #719ece;
-}
-
 #select {
   text-align: center;
   transform: scale(0.99);
