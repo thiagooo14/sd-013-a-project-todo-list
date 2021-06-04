@@ -1,10 +1,4 @@
-const input = document.getElementById('texto-tarefa');
-const btnCreate = document.getElementById('criar-tarefa');
-const btnClear = document.getElementById('apaga-tudo');
-const btnClearCompleted = document.getElementById('remover-finalizados');
-const btnSave = document.getElementById('salvar-tarefas');
-const btnUp = document.getElementById('mover-cima');
-const btnDown = document.getElementById('mover-baixo');
+let taskSelected; // Always updated and available in any function.
 const taskList = document.getElementById('lista-tarefas');
 
 /**
@@ -13,6 +7,7 @@ const taskList = document.getElementById('lista-tarefas');
  * object retrieved from localStorage when loading the page.
  */
 function createTask(obj) {
+  const btnCreate = document.getElementById('criar-tarefa');
   const li = document.createElement('li');
 
   li.className = 'task';
@@ -20,6 +15,8 @@ function createTask(obj) {
     li.innerText = obj.text;
     if (obj.completed) li.classList.add('completed');
   } else {
+    const input = document.getElementById('texto-tarefa');
+
     li.innerText = input.value;
     input.value = null;
   }
@@ -32,13 +29,13 @@ function createTaskList(list) {
 
 function selectTask(e) {
   if (e.target.classList.contains('task')) {
-    const previousSelected = document.querySelector('.selected');
-    if (previousSelected === e.target) return;
+    if (taskSelected === e.target) return; // Clicked task already selected
+
+    // Deselect the previous task
+    if (taskSelected) taskSelected.classList.remove('selected');
 
     e.target.classList.add('selected');
-    if (previousSelected) {
-      previousSelected.classList.remove('selected');
-    }
+    taskSelected = e.target; // So browser doesn't need to look it up
   }
 }
 
@@ -78,7 +75,6 @@ function retrieveTaskListFromLocalStorage() {
 }
 
 function moveSelectedTaskUp() {
-  const taskSelected = document.querySelector('.selected');
   if (!taskSelected) return;
 
   if (taskSelected !== taskList.firstChild) {
@@ -87,7 +83,6 @@ function moveSelectedTaskUp() {
 }
 
 function moveSelectedTaskDown() {
-  const taskSelected = document.querySelector('.selected');
   if (!taskSelected) return;
 
   if (taskSelected !== taskList.lastChild) {
@@ -95,14 +90,25 @@ function moveSelectedTaskDown() {
   }
 }
 
+function removeSelectedTask() {
+  if (!taskSelected) return;
+
+  taskSelected.remove();
+}
+
 window.onload = () => {
   retrieveTaskListFromLocalStorage();
-  btnCreate.addEventListener('click', createTask);
-  btnClear.addEventListener('click', clearTaskList);
-  btnClearCompleted.addEventListener('click', clearTasksCompleted);
-  btnSave.addEventListener('click', save);
-  btnUp.addEventListener('click', moveSelectedTaskUp);
-  btnDown.addEventListener('click', moveSelectedTaskDown);
+
+  /** Buttons */
+  document.getElementById('criar-tarefa').addEventListener('click', createTask);
+  document.getElementById('apaga-tudo').addEventListener('click', clearTaskList);
+  document.getElementById('remover-finalizados').addEventListener('click', clearTasksCompleted);
+  document.getElementById('salvar-tarefas').addEventListener('click', save);
+  document.getElementById('mover-cima').addEventListener('click', moveSelectedTaskUp);
+  document.getElementById('mover-baixo').addEventListener('click', moveSelectedTaskDown);
+  document.getElementById('remover-selecionado').addEventListener('click', removeSelectedTask);
+
+  /** Event Bubbling */
   document.addEventListener('click', selectTask);
   document.addEventListener('dblclick', completeTask);
 };
