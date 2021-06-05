@@ -1,15 +1,15 @@
 // Requisito 5 e 6
 
-const selectButton = document.getElementById('criar-tarefa');
+const selectButton = document.getElementById('criar-tarefa'); // caminho do botão
 
-selectButton.addEventListener('click', () => {
-  const createTask = document.getElementById('texto-tarefa');
-  const valueInput = document.getElementById('texto-tarefa').value;
-  const li = document.createElement('li');
-  const ol = document.querySelector('#lista-tarefas');
-  li.innerHTML = valueInput;
-  ol.appendChild(li);
-  createTask.value = '';
+selectButton.addEventListener('click', () => { // onde será aplicado o evento de click
+  const createTask = document.getElementById('texto-tarefa'); // através do caminho de onde está o input
+  const valueInput = document.getElementById('texto-tarefa').value; // resgatamos o que foi digitado pelo usuário
+  const li = document.createElement('li'); // cada input vai criar uma li
+  const ol = document.querySelector('#lista-tarefas'); // que vai ficar dentro da nossa ol
+  li.innerHTML = valueInput; // vamos injetar o input dentro da li
+  ol.appendChild(li); // e injetar a li dentro da ol
+  createTask.value = ''; // e depois limpar tudo
 });
 
 // Requisito 7 e 8
@@ -38,3 +38,13 @@ function selectedClassDoubleClick() { // criar uma função
 }
 
 selectedClassDoubleClick();
+
+// Requisito 10
+function removeItem() {
+  const getButtomRemoveAll = document.querySelector('#apaga-tudo'); // caminho do botão
+  getButtomRemoveAll.addEventListener('click', () => { // adicionar um evento no botão
+    const getOl = document.querySelector('ol'); // acessar a ol
+    getOl.innerHTML = '';
+  });
+ }
+ removeItem();
