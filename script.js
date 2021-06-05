@@ -33,3 +33,12 @@ function selectWord() {
     });
 }
 selectWord();
+
+//função clique duplo
+function dbClick() {
+    const word = document.querySelector('ol');
+    word.addEventListener('dblclick', (event) => {
+        event.target.classList.toggle('completed');
+    })
+}
+dbClick();
