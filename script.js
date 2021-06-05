@@ -16,7 +16,7 @@ const setInput = (event) => {
 
   getInputLabel.value = "";
 
-  return setTask;
+  selectTask();
 }
 
 getInputButton.addEventListener("click", setInput);
@@ -33,35 +33,20 @@ getInputLabel.addEventListener("keyup", function(event) {
 
     getInputLabel.value = "";
   }
+  selectTask();
 });
 
 function selectTask() {
-  let getTask = document.querySelectorAll(".task");
+  const getTask = document.querySelectorAll(".task-list");
 
   for(let i = 0; i < getTask.length; i += 1) {
     getTask[i].addEventListener("click", function() {
       for(let j = 0; j < getTask.length; j += 1) {
-        getTask.classList.remove("selected");
+        getTask[j].classList.remove("selected");
+        getTask[j].style.backgroundColor = "white";
       }
-      getTask.classList.add("selected");
+      getTask[i].classList.add("selected");
+      getTask[i].style.backgroundColor = "rgb(128, 128, 128)";
     });
   }
 }
-
-function selectedTask() {
-  const selectedTask = document.querySelector(".selected");
-
-  selectedTask.style.backgroundColor = "rgb(128,128,128)";
-}
-
-function selectItems() {
-  const getTask = document.querySelectorAll(".task");
-
-  for(let i = 0; i < getTask.length; i += 1) {
-    const task = getTask[i];
-    task.addEventListener("click", selectedTask);
-  }
-}
-
-selectTask();
-selectItems();
