@@ -25,3 +25,13 @@
   display: flex;
   flex-direction: column;
 }
+
+.border {
+  border: 1px solid black;
+}
+
+/*
+.main {
+  display: flex;
+}
+*/

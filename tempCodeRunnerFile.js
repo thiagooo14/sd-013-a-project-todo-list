@@ -1,4 +1,4 @@
-  let taskSelected = document.getElementsByClassName('selected')[0];
-    let taskAbove = taskSelected.previousElementSibling;
-    let elementSupport = taskAbove;
-    console.log(elementSupport);
+const taskSelected = document.getElementsByClassName('selected')[0];
+const taskAbove = taskSelected.previousElementSibling;
+const elementSupport = taskAbove;
+console.log(elementSupport);

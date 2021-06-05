@@ -1,32 +1,30 @@
-
-window.onload = function () {
-  addingTask();
-  taskSelected();
-  completedTasks();
-  clearTasks();
-  removeFinishedTasks();
-  saveSession();
-}
-
 // Cria função para criação de tarefas.
-function addingTask() {
-  let taskText = document.getElementById('texto-tarefa');
-  let btnCreate = document.getElementById('criar-tarefa');
-  let list = document.getElementById('lista-tarefas');
 
-  btnCreate.addEventListener('click', function () {
-    let task = document.createElement('li');
+function addingTask(list) {
+  const taskText = document.getElementById('texto-tarefa');
+  const btnCreate = document.getElementById('criar-tarefa');
+
+  function addTask() {
+    const task = document.createElement('li');
     task.classList.add('task');
-    task.innerText = taskText.value
+    task.innerText = taskText.value;
     list.appendChild(task);
     taskText.value = null;
-  })
+  }
+
+  btnCreate.addEventListener('click', addTask);
+  taskText.addEventListener('keyup', (event) => {
+    if (event.keyCode === 13) {
+      addTask();
+    }
+  });
 }
 
 // Cria função de remover classes. Obs: parametro 'element' pode ser também uma classe ou id;
 function removeClass(element, eClass) {
-  element = document.querySelectorAll(element);
-  for (let iterator of element) {
+  const element1 = document.querySelectorAll(element);
+  for (let i = 0; i < element1.length; i += 1) {
+    const iterator = element1[i];
     if (iterator.classList.contains(eClass)) {
       iterator.classList.remove(eClass);
     }
@@ -34,166 +32,160 @@ function removeClass(element, eClass) {
 }
 
 // Cria função de selecionar tarefas.
-function taskSelected() {
-
-  document.addEventListener('click', function (event) {
-    let task = event.target;
+function taskSelector() {
+  document.addEventListener('click', (event) => {
+    const task = event.target;
     if (task.classList.contains('task')) {
-
       removeClass('li', 'selected');
       task.classList.add('selected');
-
     }
-  })
+  });
 }
 
 // Cria funcao de riscar tarefas já completadas.
 function completedTasks() {
-
-  document.addEventListener('dblclick', function (event) {
-    let task = event.target;
+  document.addEventListener('dblclick', (event) => {
+    const task = event.target;
     if (task.classList.contains('task')) {
       if (task.classList.contains('completed')) {
-        task.classList.remove('completed')
+        task.classList.remove('completed');
       } else {
         task.classList.add('completed');
       }
     }
-  })
+  });
 }
 
 // Cria funcao de limpar as tarefas.
-function clearTasks() {
+function clearTasks(list) {
+  const btnClear = document.getElementById('apaga-tudo');
 
-  let btnClear = document.getElementById('apaga-tudo');
+  btnClear.addEventListener('click', () => {
+    const tasks = document.querySelectorAll('.task');
+    for (let i = 0; i < tasks.length; i += 1) {
+      const element = tasks[i];
 
-  btnClear.addEventListener('click', function () {
-    let taskList = document.getElementById('lista-tarefas');
-
-    let tasks = document.querySelectorAll('.task');
-    for (element of tasks) {
-      taskList.removeChild(element);
+      list.removeChild(element);
     }
-  })
+  });
 }
 
 // Cria funcao para remover tarefas finalizadas.
-function removeFinishedTasks() {
-  let btnFinished = document.getElementById('remover-finalizados');
+function removeFinishedTasks(list) {
+  const btnFinished = document.getElementById('remover-finalizados');
 
-  btnFinished.addEventListener('click', function () {
-    let tasks = document.querySelectorAll('.completed');
-    let taskList = document.getElementById('lista-tarefas')
+  btnFinished.addEventListener('click', () => {
+    const tasks = document.querySelectorAll('.completed');
 
-    for (let element of tasks) {
-      taskList.removeChild(element);
+    for (let i = 0; i < tasks.length; i += 1) {
+      const element = tasks[i];
+      list.removeChild(element);
     }
-  })
+  });
 }
 
 // Cria elemento com li com classe
 function createTask(eClass, text) {
-  let taskBoard = document.getElementById('lista-tarefas');
+  const list = document.getElementById('lista-tarefas');
 
   for (let i = 0; i < eClass.length; i += 1) {
-    let task = document.createElement('li');
+    const task = document.createElement('li');
     task.className = eClass[i];
     task.innerText = text[i];
-    taskBoard.appendChild(task);
+    list.appendChild(task);
   }
 }
 
 // Cria funcao para salvar a lista de tarefas.
 function saveSession() {
+  const btnSaveSession = document.getElementById('salvar-tarefas');
 
-  let btnSaveSession = document.getElementById('salvar-tarefas');
-
-  btnSaveSession.addEventListener('click', function () {
-    let tasks = document.getElementsByClassName('task');
-    let content = [];
-    let eClass = [];
-    let task = {}
-    for (let iterator of tasks) {
+  btnSaveSession.addEventListener('click', () => {
+    const tasks = document.getElementsByClassName('task');
+    const content = [];
+    const eClass = [];
+    const task = {};
+    for (let i = 0; i < tasks.length; i += 1) {
+      const iterator = tasks[i];
       eClass.push(iterator.className);
       content.push(iterator.innerText);
       task.class = eClass;
       task.text = content;
     }
+
     localStorage.setItem('elements', JSON.stringify(task));
-  })
+  });
 }
 
 // Cria funcao para abrir a sessao salva.
 function openSession() {
-
-  let task = JSON.parse(localStorage.getItem('elements'));
+  const task = JSON.parse(localStorage.getItem('elements'));
   if (task) {
-    let eClass = task['class'];
-    let text = task['text'];
+    const eClass = task.class;
+    const { text } = task;
     createTask(eClass, text);
   }
-
 }
 openSession();
 
 // Cria funcao para subir um item da lista.
 function taskUp() {
-  let btnUp = document.getElementById('mover-cima');
-  let taskSelected = document.querySelector('.selected');
+  const btnUp = document.getElementById('mover-cima');
 
+  btnUp.addEventListener('click', () => {
+    const taskSelected = document.querySelector('.selected');
+    if (taskSelected && taskSelected.previousElementSibling) {
+      const taskAbove = taskSelected.previousSibling;
+      const elementSupport = taskAbove.innerText;
+      const classAbove = taskAbove.className;
 
-
-  btnUp.addEventListener('click', function () {
-    let taskSelected = document.querySelector('.selected');
-    if (taskSelected) {
-      if (taskSelected.previousElementSibling) {
-
-        let taskAbove = taskSelected.previousSibling;
-        let elementSupport = taskAbove.innerText;
-        let classAbove = taskAbove.className;
-
-        taskAbove.innerText = taskSelected.innerText;
-        taskAbove.className = taskSelected.className;
-        taskSelected.classList.remove('selected');
-        taskSelected.className = classAbove;
-        taskSelected.innerText = elementSupport;
-      }
+      taskAbove.innerText = taskSelected.innerText;
+      taskAbove.className = taskSelected.className;
+      taskSelected.classList.remove('selected');
+      taskSelected.className = classAbove;
+      taskSelected.innerText = elementSupport;
     }
-  })
-
+  });
 }
-taskUp();
 
 // Cria funcao para descer um item da lista.
 function taskDown() {
-  let btnDown = document.getElementById('mover-baixo');
-  btnDown.addEventListener('click', function () {
-    let taskSelected = document.querySelector('.selected');
-    if (taskSelected) {
-      if (taskSelected.nextElementSibling) {
-
-        let taskAbove = taskSelected.nextSibling;
-        let elementSupport = taskAbove.innerText;
-        let classAbove = taskAbove.className;
-        taskAbove.innerText = taskSelected.innerText;
-        taskAbove.className = taskSelected.className;
-        taskSelected.classList.remove('selected');
-        taskSelected.className = classAbove;
-        taskSelected.innerText = elementSupport;
-      }
+  const btnDown = document.getElementById('mover-baixo');
+  btnDown.addEventListener('click', () => {
+    const taskSelected = document.querySelector('.selected');
+    if (taskSelected && taskSelected.nextElementSibling) {
+      const taskAbove = taskSelected.nextSibling;
+      const elementSupport = taskAbove.innerText;
+      const classAbove = taskAbove.className;
+      taskAbove.innerText = taskSelected.innerText;
+      taskAbove.className = taskSelected.className;
+      taskSelected.classList.remove('selected');
+      taskSelected.className = classAbove;
+      taskSelected.innerText = elementSupport;
     }
-  })
+  });
 }
-taskDown();
 
 // Cria funcao para remover item selecionado da lista.
-function removeSelected() {
-  let btnRemove = document.getElementById('remover-selecionado');
-  let list = document.getElementById('lista-tarefas');
-  btnRemove.addEventListener('click', function () {
-    let itemSelected = document.getElementsByClassName('selected')[0];
-    list.removeChild(itemSelected);
-
-  })
+function removeSelected(list) {
+  const btnRemove = document.getElementById('remover-selecionado');
+  btnRemove.addEventListener('click', () => {
+    const itemSelected = document.getElementsByClassName('selected')[0];
+    if (itemSelected) {
+      list.removeChild(itemSelected);
+    }
+  });
 }
-removeSelected();
+
+window.onload = () => {
+  const list = document.getElementById('lista-tarefas');
+  addingTask(list);
+  taskSelector();
+  completedTasks();
+  clearTasks(list);
+  removeFinishedTasks(list);
+  saveSession();
+  removeSelected(list);
+  taskDown();
+  taskUp();
+};

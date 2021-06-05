@@ -13,26 +13,29 @@
   <header class="header">
     <h1>Minha Lista de Tarefas</h1>
   </header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  <main class="main">
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 
+    <section class="input-text border">
+      <input type="text" id="texto-tarefa">
+      <button id="criar-tarefa">Criar Tarefa</button>
 
+      <button id="apaga-tudo">Limpar</button>
+      <button id="remover-finalizados">Remover Terefas Finalizadas</button>
+      <button id="salvar-tarefas">Salvar Tarefas</button>
+      <button id="remover-selecionado">Remover Selcionado</button>
+      <div>
+        <button id="mover-cima">Subir Tarefa</button>
+        <button id="mover-baixo">Descer Tarefa</button>
+      </div>
 
-  <section class="input-text">
-    <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa">Criar Tarefa</button>
+    </section>
 
-    <button id="apaga-tudo">Limpar</button>
-    <button id="remover-finalizados">Remover Terefas Finalizadas</button>
-    <button id="salvar-tarefas">Salvar Tarefas</button>
-    <button id="mover-cima">Subir Tarefa</button>
-    <button id="mover-baixo">Descer Tarefa</button>
-    <button id="remover-selecionado">Remover Selcionado</button>
-  </section>
-
-  <section class="tasks-board">
-    <ol id="lista-tarefas">
-    </ol>
-  </section>
+    <section class="tasks-board">
+      <ol id="lista-tarefas">
+      </ol>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 
