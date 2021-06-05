@@ -1,7 +1,7 @@
 function addNewTask() {
   let getInputField = document.querySelector('#texto-tarefa');
   let addInputButton = document.querySelector('#criar-tarefa');
-  let getTaskList = document.querySelector('#lista-tarefa');
+  let getTaskList = document.querySelector('#lista-tarefas');
       
   addInputButton.addEventListener('click', function() {
     if (getInputField.value.length > 0) {
@@ -14,4 +14,8 @@ function addNewTask() {
     }
   })
 }
-addNewTask();
+
+window.onload=function(){
+    addNewTask();   
+}
+
