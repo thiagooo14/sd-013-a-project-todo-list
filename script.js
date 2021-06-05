@@ -26,7 +26,13 @@ function createItem() {
 //Com a ajuda do Rogério P. Da Silva
 function itemColor (event) {
   if (event.target.className.includes('tarefa')) {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    const taskItens = document.querySelectorAll('.tarefa');
+
+    for (let index = 0; index < taskItens.length; index += 1) {
+      taskItens[index].style.backgroundColor = 'white';
+    }
+    
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
 
