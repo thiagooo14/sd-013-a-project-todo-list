@@ -34,6 +34,7 @@ function questionFourFiveSixSeven() {
   let ol = document.getElementById('lista-tarefas')
   let div = document.createElement('div');
 
+
   button.addEventListener('click', (() => {
       let texto = textoTarefa.value;
       let li = document.createElement('li');
@@ -41,16 +42,24 @@ function questionFourFiveSixSeven() {
       ol.appendChild(li);
       div.appendChild(ol);
       document.body.appendChild(div);
-      li.addEventListener('click', ((event) => {
-        ol.style.display = 'inline-block'
-        li.style.backgroundColor = 'rgb(128, 128, 128)';
-      }))
       if(texto != null || texto != undefined || texto != '') {
         document.getElementById('texto-tarefa').value = '';
       }
   }))
-
 }
 questionFourFiveSixSeven();
 
+function questionEight() {
+  let ol = document.querySelector('ol');
+  let lis = document.getElementsByTagName('li');
 
+    ol.addEventListener('click', ((event) => {
+      for(let j = 0; j < lis.length; j += 1) {
+        let onlyLi = lis[j];
+        onlyLi.style.backgroundColor = '';
+      }
+      ol.style.display = 'inline-block';
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    }))
+}
+questionEight();
