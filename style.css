@@ -1,6 +1,11 @@
-.cor{
-  background-color:rgb(128, 128, 128) ;
+.cor {
+  background-color: gray;
 }
-.test{
-  background-color:red;
+
+.test {
+  background-color: red;
+}
+
+.completed {
+  text-decoration: line-through;
 }
