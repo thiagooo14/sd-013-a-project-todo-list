@@ -1,26 +1,36 @@
 const ol = document.querySelector('#lista-tarefas')
 const botao = document.querySelector('#criar-tarefa')
 const input = document.querySelector('#texto-tarefa')
+const tarefas = document.getElementsByClassName('tarefa')
 
+clicarTarefa()
 var textoNulo = ""
 
 botao.addEventListener('click', adicionarTarefa)
 
-function adicionarTarefa () {
-  const li = document.createElement('li')
-  li.innerHTML = input.value
-  li.classList.add('tarefa')
-  li.addEventListener('click', selecionarTarefa)
-  li.addEventListener('dbclick', tarefaCompleta)
-  ol.appendChild(li)
+
+function adicionarTarefa() {
+  const tarefa = document.createElement('li')
+  tarefa.innerHTML = input.value
+  tarefa.classList.add('tarefa')
+  ol.appendChild(tarefa)
   input.value = textoNulo
+  clicarTarefa()
 }
 
-function selecionarTarefa () {
 
+function clicarTarefa() {
+  console.log(tarefas)
+  for (var i = 0; i < tarefas.length; i++) {
+    tarefas[i].addEventListener('click', selecionarItem)
+  }
 }
 
-function tarefaCompleta () {
+function selecionarItem(event) {
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
+}
+
+function tarefaCompleta() {
 
 }
 
@@ -30,4 +40,3 @@ function tarefaCompleta () {
 
 
 //
-
