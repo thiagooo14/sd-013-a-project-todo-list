@@ -23,6 +23,7 @@ function clicarTarefa() {
   console.log(tarefas)
   for (var i = 0; i < tarefas.length; i++) {
     tarefas[i].addEventListener('click', selecionarItem)
+    tarefas[i].addEventListener('dbclick', tarefaCompleta)
   }
 }
 
@@ -37,8 +38,8 @@ function selecionarItem(event) {
   event.target.classList.add('selected')
 }
 
-function tarefaCompleta() {
-
+function tarefaCompleta(event) {
+  event.target.classList.toggle('completed')
 }
 
 
