@@ -19,19 +19,27 @@ header{
   border-radius: 10px;
   font-family: Indie Flower, sans-serif;
 }
-#criar-tarefa {
+#criar-tarefa, #apaga-tudo, #remover-finalizados, #remover-selecionado, #mover-baixo, #mover-cima{
+  margin: 10px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(97, 26, 202);
   font-family: Indie Flower, sans-serif;
-  color: rgb(97, 26, 202);
+  font-size: 20px;
 }
+
 
 #texto-tarefa {
   margin: 10px;
   font-family: Indie Flower, sans-serif;
-  
+  color: rgb(97, 26, 202);
+  border-radius: 4px;
+  font-size: 20px;
 }
 li {
   margin: 10px;
   color: rgb(97, 26, 202);
+  font-size: 30px;
 }
 .completed {
   text-decoration: line-through solid rgb(0,0,0);
@@ -39,3 +47,4 @@ li {
 .selected {
   background-color: rgb(128, 128, 128)
 }
+
