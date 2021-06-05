@@ -89,5 +89,34 @@ window.onload = function() {
   }
   recuperarLista();
 
+  function moverParaCima() {
+    let btnMover = document.querySelector('#mover-cima');
+    let listaDeTarefas = document.querySelector('#lista-tarefas');
+
+    btnMover.addEventListener('click', () => {
+      let selected = document.querySelector('#lista-tarefas .selected');
+      let irmaoAnterior = selected.previousElementSibling;
+      if (irmaoAnterior) {
+        listaDeTarefas.insertBefore(selected, irmaoAnterior);
+      }
+    });
+  }
+  moverParaCima();
+
+  function moverParaBaixo() {
+    let btnMover = document.querySelector('#mover-baixo');
+    let listaDeTarefas = document.querySelector('#lista-tarefas');
+
+    btnMover.addEventListener('click', () => {
+      let selected = document.querySelector('#lista-tarefas .selected');
+      let irmaoPosterior = selected.nextElementSibling;
+      if(irmaoPosterior) {
+        listaDeTarefas.insertBefore(irmaoPosterior, selected);
+      }
+      
+    });
+  }
+  moverParaBaixo(); 
+
 
 }
