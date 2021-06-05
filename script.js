@@ -14,3 +14,11 @@ function questionTwo() {
   document.body.appendChild(p);
 }
 questionTwo();
+
+function questionThree() {
+  let input = document.createElement('input');
+  input.setAttribute('id', 'texto-tarefa');
+  input.setAttribute('type', 'input');
+  document.body.appendChild(input);
+}
+questionThree();
