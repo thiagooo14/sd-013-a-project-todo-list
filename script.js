@@ -18,6 +18,16 @@ function setColorTask(event) {
   }
 }
 
+function completedTask(event) {
+  const auxClass = 'task';
+  const completedClass = 'task completed';
+  if (event.target.className !== completedClass) {
+    event.target.className = completedClass;
+  } else {
+    event.target.className = auxClass;
+  }
+}
+
 function createTask() {
   const inputTask = document.querySelector('#texto-tarefa');
   const list = document.querySelector('#lista-tarefas');
@@ -29,6 +39,7 @@ function createTask() {
       newTask.className = 'task';
       newTask.innerHTML = inputTask.value;
       newTask.addEventListener('click', setColorTask);
+      newTask.addEventListener('dblclick', completedTask);
       list.appendChild(newTask);
       inputTask.value = '';
     }
