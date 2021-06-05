@@ -2,6 +2,8 @@
 var getButton = document.querySelector('#criar-tarefa');
 // Pega o botão de limpar lista
 var clearButton = document.querySelector('#apaga-tudo');
+//Pega o botão de remover finalizados
+var completedButton = document.querySelector('#remover-finalizados');
 // Pega o input
 var inputField = document.querySelector('#texto-tarefa');
 //Lista completa de tarefas
@@ -52,3 +54,13 @@ function clearEveryTask (){
   })
 }
 clearEveryTask();
+// Limpa as tasks completas
+function clearCompleted(){
+  completedButton.addEventListener('click', function (){
+    let completedTasks = document.getElementsByClassName('completed');
+    while (completedTasks.length > 0){
+      completedTasks[0].parentNode.removeChild(completedTasks[0]);
+    }
+  })
+}
+clearCompleted();
