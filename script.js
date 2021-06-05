@@ -120,5 +120,14 @@ window.onload = function() {
   }
   moverParaBaixo(); 
 
+  function removerSelecionado() {
+    let btnRemoverSelecionado = document.querySelector('#remover-selecionado');
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    btnRemoverSelecionado.addEventListener('click', () => {
+      let selecionado = document.querySelector('.selected');
+      listaTarefas.removeChild(selecionado);
+    })
+  }
+  removerSelecionado();
 
 }
