@@ -92,3 +92,21 @@ function questionTen() {
   }))
 }
 questionTen();
+
+function questionEleven() {
+  let remover = document.getElementById('remover-finalizados');
+  let div = document.querySelector('div')
+  let lis = document.getElementsByTagName('li')
+  let ol = document.querySelector('ol')
+  div.appendChild(remover);
+  remover.addEventListener('click', (() => {
+    for(let i = 0; i < lis.length; i += 1) {
+      let li = lis[i]
+      let liCompleted = li.classList.contains('completed');
+      if(liCompleted) {
+        li.remove(liCompleted)
+      }
+    }
+  }))
+}
+questionEleven();
