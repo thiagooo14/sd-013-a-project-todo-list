@@ -26,8 +26,15 @@ function clicarTarefa() {
   }
 }
 
+function apagarClasses(){
+  for (var i = 0; i < tarefas.length; i++) {
+    tarefas[i].classList.remove('selected')
+  }
+}
+
 function selecionarItem(event) {
-  event.target.style.backgroundColor = 'rgb(128,128,128)'
+  apagarClasses()
+  event.target.classList.add('selected')
 }
 
 function tarefaCompleta() {
