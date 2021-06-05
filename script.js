@@ -39,6 +39,7 @@ function changeSelected() {
 }
 changeSelected();
 
+// função para marcar a tarefa como concluída após o clique duplo
 function finishTask() {
   function searchCompleted(event) {
     if (event.target.classList.contains('completed')) {
@@ -50,3 +51,37 @@ function finishTask() {
   ol.addEventListener('dblclick', searchCompleted);
 }
 finishTask();
+
+// função para apagar todas as tarefas com clique no botão apagar tudo
+
+function deleteAll() {
+  let buttonDelAll = document.getElementById('apaga-tudo');
+
+  buttonDelAll.addEventListener('click', searchLine);
+
+  function searchLine() {
+    let liTask = document.querySelectorAll('.linha');
+
+    for (let i = 0; i < liTask.length; i += 1) {
+      liTask[i].remove();
+    }
+  }
+}
+deleteAll();
+
+function deleteFinished() {
+  let buttonDelFinished = document.getElementById('remover-finalizados');
+
+  buttonDelFinished.addEventListener('click', searchFinished);
+
+  function searchFinished() {
+    let liTask = document.querySelectorAll('.linha');
+
+    for (let i = 0; i < liTask.length; i += 1) {
+      if(liTask[i].classList.contains('completed')){
+      liTask[i].remove();
+      }
+    }
+  }
+}
+deleteFinished();
