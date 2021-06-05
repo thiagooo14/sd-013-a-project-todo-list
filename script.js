@@ -95,6 +95,7 @@ window.onload = function() {
 
     btnMover.addEventListener('click', () => {
       let selected = document.querySelector('#lista-tarefas .selected');
+      if (!selected) return;
       let irmaoAnterior = selected.previousElementSibling;
       if (irmaoAnterior) {
         listaDeTarefas.insertBefore(selected, irmaoAnterior);
@@ -109,6 +110,7 @@ window.onload = function() {
 
     btnMover.addEventListener('click', () => {
       let selected = document.querySelector('#lista-tarefas .selected');
+      if (!selected) return;
       let irmaoPosterior = selected.nextElementSibling;
       if(irmaoPosterior) {
         listaDeTarefas.insertBefore(irmaoPosterior, selected);
