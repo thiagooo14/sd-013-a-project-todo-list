@@ -48,11 +48,11 @@ taskComplete();
 // ===================================================================
 // Clique no botão e apaga todas as tarefas.
 // ===================================================================
+const listaDeTarefas = document.querySelector('#lista-tarefas');
 function removeItems() {
   const buttonRemove = document.querySelector('#apaga-tudo');
   buttonRemove.addEventListener('click', () => {
     const listaLis = document.querySelectorAll('.tarefa');
-    const listaDeTarefas = document.querySelector('#lista-tarefas');
     for (let index = 0; index < listaLis.length; index += 1) {
       listaDeTarefas.removeChild(listaLis[index]);
     }
@@ -61,11 +61,13 @@ function removeItems() {
 
 removeItems();
 
+// ===================================================================
+// Clique no botão e apaga todas as tarefas finalizadas.
+// ===================================================================
 function removeFinishedItems() {
   const buttonRemoveFinished = document.querySelector('#remover-finalizados');
   buttonRemoveFinished.addEventListener('click', () => {
     const listaFinalizados = document.querySelectorAll('.completed');
-    const listaDeTarefas = document.querySelector('#lista-tarefas');
     for (let i = 0; i < listaFinalizados.length; i += 1) {
       listaDeTarefas.removeChild(listaFinalizados[i]);
     }
@@ -73,3 +75,20 @@ function removeFinishedItems() {
 }
 
 removeFinishedItems();
+
+// ===================================================================
+// Clique no botão e apaga tarefa selecionada.
+// ===================================================================
+function removeSelected() {
+  const buttonRemoveSelected = document.querySelector('#remover-selecionado');
+  buttonRemoveSelected.addEventListener('click', () => {
+    const listaLis = document.querySelectorAll('.tarefa');
+    for (let i = 0; i < listaLis.length; i += 1) {
+      if (listaLis[i].classList.contains('backgroundColorGray')) {
+        listaDeTarefas.removeChild(listaLis[i]);
+      }
+    }
+  });
+}
+
+removeSelected();
