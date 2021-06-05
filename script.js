@@ -9,6 +9,9 @@ function adicionaCor(evento) {
   }
   elementoClicado.classList.add('clicado');
 }
+function adicionaRisco(evento) {
+  evento.target.classList.toggle('completed');
+}
 const button = document.querySelector('#criar-tarefa');
 // Adiciona addEventListener:
 button.addEventListener('click', () => {
@@ -21,6 +24,7 @@ button.addEventListener('click', () => {
   // Adicona classe a li:
   novaLi.classList.add('cor-li');
   novaLi.addEventListener('click', adicionaCor);
+  novaLi.addEventListener('dblclick', adicionaRisco);
   const lista = document.getElementById('lista-tarefas');
   lista.appendChild(novaLi);
   input.value = '';

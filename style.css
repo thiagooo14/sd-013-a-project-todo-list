@@ -9,6 +9,10 @@
   border-radius: 30px;
 }
 
-.clicado{
+.clicado {
   background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
 }
