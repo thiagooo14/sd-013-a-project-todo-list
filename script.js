@@ -28,9 +28,7 @@ function questionThree() {
 }
 questionThree();
 
-
-
-function questionFourFive() {
+function questionFourFiveSixSeven() {
   const button = document.querySelector('#criar-tarefa');
   let textoTarefa = document.getElementById('texto-tarefa');
   let ol = document.getElementById('lista-tarefas')
@@ -43,9 +41,16 @@ function questionFourFive() {
       ol.appendChild(li);
       div.appendChild(ol);
       document.body.appendChild(div);
+      li.addEventListener('click', ((event) => {
+        ol.style.display = 'inline-block'
+        li.style.backgroundColor = 'rgb(128, 128, 128)';
+      }))
       if(texto != null || texto != undefined || texto != '') {
-        document.getElementById('texto-tarefa').value = ''
+        document.getElementById('texto-tarefa').value = '';
       }
   }))
+
 }
-questionFourFive();
+questionFourFiveSixSeven();
+
+
