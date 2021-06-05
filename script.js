@@ -78,3 +78,17 @@ function questionNine() {
   }))
 }
 questionNine();
+
+function questionTen() {
+  let apagaTudo = document.getElementById('apaga-tudo');
+  let div = document.querySelector('div');
+  let ol = document.querySelector('ol');
+  let li = document.querySelector('li')
+  div.appendChild(apagaTudo);
+
+  apagaTudo.addEventListener('click', (() => {
+    ol.remove(li);
+
+  }))
+}
+questionTen();
