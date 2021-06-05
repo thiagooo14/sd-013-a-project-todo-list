@@ -1,5 +1,7 @@
-// Pega o botão
+// Pega o botão de adicionar task
 var getButton = document.querySelector('#criar-tarefa');
+// Pega o botão de limpar lista
+var clearButton = document.querySelector('#apaga-tudo');
 // Pega o input
 var inputField = document.querySelector('#texto-tarefa');
 //Lista completa de tarefas
@@ -43,3 +45,10 @@ function taskCompleted (){
   })
 }
 taskCompleted();
+// Limpa todas as tasks
+function clearEveryTask (){
+  clearButton.addEventListener('click', function (){
+    fullList.innerHTML = '';
+  })
+}
+clearEveryTask();
