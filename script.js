@@ -1,6 +1,7 @@
 const criartarefaButton = document.getElementById('criar-tarefa');
 const criartarefaInput = document.getElementById('texto-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
+const buttonClear = document.getElementById('apaga-tudo');
 
 //criartarefaButton.addEventListener('click', ()=>{
 //   let li = document.createElement('li');
@@ -29,7 +30,7 @@ function selectWord() {
     for (let index = 0; index < wordList.length; index+=1) {
     wordList[index].classList.remove('selected');
     }
-    event.target.classList.add('selected');
+        event.target.classList.add('selected');
     });
 }
 selectWord();
@@ -42,3 +43,14 @@ function dbClick() {
     })
 }
 dbClick();
+
+//botão que apaga lista completa
+
+function clearList() {
+    const word = document.querySelector('ol');
+    while(word.firstChild) {
+        word.removeChild(word.firstChild)
+    }
+}
+buttonClear.addEventListener('click', clearList);
+clearList()
