@@ -1,7 +1,103 @@
+* {
+  background-color: #e9c46a;
+}
+
 .selected {
   background-color: rgb(128, 128, 128);
+  width: 200px;
 }
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+h1 {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#funcionamento {
+  font-style: italic;
+  font-size: 12px;
+  text-align: center;
+}
+
+#criar-tarefa {
+  margin-left: 16px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px
+}
+
+#criar-tarefa:hover {
+  background-color: #457b9d;
+  cursor: pointer;
+}
+
+#apaga-tudo {
+  background-color: #d62828;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px
+}
+
+#remover-finalizados {
+  background-color: #f77f00;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px
+}
+
+#apaga-tudo:hover, #remover-finalizados:hover{
+  background-color: #14213d;
+  cursor: pointer;
+}
+
+#texto-tarefa {
+  border: solid 3px rgb(128, 128, 128);
+  height: 20px;
+  margin-left: 2px;
+  background-color: #f1faee;
+}
+
+.box1 {
+  text-align: center;
+  margin-top: 10px;
+  padding: 50px 0;
+  border-radius: 4px;
+  background-color: #555b6e;
+  margin: 0 auto;
+  width: 500px;
+  height: auto;
+}
+
+#lista-tarefas {
+  width: 50px;
+  margin-left: 75px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #555b6e;
+}
+
+.rodape {
+  text-align: center;
+  font-weight: 200;
+  font-size: 10px;
+}
+
+li {
+  background-color: #555b6e;
 }
