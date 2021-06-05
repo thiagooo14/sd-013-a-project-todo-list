@@ -1,66 +1,66 @@
 // Pega o botão de adicionar task
-var getButton = document.querySelector('#criar-tarefa');
+const getButton = document.querySelector('#criar-tarefa');
 // Pega o botão de limpar lista
-var clearButton = document.querySelector('#apaga-tudo');
-//Pega o botão de remover finalizados
-var completedButton = document.querySelector('#remover-finalizados');
+const clearButton = document.querySelector('#apaga-tudo');
+// Pega o botão de remover finalizados
+const completedButton = document.querySelector('#remover-finalizados');
 // Pega o input
-var inputField = document.querySelector('#texto-tarefa');
-//Lista completa de tarefas
-let fullList = document.querySelector('#lista-tarefas');
-//Array com todas as tarefas
-let everyTask = document.getElementsByClassName('task');
+const inputField = document.querySelector('#texto-tarefa');
+// Lista completa de tarefas
+const fullList = document.querySelector('#lista-tarefas');
+// Array com todas as tarefas
+const everyTask = document.getElementsByClassName('task');
 // Adiciona as tarefas à lista
-function addTask (){
-  getButton.addEventListener('click', function (){
-    //cria uma nova li
-    let newElement = document.createElement('li');
-     //coloca o valor do campo input numa nova li e adiciona à lista
+function addTask() {
+  getButton.addEventListener('click', () => {
+    // Cria uma nova li
+    const newElement = document.createElement('li');
+    // Coloca o valor do campo input numa nova li e adiciona à lista
     newElement.innerHTML = inputField.value;
     newElement.classList.add('task');
     fullList.appendChild(newElement);
-    //Zera o campo
+    // Zera o campo
     inputField.value = null;
-  })
-};
+  });
+}
 addTask();
 // Seleciona um elemento
-function taskSelected (){
-  fullList.addEventListener('click', function (event){
-    for (i = 0; i < everyTask.length; i += 1){
-      if (everyTask[i].classList.contains('selected')){
-        everyTask[i].classList.remove('selected')
+function taskSelected() {
+  fullList.addEventListener('click', (event) => {
+    for (let i = 0; i < everyTask.length; i += 1) {
+      if (everyTask[i].classList.contains('selected')) {
+        everyTask[i].classList.remove('selected');
       }
     }
     event.target.classList.add('selected');
-  })
+  });
 }
 taskSelected();
 // Risca a task realizada
-function taskCompleted (){
-  fullList.addEventListener('dblclick', function (event){
-    if (event.target.classList.contains('completed')){
+function taskCompleted() {
+  fullList.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else {
       event.target.classList.add('completed');
     }
-  })
+  });
 }
 taskCompleted();
 // Limpa todas as tasks
-function clearEveryTask (){
-  clearButton.addEventListener('click', function (){
+function clearEveryTask() {
+  clearButton.addEventListener('click', () => {
     fullList.innerHTML = '';
-  })
+  });
 }
 clearEveryTask();
 // Limpa as tasks completas
-function clearCompleted(){
-  completedButton.addEventListener('click', function (){
-    let completedTasks = document.getElementsByClassName('completed');
-    while (completedTasks.length > 0){
+function clearCompleted() {
+  completedButton.addEventListener('click', () => {
+    const completedTasks = document.getElementsByClassName('completed');
+    while (completedTasks.length > 0) {
       completedTasks[0].parentNode.removeChild(completedTasks[0]);
     }
-  })
+  });
 }
 clearCompleted();
