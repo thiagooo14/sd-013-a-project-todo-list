@@ -4,6 +4,8 @@ var getButton = document.querySelector('#criar-tarefa');
 var inputField = document.querySelector('#texto-tarefa');
 //Lista completa de tarefas
 let fullList = document.querySelector('#lista-tarefas');
+//Array com todas as tarefas
+let everyTask = document.getElementsByClassName('task');
 // Adiciona as tarefas à lista
 function addTask (){
   getButton.addEventListener('click', function (){
@@ -20,7 +22,6 @@ function addTask (){
 addTask();
 // Seleciona um elemento
 function taskSelected (){
-  let everyTask = document.getElementsByClassName('task');
   fullList.addEventListener('click', function (event){
     for (i = 0; i < everyTask.length; i += 1){
       if (everyTask[i].classList.contains('selected')){
@@ -31,3 +32,14 @@ function taskSelected (){
   })
 }
 taskSelected();
+// Risca a task realizada
+function taskCompleted (){
+  fullList.addEventListener('dblclick', function (event){
+    if (event.target.classList.contains('completed')){
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  })
+}
+taskCompleted();
