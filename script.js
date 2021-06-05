@@ -1,27 +1,41 @@
 const buttomNewTask = document.getElementById('criar-tarefa');
 buttomNewTask.addEventListener('click', () => {
-  let newTask = document.getElementById('texto-tarefa');
-  let texto = document.getElementById('texto-tarefa').value;
-  let li = document.createElement('li');
-  let ol = document.querySelector('ol');
+  const newTask = document.getElementById('texto-tarefa');
+  const texto = document.getElementById('texto-tarefa').value;
+  const li = document.createElement('li');
+  const ol = document.querySelector('ol');
   li.innerHTML = texto;
   ol.appendChild(li);
   li.classList.add('tarefa');
-  newTask.value = '';  
+  newTask.value = '';
 });
 
 function backgroundGray() {
   const listaDeTarefas = document.getElementById('lista-tarefas');
-  console.log(listaDeTarefas);
   listaDeTarefas.addEventListener('click', (e) => {
-    if (e.target.classList.contains('tarefa')){
-    const listaLis = document.getElementsByClassName('tarefa');    
-    for (let i = 0; i < listaLis.length; i += 1){
+    if (e.target.classList.contains('tarefa')) {
+      const listaLis = document.getElementsByClassName('tarefa');
+      for (let i = 0; i < listaLis.length; i += 1) {
         listaLis[i].classList.remove('backgroundColorGray');
-      } 
+      }
       e.target.classList.add('backgroundColorGray');
     }
   });
 }
 
 backgroundGray();
+
+function taskComplete() {
+  const listaDeTarefas = document.getElementById('lista-tarefas');
+  listaDeTarefas.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('tarefa')) {
+      const listaLis = document.getElementsByClassName('tarefa');
+      for (let i = 0; i < listaLis.length; i += 1) {
+        listaLis[i].classList.remove('completed');
+      }
+      e.target.classList.add('completed');
+    }
+  });
+}
+
+taskComplete();
