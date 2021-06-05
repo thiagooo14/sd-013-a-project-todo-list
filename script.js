@@ -1,3 +1,6 @@
+// ===================================================================
+// botão que adiciona li em lista ordenada.
+// ===================================================================
 const buttomNewTask = document.getElementById('criar-tarefa');
 buttomNewTask.addEventListener('click', () => {
   const newTask = document.getElementById('texto-tarefa');
@@ -10,6 +13,9 @@ buttomNewTask.addEventListener('click', () => {
   newTask.value = '';
 });
 
+// ===================================================================
+// clique no item e mude o fundo para cinza
+// ===================================================================
 function backgroundGray() {
   const listaDeTarefas = document.getElementById('lista-tarefas');
   listaDeTarefas.addEventListener('click', (e) => {
@@ -25,6 +31,9 @@ function backgroundGray() {
 
 backgroundGray();
 
+// ===================================================================
+// clique no item duas vezes e classe 'completed' é adicionada a ele.
+// ===================================================================
 function taskComplete() {
   const listaDeTarefas = document.getElementById('lista-tarefas');
   listaDeTarefas.addEventListener('dblclick', (e) => {
@@ -39,3 +48,19 @@ function taskComplete() {
 }
 
 taskComplete();
+
+// ===================================================================
+// Clique no botão e apaga todas as tarefas.
+// ===================================================================
+function removeItems() {
+  const buttonRemove = document.querySelector('#apaga-tudo');
+  buttonRemove.addEventListener('click', () => {
+    const listaLis = document.querySelectorAll('.tarefa');
+    const listaDeTarefas = document.querySelector('#lista-tarefas');
+    for (let index = 0; index < listaLis.length; index += 1) {
+      listaDeTarefas.removeChild(listaLis[index]);
+    }
+  });
+}
+
+removeItems();
