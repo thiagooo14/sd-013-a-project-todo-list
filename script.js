@@ -22,9 +22,16 @@ const createTask = () => {
 };
 
 const highlightTask = () => {
-  const taskItem = document.querySelector('.task-item');
-  taskItem.addEventListener('click', (event) => {
-    const { classList } = event.target;
-    console.log(classList.toggle('gray-bgcolor'));
+  const lis = document.querySelectorAll('.task-item');
+  const gray = 'gray-bgcolor';
+
+  lis.forEach((item) => {
+    item.addEventListener('click', (event) => {
+      event.target.classList.toggle(gray);
+    });
+
+    if (item.classList.contains(gray)) {
+      item.classList.remove(gray);
+    }
   });
-};
+}
