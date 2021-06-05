@@ -46,3 +46,15 @@ function createTask() {
   });
 }
 createTask();
+
+const button = document.querySelector('#apaga-tudo');
+
+function deleteAllTasks() {
+  const list = document.querySelector('#lista-tarefas');
+  const task = document.querySelectorAll('.task');
+    for (let index = 0; index <= task.length; index += 1) {
+      list.removeChild(task[index]);
+    }
+}
+
+button.addEventListener('click', deleteAllTasks);
