@@ -22,3 +22,12 @@ function questionThree() {
   document.body.appendChild(input);
 }
 questionThree();
+
+function questionFour() {
+  let ol = document.createElement('ol');
+  let li = document.createElement('li');
+  ol.setAttribute('id', 'lista-tarefas');
+  ol.appendChild(li);
+  document.body.appendChild(ol);
+}
+questionFour();
