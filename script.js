@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable sonarjs/cognitive-complexity */
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-lines-per-function */
@@ -57,3 +58,23 @@ function deleteAllTasks() {
   }
 }
 button.addEventListener('click', deleteAllTasks);
+
+const buttonSelected = document.querySelector('#remover-finalizados');
+
+function clearCompletedTasks() {
+  const taskCompleted = document.querySelectorAll('.completed');
+  const list = document.querySelector('#lista-tarefas');
+    for (let index = 0; index < taskCompleted.length; index += 1) {
+      list.removeChild(taskCompleted[index]);
+    }
+}
+buttonSelected.addEventListener('click', clearCompletedTasks);
+
+function saveTasks() {
+  const tasks = document.querySelectorAll('.task');
+  const button = document.querySelector('#salvar-tarefas');
+  button.addEventListener('click', function () {
+    
+  });
+}
+saveTasks();

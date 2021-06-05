@@ -83,6 +83,36 @@ main {
 #apaga-tudo:hover {
   background-color: rgb(67, 182, 228);
 }
+.button-box-3 {
+  margin-top: 1em;
+  margin-left: 16em;
+}
+#remover-finalizados {
+  color: rgb(224, 224, 224);
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background-color: rgb(15, 170, 231);
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.8);
+}
+#remover-finalizados:hover {
+  background-color: rgb(67, 182, 228);
+}
+.button-box-4 {
+  margin-top: 1em;
+  margin-left: 16em;
+}
+#salvar-tarefas {
+  color: rgb(224, 224, 224);
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background-color: rgb(15, 170, 231);
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.8);
+}
+#salvar-tarefas:hover {
+  background-color: rgb(67, 182, 228);
+}
 .list-box {
   width: 20em;
   margin-left: 4em;
