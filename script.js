@@ -2,12 +2,27 @@ const ol = document.querySelector('#lista-tarefas')
 const botao = document.querySelector('#criar-tarefa')
 const input = document.querySelector('#texto-tarefa')
 const tarefas = document.getElementsByClassName('tarefa')
+const deleteAll = document.querySelector('#apaga-tudo')
+const deleteComplete = document.querySelector('#remover-finalizados')
 
 clicarTarefa()
 var textoNulo = ""
 
 botao.addEventListener('click', adicionarTarefa)
+deleteAll.addEventListener('click', apagarTudo)
+deleteComplete.addEventListener('click', apagarFinalizado)
 
+function apagarTudo () {
+  ol.innerHTML = textoNulo
+}
+
+function apagarFinalizado() {
+  var completed = document.getElementsByClassName('completed')
+  console.log(completed)
+  for (var i = 0; i < completed.length; i++){
+    completed[i].remove();
+  }
+}
 
 function adicionarTarefa() {
   const tarefa = document.createElement('li')
@@ -20,7 +35,6 @@ function adicionarTarefa() {
 
 
 function clicarTarefa() {
-  console.log(tarefas)
   for (var i = 0; i < tarefas.length; i++) {
     tarefas[i].addEventListener('click', selecionarItem)
     tarefas[i].addEventListener('dblclick', tarefaCompleta)
