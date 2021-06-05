@@ -6,3 +6,11 @@ function questionOne() {
   document.body.appendChild(header);
 }
 questionOne();
+
+function questionTwo() {
+  const p = document.createElement('p');
+  p.setAttribute('id', 'funcionamento');
+  p.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+  document.body.appendChild(p);
+}
+questionTwo();
