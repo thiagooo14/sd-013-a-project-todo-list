@@ -40,11 +40,24 @@ function selectedClassDoubleClick() { // criar uma função
 selectedClassDoubleClick();
 
 // Requisito 10
-function removeItem() {
-  const getButtomRemoveAll = document.querySelector('#apaga-tudo'); // caminho do botão
+function removeItem() {  // criar uma função
+  const getButtomRemoveAll = document.querySelector('#apaga-tudo'); // no botão de id apaga-tudo
   getButtomRemoveAll.addEventListener('click', () => { // adicionar um evento no botão
-    const getOl = document.querySelector('ol'); // acessar a ol
-    getOl.innerHTML = '';
+    const getOl = document.querySelector('ol'); // acessar a ol 
+    getOl.innerHTML = ''; // e esvaziar o que tiver dentro
   });
  }
  removeItem();
+
+// Requisito 11
+function removeTasksCompleted() { // criar uma função
+  const getButtomRemoveCompleted = document.querySelector('#remover-finalizados');
+  // const getOl = document.querySelector('ol'); // que dê o caminho de onde faremos o evento
+  getButtomRemoveCompleted.addEventListener('click', (event) => { // criar o evento de click
+    const getOl = document.getElementsByTagName('ol'); // que vai ser executado dentro das lis, portanto o caminho delas
+    for (let index = 0; index < getOl.length; index += 1) { // e para percorrer cada uma dessas lis
+      getOl[index].innerHTML = ''; // onde removeremos a classe completed caso ela já exista e caso ela não exista vamos criá-la usando o toggle
+    }
+  });
+}
+removeTasksCompleted()
