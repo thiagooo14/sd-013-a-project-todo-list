@@ -4,3 +4,13 @@ body {
   border: 0;
 }
 
+.task-list {
+  width: 30%;
+}
+.task-list:hover{
+  cursor: pointer;
+}
+
+.completed{
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
