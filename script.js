@@ -1,3 +1,4 @@
+
 function questionOne() {
   const header = document.createElement('header');
   const h3 = document.createElement('h3');
@@ -63,3 +64,17 @@ function questionEight() {
     }))
 }
 questionEight();
+
+function questionNine() {
+  let ol = document.querySelector('ol');
+  let lis = document.getElementsByName('li')
+
+  ol.addEventListener('dblclick', ((event) => {
+    if(event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed')
+    } else {
+      event.target.classList.add('completed')
+    }
+  }))
+}
+questionNine();
