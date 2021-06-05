@@ -34,7 +34,6 @@ function questionFourFive() {
   const button = document.querySelector('#criar-tarefa');
   let textoTarefa = document.getElementById('texto-tarefa');
   let ol = document.getElementById('lista-tarefas')
-
   let div = document.createElement('div');
 
   button.addEventListener('click', (() => {
