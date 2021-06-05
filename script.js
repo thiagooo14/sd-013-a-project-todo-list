@@ -44,3 +44,18 @@ function resetBoard() {
 // listaOrdenada.innerHTML = null;
 }
 botaoLimpar.addEventListener('click', resetBoard);
+
+// BOTÃO REMOVER TAREFAS FINALIZADAS
+
+const btnRemoverTarefas = document.querySelector('#remover-finalizados');
+
+function removeFinalizados(){
+	const list = document.querySelectorAll('.item');
+	for(let i = 0; i < list.length; i +=1){
+		if(list[i].classList.contains('completed')){
+			listaOrdenada.removeChild(list[i]);
+		}
+	
+		}
+	} 
+btnRemoverTarefas.addEventListener('click', removeFinalizados)

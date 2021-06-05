@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+#conteiner{
+  text-align: center;
+}
+
 ol {
   width: 500px;
   border: 1px solid black;
@@ -25,3 +29,6 @@ li {
   text-decoration: line-through;
 }
 
+#lista-tarefas{
+  margin: auto;
+}
