@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+ol{
+    width: 500px;
+    border: 1px solid black;
+    height: 300px;
+}
+
+.selected{
+    background-color:rgb(128, 128, 128) ;
+}
+
+.unselected {
+    background-color: #fff;
+}
+
+li{
+    border:1px solid;
+}
+
+.completed{
+    text-decoration: line-through;
+}
+
