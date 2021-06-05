@@ -16,18 +16,37 @@ function questionTwo() {
 questionTwo();
 
 function questionThree() {
+  let div = document.createElement('div')
   let input = document.createElement('input');
+  let button = document.getElementById('criar-tarefa');
   input.setAttribute('id', 'texto-tarefa');
   input.setAttribute('type', 'input');
-  document.body.appendChild(input);
+
+  div.appendChild(input);
+  div.appendChild(button);
+  document.body.appendChild(div);
 }
 questionThree();
 
-function questionFour() {
-  let ol = document.createElement('ol');
-  let li = document.createElement('li');
-  ol.setAttribute('id', 'lista-tarefas');
-  ol.appendChild(li);
-  document.body.appendChild(ol);
+
+
+function questionFourFive() {
+  const button = document.querySelector('#criar-tarefa');
+  let textoTarefa = document.getElementById('texto-tarefa');
+  let ol = document.getElementById('lista-tarefas')
+
+  let div = document.createElement('div');
+
+  button.addEventListener('click', (() => {
+      let texto = textoTarefa.value;
+      let li = document.createElement('li');
+      li.innerText = texto;
+      ol.appendChild(li);
+      div.appendChild(ol);
+      document.body.appendChild(div);
+      if(texto != null || texto != undefined || texto != '') {
+        document.getElementById('texto-tarefa').value = ''
+      }
+  }))
 }
-questionFour();
+questionFourFive();
