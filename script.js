@@ -23,7 +23,7 @@ function clicarTarefa() {
   console.log(tarefas)
   for (var i = 0; i < tarefas.length; i++) {
     tarefas[i].addEventListener('click', selecionarItem)
-    tarefas[i].addEventListener('dbclick', tarefaCompleta)
+    tarefas[i].addEventListener('dblclick', tarefaCompleta)
   }
 }
 
