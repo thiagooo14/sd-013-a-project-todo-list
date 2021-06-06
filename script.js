@@ -59,7 +59,6 @@ function questionEight() {
         let onlyLi = lis[j];
         onlyLi.style.backgroundColor = '';
       }
-      ol.style.display = 'inline-block';
       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }))
 }
