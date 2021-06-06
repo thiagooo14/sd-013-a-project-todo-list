@@ -1,28 +1,30 @@
-window.onload = function() {
+window.onload = function () {
+  const listaDeTarefas = document.querySelector('#lista-tarefas');
+  const itemDaLista = 'item-da-lista';
 
   function criarTarefa() {
-    let inputTarefa = document.querySelector('#texto-tarefa');
-    let btnCriarTarefa = document.querySelector('#criar-tarefa');
-    let listaDeTarefas = document.querySelector('#lista-tarefas');
-    
-    btnCriarTarefa.addEventListener('click', ()=> {
-      let tarefa = inputTarefa.value;
-      let itemLista = document.createElement('li');
-      itemLista.classList.add('item-da-lista');
+    const inputTarefa = document.querySelector('#texto-tarefa');
+    const btnCriarTarefa = document.querySelector('#criar-tarefa');
+    // const listaDeTarefas = document.querySelector('#lista-tarefas');
+    btnCriarTarefa.addEventListener('click', () => {
+      const tarefa = inputTarefa.value;
+      const itemLista = document.createElement('li');
+      // itemLista.classList.add('item-da-lista');
+      itemLista.classList.add(itemDaLista);
       itemLista.innerHTML = tarefa;
       listaDeTarefas.appendChild(itemLista);
-      inputTarefa.value = "";
-    }); 
+      inputTarefa.value = '';
+    });
   }
   criarTarefa();
 
   function selecionarTarefa() {
-    let listaDeTarefas = document.querySelector('#lista-tarefas');
+    // let listaDeTarefas = document.querySelector('#lista-tarefas');
 
-    listaDeTarefas.addEventListener('click', (event)=> {
-
-      if(event.target.classList.contains('item-da-lista')) {
-        let itensDaLista = document.querySelectorAll('#lista-tarefas .item-da-lista');
+    listaDeTarefas.addEventListener('click', (event) => {
+      if (event.target.classList.contains(itemDaLista)) {
+        // let itensDaLista = document.querySelectorAll('#lista-tarefas .item-da-lista');
+        const itensDaLista = listaDeTarefas.querySelectorAll('.item-da-lista');
         for (let i = 0; i < itensDaLista.length; i += 1) {
           itensDaLista[i].classList.remove('selected');
         }
@@ -33,11 +35,10 @@ window.onload = function() {
   selecionarTarefa();
 
   function riscarTarefa() {
-    let listaDeTarefas = document.querySelector('#lista-tarefas');
+    // let listaDeTarefas = document.querySelector('#lista-tarefas');
 
-    listaDeTarefas.addEventListener('dblclick', (event)=> {
-
-      if(event.target.classList.contains('item-da-lista')) {
+    listaDeTarefas.addEventListener('dblclick', (event) => {
+      if (event.target.classList.contains(itemDaLista)) {
         event.target.classList.toggle('completed');
       }
     });
@@ -45,58 +46,57 @@ window.onload = function() {
   riscarTarefa();
 
   function limparLista() {
-    let btnLimparLista = document.querySelector('#apaga-tudo');
-    let listaDeTarefas = document.querySelector('#lista-tarefas');
+    const btnLimparLista = document.querySelector('#apaga-tudo');
+    // let listaDeTarefas = document.querySelector('#lista-tarefas');
 
     btnLimparLista.addEventListener('click', () => {
-      listaDeTarefas.innerHTML = "";
+      listaDeTarefas.innerHTML = '';
     });
   }
   limparLista();
 
-
   function removerFinalizados() {
-    let btnRemoverFinalizados = document.querySelector('#remover-finalizados');
-    btnRemoverFinalizados.addEventListener('click', ()=> {
-      let tarefasFinalizadas = document.querySelectorAll('#lista-tarefas .completed');
+    const btnRemoverFinalizados = document.querySelector('#remover-finalizados');
+    btnRemoverFinalizados.addEventListener('click', () => {
+      const tarefasFinalizadas = document.querySelectorAll('#lista-tarefas .completed');
       console.log(tarefasFinalizadas);
       for (let i = 0; i < tarefasFinalizadas.length; i += 1) {
-        let parent = tarefasFinalizadas[i].parentElement;
+        const parent = tarefasFinalizadas[i].parentElement;
         parent.removeChild(tarefasFinalizadas[i]);
       }
-    })
+    });
   }
   removerFinalizados();
 
   function salvarTarefas() {
-    let btnSalvarTarfeas = document.querySelector('#salvar-tarefas');
+    const btnSalvarTarfeas = document.querySelector('#salvar-tarefas');
     btnSalvarTarfeas.addEventListener('click', () => {
-      let lista = document.querySelector('#lista-tarefas').innerHTML;
-      console.log(lista);
-      localStorage.setItem('todoList', "");
+      // let lista = document.querySelector('#lista-tarefas').innerHTML;
+      const lista = listaDeTarefas.innerHTML;
+      localStorage.setItem('todoList', '');
       localStorage.setItem('todoList', JSON.stringify(lista));
-    })
+    });
   }
   salvarTarefas();
 
   function recuperarLista() {
-    let lista = JSON.parse(localStorage.getItem('todoList'));
+    const lista = JSON.parse(localStorage.getItem('todoList'));
     if (lista) {
-      let listaDeTarefas = document.querySelector('#lista-tarefas');
+      // let listaDeTarefas = document.querySelector('#lista-tarefas');
       listaDeTarefas.innerHTML = lista;
     }
-    
   }
   recuperarLista();
 
   function moverParaCima() {
-    let btnMover = document.querySelector('#mover-cima');
-    let listaDeTarefas = document.querySelector('#lista-tarefas');
+    const btnMover = document.querySelector('#mover-cima');
+    // let listaDeTarefas = document.querySelector('#lista-tarefas');
 
     btnMover.addEventListener('click', () => {
-      let selected = document.querySelector('#lista-tarefas .selected');
+      // let selected = document.querySelector('#lista-tarefas .selected');
+      const selected = listaDeTarefas.querySelector('.selected');
       if (!selected) return;
-      let irmaoAnterior = selected.previousElementSibling;
+      const irmaoAnterior = selected.previousElementSibling;
       if (irmaoAnterior) {
         listaDeTarefas.insertBefore(selected, irmaoAnterior);
       }
@@ -105,29 +105,27 @@ window.onload = function() {
   moverParaCima();
 
   function moverParaBaixo() {
-    let btnMover = document.querySelector('#mover-baixo');
-    let listaDeTarefas = document.querySelector('#lista-tarefas');
+    const btnMover = document.querySelector('#mover-baixo');
+    // let listaDeTarefas = document.querySelector('#lista-tarefas');
 
     btnMover.addEventListener('click', () => {
-      let selected = document.querySelector('#lista-tarefas .selected');
+      const selected = document.querySelector('#lista-tarefas .selected');
       if (!selected) return;
-      let irmaoPosterior = selected.nextElementSibling;
-      if(irmaoPosterior) {
+      const irmaoPosterior = selected.nextElementSibling;
+      if (irmaoPosterior) {
         listaDeTarefas.insertBefore(irmaoPosterior, selected);
       }
-      
     });
   }
-  moverParaBaixo(); 
+  moverParaBaixo();
 
   function removerSelecionado() {
-    let btnRemoverSelecionado = document.querySelector('#remover-selecionado');
-    let listaTarefas = document.querySelector('#lista-tarefas');
+    const btnRemoverSelecionado = document.querySelector('#remover-selecionado');
+    // let listaTarefas = document.querySelector('#lista-tarefas');
     btnRemoverSelecionado.addEventListener('click', () => {
-      let selecionado = document.querySelector('.selected');
-      listaTarefas.removeChild(selecionado);
-    })
+      const selecionado = document.querySelector('.selected');
+      listaDeTarefas.removeChild(selecionado);
+    });
   }
   removerSelecionado();
-
-}
+};
