@@ -107,14 +107,25 @@ function recebeDadosSalvos() {
 
 //seleciona o botao com mover pra cima e atribui ao click uma arrow function
 // ela deve mover o item para cima caso não seja o primeiro elemento
+// codigo fonte: https://github.com/Fraitz/todolist.github.io
 document.querySelector('#mover-cima').addEventListener('click', () => {
   let elementoSelecionado = document.querySelector('.selected');
-  const lista = elementoSelecionado.parentElement;
-  if (elementoSelecionado === null || elementoSelecionado === lista.children[0] ) {
+  const lista = document.querySelector('#lista-tarefas');
+  if (elementoSelecionado === null || elementoSelecionado === lista.firstChild ) {
   } else {
-    elementoSelecionado.parentNode.replaceChild(elementoSelecionado,elementoSelecionado.previousElementSibling)
-  }
-})
+    const elementoDeCima = elementoSelecionado.previousElementSibling;
+    lista.insertBefore(elementoSelecionado, elementoDeCima);
+}})
+
+document.querySelector('#mover-baixo').addEventListener('click', () => {
+  let elementoSelecionado = document.querySelector('.selected');
+  const lista = document.querySelector('#lista-tarefas');
+  if (elementoSelecionado === null || elementoSelecionado === lista.lastChild ) {
+  } else {
+    const elementoDeBaixo = elementoSelecionado.nextElementSibling;
+    lista.insertBefore(elementoSelecionado, elementoDeBaixo.nextElementSibling);
+}})
+
 
 document.querySelector('#remover-selecionado').addEventListener('click', (event) => {
   const selecionado = document.querySelector('.selected');
