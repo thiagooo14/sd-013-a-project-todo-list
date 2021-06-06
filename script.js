@@ -72,14 +72,25 @@ function apagar() {
       listed[0].parentNode.removeChild(listed[0]);
     }
   });
+  document.getElementById('remover-finalizados').addEventListener('click', () => {
+    const complete = document.getElementsByClassName('completed');
+    while (complete.length > 0) {
+      complete[0].parentNode.removeChild(complete[0]);
+    }
+  });
 }
 
 function buttonsLi() {
   const listButtons = document.getElementById('buttonsList');
-  const apaga = document.createElement('button');
-  apaga.id = ('apaga-tudo');
-  apaga.innerHTML = 'APAGAR TUDO';
-  listButtons.appendChild(apaga);
+  const apagaCompleto = document.createElement('button');
+  apagaCompleto.id = ('remover-finalizados');
+  apagaCompleto.innerText = 'Limpar Completos';
+  listButtons.appendChild(apagaCompleto);
+
+  const apagaLista = document.createElement('button');
+  apagaLista.id = ('apaga-tudo');
+  apagaLista.innerText = 'Limpar Lista';
+  listButtons.appendChild(apagaLista);
 }
 
 function createDivButtons() {
