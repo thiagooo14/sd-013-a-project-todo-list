@@ -12,7 +12,7 @@ listaDeTarefas.addEventListener('click', (event) => {
       selected.style.backgroundColor = 'white';
     }
     alvo.classList.add('selected');
-    alvo.style.backgroundColor = 'gray';
+    alvo.style.backgroundColor = 'rgb(128,128,128)';
   }
 });
 
