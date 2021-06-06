@@ -93,3 +93,8 @@ button, input {
   padding: 30px;
   background-color: rgba(21, 168, 46, 0.432);
 }
+
+li {
+  border-radius: 0;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
