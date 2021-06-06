@@ -32,7 +32,6 @@ function selecionaCor(event) {
   }
   event.target.classList.add('selected');
 }
-
 recuperaOl.addEventListener('click', selecionaCor);
 
 // ======================================================================================
@@ -43,7 +42,6 @@ function riscado(event) {
   const elementoClicado = event.target;
   elementoClicado.classList.toggle('completed');
 }
-
 recuperaOl.addEventListener('dblclick', riscado);
 
 // ======================================================================================
@@ -58,7 +56,6 @@ function apagaTudo() {
     recuperaTarefasNode[index].remove();
   }
 }
-
 recuperaBotaoApagar.addEventListener('click', apagaTudo);
 
 // ======================================================================================
@@ -75,3 +72,81 @@ function removeConcluidos() {
 }
 
 recuperaBotaoApagarConcluidos.addEventListener('click', removeConcluidos);
+
+// ======================================================================================
+//     Função que salva dados no localStorage, quando clicar no botão salvar
+//      Exercício realizado com ajuda da aluna Julia Baptista
+// ======================================================================================
+
+const recuperaBotaoSalvar = document.querySelector('#salvar-tarefas');
+
+function salvarLista() {
+  const lista = document.querySelector('#lista-tarefas').innerHTML;
+  localStorage.setItem('list_tarefas', '');
+  localStorage.setItem('list_tarefas', JSON.stringify(lista));
+}
+
+recuperaBotaoSalvar.addEventListener('click', salvarLista);
+
+window.onload = function () {
+  const recuperaLocalStorage = JSON.parse(localStorage.getItem('list_tarefas'));
+  if (recuperaLocalStorage !== null) {
+    recuperaOl.innerHTML = recuperaLocalStorage;
+  }
+};
+
+// ======================================================================================
+//       Requisito 13 - Função que move tarefa selecionada para cima
+//      Exercício realizado com ajuda da aluna Julia Baptista
+// ======================================================================================
+
+const recuperaBotaoCima = document.querySelector('#mover-cima');
+
+function moveParaCima() {
+  const selecionado = document.querySelector('.selected');
+
+  if (selecionado) {
+    const irmao = selecionado.previousElementSibling;
+
+    if (irmao) {
+      recuperaOl.insertBefore(selecionado, irmao);
+    }
+  }
+}
+
+recuperaBotaoCima.addEventListener('click', moveParaCima);
+
+// ======================================================================================
+//       Requisito 13 - Função que move tarefa selecionada para baixo
+//      Exercício realizado com ajuda da aluna Julia Baptista
+// ======================================================================================
+
+const recuperaBotaoBaixo = document.querySelector('#mover-baixo');
+
+function moveParaBaixo() {
+  const selecionado = document.querySelector('.selected');
+
+  if (selecionado) {
+    const irmao = selecionado.nextElementSibling;
+
+    if (irmao) {
+      recuperaOl.insertBefore(irmao, selecionado);
+    }
+  }
+}
+
+recuperaBotaoBaixo.addEventListener('click', moveParaBaixo);
+
+// ======================================================================================
+//    Requisito 14 - Função que remove item selecionado ao clicar no botão
+// ======================================================================================
+
+const recuperaBotaoApagarSelecionado = document.querySelector('#remover-selecionado');
+
+function removeElementoSelecionado() {
+  const selecionado = document.querySelector('.selected');
+
+  selecionado.remove();
+}
+
+recuperaBotaoApagarSelecionado.addEventListener('click', removeElementoSelecionado);
