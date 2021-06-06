@@ -1,17 +1,37 @@
-const inicia = () => {
-  document.querySelector('#criar-tarefa').addEventListener('click', function() {
-    const listaTarefas = document.querySelector('#lista-tarefas');
+const listaTarefas = document.querySelector('#lista-tarefas');
+
+const creatingTask = () => {
+  document.querySelector('#criar-tarefa').addEventListener('click', () => {
     const textoTarefa = document.querySelector('#texto-tarefa');
-    const li = document.createElement('li');    
-    console.log(listaTarefas);
-    console.log(textoTarefa);
+    const li = document.createElement('li');
     li.textContent = textoTarefa.value;
-    listaTarefas.appendChild(li);
+
+    if (textoTarefa.value === '') {
+      window.alert('Inserir Texto');
+    } else {
+      listaTarefas.appendChild(li);
+    }
     textoTarefa.value = '';
     textoTarefa.focus();
   });
 };
 
+window.addEventListener('load', creatingTask);
 
+const selectTask = () => {  
+  listaTarefas.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+    localStorage.setItem('completed', event.target.classList);
+  });
+};
 
-window.addEventListener('load', inicia);
+window.addEventListener('load', selectTask);
+
+const completedTask = () => {
+  listaTarefas.addEventListener('click', (event) => {
+    event.target.classList.toggle('selected');
+    localStorage.setItem('selected', event.target.classList);
+  });
+};
+
+window.addEventListener('click', completedTask);
