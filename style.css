@@ -39,3 +39,9 @@ header p {
   margin-top: 0;
   margin-bottom: 10px;
 }
+
+#salvar-tarefas {
+  display: block;
+  margin-top: 20px;
+  margin-left: 45%;
+}
