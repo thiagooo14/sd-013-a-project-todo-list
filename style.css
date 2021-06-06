@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-#conteiner{
+#conteiner {
   text-align: center;
 }
 
@@ -23,12 +23,14 @@ ol {
 
 li {
   border: 1px solid;
+  list-style-type: none;
 }
 
 .completed {
   text-decoration: line-through;
 }
 
-#lista-tarefas{
+#lista-tarefas {
   margin: auto;
+
 }

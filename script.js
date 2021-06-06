@@ -16,7 +16,7 @@ function duploClick(event) {
 }
 
 // Adiciona cor ao item clicado.
-function mudaCor(event) {
+function mudaCor() {
   for (let i = 0; i < item.length; i += 1) {
     item[i].id = 'unselected';
   }	event.target.id = 'selected';
@@ -51,7 +51,7 @@ const btnRemoverTarefas = document.querySelector('#remover-finalizados');
 
 function removeFinalizados(){
 	const list = document.querySelectorAll('.item');
-	for(let i = 0; i < list.length; i +=1){
+	for(let i = 0; i < list.length; i += 1){
 		if(list[i].classList.contains('completed')){
 			listaOrdenada.removeChild(list[i]);
 		}
