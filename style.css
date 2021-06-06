@@ -9,7 +9,7 @@ body {
   line-height: 1.5;
   width: 900px;
   margin: 0 auto;
-  background-image: url(./background.jpeg);
+  background-image: url('./background.jpeg');
   background-size: cover;
 }
 
@@ -126,5 +126,5 @@ li {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
