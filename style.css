@@ -10,7 +10,7 @@ body {
 
 h1 {
   margin: 20px;
-  color: rgb(73, 73, 153);
+  color: rgb(148, 68, 180);
 }
 
 #tasks {
@@ -23,7 +23,7 @@ h1 {
 
 input {
   margin: 5px;
-  border: solid 1px rgb(73, 73, 153);
+  border: solid 1px rgb(148, 68, 180);
   border-radius: 10%;
   height: 20px;
   text-align: center;
@@ -32,38 +32,46 @@ input {
 button {
   padding: 5px;
   border-radius: 10%;
-  background-color:rgb(73, 73, 153);
+  background-color:rgb(148, 68, 180);
   color: aliceblue;
 }
 
 #apaga-tudo {
   padding: 5px;
   border-radius: 10%;
-  background-color:rgb(194, 60, 50);
+  background-color:rgb(148, 68, 180);
   color: aliceblue;
 }
 
 #remover-finalizados {
   padding: 5px;
   border-radius: 10%;
-  background-color:rgb(32, 118, 139);
+  background-color:rgb(148, 68, 180);
   color: aliceblue;
 }
 
 #salvar-tarefas {
   padding: 5px;
   border-radius: 10%;
-  background-color:rgb(68, 116, 13);
+  background-color:rgb(148, 68, 180);
   color: aliceblue;
 }
 
 ol {
   margin-top: 20px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li {
   margin: 5px;
   text-align: left;
+  background-color: transparent;
+}
+
+.selected {
+  background-color: rgb(128,128,128);
 }
 
 .completed {
@@ -72,4 +80,13 @@ li {
 
 #general-controls {
   margin-top: 20px;
+}
+
+.icons {
+  width: 25px;
+  margin-left: 5px;
+}
+
+#mover-baixo, #mover-cima {
+  background-color: transparent;
 }

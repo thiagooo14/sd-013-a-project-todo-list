@@ -1,10 +1,9 @@
 window.onload = function () {
-
   if (Storage) {
     const elements = localStorage.getItem('tasks');
     const objects = JSON.parse(elements);
     if (objects) {
-      for (let i= 0; i < objects.tarefas.length; i += 1) {
+      for (let i = 0; i < objects.tarefas.length; i += 1) {
         const tasksList = document.getElementById('lista-tarefas');
         const newTasks = document.createElement('li');
         const contTasks = document.querySelectorAll('li');
@@ -24,9 +23,13 @@ window.onload = function () {
     const newTasks = document.createElement('li');
     const contTasks = document.querySelectorAll('li');
     newTasks.id = contTasks.length + 1;
-    newTasks.textContent = inputValue.value;
-    tasksList.appendChild(newTasks);
-    inputValue.value = '';
+    if (inputValue.value === '' || inputValue.value === ' ') {
+      alert('Insira uma tarefa no campo.');
+    } else {
+      newTasks.textContent = inputValue.value;
+      tasksList.appendChild(newTasks);
+      inputValue.value = '';
+    }
   }
 
   function waitCreateTasks() {
@@ -40,10 +43,10 @@ window.onload = function () {
     for (let i = 0; i < liItems.length; i += 1) {
       if (liItems[i].id !== idItem) {
         const noColor = document.getElementById(liItems[i].id);
-        noColor.style.backgroundColor = 'transparent';
+        noColor.classList.remove('selected');
       } else {
         const color = document.getElementById(liItems[i].id);
-        color.style.backgroundColor = 'rgb(128,128,128)';
+        color.classList.add('selected');
       }
     }
   }
@@ -92,7 +95,7 @@ window.onload = function () {
     if (localStorage) {
       localStorage.clear();
     } else {
-      alert("Sorry, no local storage.");
+      alert("Desculpe, não existe informações salvas.");
     }
   }
 
@@ -108,7 +111,7 @@ window.onload = function () {
     const tasks = {tarefas: [], decoration: []};
     for (let i = 0; i < items.length; i += 1) {
       tasks.tarefas.push(items[i].textContent);
-      if (itemsClass.indexOf('completed') !== -1) {
+      if ((itemsClass) && (itemsClass.indexOf('completed') !== -1)) {
         tasks.decoration.push('line-through solid rgb(0, 0, 0)');
       } else {
         tasks.decoration.push('none');
@@ -123,4 +126,25 @@ window.onload = function () {
     save.addEventListener('click', tasksSave, false);
   }
   waitTasksSave();
+
+  function moveItem() {
+    const move = document.querySelectorAll('li');
+    const buttonUp = document.getElementById('mover-cima');
+    const buttonDown = document.getElementById('mover-baixo');
+    for (let i = 0; i < move.length; i += 1) {
+      move[i].addEventListener('click', function () {
+        buttonUp.addEventListener('click', function () {
+          if (move[i].previousSibling) {
+            move[i].parentNode.insertBefore(move[i], move[i].previousElementSibling);
+          }
+        })
+        buttonDown.addEventListener('click', function () {
+          if (move[i].nextSibling) {
+            move[i].parentNode.insertBefore(move[i].nextElementSibling, move[i]);
+          }
+        })
+      })
+    }
+  }
+  moveItem();
 }
