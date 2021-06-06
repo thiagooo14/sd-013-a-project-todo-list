@@ -4,6 +4,10 @@ input {
   padding-right: 50px;
 }
 
+li {
+  user-select: none;
+}
+
 #criar-tarefa {
   margin: -25px;
   height: 25px;
@@ -12,7 +16,6 @@ input {
   color: white;
   border: 0;
 }
-
 
 .selecionado {
   background-color: gray;
