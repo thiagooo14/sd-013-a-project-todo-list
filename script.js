@@ -22,6 +22,8 @@ function questionThree() {
   let button = document.getElementById('criar-tarefa');
   input.setAttribute('id', 'texto-tarefa');
   input.setAttribute('type', 'input');
+  input.setAttribute('placeholder' , 'Digite Sua Tarefa');
+
 
   div.appendChild(input);
   div.appendChild(button);
@@ -38,13 +40,17 @@ function questionFourFiveSixSeven() {
 
   button.addEventListener('click', (() => {
       let texto = textoTarefa.value;
-      let li = document.createElement('li');
-      li.innerText = texto;
-      ol.appendChild(li);
-      div.appendChild(ol);
-      document.body.appendChild(div);
-      if(texto != null || texto != undefined || texto != '') {
-        document.getElementById('texto-tarefa').value = '';
+      if(texto === '') {
+        alert('Digite o texto corretamente');
+      } else {
+        let li = document.createElement('li');
+        li.innerText = texto;
+        ol.appendChild(li);
+        div.appendChild(ol);
+        document.body.appendChild(div);
+        if(texto != null || texto != undefined || texto != '') {
+          document.getElementById('texto-tarefa').value = '';
+        }
       }
   }))
 }
@@ -93,18 +99,20 @@ function questionTen() {
 questionTen();
 
 function questionEleven() {
-  let remover = document.getElementById('remover-finalizados');
-  let div = document.querySelector('div')
-  let lis = document.getElementsByTagName('li')
-  let ol = document.querySelector('ol')
-  div.appendChild(remover);
-  remover.addEventListener('click', (() => {
-    for(let i = 0; i < lis.length; i += 1) {
-      let li = lis[i]
-      let liCompleted = li.classList.contains('completed');
-      if(liCompleted) {
-        li.remove(liCompleted)
+  let button = document.getElementById('remover-finalizados');
+  let div = document.querySelector('div');
+  let lis = document.getElementsByTagName('li');
+  let ol = document.querySelector('ol');
+  div.appendChild(button);
+
+  button.addEventListener('click', (() => {
+    for(let i = 0; i < lis.length; i += 1){
+      let li = lis[i];
+      let completed = li.classList.contains('completed');
+      if(completed) {
+      li.remove(completed);
       }
+
     }
   }))
 }

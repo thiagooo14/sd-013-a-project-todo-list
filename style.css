@@ -1,7 +1,33 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
-#apaga-tudo {
-  display: inline-block;
+#apaga-tudo, #remover-finalizados ,#criar-tarefa {
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: silver;
 }
 
+input {
+  border-radius: 10px;
+
+}
+#apaga-tudo, #remover-finalizados ,#criar-tarefa, input {
+  box-shadow: 10px 10px 10px black;
+  font-size: 20px;
+}
+ol li {
+  font-size: 20px;
+}
+
+ol li:hover {
+  font-size: 30px;
+}
+
+input:focus {
+  color: blue;
+  border-color: blue;
+}
+#apaga-tudo:hover, #remover-finalizados:hover, #criar-tarefa:hover {
+  font-size: 30px;
+  color: blue;
+}
