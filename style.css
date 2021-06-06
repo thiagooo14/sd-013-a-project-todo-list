@@ -29,16 +29,12 @@ h2 {
   text-decoration: line-through;
 }
 
-#input{
-    text-align: center;
-}
-
 #titulo {
     text-align: center;
 }
 
 #listComponents {
-    text-align: center;
+    text-align: left;
     display: block;
 }
 #lista-tarefas { 
@@ -76,7 +72,7 @@ h2 {
   color: white;
   box-shadow:2px 2px 5px black;
   border-radius: 10px;  
-  height:60px;
+  height:45px;
   text-align: center;
 }
 #criar-tarefa, #apaga-tudo, #remover-finalizados, #salvar-tarefas, #remover-selecionado, #mover-cima, #mover-baixo {

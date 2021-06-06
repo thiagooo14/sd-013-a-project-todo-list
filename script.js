@@ -1,5 +1,8 @@
 function addItemList() {
     let input = document.getElementById('texto-tarefa');
+    input.style.marginTop = '10px'
+    input.style.width = '250px'
+    input.placeHolder = 'aaa'
     let getButton = document.getElementById('criar-tarefa');
     let listaOrdenada = document.getElementById('lista-tarefas');
     getButton.addEventListener('click', function () {
@@ -150,7 +153,7 @@ function scrollUp() {
     let button = document.getElementById('mover-baixo');
     let button2 = document.createElement('button');
     button2.innerText = "up";
-    button2.id = 'mover-cima'
+    button2.id = 'mover-cima' 
     button.after(button2);
     button2.addEventListener('click', function () {
         listas = document.querySelectorAll('li')
