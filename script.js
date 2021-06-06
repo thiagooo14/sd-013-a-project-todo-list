@@ -7,12 +7,40 @@ const botaoRemoveSelec = document.querySelector('#remover-selecionado');
 const botaoSubir = document.querySelector('#mover-cima');
 const botaoDescer = document.querySelector('#mover-baixo');
 
-function subirItem() {
-  // const elemento = document.querySelector('#selected');
-  // console.log(elemento.previousElementSibling);
-  // listaTarefas.insertBefore(elemento, elemento.previousElementSibling);
+function descerItem() {
+  if (verificaSelected() === true) {
+    const elemento = document.querySelector('.selected');
+    const proximoElemento = elemento.nextElementSibling;
+    if (proximoElemento !== null) {
+      listaTarefas.insertBefore(elemento, proximoElemento.nextElementSibling);
+    }
+  }
 }
 
+function subirItem() {
+  if (verificaSelected() === true) {
+    const primeioLista = document.querySelectorAll('li')[0];
+    const elemento = document.querySelector('.selected');
+    const elementoAnterior = elemento.previousElementSibling;
+    if (primeioLista !== elemento) {
+      listaTarefas.insertBefore(elemento, elementoAnterior);
+    }
+  }
+}
+
+function verificaSelected() {
+  let verifica = false;
+  const lista = document.querySelectorAll('li');
+  const cS = 'completed selected';
+  const sC = 'selected completed';
+  const s = 'selected';
+  for (let i = 0; i < lista.length; i += 1) {
+    if (lista[i].className === cS || lista[i].className === sC || lista[i].className === s) {
+      verifica = true;
+    }
+  }
+  return verifica;
+}
 function removeSelect() {
   listaTarefas.removeChild(document.querySelector('.selected'));
 }
@@ -33,6 +61,7 @@ function completarTarefa(event) {
     event.target.classList.add('completed');
   }
 }
+
 function apagaLista() {
   let tamanhoDalista = listaTarefas.children.length;
   for (let i = 0; i < tamanhoDalista; i += 1) {
@@ -65,3 +94,4 @@ botaoApagar.addEventListener('click', apagaLista);
 botaoRemoveFinalizadas.addEventListener('click', apagaFinalizadas);
 botaoRemoveSelec.addEventListener('click', removeSelect);
 botaoSubir.addEventListener('click', subirItem);
+botaoDescer.addEventListener('click', descerItem);
