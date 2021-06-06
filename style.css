@@ -76,14 +76,15 @@ h2 {
   color: white;
   box-shadow:2px 2px 5px black;
   border-radius: 10px;  
-  height:27px;
+  height:60px;
   text-align: center;
 }
-#criar-tarefa, #apaga-tudo, #remover-finalizados, #salvar-tarefas, #remover-selecionado {
+#criar-tarefa, #apaga-tudo, #remover-finalizados, #salvar-tarefas, #remover-selecionado, #mover-cima, #mover-baixo {
   background-color: white;
   border-radius: 10px;  
   font-weight: 700;
   font-size: 10px;
+  margin: auto;
 }
 #texto-tarefa {
   width: 120px;
