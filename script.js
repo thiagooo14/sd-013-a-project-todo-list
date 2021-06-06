@@ -2,15 +2,15 @@ const listTarefa = document.querySelector('#lista-tarefas');
 const textoTarefa = document.querySelector('#texto-tarefa');
 const buttonAdicionar = document.querySelector('#criar-tarefa');
 const buttonClear = document.querySelector('#apaga-tudo');
-let getLi = document.getElementsByTagName('li');
-let buttonSelected = document.querySelector('#remover-finalizados');
+const getLi = document.getElementsByTagName('li');
+const buttonSelected = document.querySelector('#remover-finalizados');
 
 function adicionar() {
   buttonAdicionar.addEventListener('click', adicionar);
-  let lis = document.createElement('li');
-  let texto = textoTarefa.value;
+  const lis = document.createElement('li');
+  const texto = textoTarefa.value;
 
-  if (texto.length > 0){
+  if (texto.length > 0) {
     listTarefa.appendChild(lis);
     lis.innerHTML = texto;
     textoTarefa.value = '';
@@ -23,7 +23,6 @@ adicionar();
 
 function selectedClass() {
   listTarefa.addEventListener('click', (event) => {
-    
     for (let index = 0; index < getLi.length; index += 1) {
       getLi[index].classList.remove('selected');
     }
@@ -33,23 +32,20 @@ function selectedClass() {
 
 selectedClass();
 
-function selectedClass_2() {
+function selectedClassB() {
   listTarefa.addEventListener('dblclick', (event) => {
-    
     event.target.classList.toggle('completed');
   });
 }
 
-selectedClass_2();
-
+selectedClassB();
 
 function deleteList() {
   buttonClear.addEventListener('click', deleteList);
 
   while (getLi.length > 0) {
-
     for (let n = 0; n < getLi.length; n += 1) {
-      let t = getLi[n];
+      const t = getLi[n];
       listTarefa.removeChild(t);
     }
   }
@@ -66,4 +62,4 @@ function removeClass() {
   }
 }
 
-removeClass ();
+removeClass();

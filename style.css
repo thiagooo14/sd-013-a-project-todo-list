@@ -1,19 +1,19 @@
 * {
-  background-color: #e9c46a;
+  background-color: rgb(232 , 198 , 114);
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
   width: 200px;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 h1 {
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: sans-serif;
 }
 
 #funcionamento {
@@ -24,61 +24,60 @@ h1 {
 
 #criar-tarefa {
   margin-left: 16px;
-  background-color: #4CAF50;
+  background-color: rgb(76 , 175 , 80);
   border: none;
   border-radius: 4px;
   color: white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px
+  font-size: 16px;
 }
 
 #criar-tarefa:hover {
-  background-color: #457b9d;
+  background-color: rgb(69 , 123 , 157);
   cursor: pointer;
 }
 
 #apaga-tudo {
-  background-color: #d62828;
+  background-color: rgb(214 , 40 , 40);
   border: none;
   border-radius: 4px;
   color: white;
   padding: 15px 20px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px
+  font-size: 16px;
 }
 
 #remover-finalizados {
-  background-color: #f77f00;
+  background-color: rgb(247 , 127 , 0);
   border: none;
   border-radius: 4px;
   color: white;
   padding: 15px 20px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px
+  font-size: 16px;
 }
 
-#apaga-tudo:hover, #remover-finalizados:hover{
-  background-color: #14213d;
+#apaga-tudo:hover , #remover-finalizados:hover {
+  background-color: rgb(20 , 33 , 61);
   cursor: pointer;
 }
 
 #texto-tarefa {
-  border: solid 3px rgb(128, 128, 128);
+  border: solid 3px gray;
   height: 20px;
   margin-left: 2px;
-  background-color: #f1faee;
+  background-color: rgb(241 , 250 , 238);
 }
 
 .box1 {
   text-align: center;
-  margin-top: 10px;
   padding: 50px 0;
   border-radius: 4px;
-  background-color: #555b6e;
+  background-color: rgb(85 , 91 , 110);
   margin: 0 auto;
   width: 500px;
   height: auto;
@@ -89,7 +88,7 @@ h1 {
   margin-left: 75px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #555b6e;
+  background-color: rgb(85 , 91 , 110);
 }
 
 .rodape {
@@ -99,5 +98,5 @@ h1 {
 }
 
 li {
-  background-color: #555b6e;
+  background-color: rgb(85 , 91 , 110);
 }
