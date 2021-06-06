@@ -8,6 +8,25 @@ const botaoSubir = document.querySelector('#mover-cima');
 const botaoDescer = document.querySelector('#mover-baixo');
 const botaoSalvar = document.querySelector('#salvar-tarefas');
 
+function completarTarefa(event) {
+  const listaClasses = event.target.className;
+  if (listaClasses === 'completed selected' || listaClasses === 'selected completed') {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+function trocaCorTarefa(event) {
+  const unicacor = document.querySelectorAll('li');
+  for (let i = 0; i < unicacor.length; i += 1) {
+    unicacor[i].style.backgroundColor = '';
+    unicacor[i].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+
 function recuperaTexto() {
   if (localStorage.getItem('textoLista')) {
     const textos = localStorage.getItem('textoLista').split('\n');
@@ -15,9 +34,9 @@ function recuperaTexto() {
     const tamanho = textos.length;
     console.log(textos);
     console.log(classes);
-    for (let i =0; i < tamanho; i += 1) {
+    for (let i = 0; i < tamanho; i += 1) {
       const li = document.createElement('li');
-      li.className = classes [i];
+      li.className = classes[i];
       li.innerText = textos[i];
       li.addEventListener('click', trocaCorTarefa);
       li.addEventListener('dblclick', completarTarefa);
@@ -27,11 +46,11 @@ function recuperaTexto() {
 }
 
 function salvartarefas() {
-  let texto = listaTarefas.innerText;
+  const texto = listaTarefas.innerText;
   console.log(texto);
-  let classes = "";
-  let listaclasse = document.querySelectorAll('li');
-  for (let i =0; i < listaclasse.length; i += 1) {
+  let classes = '';
+  const listaclasse = document.querySelectorAll('li');
+  for (let i = 0; i < listaclasse.length; i += 1) {
     classes += listaclasse[i].className + '\n';
   }
   console.log(classes);
@@ -87,31 +106,12 @@ function apagaFinalizadas() {
   }
 }
 
-function completarTarefa(event) {
-  const listaClasses = event.target.className;
-  if (listaClasses === 'completed selected' || listaClasses === 'selected completed') {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
-}
-
 function apagaLista() {
   let tamanhoDalista = listaTarefas.children.length;
   for (let i = 0; i < tamanhoDalista; i += 1) {
     listaTarefas.removeChild(listaTarefas.lastElementChild);
   }
   tamanhoDalista = 0;
-}
-
-function trocaCorTarefa(event) {
-  const unicacor = document.querySelectorAll('li');
-  for (let i = 0; i < unicacor.length; i += 1) {
-    unicacor[i].style.backgroundColor = '';
-    unicacor[i].classList.remove('selected');
-  }
-  event.target.classList.add('selected');
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
 function criarTarefa() {
