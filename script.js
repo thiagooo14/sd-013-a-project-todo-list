@@ -9,36 +9,36 @@ const botaoDescer = document.querySelector('#mover-baixo');
 const botaoSalvar = document.querySelector('#salvar-tarefas');
 
 function recuperaTexto() {
-  if (localStorage.getItem('textoLista')){
-    let textos = localStorage.getItem('textoLista').split('\n');
-    let classes = localStorage.getItem('classeLi').split('\n');
+  if (localStorage.getItem('textoLista')) {
+    const textos = localStorage.getItem('textoLista').split('\n');
+    const classes = localStorage.getItem('classeLi').split('\n');
     const tamanho = textos.length;
     console.log(textos);
     console.log(classes);
-      for (let i =0; i < tamanho; i += 1) {
-        const li = document.createElement('li');
-        li.className = classes [i];
-        li.innerText = textos[i];
-        li.addEventListener('click', trocaCorTarefa);
-        li.addEventListener('dblclick', completarTarefa);
-        listaTarefas.appendChild(li);
-      }
+    for (let i =0; i < tamanho; i += 1) {
+      const li = document.createElement('li');
+      li.className = classes [i];
+      li.innerText = textos[i];
+      li.addEventListener('click', trocaCorTarefa);
+      li.addEventListener('dblclick', completarTarefa);
+      listaTarefas.appendChild(li);
     }
   }
-  
-  function salvartarefas() {
-    let texto = listaTarefas.innerText;
-    console.log(texto);
-    let classes = "";
-    let listaclasse = document.querySelectorAll('li');
-    for (let i =0; i < listaclasse.length; i += 1) {
-      classes += listaclasse[i].className + '\n'
-    }
-    console.log(classes);
-    localStorage.setItem('textoLista', texto);
-    localStorage.setItem('classeLi', classes);
-    console.log(localStorage);
+}
+
+function salvartarefas() {
+  let texto = listaTarefas.innerText;
+  console.log(texto);
+  let classes = "";
+  let listaclasse = document.querySelectorAll('li');
+  for (let i =0; i < listaclasse.length; i += 1) {
+    classes += listaclasse[i].className + '\n';
   }
+  console.log(classes);
+  localStorage.setItem('textoLista', texto);
+  localStorage.setItem('classeLi', classes);
+  console.log(localStorage);
+}
 
 function verificaSelected() {
   let verifica = false;
@@ -130,4 +130,3 @@ botaoRemoveSelec.addEventListener('click', removeSelect);
 botaoSubir.addEventListener('click', subirItem);
 botaoDescer.addEventListener('click', descerItem);
 botaoSalvar.addEventListener('click', salvartarefas);
-
