@@ -1,7 +1,13 @@
-// const getBody = document.querySelector('body');
-// const getHeader = document.createElement('header');
-// getHeader.className = 'header';
-// getHeader.innerText = 'Minha Lista de Tarefas';
-// getBody.appendChild(getHeader);
+let button = document.querySelector('#criar-tarefa')
+button.addEventListener("click",addText);
 
+function addText() {
+  let textTarefa = document.getElementById('texto-tarefa').value;
+  let lista  = document.getElementById('lista-tarefas').innerHTML;
+  lista = lista +"<li>"+textTarefa+"</li>";
+  
+  
+  document.getElementById("lista-tarefas").innerHTML = lista;
+  document.getElementById('texto-tarefa').value = ''
+}
 
