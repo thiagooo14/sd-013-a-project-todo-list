@@ -79,6 +79,7 @@ window.onload = function () {
     for (let i = 0; i < liItems.length; i += 1) {
       const deleteItem = document.getElementById(liItems[i].id).remove();
     }
+    localStorage.clear();
   }
 
   function waitDeleteAll() {
@@ -107,11 +108,12 @@ window.onload = function () {
 
   function tasksSave() {
     const items = document.querySelectorAll('li');
-    const itemsClass = document.querySelectorAll('li').className;
+    const itemsClass = document.querySelectorAll('li');
+    
     const tasks = {tarefas: [], decoration: []};
     for (let i = 0; i < items.length; i += 1) {
       tasks.tarefas.push(items[i].textContent);
-      if ((itemsClass) && (itemsClass.indexOf('completed') !== -1)) {
+      if (itemsClass[i].className === 'completed' || itemsClass[i].className === 'selected completed') {
         tasks.decoration.push('line-through solid rgb(0, 0, 0)');
       } else {
         tasks.decoration.push('none');

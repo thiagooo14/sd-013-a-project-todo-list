@@ -88,5 +88,6 @@ li {
 }
 
 #mover-baixo, #mover-cima {
+  margin-top: 5px;
   background-color: transparent;
 }
