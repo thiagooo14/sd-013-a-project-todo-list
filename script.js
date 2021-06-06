@@ -80,8 +80,25 @@ function apagar() {
   });
 }
 
+function salvar() {
+  // source https://gomakethings.com/saving-html-to-localstorage-with-vanilla-js/
+  const salvarButton = document.querySelector('#salvar-tarefas');
+  const verificarOl = document.querySelector('#lista-tarefas');
+
+  salvarButton.addEventListener('click', () => {
+    localStorage.setItem('verificarOl', verificarOl.innerHTML);
+    return alert('salvo com sucesso');
+  });
+  const saved = localStorage.getItem('verificarOl');
+
+  if (saved) {
+    verificarOl.innerHTML = saved;
+  }
+}
+
 function buttonsLi() {
   const listButtons = document.getElementById('buttonsList');
+
   const apagaCompleto = document.createElement('button');
   apagaCompleto.id = ('remover-finalizados');
   apagaCompleto.innerText = 'Limpar Completos';
@@ -91,6 +108,11 @@ function buttonsLi() {
   apagaLista.id = ('apaga-tudo');
   apagaLista.innerText = 'Limpar Lista';
   listButtons.appendChild(apagaLista);
+
+  const salvarTarefas = document.createElement('button');
+  salvarTarefas.id = ('salvar-tarefas');
+  salvarTarefas.innerText = 'Salvar';
+  listButtons.appendChild(salvarTarefas);
 }
 
 function createDivButtons() {
@@ -100,6 +122,7 @@ function createDivButtons() {
   divButtons.appendChild(buttonsDiv);
   buttonsLi();
   apagar();
+  salvar();
 }
 
 window.onload = () => {
