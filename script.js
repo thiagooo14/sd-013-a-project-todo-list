@@ -1,4 +1,3 @@
-
 function questionOne() {
   const header = document.createElement('header');
   const h3 = document.createElement('h3');
@@ -17,13 +16,12 @@ function questionTwo() {
 questionTwo();
 
 function questionThree() {
-  let div = document.createElement('div')
-  let input = document.createElement('input');
-  let button = document.getElementById('criar-tarefa');
+  const div = document.createElement('div');
+  const input = document.createElement('input');
+  const button = document.getElementById('criar-tarefa');
   input.setAttribute('id', 'texto-tarefa');
   input.setAttribute('type', 'input');
-  input.setAttribute('placeholder' , 'Digite Sua Tarefa');
-
+  input.setAttribute('placeholder', 'Digite Sua Tarefa');
 
   div.appendChild(input);
   div.appendChild(button);
@@ -33,87 +31,77 @@ questionThree();
 
 function questionFourFiveSixSeven() {
   const button = document.querySelector('#criar-tarefa');
-  let textoTarefa = document.getElementById('texto-tarefa');
-  let ol = document.getElementById('lista-tarefas')
-  let div = document.createElement('div');
-
-
+  const textoTarefa = document.getElementById('texto-tarefa');
+  const ol = document.getElementById('lista-tarefas');
+  const div = document.createElement('div');
   button.addEventListener('click', (() => {
-      let texto = textoTarefa.value;
-      if(texto === '') {
-        alert('Digite o texto corretamente');
-      } else {
-        let li = document.createElement('li');
-        li.innerText = texto;
-        ol.appendChild(li);
-        div.appendChild(ol);
-        document.body.appendChild(div);
-        if(texto != null || texto != undefined || texto != '') {
-          document.getElementById('texto-tarefa').value = '';
-        }
-      }
-  }))
+    const texto = textoTarefa.value;
+    const li = document.createElement('li');
+    li.innerText = texto;
+    ol.appendChild(li);
+    div.appendChild(ol);
+    document.body.appendChild(div);
+    if ((texto !== null) || (texto !== undefined) || (texto !== '')) {
+      document.getElementById('texto-tarefa').value = '';
+    }
+  }));
 }
 questionFourFiveSixSeven();
 
 function questionEight() {
-  let ol = document.querySelector('ol');
-  let lis = document.getElementsByTagName('li');
+  const ol = document.querySelector('ol');
+  const lis = document.getElementsByTagName('li');
 
-    ol.addEventListener('click', ((event) => {
-      for(let j = 0; j < lis.length; j += 1) {
-        let onlyLi = lis[j];
-        onlyLi.style.backgroundColor = '';
-      }
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    }))
+  ol.addEventListener('click', ((event) => {
+    for (let j = 0; j < lis.length; j += 1) {
+      const onlyLi = lis[j];
+      onlyLi.style.backgroundColor = '';
+    }
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  }));
 }
 questionEight();
 
 function questionNine() {
-  let ol = document.querySelector('ol');
-  let lis = document.getElementsByName('li')
+  const ol = document.querySelector('ol');
 
   ol.addEventListener('dblclick', ((event) => {
-    if(event.target.classList.contains('completed')) {
-      event.target.classList.remove('completed')
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
     } else {
-      event.target.classList.add('completed')
+      event.target.classList.add('completed');
     }
-  }))
+  }));
 }
 questionNine();
 
 function questionTen() {
-  let apagaTudo = document.getElementById('apaga-tudo');
-  let div = document.querySelector('div');
-  let ol = document.querySelector('ol');
-  let li = document.querySelector('li')
+  const apagaTudo = document.getElementById('apaga-tudo');
+  const div = document.querySelector('div');
+  const ol = document.querySelector('ol');
+  const li = document.querySelector('li');
   div.appendChild(apagaTudo);
 
   apagaTudo.addEventListener('click', (() => {
     ol.remove(li);
-
-  }))
+  }));
 }
 questionTen();
 
 function questionEleven() {
-  let button = document.getElementById('remover-finalizados');
-  let div = document.querySelector('div');
-  let lis = document.getElementsByTagName('li');
-  let ol = document.querySelector('ol');
+  const button = document.getElementById('remover-finalizados');
+  const div = document.querySelector('div');
+  const lis = document.getElementsByTagName('li');
   div.appendChild(button);
 
   button.addEventListener('click', (() => {
-    for(let i = 0; i < lis.length; i += 1){
-      let li = lis[i];
-      let completed = li.classList.contains('completed');
-      if(completed) {
-      li.remove(completed);
+    for (let i = 0; i < lis.length; i += 1) {
+      const li = lis[i];
+      const completed = li.classList.contains('completed');
+      if (completed) {
+        li.remove(completed);
       }
-
     }
-  }))
+  }));
 }
 questionEleven();
