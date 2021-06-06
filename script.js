@@ -1,3 +1,21 @@
+function textFunc(inputSub) {
+  const main = document.querySelector('main');
+
+  main.appendChild(inputSub);
+
+  inputSub.addEventListener('click', () => {
+    const li = document.createElement('li');
+    const criarTarefa = document.getElementById('lista-tarefas');
+    const textoTarefa = ('texto-tarefa');
+    const texto = document.createTextNode(document.getElementById(textoTarefa).value);
+    li.className = 'listado';
+    li.appendChild(texto);
+
+    criarTarefa.appendChild(li);
+
+    document.getElementById(textoTarefa).value = '';
+  });
+}
 
 function inputCreator() {
   const main = document.querySelector('main');
@@ -24,55 +42,32 @@ function listOlCreator() {
 }
 
 // ===========================
-function textFunc(inputSub) {
-  const main = document.querySelector('main');
-
-  main.appendChild(inputSub);
-
-  inputSub.addEventListener('click', () => {
-    const li = document.createElement('li');
-    const criarTarefa = document.getElementById('lista-tarefas');
-    const texto = document.createTextNode(document.getElementById('texto-tarefa').value);
-    li.className = "listado";
-    li.appendChild(texto);
-
-    criarTarefa.appendChild(li);
-
-    document.getElementById('texto-tarefa').value = '';
-
-  });
-}
 
 // ==============================
 
-
-function testaaaa(clack){
+function clickTarefas(clack) {
   const selecionado = document.querySelector('.selecionado');
 
-
-  if (clack.target.classList.contains('listado') && clack.target !== selecionado){
+  if (clack.target.classList.contains('listado') && clack.target !== selecionado) {
     selecionado.classList.remove('selecionado');
     clack.target.classList.add('selecionado');
-    selecionado.style.colorbackground = "red";
-    return colorbackground(selecionado);
   }
 }
 
-function colorbackground(selecionado){
-  selecionado.style.colorbackground = "red";
+function completed(lista) {
+  const completado = document.querySelector('.completed');
+
+  if (lista.target.classList.contains('listado') && lista.target !== completado) {
+    lista.target.classList.add('completed');
+  } else if (lista.target.classList.contains('completed')) {
+    lista.target.classList.remove('completed');
+  }
 }
 
-
-
-
-
 window.onload = () => {
-
   inputCreator();
   listOlCreator();
 
-
-  
-  document.addEventListener('click', testaaaa);
-  }
-  
+  document.addEventListener('dblclick', completed);
+  document.addEventListener('click', clickTarefas);
+};
