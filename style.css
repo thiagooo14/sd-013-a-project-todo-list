@@ -4,6 +4,12 @@
   border: 0;
   opacity: 1;
 }
+.main {
+  position: absolute;
+  top: 50px;
+  left: 500px;
+  max-width: 800px;
+}
 body {
   text-align: center;
   display: inline-block;
@@ -46,6 +52,7 @@ li {
   margin-left: 60px;
 }
 .selected {
+  color: rgb(172, 28, 28);
   list-style: circle;
   background-color: rgb(128, 128, 128)
 }
@@ -70,31 +77,50 @@ div .main {
   background-size: contain;
   min-height: 350px;
   border-radius: 60px;
-  padding: 30px;
-  margin: 30px;
   margin-left: 10%;
   margin-right: 10%;
 }
+
 .auxiliar1 {
-  border-radius: 50px 50px 0px 0px;
   padding: 30px;
-  background-color: rgba(21, 168, 46, 0.432);
 }
-button, input {
+
+button {
+  max-width: 90%;
   padding: 12px 30px 12px;
+  margin: 2px;
   color: beige;
-  background-color: rgba(41, 207, 69, 0.432);
+  background-color: rgba(29, 114, 12, 0.836);
   font-size: 1.1em;
   border: 3px solid black;
   border-radius: 5px;
 }
+
+input { 
+margin: 2px;
+color: beige;
+background-color: rgba(29, 114, 12, 0.836);
+font-size: 1.1em;
+border: 3px solid black;
+border-radius: 5px;
+}
+
 .auxiliar {
-  border-radius: 20px 20px 20px 20px;
-  padding: 30px;
-  background-color: rgba(21, 168, 46, 0.432);
+  padding: 20px;
 }
 
 li {
+  background-color:  rgba(29, 114, 12, 0.836);;
+  color: rgb(250, 252, 251);
   border-radius: 0;
   box-shadow: 5px 5px 15px 5px #000000;
+}
+
+aside {
+  background-color: rgb(25 62 21 / 49%);
+  border-radius: 50px;
+  border: 1px solid black;
+  position: fixed;
+  top: 50px;left: 20px;
+  max-width: 500px;
 }

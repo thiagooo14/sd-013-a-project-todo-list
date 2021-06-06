@@ -129,6 +129,6 @@ document.querySelector('#mover-baixo').addEventListener('click', () => {
 
 document.querySelector('#remover-selecionado').addEventListener('click', (event) => {
   const selecionado = document.querySelector('.selected');
-  const lista = selecionado.parentElement
+  const lista = selecionado.parentNode
   lista.removeChild(selecionado)
 })
