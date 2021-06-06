@@ -1,3 +1,5 @@
+let selecionado;
+
 function textFunc(inputSub) {
   const main = document.querySelector('.inputButtons');
 
@@ -6,14 +8,16 @@ function textFunc(inputSub) {
   inputSub.addEventListener('click', () => {
     const li = document.createElement('li');
     const criarTarefa = document.getElementById('lista-tarefas');
-    const textoTarefa = ('texto-tarefa');
-    const texto = document.createTextNode(document.getElementById(textoTarefa).value);
+    const textoTarefa = document.getElementById('texto-tarefa');
+    if (textoTarefa.value === '') {
+      return alert('Erro: Texto Vazio!');
+    }
+    const texto = document.createTextNode(textoTarefa.value);
     li.className = 'listado';
     li.appendChild(texto);
-
     criarTarefa.appendChild(li);
 
-    document.getElementById(textoTarefa).value = '';
+    textoTarefa.value = '';
   });
 }
 
@@ -29,7 +33,7 @@ function inputCreator() {
   const inputSub = document.createElement('button');
   inputSub.setAttribute('id', 'criar-tarefa');
   inputSub.innerText = 'ADICIONAR';
-  return textFunc(inputSub);
+  textFunc(inputSub);
 }
 
 // Cria a OL onde vai receber a lista das tarefas
@@ -46,11 +50,14 @@ function listOlCreator() {
 // ==============================
 
 function clickTarefas(clack) {
-  const selecionado = document.querySelector('.selecionado');
+  if (clack.target.classList.contains('listado')) {
+    if (selecionado === clack.target) return;
 
-  if (clack.target.classList.contains('listado') && clack.target !== selecionado) {
-    selecionado.classList.remove('selecionado');
-    clack.target.classList.add('selecionado');
+    if (selecionado) selecionado.classList.remove('selected');
+
+    clack.target.classList.add('selected');
+
+    selecionado = clack.target;
   }
 }
 
@@ -71,12 +78,14 @@ function apagar() {
     while (listed.length > 0) {
       listed[0].parentNode.removeChild(listed[0]);
     }
+    return alert('Lista de tarefas deletada com sucesso! (:');
   });
   document.getElementById('remover-finalizados').addEventListener('click', () => {
     const complete = document.getElementsByClassName('completed');
     while (complete.length > 0) {
       complete[0].parentNode.removeChild(complete[0]);
     }
+    return alert('Tarefa completada deletada com sucesso! (:');
   });
 }
 
@@ -87,7 +96,7 @@ function salvar() {
 
   salvarButton.addEventListener('click', () => {
     localStorage.setItem('verificarOl', verificarOl.innerHTML);
-    return alert('salvo com sucesso');
+    return alert('Lista Salva com Sucesso');
   });
   const saved = localStorage.getItem('verificarOl');
 
@@ -96,23 +105,29 @@ function salvar() {
   }
 }
 
+function seletados() {
+  const deletarSeletado = document.querySelector('#remover-selecionado');
+
+  deletarSeletado.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected');
+    selected[0].parentNode.removeChild(selected[0]);
+  });
+}
+
 function buttonsLi() {
   const listButtons = document.getElementById('buttonsList');
 
-  const apagaCompleto = document.createElement('button');
-  apagaCompleto.id = ('remover-finalizados');
-  apagaCompleto.innerText = 'Limpar Completos';
-  listButtons.appendChild(apagaCompleto);
+  const idText = ['remover-selecionado', 'mover-cima', 'mover-baixo ', 'remover-finalizados',
+    'apaga-tudo', 'salvar-tarefas'];
+  const innerText = ['X', '⬆', '⬇', 'Limpar Completos', 'Limpar Lista', 'Salvar'];
 
-  const apagaLista = document.createElement('button');
-  apagaLista.id = ('apaga-tudo');
-  apagaLista.innerText = 'Limpar Lista';
-  listButtons.appendChild(apagaLista);
-
-  const salvarTarefas = document.createElement('button');
-  salvarTarefas.id = ('salvar-tarefas');
-  salvarTarefas.innerText = 'Salvar';
-  listButtons.appendChild(salvarTarefas);
+  for (let index = 0; index < idText.length; index += 1) {
+    const idIndex = idText[index];
+    const identificador = document.createElement('button');
+    identificador.id = idIndex;
+    identificador.innerText = innerText[index];
+    listButtons.appendChild(identificador);
+  }
 }
 
 function createDivButtons() {
@@ -123,6 +138,7 @@ function createDivButtons() {
   buttonsLi();
   apagar();
   salvar();
+  seletados();
 }
 
 window.onload = () => {
