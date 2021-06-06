@@ -28,27 +28,31 @@ function changeColorFocus(event) {
   for (let index = 0; index < taskListItems.length; index += 1) {
     taskListItems[index].style.backgroundColor = '';
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128';
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
 }
 
 function setCompletedStatus(event) {
   if (event.target.className == 'item-list completed') {
     event.target.className = 'item-list';
   } else {
-    event.target.className += 'completed';
+    event.target.className += ' completed';
   }
 }
 
+
+// Requisito 10
 function clearAll() {
   let itemsToClear = document.querySelector('#lista-tarefas');
   itemsToClear.innerHTML = '';
 }
 buttonClearAll.addEventListener('click', clearAll);
 
+
+// Requisito
 function removeFinished() {
   let itemsForRemove = document.querySelectorAll('.completed');
   let allItems = document.querySelector('#lista-tarefas');
-  for (let index = 1; index < itemsForRemove.length; index += 1) {
+  for (let index = 0; index < itemsForRemove.length; index += 1) {
     allItems.removeChild(itemsForRemove[index]);
   }
 }
