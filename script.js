@@ -46,6 +46,7 @@ document.querySelector('#apaga-tudo').addEventListener('click', () => {
       lista.removeChild(itensDaLista[i]);
     }
   }
+  localStorage.clear()
 });
 
 document.querySelector('#remover-finalizados').addEventListener('click', () => {
@@ -66,16 +67,25 @@ document.querySelector('#salvar-tarefas').addEventListener('click', () => {
   for (let i = 0; i < itensDaLista.length; i += 1) {
     localStorage.setItem(i,itensDaLista[i].innerText)
   }
-  localStorage.sort()
 })
 
 window.onload = recebeDadosSalvos;
+
 
 function recebeDadosSalvos() {
   armazenamento = localStorage
   const lista = document.querySelector('#lista-tarefas');
   for (let i = 0; i < armazenamento.length; i += 1){
     const elementoLi = document.createElement('li');
-    lista.appendChild(elementoLi).innerText = armazenamento.getItem(armazenamento.key(i));
+    lista.appendChild(elementoLi).innerText = armazenamento.getItem(i);
+    elementoLi.addEventListener('click', AdicionarCorDeFundoSeClicado);
+    elementoLi.addEventListener('dblclick', RiscaOuNãoOLi);
   }
 }
+
+document.querySelector('#mover-cima').addEventListener('click', () => {
+  let elementoASerMovido = document.querySelector('.selected');
+  const lista = document.querySelector('#lista-tarefas');
+  let ElementoDeCima = document.querySelector('.selected').previousSibling;
+
+})
