@@ -7,6 +7,20 @@ const botaoRemoveSelec = document.querySelector('#remover-selecionado');
 const botaoSubir = document.querySelector('#mover-cima');
 const botaoDescer = document.querySelector('#mover-baixo');
 
+function verificaSelected() {
+  let verifica = false;
+  const lista = document.querySelectorAll('li');
+  const cS = 'completed selected';
+  const sC = 'selected completed';
+  const s = 'selected';
+  for (let i = 0; i < lista.length; i += 1) {
+    if (lista[i].className === cS || lista[i].className === sC || lista[i].className === s) {
+      verifica = true;
+    }
+  }
+  return verifica;
+}
+
 function descerItem() {
   if (verificaSelected() === true) {
     const elemento = document.querySelector('.selected');
@@ -28,19 +42,6 @@ function subirItem() {
   }
 }
 
-function verificaSelected() {
-  let verifica = false;
-  const lista = document.querySelectorAll('li');
-  const cS = 'completed selected';
-  const sC = 'selected completed';
-  const s = 'selected';
-  for (let i = 0; i < lista.length; i += 1) {
-    if (lista[i].className === cS || lista[i].className === sC || lista[i].className === s) {
-      verifica = true;
-    }
-  }
-  return verifica;
-}
 function removeSelect() {
   listaTarefas.removeChild(document.querySelector('.selected'));
 }
