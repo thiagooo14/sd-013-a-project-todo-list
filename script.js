@@ -4,8 +4,12 @@ const buttonRemoverFinalizados = document.querySelector('#remover-finalizados');
 const buttonSalvarTarefas = document.querySelector('#salvar-tarefas');
 const inputCriarTarefa = document.querySelector('#texto-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
+const removerSelecionado = document.querySelector('#remover-selecionado');
+const moverCima = document.querySelector('#mover-cima');
+const moverBaixo = document.querySelector('#mover-baixo');
 
 let tarefas = [];
+let tasks = {};
 let gray = '';
 let sublimed = [];
 
@@ -18,7 +22,11 @@ buttonCriarTarefa.addEventListener('click', () => {
 		listaTarefas.appendChild(li);
 		inputCriarTarefa.value = '';
 		li = document.querySelector('#lista-tarefas').lastElementChild;
-		tarefas.push(li.innerHTML);
+		let tasks = {
+			text: li.innerText,
+			class: li.className
+		}
+		tarefas.push(tasks);
 	}
 })
 
@@ -73,23 +81,67 @@ inputCriarTarefa.addEventListener('keypress', (event) => {
 		listaTarefas.appendChild(li);
 		inputCriarTarefa.value = '';
 		li = document.querySelector('#lista-tarefas').lastElementChild;
-		tarefas.push(li.innerHTML);
+		let tasks = {
+			text: li.innerText,
+			class: li.className
+		}
+		tarefas.push(tasks);
 		}
 	}
 })
 
-// Utilizando  para manter as li's ao fechar a página
+// Utilizando localStorage para manter as li's ao fechar a página
 buttonSalvarTarefas.addEventListener('click', () => {
 	if (localStorage.length == 0) {
-		if (tarefas != '') {
+		if (tarefas != []) {
 			let tarefasAdicionadas = tarefas;
-			localStorage.setItem('tasks', tarefasAdicionadas);
+			localStorage.setItem('tasks', JSON.stringify(tarefasAdicionadas));
 		}
 
 	} else {
 		tarefasAdicionadas = tarefas;
+		localStorage.setItem('tasks', JSON.stringify(tarefasAdicionadas));
 	}
+})
 
+function retomaElementos () {
+	for (index in localStorage.getItem('tasks')) {
+		console.log('olá, mundo!');
+	}
+}
+
+retomaElementos();
+
+// Remove o item selecionado
+removerSelecionado.addEventListener('click', () => {
+	let selecionado = document.querySelector('.gray');
+	selecionado.remove();
+})
+
+// Mover elemento para cima
+moverCima.addEventListener('click', () => {
+	if (listaTarefas.firstElementChild.classList.contains('gray') == false) {
+		let selecionado = document.querySelector('.gray');
+		let selecionadoCima = document.querySelector('.gray').previousElementSibling;
+		let text = selecionado.innerText;
+		selecionado.innerText = selecionadoCima.innerText;
+		selecionadoCima.innerText = text;
+		selecionado.classList.remove('gray');
+		selecionadoCima.classList.add('gray');
+	}
+})
+
+// Mover elemento para baixo
+moverBaixo.addEventListener('click', () => {
+	if (listaTarefas.lastElementChild.classList.contains('gray') == false) {
+		let selecionado = document.querySelector('.gray');
+		let selecionadoBaixo = document.querySelector('.gray').nextElementSibling;
+		let text = selecionado.innerText;
+		selecionado.innerText = selecionadoBaixo.innerText;
+		selecionadoBaixo.innerText = text;
+		selecionado.classList.remove('gray');
+		selecionadoBaixo.classList.add('gray');
+	}
 })
 
 // Apaga de um em um
