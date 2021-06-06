@@ -70,7 +70,7 @@ window.onload = function () {
 
   function waitDoubleClick() {
     const itemSelect = document.getElementById('lista-tarefas');
-    itemSelect.addEventListener('dblclick', function(i) { doubleClick(i.target.id) }, false);
+    itemSelect.addEventListener('dblclick', function (i) { doubleClick(i.target.id)}, false);
   }
   waitDoubleClick();
 
@@ -93,11 +93,6 @@ window.onload = function () {
     for (let i = 0; i < finalizeds.length; i += 1) {
       const deleteFinalized = document.getElementById(finalizeds[i].id).remove();
     }
-    if (localStorage) {
-      localStorage.clear();
-    } else {
-      alert("Desculpe, não existe informações salvas.");
-    }
   }
 
   function waitDeleteAllFinalized() {
@@ -105,6 +100,16 @@ window.onload = function () {
     deleteEvent.addEventListener('click', deleteAllFinalized, false);
   }
   waitDeleteAllFinalized();
+
+  function deleteSelected() {
+    const selected = document.querySelector('.selected').remove();
+  }
+
+  function waitDeleteSelected() {
+    const deleteEvent = document.getElementById('remover-selecionado');
+    deleteEvent.addEventListener('click', deleteSelected, false);
+  }
+  waitDeleteSelected();
 
   function tasksSave() {
     const items = document.querySelectorAll('li');
@@ -136,12 +141,12 @@ window.onload = function () {
     for (let i = 0; i < move.length; i += 1) {
       move[i].addEventListener('click', function () {
         buttonUp.addEventListener('click', function () {
-          if (move[i].previousSibling) {
+          if (move[i].previousElementSibling) {
             move[i].parentNode.insertBefore(move[i], move[i].previousElementSibling);
           }
         })
         buttonDown.addEventListener('click', function () {
-          if (move[i].nextSibling) {
+          if (move[i].nextElementSibling) {
             move[i].parentNode.insertBefore(move[i].nextElementSibling, move[i]);
           }
         })
@@ -149,4 +154,4 @@ window.onload = function () {
     }
   }
   moveItem();
-}
+};
