@@ -32,7 +32,8 @@ function enterTask(taskText, taskClass) {
 
 function addTask() {
   const inputText = document.getElementById('texto-tarefa').value;
-  if (inputText === '') return;
+  const lis = document.getElementsByTagName('li').length;
+  if (inputText === '' || lis > 9) return;
   enterTask(inputText, '');
   clearInput();
 }

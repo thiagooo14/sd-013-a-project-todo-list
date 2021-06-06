@@ -2,6 +2,56 @@
   background-color: gray;
 }
 
+h1 , p {
+  margin: 2px;
+}
+
 .completed {
   text-decoration: line-through;
+}
+
+.buttons , .list-header {
+  margin-top: 10px;
+}
+
+.buttons {
+  margin-bottom: 5px;
+}
+
+.list-header {
+  min-width: 300px;
+  min-height: 85px;
+
+  /* background-color: red; */
+  background-image: url('src/notes.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lista {
+  min-width: 300px;
+  min-height: 30px;
+
+  /* background-color: green; */
+  background-image: url('src/notes.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+#lista-tarefas {
+  margin-top: 0;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  width: 200px;
+  max-width: 170px;
+
+  /* background-color: rgba(0, 0, 255, 0.445); */
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
