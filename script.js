@@ -21,7 +21,6 @@ window.addEventListener('load', creatingTask);
 const selectTask = () => {
   listaTarefas.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
-    localStorage.setItem('completed', event.target.classList);
   });
 };
 
@@ -30,7 +29,6 @@ window.addEventListener('load', selectTask);
 const completeTask = () => {
   listaTarefas.addEventListener('click', (event) => {
     event.target.classList.toggle('selected');
-    localStorage.setItem('selected', event.target.classList);
   });
 };
 
@@ -66,3 +64,13 @@ const deleteCompletedTasks = () => {
 };
 
 window.addEventListener('load', deleteCompletedTasks);
+
+const loadTask = () => {
+  const buttonSave = document.querySelector('#salvar-tarefas');
+  buttonSave.addEventListener('click', () => {
+    localStorage.setItem('list-task', listaTarefas.innerHTML);
+  });
+  listaTarefas.innerHTML = localStorage.getItem('list-task');
+};
+
+window.addEventListener('load', loadTask);
