@@ -4,37 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
     <title>Todo List Project</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1>Minha Lista de Tarefas</h1>
       <p id="funcionamento">
         Clique duas vezes em um item para marcá-lo como completo
       </p>
     </header>
 
-    <main>
+    <main class="main">
       <section class="adiciona-tarefas">
-        <div>
+        <form id="form">
           <input
             id="texto-tarefa"
             type="text"
             placeholder="Sua tarefa"
             autofocus
           />
-          <button id="criar-tarefa">Adicionar</button>
-          <button id="salvar-tarefas">Salvar Lista</button>
-        </div>
+          <button id="criar-tarefa" type="submit">Adicionar</button>
+          <button id="salvar-tarefas" type="button">Salvar Lista</button>
+        </form id="form">
         <ol id="lista-tarefas"></ol>
       </section>
 
       <section class="acoes">
-        <button id="remover-selecionado">X</button>
-        <button id="mover-cima">Cima</button>
-        <button id="mover-baixo">Baixo</button>
-        <button id="apaga-tudo">Apagar Tudo</button>
-        <button id="remover-finalizados">Remover Finalizados</button>
+        <button id="remover-selecionado" type="button">X</button>
+        <button id="mover-cima" type="button">⬆</button>
+        <button id="mover-baixo" type="button">⬇</button>
+        <button id="apaga-tudo" type="button">Apagar Lista</button>
+        <button id="remover-finalizados" type="button">Remover Finalizados</button>
       </section>
     </main>
 

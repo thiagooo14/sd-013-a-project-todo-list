@@ -1,6 +1,6 @@
 const task = document.querySelector('#texto-tarefa');
-const addTaskItem = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+const form = document.querySelector('#form');
 
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteTaskDone = document.querySelector('#remover-finalizados');
@@ -45,7 +45,9 @@ if (localStorage.getItem('listItem') != null) {
   });
 }
 
-addTaskItem.addEventListener('click', () => {
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
   if (!task.value) {
     return;
   }

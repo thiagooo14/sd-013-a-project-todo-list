@@ -4,11 +4,121 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Delius, cursive, Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1.5;
   width: 900px;
   margin: 0 auto;
+  background-image: url(./background.jpeg);
+  background-size: cover;
+}
+
+.header {
+  max-width: 520px;
+  margin-top: 100px;
+  margin-bottom: 65px;
+  text-align: center;
+  color: rgb(1, 1, 77);
+}
+
+#funcionamento {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.main {
+  max-width: 515px;
+}
+
+.adiciona-tarefas {
+  margin-bottom: 40px;
+}
+
+#form {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#criar-tarefa,
+#salvar-tarefas,
+#apaga-tudo,
+#remover-finalizados {
+  padding: 5px 10px;
+  border-radius: 25px;
+  color: white;
+}
+
+#texto-tarefa {
+  margin-right: 70px;
+  padding: 5px 10px;
+  border: 2px solid rgb(1, 1, 77);
+  border-radius: 5px;
+}
+
+#criar-tarefa {
+  background-color: rgb(75, 75, 241);
+  border: 2px solid rgb(75, 75, 241);
+}
+
+#salvar-tarefas {
+  background-color: rgb(29, 150, 29);
+  border: 2px solid rgb(29, 150, 29);
+}
+
+#lista-tarefas {
+  padding: 10px 70px;
+  color: rgb(1, 1, 77);
+}
+
+.acoes {
+  text-align: center;
+}
+
+#remover-selecionado {
+  padding: 5px 10px;
+  background-color: rgb(168, 22, 22);
+  border: 2px solid rgb(168, 22, 22);
+}
+
+#mover-cima {
+  padding: 2px 8px;
+  background-color: rgb(75, 75, 241);
+  border: 2px solid rgb(75, 75, 241);
+}
+
+#mover-baixo {
+  padding: 2px 8px;
+  margin-right: 50px;
+  background-color: rgb(29, 150, 29);
+  border: 2px solid rgb(29, 150, 29);
+}
+
+#apaga-tudo {
+  background-color: rgb(168, 22, 22);
+  border: 2px solid rgb(168, 22, 22);
+}
+
+#remover-finalizados {
+  background-color: orange;
+  border: 2px solid orange;
+}
+
+#remover-selecionado,
+#mover-cima,
+#mover-baixo {
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+#criar-tarefa:hover,
+#salvar-tarefas:hover,
+#remover-selecionado:hover,
+#mover-cima:hover,
+#mover-baixo:hover,
+#apaga-tudo:hover,
+#remover-finalizados:hover {
+  opacity: 0.6;
 }
 
 li {
