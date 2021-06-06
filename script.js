@@ -1,0 +1,33 @@
+const input = document.getElementById("texto-tarefas");
+const button = document.getElementById("criar-tarefa");
+const listaDeTarefas = document.getElementById("lista-tarefas");
+
+//Referência Josué Lobo
+listaDeTarefas.addEventListener('click', (event) => {
+  const alvo = event.target;
+  if (alvo.className === 'item-list') {
+    const selected = document.querySelector('.selected');
+    if (selected !== null) {
+      selected.classList.remove('selected');
+      selected.style.backgroundColor = 'white';
+    }
+    alvo.classList.add('selected');
+    alvo.style.backgroundColor = 'gray';
+  }
+});
+
+function adicionaTarefa() {
+  const CreateText = document.createElement("li");
+  listaDeTarefas.appendChild(CreateText);
+  CreateText.innerText= input.value;
+  input.value = "";
+  CreateText.className = "item-list"
+};
+
+button.addEventListener("click", adicionaTarefa);
+
+input.addEventListener("keypress", (add) => {
+  if (add.key === "Enter") {
+    adicionaTarefa();
+  }
+})
