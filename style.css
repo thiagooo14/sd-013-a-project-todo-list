@@ -40,7 +40,7 @@ li {
 }
 
 .selected::marker {
-  color: rgb(73, 81, 111);
+  color: rgb(73 , 81 , 111);
 }
 
 .completed {
@@ -113,7 +113,7 @@ button:hover {
 }
 
 #remover-finalizados {
-  background-color: rgb(11, 79, 108);
+  background-color: rgb(11 , 79 , 108);
 }
 
 #apaga-tudo {

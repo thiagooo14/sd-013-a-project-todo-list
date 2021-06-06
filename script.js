@@ -1,6 +1,8 @@
 /* Elements */
-const tasks = document.getElementsByTagName('li');
 const todoList = document.getElementById('lista-tarefas');
+const input = document.getElementById('texto-tarefa');
+const tasks = document.getElementsByTagName('li');
+const container = document.getElementById('lista-container');
 
 /* Buttons */
 const clearAllBtn = document.getElementById('apaga-tudo');
@@ -8,21 +10,10 @@ const clearDoneBtn = document.getElementById('remover-finalizados');
 const clearSelBtn = document.getElementById('remover-selecionado');
 const addBtn = document.getElementById('criar-tarefa');
 const saveBtn = document.querySelector('#salvar-tarefas');
-
-/* Events */
-clearAllBtn.addEventListener('click', todoClear);
-clearDoneBtn.addEventListener('click', clearDone);
-clearSelBtn.addEventListener('click', clearSel);
-addBtn.addEventListener('click', todoAdd);
-saveBtn.addEventListener('click', todoSave);
+const downBtn = document.querySelector('#mover-baixo');
+const upBtn = document.querySelector('#mover-cima');
 
 /* Functions */
-function todoSelect() {
-  for(let i = 0; i < tasks.length; i += 1) {
-    tasks[i].addEventListener('click', select);
-  }
-}
-
 function select(evt) {
   for (let i = 0; i < tasks.length; i += 1) {
     if (tasks[i].classList.contains('selected')) {
@@ -32,9 +23,9 @@ function select(evt) {
   evt.target.classList.add('selected');
 }
 
-function todoDone() {
-  for(let i = 0; i < tasks.length; i += 1) {
-    tasks[i].addEventListener('dblclick', decoration);
+function todoSelect() {
+  for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].addEventListener('click', select);
   }
 }
 
@@ -42,46 +33,57 @@ function decoration(evt) {
   evt.target.classList.toggle('completed');
 }
 
-function todoAdd() {
-  let value = document.getElementById('texto-tarefa').value;
-  if (!value) {
-    alert('Por favor, digite alguma tarefa.');
+function todoDone() {
+  for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].addEventListener('dblclick', decoration);
   }
-  else {
-    let newTask = document.createElement('li');
-    newTask.innerText = value;
+}
 
+function todoAdd() {
+  if (!input.value) {
+    alert('Por favor, digite alguma tarefa.');
+  } else {
+    const newTask = document.createElement('li');
+    newTask.innerText = input.value;
     todoList.appendChild(newTask);
-
-    let height = document.getElementById('lista-container').style.height;
-    height = (parseInt(height) + 10) + 'px';
+    container.style.height = `${parseInt(container.style.height, 10) + 10}px`;
 
     todoDone();
     todoSelect();
   }
-  document.getElementById('texto-tarefa').value = '';
+  input.value = '';
 }
+
+addBtn.addEventListener('click', todoAdd);
 
 function todoClear() {
   todoList.innerHTML = '';
 }
 
+clearAllBtn.addEventListener('click', todoClear);
+
 function clearDone() {
-  let completed = document.querySelectorAll('.completed');
-  for(let i = 0; i < completed.length; i += 1) {
+  const completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
     todoList.removeChild(completed[i]);
   }
 }
 
+clearDoneBtn.addEventListener('click', clearDone);
+
 function clearSel() {
-  let selected = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
   todoList.removeChild(selected);
 }
+
+clearSelBtn.addEventListener('click', clearSel);
 
 function todoSave() {
   const listData = todoList.innerHTML;
   localStorage.setItem('lastsave', listData);
 }
+
+saveBtn.addEventListener('click', todoSave);
 
 function todoGet() {
   const lastSave = localStorage.getItem('lastsave');
@@ -90,3 +92,27 @@ function todoGet() {
   }
 }
 todoGet();
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    const liUnder = selected.nextElementSibling;
+    if (selected !== todoList.lastChild) {
+      todoList.insertBefore(selected, liUnder.nextElementSibling);
+    }
+  }
+}
+
+downBtn.addEventListener('click', moveDown);
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    const liAbove = selected.previousElementSibling;
+    if (selected !== todoList.firstChild) {
+      todoList.insertBefore(selected, liAbove);
+    }
+  }
+}
+
+upBtn.addEventListener('click', moveUp);
