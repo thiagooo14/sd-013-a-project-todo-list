@@ -1,5 +1,6 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 
+
 const creatingTask = () => {
   document.querySelector('#criar-tarefa').addEventListener('click', () => {
     const textoTarefa = document.querySelector('#texto-tarefa');
@@ -35,3 +36,12 @@ const completedTask = () => {
 };
 
 window.addEventListener('click', completedTask);
+
+const deleteAllTasks = () => {
+  const deleteTask = document.querySelector('#apaga-tudo');
+  deleteTask.addEventListener('click', () => {
+    listaTarefas.innerText = '';
+  });
+};
+
+window.addEventListener('click', deleteAllTasks);
