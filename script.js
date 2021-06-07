@@ -28,6 +28,8 @@ if (event.target.classList.contains('tasks')) {
 }
 });
 
+//Obrigado Luiza Antiques e Josué Lobo pela ajuda.
+
 //------------------------------------------------------------------//
 //---------------------------REQUISITO 9----------------------------//
 //------------------------------------------------------------------//
@@ -39,3 +41,19 @@ ol.addEventListener('dblclick', (event) => {
     event.target.classList.add('completed');
   }
 })
+
+//Obrigado Luiza Antiques e Josué Lobo pelo suporte
+
+//------------------------------------------------------------------//
+//--------------------------REQUISITO 10----------------------------//
+//------------------------------------------------------------------//
+
+function removeTasks() {
+  let ol = document.querySelector('#lista-tarefas')
+  while (ol.hasChildNodes()) {
+    ol.removeChild(ol.firstChild);
+  }
+}
+
+//link de suporte: https://www.w3schools.com/jsref/met_node_removechild.asp
+
