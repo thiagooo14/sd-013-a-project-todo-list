@@ -1,6 +1,5 @@
 function adicionar (){
     let valorInput = document.querySelector('#texto-tarefa').value;
-    let botao = document.querySelector('#remove-finalizados');
     let adicionaItemL = document.querySelector('#lista-tarefas');
     let item = document.createElement('li');
     item.style.border = '1px solid black';
@@ -13,7 +12,7 @@ function adicionar (){
              
          
     } 
-    botao.addEventListener('click',removeRis)
+    
 
 }
 adicionar();
