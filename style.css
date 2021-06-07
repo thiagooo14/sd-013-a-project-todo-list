@@ -1,4 +1,8 @@
-#criar-tarefa ,#texto-tarefa{
+#criar-tarefa ,#texto-tarefa {
   padding: 10px;
   color: blue;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
 }
