@@ -31,10 +31,10 @@ function changeBackgroundColor(e) {
   let listaOrdenadaTarefas = document.getElementsByClassName('list');
 
   for (let listaTarefa of listaOrdenadaTarefas) {
-    listaTarefa.classList.remove('selected');
+    listaTarefa.style.backgroundColor = '';
   }
 
-  e.target.classList.add('selected');
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function changeCompleted(e) {
@@ -50,8 +50,11 @@ botaoApagaTudo.addEventListener('click', () => {
 });
 
 botaoRemoverFinalizados.addEventListener('click', () => {
-  let finalizados = document.getElementsByClassName('completed');
-  while (finalizados) {
-    finalizados[0].remove();
+  const lis = document.querySelectorAll('li');
+  for (let i = 0; i < lis.length; i += 1) {
+    const element = lis[i];
+    if (element.classList.contains('completed')) {
+      listaOrdenadaListaTarefas.removeChild(element);
+    }
   }
 });
