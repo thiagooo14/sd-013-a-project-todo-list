@@ -29,3 +29,13 @@ inputi.addEventListener("keypress", (g) => {
     adicionaTarefa();
   }
 })
+
+function riscaLinha(evento) {
+  const alvo = evento.target;
+  if (alvo.classList.contains('completed')) {
+    alvo.classList.remove('completed');
+  } else {
+    alvo.classList.add('completed');
+  }
+}
+listaDeTarefas.addEventListener('dblclick', riscaLinha);
