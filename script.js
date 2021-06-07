@@ -1,3 +1,4 @@
+// * Requisitos 1 e 2;
 function createHeaderChild() {
   const headContainer = document.querySelector('#head-container');
   const newTitle = document.createElement('h1');
@@ -13,6 +14,7 @@ function createHeaderChild() {
 
 createHeaderChild();
 
+// * Requisito 3;
 function createInputBox() {
   const inputBoxContainer = document.querySelector('#input-box');
   const newInputBox = document.createElement('input');
@@ -22,6 +24,7 @@ function createInputBox() {
 
 createInputBox();
 
+// * Requisito 4;
 function createToDoList() {
   const tdlContainer = document.querySelector('#tdl-container');
   const newOrderList = document.createElement('ol');
@@ -31,6 +34,7 @@ function createToDoList() {
 
 createToDoList();
 
+// * Requisito 5;
 function createButton() {
   const inputBoxContainer = document.querySelector('#input-box');
   const newButton = document.createElement('button');
@@ -40,6 +44,7 @@ function createButton() {
 
 createButton();
 
+// * Requisitos 5 e 6;
 let getInputBox = document.getElementById('texto-tarefa');
 let getButton = document.getElementById('criar-tarefa');
 let getOrderList = document.getElementById('lista-tarefas');
@@ -53,6 +58,7 @@ getButton.addEventListener('click', function() {
   getInputBox.value = '';
 });
 
+// * Requisitos 7 e 8;
 getOrderList.addEventListener('click', function(event) {
   let clickedItem = event.target;
   let getChildNodes = getOrderList.childNodes;
@@ -60,4 +66,10 @@ getOrderList.addEventListener('click', function(event) {
     getChildNodes[index].style.backgroundColor = 'rgb(255, 255, 255)';
   }
   clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
+})
+
+// * Requisito 9;
+getOrderList.addEventListener('dblclick', function(event) {
+  let doubleClicked = event.target;
+  doubleClicked.classList.toggle('completed');
 })
