@@ -21,6 +21,7 @@ const createTask = () => {
     highlightTask();
     completedTask();
     eraseTasks();
+    eraseSelected();
   });
 };
 
@@ -32,8 +33,9 @@ const highlightTask = () => {
   ol.addEventListener("click", (event) => {
     lis.forEach((item) => {
       const li = item;
-      li.style.backgroundColor = '';
+      li.style.backgroundColor = "";
     });
+
     const e = event.target;
     e.style.backgroundColor = gray;
   });
@@ -60,6 +62,19 @@ const eraseTasks = () => {
   button.addEventListener("click", () => {
     lis.forEach((item) => {
       item.remove();
+    });
+  });
+};
+
+const eraseSelected = () => {
+  const lis = document.querySelectorAll(".task-item");
+  const btn = document.querySelector("#remover-finalizados");
+
+  btn.addEventListener("click", () => {
+    lis.forEach((item) => {
+      if (item.classList.contains("completed")) {
+        item.remove();
+      }
     });
   });
 };
