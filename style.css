@@ -51,12 +51,12 @@ body {
   outline: none;
 }
 
-#texto-tarefa:focus::-webkit-input-placeholder {
+#texto-tarefa:focus::placeholder {
   color: transparent;
   transition: 0.5s;
 }
 
-::-webkit-input-placeholder {
+input::placeholder {
   color: black;
   font-size: 22px;
   text-transform: uppercase;
