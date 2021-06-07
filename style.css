@@ -2,10 +2,39 @@ body {
   background-color: bisque;
 }
 
+#title {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+#funcionamento {
+  font-style: italic;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+ol, li {
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  text-align: center;
+}
+
 .color-change {
   background-color: rgb(128, 128, 128);
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+button {
+  padding: 5px;
+  background-color: rgb(157, 193, 247);
+  border-radius: 5%;
+  font-family: 'Raleway', sans-serif;
 }
