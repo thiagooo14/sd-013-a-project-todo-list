@@ -2,6 +2,7 @@
 const lista = document.querySelector("#lista-tarefas");
 const botao1 = document.querySelector("#criar-tarefa");
 const botao2 = document.querySelector("#apaga-tudo");
+const botao3 = document.querySelector("#remover-finalizados");
 
 
 function adicionaItem(){
@@ -60,3 +61,18 @@ function apagaTudo(){
 }
 
 botao2.addEventListener("click", apagaTudo);
+
+function removeCompleto(){
+  let listaCompletos = document.querySelectorAll(".completed");
+  let paiCompletos = document.querySelector("#lista-tarefas");
+
+
+  for(let index =0; index < listaCompletos.length; index+=1){
+    
+      paiCompletos.removeChild(listaCompletos[index]);
+    
+    
+  }
+}
+
+botao3.addEventListener("click", removeCompleto);
