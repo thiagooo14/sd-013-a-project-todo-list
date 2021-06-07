@@ -54,11 +54,14 @@ function completed(event){
 function apagaTudo(){
 
  itemDaLista = document.querySelectorAll(".lista");
-  for(let index = itemDaLista.length +1 ; index > 0  ; index -=1){
+ let ol = document.querySelector("ol");
+  ol.remove(itemDaLista);
+
+/*   for(let index = 0 ; index < itemDaLista.length; index +=1){
     if(itemDaLista.length !== 0 ){
       lista.removeChild(lista.firstChild);
     }  
-  }  
+  }   */
 }
 
 botao2.addEventListener("click", apagaTudo);
@@ -68,7 +71,7 @@ function removeCompleto(){
   let paiCompletos = document.querySelector("#lista-tarefas");
 
 
-  for(let index =0; index < listaCompletos.length+ 1; index+=1){
+  for(let index =0; index < listaCompletos.length; index+=1){
     
       paiCompletos.removeChild(listaCompletos[index]);
     
