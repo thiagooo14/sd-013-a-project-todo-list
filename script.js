@@ -4,6 +4,7 @@ const creatingTask = () => {
   document.querySelector('#criar-tarefa').addEventListener('click', () => {
     const textoTarefa = document.querySelector('#texto-tarefa');
     const li = document.createElement('li');
+    li.classList.add('item');
     li.textContent = textoTarefa.value;
 
     if (textoTarefa.value === '') {
@@ -18,21 +19,49 @@ const creatingTask = () => {
 
 window.addEventListener('load', creatingTask);
 
-const selectTask = () => {
+const dblMarkupTask = () => {
   listaTarefas.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
   });
 };
 
-window.addEventListener('load', selectTask);
+window.addEventListener('load', dblMarkupTask);
 
 const completeTask = () => {
   listaTarefas.addEventListener('click', (event) => {
+    const li = document.getElementsByClassName('item');
+    for (let index = 0; index < li.length; index += 1) {
+      li[index].classList.remove('selected');
+    }
     event.target.classList.toggle('selected');
   });
 };
 
 window.addEventListener('load', completeTask);
+
+const moveUpTask = () => {
+  const buttonUp = document.querySelector('#mover-cima');
+  buttonUp.addEventListener('click', () => {
+    const element = document.querySelector('.selected');
+    if (element && element.previousElementSibling) {
+      listaTarefas.insertBefore(element, element.previousElementSibling);
+    }
+  });
+};
+
+window.addEventListener('click', moveUpTask);
+
+const moveDownTask = () => {
+  const buttonDown = document.querySelector('#mover-baixo');
+  buttonDown.addEventListener('click', () => {
+    const selectedElement = document.querySelector('.selected');
+    if (selectedElement && selectedElement.nextElementSibling) {
+      listaTarefas.insertBefore(selectedElement.nextElementSibling, selectedElement);
+    }
+  });
+};
+
+window.addEventListener('click', moveDownTask);
 
 const deleteAllTasks = () => {
   const deleteTask = document.querySelector('#apaga-tudo');
