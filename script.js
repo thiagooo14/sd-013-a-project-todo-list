@@ -11,7 +11,7 @@ function addText() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-// Desenvolvido com a ajuda do estudante Trybe Felipe Neves;
+//Desenvolvido com a ajuda do estudante Trybe Felipe Neves;
 const listDesk = document.querySelector('#lista-tarefas');
   listDesk.addEventListener('click', addColor);
   function addColor(event){
@@ -21,9 +21,19 @@ const listDesk = document.querySelector('#lista-tarefas');
     }
     event.target.classList.add('gray');
   };
-  
+
   listDesk.addEventListener('dblclick', addRisk);
   function addRisk(event){
     const item = document.getElementsByTagName('li');
     event.target.classList.toggle('completed')
   }
+
+// Remover todas tarefa
+let buttonRemove = document.getElementById('apaga-tudo')
+buttonRemove.addEventListener('click', removeAll);
+function removeAll() {
+const listDesk = document.querySelector('#lista-tarefas');
+while (listDesk.firstChild) {
+listDesk.removeChild(listDesk.firstChild);
+}
+}
