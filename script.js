@@ -12,6 +12,7 @@ function adicionaItem(){
       itemLista.className="lista";
       lista.appendChild(itemLista);
       itemLista.addEventListener("click",selection);
+      itemLista.addEventListener("dblclick",completed);
       inputTexto.value ="";
 
 }
@@ -30,4 +31,12 @@ function selection(event){
   }
 }
 
+function completed(event){
 
+  itemDaLista = document.querySelectorAll(".lista");
+  for(let index=0; index < itemDaLista.length;index +=1){
+    if(itemDaLista[index]=== event.target){
+      event.target.classList.add('completed');
+    }
+  }
+}
