@@ -12,7 +12,7 @@ function addTask() {
 }
 
 //------------------------------------------------------------------//
-//---------------------------REQUISITO 7----------------------------//
+//---------------------------REQUISITO 7 e 8------------------------//
 //------------------------------------------------------------------//
 
 const ol = document.querySelector('#lista-tarefas');
@@ -28,4 +28,14 @@ if (event.target.classList.contains('tasks')) {
 }
 });
 
+//------------------------------------------------------------------//
+//---------------------------REQUISITO 9----------------------------//
+//------------------------------------------------------------------//
 
+ol.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+})
