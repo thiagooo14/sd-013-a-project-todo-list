@@ -57,3 +57,19 @@ function removeTasks() {
 
 //link de suporte: https://www.w3schools.com/jsref/met_node_removechild.asp
 
+//------------------------------------------------------------------//
+//--------------------------REQUISITO 11----------------------------//
+//------------------------------------------------------------------//
+
+
+function removeFinalized() {
+  const finalizados = document.querySelectorAll('.completed')
+  let ol = document.querySelector('#lista-tarefas')
+  for (let index = 0; index < finalizados.length; index += 1) {
+    if (finalizados[index].classList.contains('completed')) {
+      ol.removeChild(finalizados[index]);
+    }
+  }
+}
+let buttonFinalized = document.getElementById('remover-finalizados')
+buttonFinalized.addEventListener('click', removeFinalized())
