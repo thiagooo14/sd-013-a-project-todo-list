@@ -5,6 +5,7 @@ const botaoLimpar = document.querySelector('#apaga-tudo');
 const btnSalvarTarefas = document.querySelector('#salvar-tarefas');
 const bntMoverCima = document.getElementById('mover-cima');
 const bntMoverBaixo = document.getElementById('mover-baixo');
+const bntRemoverSelecionado = document.getElementById('remover-selecionado');
 // let listaOrdenada = document.querySelector('#lista-tarefas');
 
 // Adicionar Lista Ordenada
@@ -22,7 +23,7 @@ function duploClick(event) {
 function mudaCor(event) {
   for (let i = 0; i < item.length; i += 1) {
     item[i].id = 'unselected';
-  }	event.target.id = 'selected';
+  }event.target.id = 'selected';
 }
 // Adicionar Botão
 function adicionaTarefa() {
@@ -51,18 +52,18 @@ botaoLimpar.addEventListener('click', resetBoard);
 
 const btnRemoverTarefas = document.querySelector('#remover-finalizados');
 
-function removeFinalizados(){
-	const list = document.querySelectorAll('.item');
-	for (let i = 0; i < list.length; i += 1){
-		if (list[i].classList.contains('completed')){
-			listaOrdenada.removeChild(list[i]);
-    }	
+function removeFinalizados() {
+  const list = document.querySelectorAll('.item');
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i].classList.contains('completed')) {
+      listaOrdenada.removeChild(list[i]);
+    }
   }
- } 
+}
 
-function salvaTarefa(){
-  btnSalvarTarefas.addEventListener('click', function() {
-      localStorage.setItem('tarefasSalvas', listaOrdenada.innerHTML);
+function salvaTarefa() {
+  btnSalvarTarefas.addEventListener('click', () => {
+    localStorage.setItem('tarefasSalvas', listaOrdenada.innerHTML);
   });
 }
 salvaTarefa();
@@ -70,22 +71,28 @@ listaOrdenada.innerHTML = localStorage.getItem('tarefasSalvas');
 
 const tarefaSelecionada = () => {
   const tarefaSelecionada = document.querySelector('#selected');
-return tarefaSelecionada;
+  return tarefaSelecionada;
 };
 
-function movePraCima(){    
-  if (tarefaSelecionada() !== item[0]) {
+function movePraCima() {
+  if (tarefaSelecionada() && tarefaSelecionada() !== item[0]) {
     listaOrdenada.insertBefore(tarefaSelecionada(), tarefaSelecionada().previousElementSibling);
-  } 
-} 
+  }
+}
 
- function moverBaixo(){
-   if (tarefaSelecionada() !== item[item.length -1]) {
-     listaOrdenada.insertBefore(tarefaSelecionada().nextElementSibling, tarefaSelecionada());
-   }  
- }
+function moverBaixo() {
+  if (tarefaSelecionada() && tarefaSelecionada() !== item[item.length - 1]) {
+    listaOrdenada.insertBefore(tarefaSelecionada().nextElementSibling, tarefaSelecionada());
+  }
+}
+
+function removerSelecionado() {
+  const selected = document.querySelector('#selected');
+  selected.remove();
+}
 
 bntMoverBaixo.addEventListener('click', moverBaixo);
 bntMoverCima.addEventListener('click', movePraCima);
 btnRemoverTarefas.addEventListener('click', removeFinalizados);
 botaoAdc.addEventListener('click', adicionaTarefa);
+bntRemoverSelecionado.addEventListener('click', removerSelecionado);
