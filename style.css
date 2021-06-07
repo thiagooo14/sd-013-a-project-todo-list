@@ -61,3 +61,6 @@ header {
   padding: 15px 0 15px
 }
 
+.gray {
+  background-color: rgb(128, 128, 128);
+}

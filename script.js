@@ -5,7 +5,7 @@ function addNewTask() {
 
   getInputButton.addEventListener('click', () => {
     let newTask = document.createElement('li');
-    newTask.className = 'itemTask'
+    newTask.className = 'itemTask';
     newTask.innerText = getInputField.value;
     getTaskList.appendChild(newTask);
     getInputField.value = '';
@@ -20,10 +20,7 @@ getOl.addEventListener('click', (evento) => {
   let removeGray = document.querySelectorAll('.gray');
   for (let i = 0; i < removeGray.length; i += 1) {
     removeGray[i].classList.remove('gray');
-    removeGray[i].style.backgroundColor = '';
   }
   evento.target.classList.add('gray');
-  let putGray = document.querySelector('.gray');
-  putGray.style.backgroundColor = 'rgb(128, 128, 128)';
 });
 
