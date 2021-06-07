@@ -4,16 +4,39 @@ let button = document.querySelector('#criar-tarefa');
 button.addEventListener('click', function(){
     let input = document.querySelector('#texto-tarefa');
     let value = input.value;
-    //alert(value);
 
     //crio a Li e recupero o OL
     let listLI = document.createElement('li');
     let listOL = document.querySelector('#lista-tarefas');
 
-    //Insiro o valor que recuperei na LI que foi criada e do um append na OL
+    //Insiro o valor que recuperei do input na li que foi criada e do um append na OL
     listLI.innerText = value;
     listOL.appendChild(listLI);
+
     input.value = '';
+    
+    //insere bg ao clicar no LI
+
+    listLI.addEventListener('click', ()=> {
+        switch (listLI.style.backgroundColor) {
+            case "":
+                removeBG();
+                listLI.style.backgroundColor = "rgb(128,128,128)";
+                break;
+        
+            default:
+                removeBG();
+                listLI.style.backgroundColor = "";
+                break;
+        };
+    });
 });
 
+//remove todos os backgrounds das li
+function removeBG() {
+    let arrayLI = document.querySelectorAll('li');
 
+    for (let i = 0; i<arrayLI.length; i+=1) {
+        arrayLI[i].style.backgroundColor="";
+    };
+};
