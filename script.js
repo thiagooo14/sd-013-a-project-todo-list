@@ -48,10 +48,21 @@ function Adicionar() {
   inputText.value = '';
 }
 
-// Cria função que ouve o clique e chama a função 'Adicionar:
+// Cria função que ouve o clique e chama a função 'Adicionar':
 function Clique() {
   botaoAdicionar.addEventListener('click', Adicionar);
 }
 Clique();
+
+// -------------------------------------------------------
+
+// COLORE ITEM DE CINZA COM CLIQUE -> DESAFIO 7
+
+// Cria função para colorir o item de cinza quando clicado:
+function ColoreCinza(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+// Cria função que ouve o clique e chama a função 'ColoreCinza':
+theList.addEventListener('click', ColoreCinza);
 
 // -------------------------------------------------------
