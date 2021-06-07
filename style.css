@@ -1,12 +1,16 @@
 body {
   font-family: serif;
-  background-color: darkgray;
+  background-color: white;
 }
 
 input:focus {
   background: cornflowerblue;
 }
 
-#lista-tarefas li:active {
+.selected {
   background-color: rgb(128,128,128);
+}
+
+.completed {
+  text-decoration: line-through solid black;
 }
