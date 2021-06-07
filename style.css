@@ -1,13 +1,97 @@
+body {
+  background-image: linear-gradient(rgb(255 , 173 , 173), rgb(255 , 214 , 165), rgb(253 , 255 , 182), rgb(202 , 255 , 191), rgb(155 , 246 , 255), rgb(160 , 196 , 255), rgb(189 , 178 , 255), rgb(255 , 198 , 255));
+
+  font-family: Montserrat , sans-serif;
+}
+
+#cabecalho {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#titulo {
+  text-align: center;
+  font-size: 170%;
+  color: rgb(255 , 112 , 112);
+}
+
+h1:after , h1:before {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 3px;
+  background: rgb(255 , 112 , 112);
+  margin: 0 auto;
+}
+
+#funcionamento {
+  background-color: white;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgb(255 , 112 , 112);
+  border-radius: 20px;
+  color: rgb(255 , 112 , 112);
+  padding: 1%;
+}
+
+#section1 {
+  background-color: white;
+  height: 470px;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  margin-bottom: 1%;
+  margin-top: 3%;
+  border-radius: 10px;
+  border: 1px solid rgb(255 , 112 , 112);
+}
+
 #lista-tarefas {
   display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-100%);
+  top: 1%;
+}
+
+#section2 {
+  margin-top: 2%;
+  padding: 2%;
+  margin-bottom: 1%;
+}
+
+button {
+  padding: 0.5%;
+  cursor: pointer;
+  margin-right: 0.5%;
+  background-color: rgb(255 , 112 , 112);
+  color: white;
+  border: 1px solid rgb(255 , 112 , 112);
+}
+
+#texto-tarefa {
+  border: 1px solid rgb(255 , 112 , 112);
+  padding: 0.5%;
+  width: 25%;
+  position: absolute;
+  left: 31%;
 }
 
 #criar-tarefa {
   display: inline-block;
+  position: absolute;
+  left: 55%;
 }
 
 .tarefa {
   cursor: pointer;
+  border: 1px solid rgb(0 , 168 , 184);
+  padding: 5%;
+  width: 200%;
+  margin-top: 10%;
+  color: rgb(0 , 168 , 184);
+  font-weight: 600;
 }
 
 .selected {
@@ -16,4 +100,11 @@
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+#section3 {
+  position: absolute;
+  left: 12%;
+  width: 100%;
+  padding: 1%;
 }
