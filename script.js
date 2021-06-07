@@ -10,7 +10,7 @@ const moverBaixo = document.querySelector('#mover-baixo');
 
 let tarefas = [];
 let tasks = {};
-let gray = '';
+let gray = document.querySelector('.gray');
 let sublimed = [];
 
 // Função para adicionar uma tarefa na lista clicando no botão CriarTarefa
@@ -33,15 +33,16 @@ buttonCriarTarefa.addEventListener('click', () => {
 // Adiciona a cor cinza de background apenas para as li's
 listaTarefas.addEventListener('click', (event) => {
 	// Esses if's são para não colocar a cor cinza de background na ol
-	if (gray === '') {
-		event.target.classList.add('gray');
-		gray = document.querySelector('.gray');
-	} else if (event.target == listaTarefas) {
-	} else {
-		gray.classList.remove('gray');
-		event.target.classList.add('gray');
-		gray = document.querySelector('.gray');
-	}
+	if (event.target.classList.contains('task')) {
+		if (gray == null) {
+			event.target.classList.add('gray');
+			gray = document.querySelector('.gray');
+		} else {
+			gray.classList.remove('gray');
+			event.target.classList.add('gray');
+			gray = document.querySelector('.gray');
+		}
+	} 
 })
 
 // Adiciona um risco na frente do texto das li's
@@ -92,22 +93,13 @@ inputCriarTarefa.addEventListener('keypress', (event) => {
 
 // Utilizando localStorage para manter as li's ao fechar a página
 buttonSalvarTarefas.addEventListener('click', () => {
-	if (localStorage.length == 0) {
-		if (tarefas != []) {
-			let tarefasAdicionadas = tarefas;
-			localStorage.setItem('tasks', JSON.stringify(tarefasAdicionadas));
-		}
-
-	} else {
-		tarefasAdicionadas = tarefas;
-		localStorage.setItem('tasks', JSON.stringify(tarefasAdicionadas));
-	}
+	let listaHTML = listaTarefas.innerHTML;
+	localStorage.setItem('listaSalva', listaHTML);
 })
 
 function retomaElementos () {
-	for (index in localStorage.getItem('tasks')) {
-		console.log('olá, mundo!');
-	}
+	listaTarefas.innerHTML = localStorage.getItem('listaSalva');
+	gray = document.querySelector('.gray');
 }
 
 retomaElementos();
@@ -120,7 +112,8 @@ removerSelecionado.addEventListener('click', () => {
 
 // Mover elemento para cima
 moverCima.addEventListener('click', () => {
-	if (listaTarefas.firstElementChild.classList.contains('gray') == false) {
+	if (gray != null) {
+		if (listaTarefas.firstElementChild.classList.contains('gray') == false) {
 		let selecionado = document.querySelector('.gray');
 		let selecionadoCima = document.querySelector('.gray').previousElementSibling;
 		let text = selecionado.innerText;
@@ -128,20 +121,41 @@ moverCima.addEventListener('click', () => {
 		selecionadoCima.innerText = text;
 		selecionado.classList.remove('gray');
 		selecionadoCima.classList.add('gray');
+		gray = document.querySelector('.gray');
+		if (selecionado.classList.contains('completed') == true && selecionadoCima.classList.contains('completed') == false) {
+			selecionado.classList.remove('completed');
+			selecionadoCima.classList.add('completed');
+		} else if (selecionadoCima.classList.contains('completed') && selecionado.classList.contains('completed') == false) {
+			selecionadoCima.classList.remove('completed');
+			selecionado.classList.add('completed');
+		}
 	}
+	}
+
 })
 
 // Mover elemento para baixo
 moverBaixo.addEventListener('click', () => {
-	if (listaTarefas.lastElementChild.classList.contains('gray') == false) {
-		let selecionado = document.querySelector('.gray');
-		let selecionadoBaixo = document.querySelector('.gray').nextElementSibling;
-		let text = selecionado.innerText;
-		selecionado.innerText = selecionadoBaixo.innerText;
-		selecionadoBaixo.innerText = text;
-		selecionado.classList.remove('gray');
-		selecionadoBaixo.classList.add('gray');
+	if (gray != null) {
+		if (listaTarefas.lastElementChild.classList.contains('gray') == false) {
+			let selecionado = document.querySelector('.gray');
+			let selecionadoBaixo = document.querySelector('.gray').nextElementSibling;
+			let text = selecionado.innerText;
+			selecionado.innerText = selecionadoBaixo.innerText;
+			selecionadoBaixo.innerText = text;
+			selecionado.classList.remove('gray');
+			selecionadoBaixo.classList.add('gray');
+			gray = document.querySelector('.gray');
+			if (selecionado.classList.contains('completed') == true && selecionadoBaixo.classList.contains('completed') == false) {
+				selecionado.classList.remove('completed');
+				selecionadoBaixo.classList.add('completed');
+			} else if (selecionadoBaixo.classList.contains('completed') && selecionado.classList.contains('completed') == false) {
+				selecionadoBaixo.classList.remove('completed');
+				selecionado.classList.add('completed');
+			}
+		}
 	}
+
 })
 
 // Apaga de um em um
