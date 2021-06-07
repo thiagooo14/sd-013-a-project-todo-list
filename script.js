@@ -2,6 +2,8 @@ const toDoList = document.querySelector('#lista-tarefas');
 const btnCreateItem = document.querySelector('#criar-tarefa');
 const textTask = document.querySelector('#texto-tarefa');
 const btnClearAll = document.querySelector('#apaga-tudo');
+const btnClearCompleted = document.querySelector('#remover-finalizados');
+
 
 function clearLastSelected() {
   for (let index = 0; index < toDoList.childElementCount; index += 1) {
@@ -20,8 +22,19 @@ btnCreateItem.addEventListener('click', function() {
   textTask.focus();
 });
 
+btnClearCompleted.addEventListener('click', function() {
+  for (let index = 0; index < toDoList.childElementCount; index += 1) {
+    if(toDoList.children[index].classList.contains('completed')) {
+      toDoList.removeChild(toDoList.children[index]);
+      index = 0;
+    }
+  }
+});
+
+//Botão que quando clicado remove todos os itens da lista
 btnClearAll.addEventListener('click', function() {
   let listLength = toDoList.childElementCount;
+
   for (let index = 0; index < listLength; index += 1) {
     toDoList.removeChild(toDoList.children[0]);
   }
