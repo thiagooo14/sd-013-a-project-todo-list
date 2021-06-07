@@ -55,5 +55,9 @@ getButton.addEventListener('click', function() {
 
 getOrderList.addEventListener('click', function(event) {
   let clickedItem = event.target;
+  let getChildNodes = getOrderList.childNodes;
+  for (let index = 0; index < getChildNodes.length; index += 1) {
+    getChildNodes[index].style.backgroundColor = 'rgb(255, 255, 255)';
+  }
   clickedItem.style.backgroundColor = 'rgb(128, 128, 128)';
 })
