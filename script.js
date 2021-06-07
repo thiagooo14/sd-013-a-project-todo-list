@@ -1,8 +1,10 @@
-// function listaOrdenada() {
-//   const listaTarefas = document.getElementById('lista-tarefas');
-//   for (let i = 0; i < 10; i += 1) {
-//     const lista = document.createElement('li');
-//     listaTarefas.appendChild(lista);
-//   }
-// }
-// listaOrdenada();
+const btnAdd = document.getElementById('criar-tarefa');
+const lista = document.getElementById('lista-tarefas');
+const inputText = document.getElementById('texto-tarefa')
+
+btnAdd.addEventListener('click', function(){
+  const addList = document.createElement('li');
+  addList.innerText = inputText.value;
+  lista.appendChild(addList);
+  inputText.value = "";
+})
