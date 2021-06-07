@@ -1,9 +1,22 @@
 main{
-    border: solid;
+
+    background-color: white;
+    padding: 9%;
+    border-radius: 2%;
 }
 
-header{
-    border: solid;
+h1{
+    color: white;
+    background-color: rgb(211, 37, 37);
+    text-align: center;
+    padding: 2%;
+    border-radius: 2%;
+}
+
+body{
+    margin-right: 15%;
+    margin-left: 15%;
+    background-color: rgb(211, 172, 172);
 }
 
 .selected{
@@ -14,3 +27,25 @@ header{
     text-decoration: line-through solid rgb(0, 0, 0);    
 }
 
+button{
+    color: white;
+    background-color: rgb(211, 37, 37);
+    padding: 9px;
+    border: rgb(214, 43, 43);
+    
+}
+input{
+    padding: 7px;
+    text-align: center;
+    border: solid red 1px;
+}
+
+p{
+    font-size: 23px;
+    font-style: italic;
+}
+
+ol{
+    color: rgb(9, 9, 180);
+    font-size: 20px;
+}
