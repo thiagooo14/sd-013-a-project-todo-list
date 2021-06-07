@@ -64,3 +64,35 @@ function clearCompleted() {
   });
 }
 clearCompleted();
+// Move o item para cima
+const upButton = document.querySelector('#mover-cima');
+function moveUp () {
+  upButton.addEventListener('click', () => {
+    let toMove = document.querySelector('.selected');
+    if (toMove && toMove.previousElementSibling){
+    fullList.insertBefore(toMove, toMove.previousElementSibling);
+    }
+  });
+}
+moveUp();
+// Move o item para baixo
+const downButton = document.querySelector('#mover-baixo');
+function moveDown () {
+  downButton.addEventListener('click', () => {
+    let toMove = document.querySelector('.selected');
+    if (toMove && toMove.nextElementSibling){
+    fullList.insertBefore(toMove.nextElementSibling, toMove);
+    }
+  });
+}
+moveDown();
+// Exclui o item selecionado
+const deleteButton = document.querySelector('#remover-selecionado');
+function deleteSelected () {
+  let selected = document.getElementsByClassName('selected');
+  deleteButton.addEventListener('click', () => {
+    selected[0].parentNode.removeChild(selected[0]);
+  })
+
+}
+deleteSelected();

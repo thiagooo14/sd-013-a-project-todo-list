@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>To-do list</title>
 </head>
 <body>
   <div id ='content'>
@@ -17,10 +17,16 @@
       <input type='text' class = 'input' id ='texto-tarefa'>
       <button id = 'criar-tarefa' class = 'button'>Adicionar</button>
     </section>
+    <section id = 'moveTask'>
+      <p id = 'funcionamento-moveTask'>Clique em uma tarefa para selecioná-la. <br>Depois, clique nas setas para mover o item escolhido.</p>
+      <button id = 'mover-cima' class = 'moveButton'>↑</button> 
+      <button id = 'mover-baixo' class = 'moveButton'>↓</button>
+    </section>
     <ol id = 'lista-tarefas'></ol>
     <section id = 'manageTaskList'>
       <button id = 'apaga-tudo' class = 'button'>Limpar lista</button>
-      <button id = 'remover-finalizados' class= 'button'>Remover itens finalizados</button>
+      <button id = 'remover-finalizados' class= 'button'>Remover finalizados</button>
+      <button id = 'remover-selecionado' class= 'button'>Remover selecionado</button>
     </section>
     <script src="script.js"></script>
   </div>
