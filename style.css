@@ -13,3 +13,7 @@ header{
   text-align: center;
   font: normal 20pt Arial;
 }
+
+.gray {
+  background-color: rgb(128, 128, 128)
+}
