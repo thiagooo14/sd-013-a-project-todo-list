@@ -47,7 +47,6 @@ function questionFourFiveSixSeven() {
   }));
 }
 questionFourFiveSixSeven();
-
 function questionEight() {
   const ol = document.querySelector('ol');
   const lis = document.getElementsByTagName('li');
@@ -92,15 +91,13 @@ function questionEleven() {
   const button = document.getElementById('remover-finalizados');
   const div = document.querySelector('div');
   const lis = document.getElementsByTagName('li');
+  const ol = document.querySelector('ol');
   div.appendChild(button);
 
   button.addEventListener('click', (() => {
     for (let i = 0; i < lis.length; i += 1) {
       const li = lis[i];
-      const completed = li.classList.contains('completed');
-      if (completed) {
-        li.remove(completed);
-      }
+      ol.remove(li.classList.contains('completed'));
     }
   }));
 }
