@@ -1,6 +1,7 @@
 const buttonTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('ol');
 const li = document.getElementsByTagName('li');
+const buttonDelete = document.querySelector('#apaga-tudo');
 
 buttonTask.addEventListener('click', () => {
   const input = document.querySelector('#texto-tarefa');
@@ -23,9 +24,16 @@ function deleteTask() {
 }
 deleteTask();
 
-  function risk() {
-olList.addEventListener('dblclick', (event) => {
-  event.target.classList.toggle('completed');
-    }
-)}
+function risk() {
+  olList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
 risk();
+
+function cleanTasks() {
+  buttonDelete.addEventListener('click', () => {
+    olList.innerHTML = '';
+  });
+}
+cleanTasks();
