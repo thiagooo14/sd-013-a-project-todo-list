@@ -1,0 +1,36 @@
+body {
+    background-color: aquamarine;
+}
+.selected {
+    background-color: gray;
+  }
+  
+  .completed {
+    text-decoration: line-through solid black;
+  }
+  
+  #funcionamento {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  header {
+    font-weight: 600;
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  
+  ol {
+    border: solid 1px black;
+  }
+  
+  section {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+  }
