@@ -4,6 +4,7 @@ const botao1 = document.querySelector("#criar-tarefa");
 const botao2 = document.querySelector("#apaga-tudo");
 const botao3 = document.querySelector("#remover-finalizados");
 const botao4 = document.querySelector("#salvar-tarefas");
+const botao7 = document.querySelector("#remover-selecionado");
 
 
 function adicionaItem(){
@@ -53,8 +54,8 @@ function completed(event){
 
 function apagaTudo(){
 
- itemDaLista = document.querySelectorAll(".lista");
- let ol = document.querySelector("ol");
+  let ol = document.querySelector("ol");
+  itemDaLista = document.querySelectorAll(".lista");
   ol.remove(itemDaLista);
 
 /*   for(let index = 0 ; index < itemDaLista.length; index +=1){
@@ -71,11 +72,8 @@ function removeCompleto(){
   let paiCompletos = document.querySelector("#lista-tarefas");
 
 
-  for(let index =0; index < listaCompletos.length; index+=1){
-    
-      paiCompletos.removeChild(listaCompletos[index]);
-    
-    
+  for(let index =0; index < listaCompletos.length; index+=1){ 
+    paiCompletos.removeChild(listaCompletos[index]); 
   }
 }
 
@@ -99,3 +97,12 @@ function recuperaStorage(){
 botao4.addEventListener("click", addStorage);
 recuperaStorage();
 
+
+
+
+function removerSelecionado(){
+  let itemSelecionado = document.querySelector(".selected");
+  lista.removeChild(itemSelecionado);
+}
+
+botao7.addEventListener("click", removerSelecionado);
