@@ -170,6 +170,39 @@ function fnInputDataOfLocalStorage(strClass, strInnerHtml) {
   // addListenerDoublelClickToList();
 }
 
+function fnMoverCima() {
+  let elTaskSelected = document.querySelectorAll('.task-selected,.completed')[0];    
+  if (elTaskSelected == null || elTaskSelected == undefined) {
+    return
+  }
+  let elTaskAbove = elTaskSelected.previousElementSibling;
+  if (elTaskAbove == null) {
+    return
+  }
+  let elPai = elTaskSelected.parentNode //document.querySelector('ol');
+  elPai.insertBefore(elTaskSelected, elTaskAbove);
+}
+
+let btnMoverParaCima = document.querySelector('#mover-cima');
+btnMoverParaCima.addEventListener('click', fnMoverCima);
+
+
+function fnMoverBaixo() {
+  let elTaskSelected = document.querySelectorAll('.task-selected,.completed')[0];
+  if (elTaskSelected == null || elTaskSelected == undefined) {
+    return
+  }
+  let elTaskBellow = elTaskSelected.nextElementSibling;
+  if (elTaskBellow == null || elTaskBellow == undefined) {
+    return
+  }
+  let elPai = elTaskSelected.parentNode //document.querySelector('ol');
+  elPai.insertBefore(elTaskBellow, elTaskSelected);  
+}
+
+let btnMoverParaBaixo = document.querySelector('#mover-baixo');
+btnMoverParaBaixo.addEventListener('click', fnMoverBaixo);
+
 // function addListenerClickToList() {
 //   let listElements = document.getElementsByTagName('li');  
 //   for (let index = 0; index < listElements.length; index += 1) {
@@ -221,4 +254,3 @@ function fnInputDataOfLocalStorage(strClass, strInnerHtml) {
 //     })
 //   }
 // }
-
