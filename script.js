@@ -1,6 +1,7 @@
 
 const lista = document.querySelector("#lista-tarefas");
-const butao = document.querySelector("#criar-tarefa");
+const botao1 = document.querySelector("#criar-tarefa");
+const botao2 = document.querySelector("#apaga-tudo");
 
 
 function adicionaItem(){
@@ -17,11 +18,11 @@ function adicionaItem(){
 
 }
 
-butao.addEventListener("click", adicionaItem);
+botao1.addEventListener("click", adicionaItem);
 
 function selection(event){
   itemDaLista = document.querySelectorAll(".lista");
-  for(let index=0; index < itemDaLista.length;index +=1){
+  for(let index=0; index < itemDaLista.length; index +=1){
     if(itemDaLista[index]=== event.target){
       event.target.classList.add('selected');
     }
@@ -36,7 +37,19 @@ function completed(event){
   itemDaLista = document.querySelectorAll(".lista");
   for(let index=0; index < itemDaLista.length;index +=1){
     if(itemDaLista[index]=== event.target){
-      event.target.classList.add('completed');
+      event.target.classList.toggle('completed');
     }
   }
 }
+
+function apagaTudo(){
+
+ itemDaLista = document.querySelectorAll(".lista");
+  for(let index = itemDaLista.length ; index !==0  ; index -=1){
+    if(itemDaLista.length !== 0 ){
+      lista.removeChild(lista.firstChild);
+    }  
+  }  
+}
+
+botao2.addEventListener("click", apagaTudo);
