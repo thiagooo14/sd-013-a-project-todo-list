@@ -65,6 +65,19 @@ header {
   color: white;
 }
 
+#apaga-tudo {
+  width: 110px;
+  border: none;
+  height: 30px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#apaga-tudo:active {
+  background-color: gray;
+  color: white;
+}
+
 /* estilos da area e lista das tarefas */
 
 .area-tarefas {
