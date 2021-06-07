@@ -11,16 +11,19 @@ function addText() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-// Desenvolvido com a ajuda do estudante Trybe Thiago Carboneri
-function selectedClass() {
-const getOl = document.querySelector('#lista-tarefas');
-  getOl.addEventListener('click', addColor);
+// Desenvolvido com a ajuda do estudante Trybe Felipe Neves;
+const listDesk = document.querySelector('#lista-tarefas');
+  listDesk.addEventListener('click', addColor);
   function addColor(event){
-    const getLi = document.getElementsByTagName('li');
-    for (let index = 0; index < getLi.length; index += 1) {
-      getLi[index].classList.remove('selected');
+    const item = document.getElementsByTagName('li');
+    for (let index = 0; index < item.length; index += 1) {
+     item[index].classList.remove('gray');
     }
-    event.target.classList.add('selected');
+    event.target.classList.add('gray');
   };
-}
-selectedClass();
+  
+  listDesk.addEventListener('dblclick', addRisk);
+  function addRisk(event){
+    const item = document.getElementsByTagName('li');
+    event.target.classList.toggle('completed')
+  }
