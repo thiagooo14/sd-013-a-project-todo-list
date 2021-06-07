@@ -1,9 +1,9 @@
-function desafio1() {
-    let h1 = document.createElement("h1")  // somente criar 
-    h1.innerText = "Minha Lista de Tarefas";
-    let header = document.createElement("header")
-    header.appendChild(h1)
-    document.body.appendChild(header)  // adiciona no body
+function desafio1() {          // ajuda para desenvolver o projet: Greg, Aline, Leme -turma13A 
+    let h1 = document.createElement("h1")             // somente criar 
+    h1.innerText = "Minha Lista de Tarefas";          //adciiona texto no h1
+    let header = document.createElement("header")     // cria elemento header
+    header.appendChild(h1)             //adiciona elelmento h1 a um pai, através do pai, header
+    document.body.appendChild(header)                 // adiciona header no body
 }
 desafio1()
 
@@ -45,12 +45,42 @@ function desafio5() {
      let ol = document.querySelector("#lista-tarefas")
 
      button.addEventListener("click", (() => {
-     let texto = textoTarefa.value    // value = o valor que é adicionado no input.
-     let li = document.createElement("li") // sincrono, não precisa do if. mas poderia ter o if
+     let texto = textoTarefa.value 
+         if (textoTarefa.value === "") {
+             alert("valor inválido")
+            return
+         }
+        
+     let li = document.createElement("li") 
      li.innerText = texto
-     ol.appendChild(li)      
-     textoTarefa.value = "";
+     ol.appendChild(li) 
+     textoTarefa.value = ""; 
+     textoTarefa.focus();    // focus= mantem o input selecionado.  
+
+                                    //A questão 6 foi resolvida, na 5. A partir
      
      }))
 }
 desafio5()
+
+//function desafio6(){
+//}                     //desafio 6 resolvido no 5
+//desafio6
+
+function desafio7(){
+  let liS = document.getElementsByTagName("li");
+  let ol = document.querySelector("ol"); 
+  ol.addEventListener("click", () => {
+   for ( let i= 0; i < liS.length; i +=1) {
+       let li = liS[i]
+       li.style.backgroundColor = 'rgb(128, 128, 128)';
+   } 
+
+  })
+  
+}
+desafio7()
+
+
+
+
