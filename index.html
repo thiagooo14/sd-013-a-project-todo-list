@@ -5,38 +5,53 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>To Do List</title>
 </head>
 
-<body>
+<body></body>
+<main class="main">
   <header class="header">
     <h1>Minha Lista de Tarefas</h1>
-  </header>
-  <main class="main">
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
 
-    <section class="input-text border">
+
+  <section class="tasks-session">
+    <label for="task">Tarefa:</label>
+    <div class="top-btns">
       <input type="text" id="texto-tarefa">
       <button id="criar-tarefa">Criar Tarefa</button>
-
-      <button id="apaga-tudo">Limpar</button>
-      <button id="remover-finalizados">Remover Terefas Finalizadas</button>
       <button id="salvar-tarefas">Salvar Tarefas</button>
-      <button id="remover-selecionado">Remover Selcionado</button>
-      <div>
-        <button id="mover-cima">Subir Tarefa</button>
-        <button id="mover-baixo">Descer Tarefa</button>
-      </div>
+    </div>
 
-    </section>
-
-    <section class="tasks-board">
+    <div class="tasks-board">
       <ol id="lista-tarefas">
       </ol>
-    </section>
-  </main>
-  <script src="script.js"></script>
+    </div>
+  </section>
+
+  <!-- coluna botoes da direita -->
+  <div class="">
+    <div class="up-down">
+      <button id="mover-cima">⬆↑⇑</button>
+      <button id="mover-baixo">↓⇓</button>
+    </div>
+
+    <div class="remove-btns">
+      <button id="remover-selecionado">X Selcionado</button>
+      <button id="remover-finalizados">X Finalizadas</button>
+      <button id="apaga-tudo">Limpar Todas</button>
+    </div>
+  </div>
+
+
+</main>
+<script src="script.js"></script>
 </body>
 
 </html>

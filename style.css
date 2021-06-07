@@ -1,37 +1,137 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  
 }
 
-#lista-tarefas {
-  margin: 20px 0 0 40px;
+body {
+  background-color: #FEF9EF;
+  font-size: 20px;
+  font-family: 'Baloo Tammudu 2', cursive;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.header h1 {
+  font-weight: 550;
+  color: #2892B8;
+  font-size: 2.5em;
 }
 
 #lista-tarefas li {
   cursor: pointer;
-  max-width: 50%;
   user-select: none;
+}
+
+.task {
+  border: 2px solid transparent;
+}
+
+.task:hover{
+  background-color: rgb(85,85,85);
 }
 
 .selected {
   background-color: gray;
+  border-radius: 4%;
 }
 
 .completed {
   text-decoration: line-through solid black;
 }
 
+.main {
+  height: 100vh;
+  padding: 0 20px;
+  border: 4px double #FEF9EF;
+  background-color: #FFCB77;
+  color: #141414;
+}
+
+.main button {
+  cursor: pointer;
+  padding: 4px;
+  border: 3px outset;
+  border-radius: 4%;
+  font-family: 'Roboto Mono', monospace;
+  user-select: none;
+}
+
+.tasks-session label{
+  font-size: 18px;
+  color: rgb(85,85,85);
+  display: flex;
+  justify-content: start;
+  height: 25px;
+}
+
+.top-btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 3px;
+}
+
+.top-btns input {
+  width: 60%;
+  font-size: 20px;
+  padding: 4px;
+  border: 2px solid #303030;
+}
+
 .tasks-board {
   display: flex;
-  flex-direction: column;
+  justify-content: start;
+  background-color: #FFCB77;
+  border: 4px groove #FEF9EF;
 }
 
-.border {
-  border: 1px solid black;
+#lista-tarefas {
+  margin: 20px 0 0 40px;
 }
 
-/*
-.main {
-  display: flex;
+#criar-tarefa {
+  background-color: #17C3B2;
+  border-color: #17C3B2;
 }
-*/
+
+#criar-tarefa:hover {
+  background-color: #14ac9d;
+  border-color: #14ac9d;
+}
+
+#criar-tarefa:active {
+  border-style: inset;
+  background-color: #17C3B2;
+  border-color: #14ac9d;
+}
+
+.remove-btns button {
+  background-color: #FE6D73;
+  border-color: #FE6D73;
+}
+
+.remove-btns button:hover {
+  background-color: #fe545b;
+  border-color: #fe545b;
+}
+
+.remove-btns button:active {
+  background-color: #FE6D73;
+  border-style: inset;
+  border-color: #fe545b;
+}
+
+.up-down {
+  float: right;
+}
+.up-down buttons {
+  height: 30px;
+}
