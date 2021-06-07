@@ -7,7 +7,7 @@ function addNewTask() {
     if (getInputField.value.length > 0) {
       let newLi = document.createElement('li');
       newLi.innerText = getInputField.value;
-      newLi.setAttribute("class", "li");
+      newLi.setAttribute('class', 'li');
       newLi.onclick = addColor;
       newLi.ondblclick = taskCompleted;
       getTaskList.appendChild(newLi);
@@ -29,15 +29,37 @@ function addColor(event) {
 function taskCompleted(event) { 
   if (event.target.classList.contains('completed')){
     event.target.classList.remove('completed');
-    console.log('erro')
   }
   else {
   event.target.classList.add('completed');
-  console.log('erro')
   }
+}
+
+function apagaTudo() {
+  const lista = document.getElementById('lista-tarefas');
+  const buttom = document.getElementById('apaga-tudo');
+  
+  buttom.addEventListener('click', function() {
+   /*  https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild */
+    while (lista.firstChild) {
+      lista.removeChild(lista.firstChild)
+    } 
+  })
+}
+
+function apagaFinalizados() {
+  const buttom = document.getElementById('remover-finalizados');
+  const finish = document.getElementsByClassName('completed');
+  
+  buttom.addEventListener('click', function() {
+    while (finish.length > 0) finish[0].remove();
+    console.log('erro')
+  })
 }
 
 window.onload = function() {
   addNewTask();  
+  apagaTudo();
+  apagaFinalizados(); 
 }    
 
