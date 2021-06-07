@@ -1,4 +1,4 @@
-const input = document.getElementById("texto-tarefas");
+const inputi = document.getElementById("texto-tarefas");
 const button = document.getElementById("criar-tarefa");
 const listaDeTarefas = document.getElementById("lista-tarefas");
 
@@ -19,15 +19,13 @@ listaDeTarefas.addEventListener('click', (event) => {
 function adicionaTarefa() {
   const CreateText = document.createElement("li");
   listaDeTarefas.appendChild(CreateText);
-  CreateText.innerText= input.value;
-  input.value = "";
+  CreateText.innerText= inputi.value;
+  inputi.value = "";
   CreateText.className = "item-list"
 };
-
 button.addEventListener("click", adicionaTarefa);
-
-input.addEventListener("keypress", (add) => {
-  if (add.key === "Enter") {
+inputi.addEventListener("keypress", (g) => {
+  if (g.key === "Enter") {
     adicionaTarefa();
   }
 })
