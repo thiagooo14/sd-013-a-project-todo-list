@@ -54,3 +54,16 @@ function clearList() {
 }
 buttonClear.addEventListener('click', clearList);
 clearList()
+
+//remover itens selecionados
+const buttonRem = document.getElementById('remover-finalizados');
+
+function removeFin() {
+    const itemSelec = document.querySelectorAll('.completed');
+    for (let index = 0; index < itemSelec.length; index++) {
+        itemSelec[index].parentNode.removeChild(itemSelec[index]);
+    }
+}
+buttonRem.addEventListener('click', removeFin);
+
+//salvar tarefa
