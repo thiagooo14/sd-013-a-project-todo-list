@@ -20,6 +20,7 @@ body {
   background-image: url(https://i.pinimg.com/736x/43/59/c5/4359c5d2a4c8af56eb9d01745310a43c.jpg) ;
   background-size: 500px;
   border-radius: 10%;
+  border: solid #89B0AE;
 }
 
 #lista-tarefas {
@@ -30,7 +31,7 @@ body {
 }
 
 #header {
-  background-color: aliceblue;
+  background-color: #89B0AE;
   width: 500px;
   border: solid #BEE3DB 1px;
   margin: auto;
