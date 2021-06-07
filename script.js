@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable sonarjs/cognitive-complexity */
 /* eslint-disable no-param-reassign */
@@ -11,11 +12,14 @@ function setColorTask(event) {
   const grayBackgroundItem = 'rgb(128, 128, 128)';
   if (event.target.style.backgroundColor === grayBackgroundItem) {
     event.target.style.backgroundColor = 'white';
+    event.target.className = 'task';
   } else {
     for (let indexColor = 0; indexColor < selectedTask.length; indexColor += 1) {
       selectedTask[indexColor].style.backgroundColor = 'white';
+      selectedTask[indexColor].className = 'task';
     }
     event.target.style.backgroundColor = grayBackgroundItem;
+    event.target.className = 'task selected';
   }
 }
 
@@ -70,11 +74,23 @@ function clearCompletedTasks() {
 }
 buttonSelected.addEventListener('click', clearCompletedTasks);
 
+const buttonStorage = document.querySelector('#salvar-tarefas');
+
 function saveTasks() {
-  const tasks = document.querySelectorAll('.task');
-  const button = document.querySelector('#salvar-tarefas');
-  button.addEventListener('click', function () {
-    
-  });
+  const tasks = document.getElementsByClassName('task');
+    for (let index = 0; index < tasks.length; index += 1) {
+      localStorage.setItem('Lista', tasks[index]);
+    }
 }
-saveTasks();
+buttonStorage.addEventListener('click', saveTasks);
+
+const buttonDeleteSelected = document.querySelector('#remover-selecionado');
+
+function deleteSelected() {
+  const list = document.querySelector('#lista-tarefas');
+  const task = document.querySelectorAll('.selected');
+  for (let index = 0; index < task.length; index += 1) {
+    list.removeChild(task[index]);
+  }
+}
+buttonDeleteSelected.addEventListener('click', deleteSelected);

@@ -113,6 +113,21 @@ main {
 #salvar-tarefas:hover {
   background-color: rgb(67, 182, 228);
 }
+.button-box-5 {
+  margin-top: 1em;
+  margin-left: 16em;
+}
+#remover-selecionado {
+  color: rgb(224, 224, 224);
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background-color: rgb(15, 170, 231);
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.8);
+}
+#remover-selecionado:hover {
+  background-color: rgb(67, 182, 228);
+}
 .list-box {
   width: 20em;
   margin-left: 4em;
