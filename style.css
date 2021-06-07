@@ -59,16 +59,18 @@ body {
   cursor: pointer;
 }
 
-#lista-tarefa {
+#lista-tarefas {
   margin-top: 30px;
   margin-left: 10px;
   cursor: pointer;
 }
 
 .listHover {
+  margin-left: 20px;
   width: 98%;
   background-color: rgb(128, 128, 128);
-  color: rgb(225, 235, 243);
+  color: rgb(8, 18, 26);
+  cursor: pointer;
 }
 
 .delete {

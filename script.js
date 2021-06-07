@@ -1,6 +1,6 @@
-let enterBotao = document.getElementById('criar-tarefa');
-let input = document.getElementById('texto-tarefa');
-let ol = document.getElementById('lista-tarefas');
+const enterBotao = document.getElementById('criar-tarefa');
+const input = document.getElementById('texto-tarefa');
+const ol = document.getElementById('lista-tarefas');
 let item = document.getElementsByTagName('li');
 
 function inputList() {
