@@ -1,6 +1,6 @@
 function adicionar (){
     let valorInput = document.querySelector('#texto-tarefa').value;
-    let botao = document.querySelector('#criar-tarefa');
+    let botao = document.querySelector('#remove-finalizados');
     let adicionaItemL = document.querySelector('#lista-tarefas');
     let item = document.createElement('li');
     item.style.border = '1px solid black';
@@ -13,7 +13,7 @@ function adicionar (){
              
          
     } 
-    
+    botao.addEventListener('click',removeRis)
 
 }
 adicionar();
@@ -27,4 +27,17 @@ function selecionado (e){
       for (let index = 0; index < todosItem.length; index +=1){
           todosItem[index].classList.remove('selectedClass');
           e.target.classList.add('selectedClass');}
+}
+
+function apagaTudo() {
+    
+    document.body.removeChild(document.body.querySelector("ol"));
+}
+
+function removeRis() {
+    let selecionados = document.querySelectorAll('.completed')
+    for (let index = 0; index < selecionados.length; index += 1) {
+        selecionados[index].parentNode.removeChild(selecionados[index]);
+        
+    }
 }
