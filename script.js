@@ -2,6 +2,7 @@ const buttonTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('ol');
 const li = document.getElementsByTagName('li');
 const buttonDelete = document.querySelector('#apaga-tudo');
+const buttonClean = document.querySelector('#remover-finalizados');
 
 buttonTask.addEventListener('click', () => {
   const input = document.querySelector('#texto-tarefa');
@@ -9,7 +10,6 @@ buttonTask.addEventListener('click', () => {
   const createList = document.createElement('li');
   createList.innerText = textValue;
   createList.className = 'task';
-  const olList = document.querySelector('#lista-tarefas');
   olList.appendChild(createList);
   input.value = '';
 });
@@ -31,9 +31,19 @@ function risk() {
 }
 risk();
 
-function cleanTasks() {
+function deleteList() {
   buttonDelete.addEventListener('click', () => {
     olList.innerHTML = '';
   });
 }
-cleanTasks();
+deleteList();
+
+function cleanTaks() {
+  buttonClean.addEventListener('click', (event) => {
+    const classCompleted = document.querySelectorAll('.completed')
+    for (let index = 0; index < classCompleted.length; index += 1) {
+        classCompleted[index].remove();
+    }
+  });
+}
+cleanTaks();
