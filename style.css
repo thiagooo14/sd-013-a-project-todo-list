@@ -2,20 +2,20 @@
   width: 50vw;
   height: 50vh;
   margin: auto;
-  /*background-color: slateblue;*/
+  /* background-color: slateblue; */
   background-color: white;
-  /*color: white;*/
+  /* color: white; */
   padding: 10px;
   border-radius: 10px;
 }
 
-header{
+header {
   text-align: center;
   font: normal 20pt Arial;
 }
 
 .gray {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128,128,128);
 }
 
 .completed {
