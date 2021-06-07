@@ -1,9 +1,13 @@
 #titulo {
-    font-family: sans-serif;
-    font-size: 20px;
+  font-family: sans-serif;
+  font-size: 20px;
 }
 
 #funcionamento {
-    font-family: sans-serif;
-    font-size: 12px;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+#lista-tarefas {
+  font-family: sans-serif;
 }

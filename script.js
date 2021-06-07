@@ -16,7 +16,7 @@ funcionamento.innerHTML = 'Clique duas vezes em um item para marcá-lo como comp
 
 // -------------------------------------------------------
 
-//ADD INPUT -> DESAFIO 3
+// ADD INPUT -> DESAFIO 3
 
 // Ver HTML (#texto-tarefa).
 
@@ -28,16 +28,30 @@ funcionamento.innerHTML = 'Clique duas vezes em um item para marcá-lo como comp
 
 // -------------------------------------------------------
 
-// ADD BUTTON -> DESAFIO 
+// ADD BOTÃO 'ADICIONAR' -> DESAFIOS 5 E 6
 
-// Ver HTML (#criar-tarefa).
+// Cria botão 'Adicionar':
+const botaoAdicionar = document.querySelector('#criar-tarefa');
+botaoAdicionar.innerHTML = 'Adicionar';
 
+// Cria variáveis para armazenar texto de entrada + lista:
+const inputText = document.querySelector('#texto-tarefa');
+const theList = document.querySelector('#lista-tarefas');
 
+// Cria função para adicionar o texto digitado na lista:
+function Adicionar() {
+  const listRow = document.createElement('li');
+  listRow.innerHTML = inputText.value;
+  theList.appendChild(listRow);
 
+  // Limpa o campo de entrada.
+  inputText.value = '';
+}
+
+// Cria função que ouve o clique e chama a função 'Adicionar:
+function Clique() {
+  botaoAdicionar.addEventListener('click', Adicionar);
+}
+Clique();
 
 // -------------------------------------------------------
-
-
-
-
-
