@@ -38,7 +38,7 @@ const botaoApaga = document.querySelector('#apaga-tudo');
 function apaga() {
   const lis = document.querySelectorAll('li');
   for (let i = 0; i < lis.length; i += 1) {
-    let element = lis[i];
+    const element = lis[i];
     listaTarefa.removeChild(element);
   }
 }
@@ -50,7 +50,7 @@ const botaoApagaSelecionados = document.querySelector('#remover-finalizados');
 function apagaSelecionados() {
   const lis = document.querySelectorAll('li');
   for (let i = 0; i < lis.length; i += 1) {
-    let element = lis[i];
+    const element = lis[i];
     if (element.classList.contains('completed')) {
       listaTarefa.removeChild(element);
     }
@@ -68,9 +68,23 @@ function salva() {
 
 function recupera() {
   const listaSalva = localStorage.getItem('listaSalva');
-    listaTarefa.innerHTML = listaSalva;
+  listaTarefa.innerHTML = listaSalva;
 }
 
 recupera();
 
 botaoSalvarTarefas.addEventListener('click', salva);
+
+const botaoRemoveSelecionado = document.querySelector('#remover-selecionado');
+
+function removeSelecionado() {
+  const lis = document.querySelectorAll('li');
+  for (let i = 0; i < lis.length; i += 1) {
+    const element = lis[i];
+    if (element.classList.contains('selected')) {
+      listaTarefa.removeChild(element);
+    }
+  }
+}
+
+botaoRemoveSelecionado.addEventListener('click', removeSelecionado);
