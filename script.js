@@ -18,6 +18,7 @@ const createTask = () => {
     }
 
     highlightTask();
+    completedTask();
   });
 };
 
@@ -33,4 +34,19 @@ const highlightTask = () => {
 
     event.target.style.backgroundColor = gray;
   });
+}
+
+const completedTask = () => {
+  const lis = document.querySelectorAll('.task-item');
+  const ol = document.querySelector('#lista-tarefas');
+
+  lis.forEach(item => {
+    item.addEventListener("dblclick", (event) => {
+      if (!event.target.classList.contains("completed")) {
+        event.target.classList.add("completed")
+      } else {
+        event.target.classList.remove("completed")
+      }
+    })
+  })
 }

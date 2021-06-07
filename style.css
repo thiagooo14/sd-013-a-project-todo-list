@@ -11,6 +11,10 @@
   background-color: var(--highlight-gray);
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 * {
   margin: 0;
   padding: 0;
