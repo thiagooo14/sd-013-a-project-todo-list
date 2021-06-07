@@ -68,7 +68,7 @@ function removeCompleto(){
   let paiCompletos = document.querySelector("#lista-tarefas");
 
 
-  for(let index =0; index < listaCompletos.length; index+=1){
+  for(let index =0; index < listaCompletos.length+ 1; index+=1){
     
       paiCompletos.removeChild(listaCompletos[index]);
     
