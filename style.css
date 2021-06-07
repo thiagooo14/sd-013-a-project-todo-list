@@ -23,3 +23,9 @@
   background-color: rgb(3, 44, 44);
   color: azure;
 }
+
+#remover-finalizados {
+  border-radius: 10px;
+  background-color: rgb(51, 22, 40);
+  color: azure;
+}

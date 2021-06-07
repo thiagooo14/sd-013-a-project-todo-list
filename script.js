@@ -33,8 +33,20 @@ button.addEventListener('click', () => {
 function apagaLista() {
   const buttonDelete = document.querySelector('#apaga-tudo');
   buttonDelete.addEventListener('click', () => {
-    const listaUl = document.querySelector('ol');
-    listaUl.innerHTML = '';
+    const listaol = document.querySelector('ol');
+    listaol.innerHTML = '';
   });
 }
 apagaLista();
+
+function apagaFinalizados() {
+  const buttonFinalizados = document.querySelector('#remover-finalizados');
+  buttonFinalizados.addEventListener('click', () => {
+    const itemCompleto = document.querySelectorAll('.completed');
+    for (let i = 0; i < itemCompleto.length; i += 1) {
+      const indice = itemCompleto[i];
+      indice.remove();
+    }
+  });
+}
+apagaFinalizados();
