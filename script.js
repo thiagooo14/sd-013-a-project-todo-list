@@ -1,6 +1,7 @@
 const toDoList = document.querySelector('#lista-tarefas');
 const btnCreateItem = document.querySelector('#criar-tarefa');
 const textTask = document.querySelector('#texto-tarefa');
+const btnClearAll = document.querySelector('#apaga-tudo');
 
 function clearLastSelected() {
   for (let index = 0; index < toDoList.childElementCount; index += 1) {
@@ -17,6 +18,13 @@ btnCreateItem.addEventListener('click', function() {
   createdItem.innerHTML = textTask.value;
   textTask.value = '';
   textTask.focus();
+});
+
+btnClearAll.addEventListener('click', function() {
+  let listLength = toDoList.childElementCount;
+  for (let index = 0; index < listLength; index += 1) {
+    toDoList.removeChild(toDoList.children[0]);
+  }
 });
 
 //Listener que seleciona o item da lista
