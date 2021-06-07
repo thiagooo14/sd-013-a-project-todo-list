@@ -1,6 +1,7 @@
 const ol = document.getElementById('lista-tarefas');
 const botao = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
+const botaoApaga = document.getElementById('apaga-tudo');
 
 botao.addEventListener('click', () => {
   let criaLi = criaElemento('li', 'lista');
@@ -8,6 +9,9 @@ botao.addEventListener('click', () => {
   ol.appendChild(criaLi);
   input.value = '';
   criaLi.addEventListener('click', bgColor);
+  criaLi.addEventListener('dblclick', (e) => {
+    e.target.classList.toggle('completed');
+  });
 });
 
 function criaElemento(nome, classe) {
@@ -19,7 +23,13 @@ function criaElemento(nome, classe) {
 function bgColor(e) {
   let listItem = document.getElementsByClassName('lista');
   for (let i of listItem) {
-      i.style.backgroundColor = ''; 
+    i.style.backgroundColor = '';
   }
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+
+botaoApaga.addEventListener('click', () => {
+  while (ol.childElementCount > 0) {
+    ol.removeChild(ol.lastElementChild);
+  }
+});
