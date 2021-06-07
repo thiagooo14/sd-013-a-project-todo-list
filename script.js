@@ -55,7 +55,6 @@ function eraseOnlyCompletedTasks() {
 function removeSelectedColorInEachLi(list) {
   const ol = list;
   for (let index = 0; index < ol.length; index += 1) {
-    // ol[index].style.backgroundColor = '';
     ol[index].classList.remove('selected');
   }
 }
@@ -64,7 +63,6 @@ function applyColor(event) {
   const item = event.target;
   const ol = event.target.parentElement.children;
   removeSelectedColorInEachLi(ol);
-  // item.style.backgroundColor = 'rgb(128, 128, 128)';
   item.classList.toggle('selected');
 }
 

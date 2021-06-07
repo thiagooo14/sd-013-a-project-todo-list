@@ -1,32 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
     <title>Projeto Todo List</title>
 </head>
+
 <body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <span id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</span>
-    </header>
-    <main>
-        <section>
-            <input type="text" id="texto-tarefa">
-            <button id="criar-tarefa">Criar tarefa</button>
-            <button id="apaga-tudo">Apagar tudo</button>
-            <button id="remover-finalizados">Remover finalizados</button>
-            <button id="salvar-tarefas">Salvar Tarefas</button>
-            <button id="mover-cima">Mover para cima</button>
-            <button id="mover-baixo">Mover para baixo</button>
-            <button id="remover-selecionado">Remover selecionado</button>
-        </section>
-        <section>
-            <ol id="lista-tarefas"></ol>
-        </section>
+    <main class="main">
+        <header class="header">
+            <h1>Minha Lista de Tarefas</h1>
+            <span id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</span>
+        </header>
+        <article class="article">
+            
+            <section class="section-inputs">
+                <div class="inputs">
+                    <label id="label-texto-tarefa" for="texto-tarefa">Menu</label>
+                    <input type="text" placeholder="Digite a tarefa"
+                        id="texto-tarefa">
+                </div>
+                <div class="buttons">
+                    <div>
+                        <button class="button" id="criar-tarefa">Criar tarefa</button>
+                    </div>
+                    <div>
+                        <button class="button" id="salvar-tarefas">Salvar Tarefas</button>
+                    </div>
+                    <div>
+                        <button class="button" id="apaga-tudo">Apagar tudo</button>
+                    </div>
+                    <div>
+                        <button class="button" id="remover-finalizados">Remover finalizados</button>
+                    </div>
+                    <div>
+                        <button class="button" id="remover-selecionado">Remover selecionado</button>
+                    </div>
+                    <div>
+                        <button class="button" id="mover-cima">Mover para cima</button>
+                    </div>
+                    
+                    <div>
+                        <button class="button" id="mover-baixo">Mover para baixo</button>
+
+                    </div>
+                </div>
+                </div>
+            </section>
+            <section class="section-tasks">
+               <!--  <div>
+                    <button class="buttonMoviment" id="mover-cima">Mover para cima</button>
+                </div>
+                <div>
+
+                    <button class="buttonMoviment" id="mover-baixo">Mover para baixo</button>
+                </div> -->
+                <ol id="lista-tarefas">
+                </ol>
+            </section>
+        </article>
     </main>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

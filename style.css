@@ -1,7 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --primary-color: rgb(44, 62, 122);
+  --secondary-color: rgb(89, 126, 250);
+  --tertiary-color: rgb(165, 185, 251);
+  --gray-color: rgb(81, 90, 122);
+  --alt-color: rgb(72, 101, 199);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: var(--gray-color);
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: white;
+  line-height: 5px;
+}
+
+.header h1 {
+  color: var(--primary-color);
+  font-size: 3rem;
+  text-decoration: underline;
+}
+
+.header span {
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr;
+  gap: 20px 20px;
+  width: 100vw;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  gap: 20px 20px;
+  margin: 0 50px;
+
+  background-color: var(--primary-color);
+  border-top: 5px double var(--tertiary-color);
+  /* border-left: 10px solid var(--tertiary-color); */
+  border-radius: 15px;
+  /* border-top-left-radius: 0; */
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);
+}
+
+.section-inputs {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+}
+
+.sections-tasks {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px repeat(2, 1fr);
+}
+
+#label-texto-tarefa {
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 1px;
+  background-color: grey;
+  padding: 20px;
+  color: white;
+  text-shadow: 2px 2px 2px darkslategrey;
+  border-radius: 25px;
+}
+
+#texto-tarefa {
+  border-radius: 5px;
+  padding: 0 20px;
+  border: none;
+  margin: 5px 20px;
+  width: 100%;
+  height: 60px;
+  transition: all 0.25s ease;
+}
+
+#texto-tarefa:placeholder-shown {
+  text-align: center;
+}
+
+#texto-tarefa:focus {
+  background-color: var(--gray-color);
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.buttons-mobile {
+  display: none;
+}
+
+.buttons-mobile button,
+.buttons button {
+  border-radius: 15px;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  color: rgb(129, 129, 129);
+  text-shadow: 0;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  margin: 5px 0;
+  transform: scale(1);
+  transition: text-shadow 1s ease, font-size 1.5s ease, box-shadow 5s ease, color 1s ease-in-out,
+    background-color 0.5s ease-in;
+  background-color: rgb(26, 26, 26);
+}
+
+.buttons button:hover {
+  font-size: 1.25rem;
+  color: white;
+  background-color: rgb(120, 120, 120);
+  box-shadow: 2px 12px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 5px black;
+  transition: all 1.5s ease;
+}
+
+.buttons div:nth-of-type(3) {
+  grid-column: span 2;
+}
+
+#criar-tarefa {
+  border-top: 5px solid green;
+  border-bottom: 5px solid green;
+}
+
+#salvar-tarefas {
+  border-top: 5px solid rgb(0, 128, 21);
+  border-bottom: 5px solid rgb(0, 128, 21);
+}
+
+#apaga-tudo {
+  border-top: 5px solid rgb(102, 0, 0);
+  border-bottom: 5px solid rgb(102, 0, 0);
+}
+
+#remover-finalizados {
+  border-top: 5px solid rgb(102, 102, 102);
+  border-bottom: 5px solid rgb(102, 102, 102);
+}
+
+#remover-selecionado {
+  border-top: 5px solid rgb(43, 9, 9);
+  border-bottom: 5px solid rgb(43, 9, 9);
+}
+
+#mover-cima {
+  border-top: 5px solid royalblue;
+}
+
+#mover-baixo {
+  border-bottom: 5px solid royalblue;
+}
+
+.section-tasks {
+  justify-self: center;
+}
+
+#lista-tarefas {
+  background-color: var(--tertiary-color);
+  padding: 25px;
+  width: 300px;
+  height: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-left: var(--secondary-color) inset 15px;
+  border-radius: 5px;
+}
+
+#lista-tarefas li {
+  background-color: var(--alt-color);
+  padding: 10px;
+  color: white;
+  box-shadow: 2px 2px 5px var(--gray-color);
+  transition: margin 1s ease;
+  margin: 5px 0;
+}
+
 .selected {
-  background-color: gray;
+  background-color: rgb(128, 128, 128) !important;
+  transition: margin 1s ease;
+  margin: 50px 0 !important;
+  position: relative;
+}
+
+.divButtonMoviment {
+  position: absolute;
+  left: 0;
+  top: 45px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.buttonMoviment {
+  width: 40px;
+  height: 40px;
+  margin: 0 2px;
+  border-radius: 25px;
+  font-size: 2rem;
+  color: var(--primary-color);
 }
 
 .completed {
   text-decoration: line-through solid black;
+  transition: all 2s;
+  background-color: gray;
+}
+
+@media (max-width: 767.98px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 25% 1fr;
+  }
+
+  .header {
+    display: grid;
+    height: 25%;
+    grid: 100px 1fr / 1fr;
+    line-height: 5vh;
+    padding: 25px;
+  }
+
+  .header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    text-decoration: underline;
+  }
+
+  .header span {
+    font-style: italic;
+    letter-spacing: 0px;
+    line-break: normal;
+  }
+
+  .article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 1fr;
+    padding: 20px;
+    width: 100vw;
+    margin: 0 0;
+  }
+
+  .section-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    border-left: none;
+    padding-left: 5px;
+    position: relative;
+  }
+
+  .inputs {
+    flex-direction: column;
+  }
+
+  #texto-tarefa {
+    height: 75px;
+    width: 300px;
+    margin: 20px 40px 50px 0;
+  }
+
+#lista-tarefas {
+  padding: 10px;
+  position:relative;
+  left:-5vw;
+}
+
+  .buttons-mobile {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    bottom: 10vh;
+    left: -5vw;
+    background: rgba(89, 126, 250, 0.15);
+    transform: scale(0.8);
+    border-top: 2px solid var(--gray-color);
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .buttons-mobile div:nth-of-type(1)  {
+    grid-column: span 4;
+  }
+
+  .buttons-mobile button {
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 2px rgba(89, 126, 250, 0.5);
+  }
+  .buttons {
+    display: none;
+  }
 }
