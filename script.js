@@ -2,7 +2,7 @@ const listaTarefa = document.querySelector('#lista-tarefas');
 const textoTarefa = document.querySelector('#texto-tarefa');
 const botaoTarefa = document.querySelector('#criar-tarefa');
 
-function clicou () {
+function clicou() {
   if (textoTarefa.value === '') {
     return null;
   }
@@ -15,8 +15,7 @@ function clicou () {
 
 botaoTarefa.addEventListener('click', clicou);
 
-
-function colore (value) {
+function colore(value) {
   const liSelecionada = document.querySelector('.selected');
   if (value.target.className === 'tarefa') {
     value.target.classList.add('selected');
@@ -28,7 +27,7 @@ function colore (value) {
 
 listaTarefa.addEventListener('click', colore);
 
-function doubleClick (value) {
+function doubleClick(value) {
   value.target.classList.toggle('completed');
 }
 
@@ -36,7 +35,7 @@ listaTarefa.addEventListener('dblclick', doubleClick);
 
 const botaoApaga = document.querySelector('#apaga-tudo');
 
-function apaga () {
+function apaga() {
   const lis = document.querySelectorAll('li');
   for (let i = 0; i < lis.length; i += 1) {
     let element = lis[i];
@@ -48,14 +47,30 @@ botaoApaga.addEventListener('click', apaga);
 
 const botaoApagaSelecionados = document.querySelector('#remover-finalizados');
 
-function apagaSelecionados () {
+function apagaSelecionados() {
   const lis = document.querySelectorAll('li');
   for (let i = 0; i < lis.length; i += 1) {
     let element = lis[i];
     if (element.classList.contains('completed')) {
-          listaTarefa.removeChild(element);
+      listaTarefa.removeChild(element);
     }
   }
 }
 
 botaoApagaSelecionados.addEventListener('click', apagaSelecionados);
+
+const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
+
+function salva() {
+  const htmlista = listaTarefa.innerHTML;
+  localStorage.setItem('listaSalva', htmlista);
+}
+
+function recupera() {
+  const listaSalva = localStorage.getItem('listaSalva');
+    listaTarefa.innerHTML = listaSalva;
+}
+
+recupera();
+
+botaoSalvarTarefas.addEventListener('click', salva);
