@@ -22,9 +22,7 @@ function adicionar (){
           e.target.classList.add('selectedClass');
       }
        item.addEventListener('dblclick',function(event){
-          
-            
-            e.target.classList.toggle('completed');
+             event.target.classList.toggle('completed');
            
        }) 
     });
