@@ -40,3 +40,14 @@ function createButton() {
 
 createButton();
 
+let getInputBox = document.getElementById('texto-tarefa');
+let getButton = document.getElementById('criar-tarefa');
+let getOrderList = document.getElementById('lista-tarefas');
+
+getButton.addEventListener('click', function() {
+  let createLi = document.createElement('li');
+  getOrderList.appendChild(createLi);
+  let getTextIB = document.getElementById('texto-tarefa').value;
+  createLi.innerText = getTextIB;
+  getInputBox.value = ' ';
+})
