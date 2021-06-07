@@ -8,6 +8,11 @@ function adicionaItem(){
 
   const inputTexto = document.querySelector("#texto-tarefa");
 
+      if(inputTexto.value ===""){
+        alert("Texto inválido!!");
+        return;
+      }
+
   let itemLista = document.createElement("li");
       itemLista.innerText = inputTexto.value;
       itemLista.className="lista";
@@ -15,6 +20,8 @@ function adicionaItem(){
       itemLista.addEventListener("click",selection);
       itemLista.addEventListener("dblclick",completed);
       inputTexto.value ="";
+      inputTexto.focus(); // faz o cursor voltar pra caixa de dígito
+     
 
 }
 
@@ -45,7 +52,7 @@ function completed(event){
 function apagaTudo(){
 
  itemDaLista = document.querySelectorAll(".lista");
-  for(let index = itemDaLista.length ; index !==0  ; index -=1){
+  for(let index = itemDaLista.length +1 ; index > 0  ; index -=1){
     if(itemDaLista.length !== 0 ){
       lista.removeChild(lista.firstChild);
     }  
