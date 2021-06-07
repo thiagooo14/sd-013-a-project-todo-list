@@ -27,3 +27,9 @@ function colore (value) {
 }
 
 listaTarefa.addEventListener('click', colore);
+
+function doubleClick (value) {
+  value.target.classList.toggle('completed');
+}
+
+listaTarefa.addEventListener('dblclick', doubleClick);
