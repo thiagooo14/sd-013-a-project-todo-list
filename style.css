@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: Odibee Sans , cursive;
+}
+
+body {
+  background: rgb(137 , 205 , 252);
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(137 , 205 , 252);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: rgb(51 , 51 , 51);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(51 , 51 , 51 , 0.8);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(192 , 190 , 190);
+}
+
+#texto-tarefa {
+  height: 30px;
+  width: 80vw;
+  background-color: transparent;
+  border-bottom: 3px solid white;
+  text-align: center;
+  margin-top: 18vh;
+  color: black;
+  font-size: 22px;
+}
+
+#texto-tarefa:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#texto-tarefa:focus::-webkit-input-placeholder {
+  color: transparent;
+  transition: 0.5s;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+#criar-tarefa {
+  background-color: rgb(0 , 173 , 249);
+}
+
+.button {
+  border-radius: 100px;
+  margin-left: 30px;
+  width: 80px;
+  height: 23px;
+  border: 2px solid black;
+  color: black;
+}
+
+.button:active {
+  transform: scale(1.1);
+}
+
+#apaga-tudo {
+  margin-top: 20px;
+  background-color: rgb(0 , 173 , 249);
+}
+
+#remover-finalizados {
+  margin-top: 20px;
+  background-color: rgb(0 , 173 , 249);
+}
+
+#remover-selecionado {
+  margin-left: 300px;
+  margin-top: 20px;
+  background-color: rgb(0 , 173 , 249);
+
+}
+
+#mover-cima {
+  margin-top: 20px;
+  background-color: rgb(0 , 173 , 249);
+}
+
+#mover-baixo {
+  margin-top: 20px;
+  background-color: rgb(0 , 173 , 249);
+}
+
+#funcionamento {
+  display: flex;
+  justify-content: center;
+  margin-right: 100px;
+  margin-top: 0.8%;
+  opacity: 60%;
+}
+
+#section2 {
+  margin-top: 100px;
+}
+
+li {
+  width: 10vw;
+  padding-top: 5px;
+}
+
+.color2 {
+  border: 4px solid rgb(0 , 0 , 0 , 0.8);
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+.color {
+  background-color: white;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  margin-right: 105px;
+  opacity: 70%;
+}

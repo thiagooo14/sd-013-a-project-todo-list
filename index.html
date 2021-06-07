@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista de Tarefas</title>
+  <link rel="shortcut icon" href="assets/icon2 copy.png">
+  <link rel="stylesheet" href="style.css">
+<body>
+  <main>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+    </header>
+    <section id='section1'>
+      <div>
+        <input id ='texto-tarefa' type="text" placeholder="Digite sua Tarefa"> <!--Input 'Digite sua tarefa'-->
+        <button class='button' type='submit' onclick="snd.play()" id="criar-tarefa">Adicionar</button> <!--Botão 'Adicionar'-->
+        <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p> <!--Paragráfo com Instruções-->
+      </div>
+    </section>
+    <section id='section2'>
+        <ol id='lista-tarefas' class="color">
+        </ol>
+    </section>
+    <section id ='section3'>
+      <button class='button' id='remover-selecionado'><img src="assets/close.png" width="12px"></button>
+      <button class='button' id='remover-finalizados'>Apagar Completos</button>
+      <button class='button' id='apaga-tudo'>Apagar Tudo</button>
+      <button class='button' id='mover-cima'><img src="assets/chevron-up.png" width="12px"></img></button>
+      <button class='button' id='mover-baixo'><img src="assets/download.png" width='12px'></button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
