@@ -30,7 +30,7 @@ body {
   margin: auto;
   margin-top: 30px;
   border-radius: 10px;
-  border: 2px solid rgb(251, 251, 251) ;
+  border: 2px solid rgb(251, 251, 251);
 }
 
 .container {
@@ -88,4 +88,3 @@ li > button {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
-

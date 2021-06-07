@@ -1,45 +1,45 @@
-let enterBotao = document.getElementById("criar-tarefa");
-let input = document.getElementById("texto-tarefa");
-let ol = document.getElementById("lista-tarefa");
-let item = document.getElementsByTagName("li");
+let enterBotao = document.getElementById('criar-tarefa');
+let input = document.getElementById('texto-tarefa');
+let ol = document.getElementById('lista-tarefas');
+let item = document.getElementsByTagName('li');
 
-function inputList () {
+function inputList() {
   return input.value.length;
 }
 
-function criarlist () {
-  let li = document.createElement("li");
+function criarlist() {
+  let li = document.createElement('li');
 
   li.appendChild(document.createTextNode(input.value));
   ol.appendChild(li);
-  input.value = "";
+  input.value = '';
 
-  function criarHover () {
-    li.classList.toggle("listHover");
+  function criarHover() {
+    li.classList.toggle('listHover');
   }
 
-  li.addEventListener("dblclick", criarHover);
+  li.addEventListener('dblclick', criarHover);
 
-  let dbtn = document.createElement("button");
-  dbtn.appendChild(document.createTextNode("Apagar"));
+  let dbtn = document.createElement('button');
+  dbtn.appendChild(document.createTextNode('Apagar'));
   li.appendChild(dbtn);
-  dbtn.addEventListener("click", deletListItem);
+  dbtn.addEventListener('click', deletListItem);
 
-  function deletListItem () {
-    li.classList.add("delete");
+  function deletListItem() {
+    li.classList.add('delete');
   }
 }
 
-enterBotao.addEventListener("click", addListAfterClick);
-input.addEventListener("keypress", addListAfterKeypress);
+enterBotao.addEventListener('click', addListAfterClick);
+input.addEventListener('keypress', addListAfterKeypress);
 
-function addListAfterClick () {
-  if (inputList() > 0 ) {
+function addListAfterClick() {
+  if (inputList() > 0) {
     criarlist();
   }
 }
 
-function addListAfterKeypress () {
+function addListAfterKeypress() {
   if (inputList() > 0 && event.which === 13) {
     criarlist();
   }
