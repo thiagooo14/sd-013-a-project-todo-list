@@ -7,6 +7,11 @@
   text-align: center;
 }
 
+.botoes {
+  display: inline-block;
+  margin-left: 30px;
+}
+
 ol {
   width: 500px;
   border: 1px solid black;

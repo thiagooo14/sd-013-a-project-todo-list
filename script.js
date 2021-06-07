@@ -2,6 +2,7 @@ const textInput = document.querySelector('#texto-tarefa');
 const botaoAdc = document.querySelector('#criar-tarefa');
 const item = document.getElementsByTagName('li');
 const botaoLimpar = document.querySelector('#apaga-tudo');
+const btnSalvarTarefas = document.querySelector('#salvar-tarefas')
 // let listaOrdenada = document.querySelector('#lista-tarefas');
 
 // Adicionar Lista Ordenada
@@ -16,7 +17,7 @@ function duploClick(event) {
 }
 
 // Adiciona cor ao item clicado.
-function mudaCor() {
+function mudaCor(event) {
   for (let i = 0; i < item.length; i += 1) {
     item[i].id = 'unselected';
   }	event.target.id = 'selected';
@@ -40,6 +41,7 @@ function resetBoard() {
   const li = document.querySelectorAll('.item');
   for (let i = 0; i < li.length; i += 1) {
     listaOrdenada.removeChild(li[i]);
+    localStorage.clear();
   }
 // listaOrdenada.innerHTML = null;
 }
@@ -58,4 +60,14 @@ function removeFinalizados(){
 	
 		}
 	} 
+
+  function salvaTarefa(){
+    btnSalvarTarefas.addEventListener('click', function(){
+      localStorage.setItem('tarefasSalvas', listaOrdenada.innerHTML);
+    }) 
+  }
+  salvaTarefa();
+  listaOrdenada.innerHTML = localStorage.getItem('tarefasSalvas')
+
+
 btnRemoverTarefas.addEventListener('click', removeFinalizados)
