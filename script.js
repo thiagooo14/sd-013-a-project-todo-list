@@ -21,14 +21,14 @@ list.addEventListener('click', function changeColor(clickEvent) {
   const listObj = clickEvent.target;
   const varia = document.getElementsByClassName('grayTask')[0];
 
-    itemObj[0].classList.remove('grayTask');
-
+  for(let i = 0; i < itemObj.length; i += 1){
+    itemObj[i].classList.remove('grayTask');
+  }
 
     listObj.classList.add('grayTask');
   
 
-  listObj.classList.add('grayTask');
-  // let grayItem = document.getElementsByClassName('grayTask')[0];
+  let grayItem = document.getElementsByClassName('grayTask')[0];
 
 
   // grayItem.style.backgroundColor = 'rgb(128,128,128)'
@@ -46,4 +46,10 @@ let bClear = document.getElementById("apaga-tudo");
 
 bClear.addEventListener('click', function clear() {
   list.innerHTML = ''
+});
+
+let clearLast = document.getElementById('apaga-ultimo');
+clearLast.addEventListener('click', function clearLast() {
+  let select = list.lastChild;
+  list.removeChild(select);
 });
