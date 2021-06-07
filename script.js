@@ -6,6 +6,7 @@ const botaoSalvaTarefas = document.querySelector('#salvar-tarefas');
 const botaoMoveUp = document.querySelector('#mover-cima');
 const botaoMoveDown = document.querySelector('#mover-baixo');
 const inputTarefa = document.querySelector('#texto-tarefa');
+const botaoApagaSelecionado = document.querySelector('#remover-selecionado');
 
 function adicionaTarefa() {
   botaoCriarTarefa.addEventListener('click', function() {
@@ -75,4 +76,9 @@ botaoMoveUp.addEventListener('click', function() {
       lista.insertBefore(selecionado, deCima);
     }
   }
+});
+
+botaoApagaSelecionado.addEventListener('click', function() {
+  const selecionado = document.querySelector('.selected');
+    lista.removeChild(selecionado);
 });
