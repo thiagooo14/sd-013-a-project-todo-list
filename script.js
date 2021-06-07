@@ -29,7 +29,7 @@ selectedClass();
 
 // Requisito 8
 function oneTaskSelected() {
-  const getOl = document.getElementById('lista-tarefas');
+  const getOl = document.getElementById('lista-tarefas'); 
   getOl.addEventListener('click', (event) => {
     if (event.target.classList.contains('item')) {
       const getLi = document.getElementsByClassName('item');
@@ -48,7 +48,7 @@ function selectedClassDoubleClick() { // criar uma função
   getOl.addEventListener('dblclick', (event) => { // criar o evento de click
     const getLi = document.getElementsByTagName('li'); // que vai ser executado dentro das lis, portanto o caminho delas
     for (let index = 0; index < getLi.length; index += 1) { // e para percorrer cada uma dessas lis
-      getLi[index].classList.toggle('completed'); // onde removeremos a classe completed caso ela já exista e caso ela não exista vamos criá-la usando o toggle
+      event.target.classList.toggle('completed'); // onde removeremos a classe completed caso ela já exista e caso ela não exista vamos criá-la usando o toggle
     }
   });
 }
@@ -56,25 +56,23 @@ function selectedClassDoubleClick() { // criar uma função
 selectedClassDoubleClick();
 
 // Requisito 10
-function removeItem() { // criar uma função
+function removeItem() {  // criar uma função
   const getButtomRemoveAll = document.querySelector('#apaga-tudo'); // no botão de id apaga-tudo
   getButtomRemoveAll.addEventListener('click', () => { // adicionar um evento no botão
     const getOl = document.querySelector('ol'); // acessar a ol
     getOl.innerHTML = ''; // e esvaziar o que tiver dentro
   });
  }
- removeItem();
+ removeItem()
 
 // Requisito 11
 function removeTasksCompleted() { // criar uma função
-  const getButtomRemoveCompleted = document.querySelector('#remover-finalizados'); // acessar o botão que foi criado
-  getButtomRemoveCompleted.addEventListener('click', () => { // criar o evento de click do botão
-    const getLiClass = document.querySelectorAll('.item'); // RECUPERAR TODAS AS LIS PELA CLASSE DELAS
-    for (let index = 0; index < getLiClass.length; index += 1) { // e para percorrer cada um dos elementos dentro da ol
-      if (getLiClass[index].classList.contains('completed')) {
-        document.querySelector('ol').removeChild(getLiClass[index]);
-      }
+  const getButtomRemoveCompleted = document.querySelector('#remover-finalizados');
+  getButtomRemoveCompleted.addEventListener('click', (event) => { // criar o evento de click
+    const getCompleted = document.querySelector('.completed'); // que vai ser executado dentro das lis, portanto o caminho delas
+    for (let index = 0; index < getCompleted.length; index += 1) { // e para percorrer cada uma dessas lis
+      getCompleted[index].remove(); // onde removeremos a classe completed caso ela já exista e caso ela não exista vamos criá-la usando o toggle
     }
   });
 }
-removeTasksCompleted();
+removeTasksCompleted()
