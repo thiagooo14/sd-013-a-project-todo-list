@@ -23,15 +23,14 @@ const createTask = () => {
 
 const highlightTask = () => {
   const lis = document.querySelectorAll('.task-item');
-  const gray = 'gray-bgcolor';
+  const ol = document.querySelector('#lista-tarefas');
+  const gray = "rgba(128, 128, 128, 1)";
 
-  lis.forEach((item) => {
-    item.addEventListener('click', (event) => {
-      event.target.classList.toggle(gray);
+  ol.addEventListener("click", (event) => {
+    lis.forEach(li => {
+      li.style.backgroundColor = '';
     });
 
-    if (item.classList.contains(gray)) {
-      item.classList.remove(gray);
-    }
+    event.target.style.backgroundColor = gray;
   });
 }
