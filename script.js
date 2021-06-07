@@ -74,3 +74,5 @@ function recoverAllTasks() {
   focusColorList();
 }
 recoverAllTasks();
+
+// Requisito 13
