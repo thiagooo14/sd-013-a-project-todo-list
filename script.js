@@ -2,7 +2,9 @@ const textInput = document.querySelector('#texto-tarefa');
 const botaoAdc = document.querySelector('#criar-tarefa');
 const item = document.getElementsByTagName('li');
 const botaoLimpar = document.querySelector('#apaga-tudo');
-const btnSalvarTarefas = document.querySelector('#salvar-tarefas')
+const btnSalvarTarefas = document.querySelector('#salvar-tarefas');
+const bntMoverCima = document.getElementById('mover-cima');
+const bntMoverBaixo = document.getElementById('mover-baixo');
 // let listaOrdenada = document.querySelector('#lista-tarefas');
 
 // Adicionar Lista Ordenada
@@ -34,8 +36,6 @@ function adicionaTarefa() {
   item.addEventListener('dblclick', duploClick);
 }
 
-botaoAdc.addEventListener('click', adicionaTarefa);
-
 // BOTÃO LIMPAR LISTA
 function resetBoard() {
   const li = document.querySelectorAll('.item');
@@ -53,21 +53,39 @@ const btnRemoverTarefas = document.querySelector('#remover-finalizados');
 
 function removeFinalizados(){
 	const list = document.querySelectorAll('.item');
-	for(let i = 0; i < list.length; i += 1){
-		if(list[i].classList.contains('completed')){
+	for (let i = 0; i < list.length; i += 1){
+		if (list[i].classList.contains('completed')){
 			listaOrdenada.removeChild(list[i]);
-		}
-	
-		}
-	} 
-
-  function salvaTarefa(){
-    btnSalvarTarefas.addEventListener('click', function(){
-      localStorage.setItem('tarefasSalvas', listaOrdenada.innerHTML);
-    }) 
+    }	
   }
-  salvaTarefa();
-  listaOrdenada.innerHTML = localStorage.getItem('tarefasSalvas')
+ } 
 
+function salvaTarefa(){
+  btnSalvarTarefas.addEventListener('click', function() {
+      localStorage.setItem('tarefasSalvas', listaOrdenada.innerHTML);
+  });
+}
+salvaTarefa();
+listaOrdenada.innerHTML = localStorage.getItem('tarefasSalvas');
 
-btnRemoverTarefas.addEventListener('click', removeFinalizados)
+const tarefaSelecionada = () => {
+  const tarefaSelecionada = document.querySelector('#selected');
+return tarefaSelecionada;
+};
+
+function movePraCima(){    
+  if (tarefaSelecionada() !== item[0]) {
+    listaOrdenada.insertBefore(tarefaSelecionada(), tarefaSelecionada().previousElementSibling);
+  } 
+} 
+
+ function moverBaixo(){
+   if (tarefaSelecionada() !== item[item.length -1]) {
+     listaOrdenada.insertBefore(tarefaSelecionada().nextElementSibling, tarefaSelecionada());
+   }  
+ }
+
+bntMoverBaixo.addEventListener('click', moverBaixo);
+bntMoverCima.addEventListener('click', movePraCima);
+btnRemoverTarefas.addEventListener('click', removeFinalizados);
+botaoAdc.addEventListener('click', adicionaTarefa);
