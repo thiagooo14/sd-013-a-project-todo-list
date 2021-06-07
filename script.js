@@ -10,7 +10,7 @@ desafio1()
 function desafio2() {
     let p = document.createElement("p");
     p.innerText = "Clique duas vezes em um item para marcá-lo como completo"
-    p.setAttribute("id", "funcionamento")
+    p.setAttribute("id", "funcionamento")   //dois parametros = atributo, nome.
     let header = document.querySelector("header")
     header.appendChild(p)
 }
@@ -70,16 +70,50 @@ desafio5()
 function desafio7(){
   let liS = document.getElementsByTagName("li");
   let ol = document.querySelector("ol"); 
-  ol.addEventListener("click", () => {
+  ol.addEventListener("click", (event) => {  //
    for ( let i= 0; i < liS.length; i +=1) {
        let li = liS[i]
-       li.style.backgroundColor = 'rgb(128, 128, 128)';
+       li.style.backgroundColor = "";
+            
    } 
+   event.target.style.backgroundColor = "rgb(128,128,128)";  // no ex:7, resolve o desafio8
+   
 
   })
   
 }
 desafio7()
+
+function desafio9(event) {
+
+    //let lis =document.getElementsByTagName("li")
+     //   console.log(lis)
+      //  for (let i= 0; i < lis.length; i +=1) {
+       //     let li = lis[i];  
+         //   li.addEventListener("dblclick", (event) =>{
+          //  console.log(event.target);
+
+       //    } ) 
+        // }
+    //event.target.setAttribute("class", "completed") // if
+    //event.target.classList.toggle("completed")  // interruptor (liga-desliga)
+    
+    
+    let evento = event.target.style.textDecoration;
+    if ( evento == "line-through") {
+        event.target.style.textDecoration = 'none';
+        
+    
+    } else { 
+        event.target.style.textDecoration = "line-through"; 
+    }
+                 
+
+}
+let olol = document.querySelector("#lista-tarefas")
+ olol.addEventListener("dblclick", desafio9 )
+
+
 
 
 
