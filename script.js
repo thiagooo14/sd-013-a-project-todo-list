@@ -5,15 +5,13 @@ document.body.appendChild(ol);
 function CreateTask() {
   const inputtext = document.querySelector('#texto-tarefa'); // criei variavel para o input
   const buttonAddTask = document.querySelector('#criar-tarefa'); // variavel para o botao
-  buttonAddTask.addEventListener('click', () => { // botao ao clicar
-    if (inputtext.value !== '') { // se estiver diferente de vazio , ou seja você escreveu
+  buttonAddTask.addEventListener('click', function(){ // botao ao clicar
       const list = document.createElement('li'); // cria uma lista
       list.classList = 'lista'; // lista ganha classe
       list.addEventListener('click', ChangeBackground);
       list.addEventListener('dblclick', Strikeout);
       list.innerHTML = inputtext.value; // insere o valor
       ol.appendChild(list); // filho da ol
-    }
     inputtext.value = ''; // zera
   });
 }
@@ -37,7 +35,7 @@ function Strikeout(event) {
 
 /* Com a ajuda da Luiza Antiques ela explicou o toggle, o toggle ele adiciona a classe e remove a classe. O que é bem
 útil nesse exercício já que vários elementos precisam ser riscados, daí todos ganham essa classe, e depois clicando duas vezes eles perdem a classe
-no css colocou a classe completed que faz o riscado. */
+no css colocou a classe completed que faz o riscado. strikeout significa riscado */
 
 function EraseAll() {
   const ListAgain = document.querySelectorAll('.lista');
@@ -46,9 +44,9 @@ function EraseAll() {
   }
 }
 const buttonEraseTask = document.querySelector('#apaga-tudo');
-
 buttonEraseTask.addEventListener('click', EraseAll);
 /* Com a ajuda da Julia eu vi que a lógica estava certa, mas eu estava esquecendo de por a # */
+
 function RemoveCompleted() {
   const taskCompleted = document.querySelectorAll('.completed');// procura todos com a classe completed
   for (let index = 0; index < taskCompleted.length; index += 1) { // um for passa por todos
@@ -57,7 +55,6 @@ function RemoveCompleted() {
 }
 
 const buttonRemove = document.querySelector('#remover-finalizados');
-
 buttonRemove.addEventListener('click', RemoveCompleted);
 
 /* fonte:https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_insertbefore */
