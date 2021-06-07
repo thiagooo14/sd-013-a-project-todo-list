@@ -3,6 +3,7 @@ const lista = document.querySelector("#lista-tarefas");
 const botao1 = document.querySelector("#criar-tarefa");
 const botao2 = document.querySelector("#apaga-tudo");
 const botao3 = document.querySelector("#remover-finalizados");
+const botao4 = document.querySelector("#salvar-tarefas");
 
 
 function adicionaItem(){
@@ -76,3 +77,22 @@ function removeCompleto(){
 }
 
 botao3.addEventListener("click", removeCompleto);
+
+function addStorage(){
+
+  const htmlList = lista.innerHTML;
+  localStorage.setItem("listaSalva" , htmlList);
+
+}
+
+function recuperaStorage(){
+
+  let itemStorage = localStorage.getItem("listaSalva");
+  lista.innerHTML = itemStorage;
+  
+
+}
+
+botao4.addEventListener("click", addStorage);
+recuperaStorage();
+
