@@ -18,7 +18,7 @@ function selectLi(evento) {
   const listGray = document.getElementsByClassName('gray');
 
   if (listGray.length > 0) {
-    for (let index = 0; index < listGray.length; index += 1){
+    for(let index = 0; index < listGray.length; index += 1) {
       listGray[index].classList.remove('gray');
     }
     evento.target.classList.add('gray');
@@ -30,5 +30,19 @@ function selectLi(evento) {
 lista.addEventListener('click', selectLi);
 
 // ================================================================
+function completo(evento) {
+  const listCompleted = document.getElementsByClassName('completed');
+  const teste = evento.target.classList.value;
+  
+  if (teste === 'completed gray') {
+    evento.target.classList.remove('completed');
+  } else {
+    evento.target.classList.add('completed');
+  }
+  //console.log(document.body)
+}
+lista.addEventListener('dblclick', completo);
 
-//console.log(document.body)
+
+
+// console.log(document.body)
