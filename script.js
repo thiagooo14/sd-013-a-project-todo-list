@@ -27,3 +27,11 @@ function adicionaInput () {
   paiInput.appendChild(novoInput);
 }
 adicionaInput()
+
+//QUESTÃO 4
+function adicionaLista () {
+  let listaOrdenada = document.createElement('ol');
+  listaOrdenada.setAttribute("id", "lista-tarefas");
+  document.body.appendChild(listaOrdenada);
+}
+adicionaLista()
