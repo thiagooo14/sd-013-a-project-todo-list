@@ -24,5 +24,5 @@ function increase() {
     } else {
       item.style.textDecoration = 'none';
     }
-  }
+  };
 }
