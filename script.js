@@ -93,21 +93,21 @@ const moveCima = document.querySelector('#mover-cima');
 const moveBaixo = document.querySelector('#mover-baixo');
 
 function cima() {
-  const selecionado = document.querySelector('.selected');
-  if (selecionado !== null) {
-    const elementoDeCima = selecionado.previousElementSibling;
-    if (selecionado !== listaTarefa.firstChild) {
-      listaTarefa.insertBefore(selecionado, elementoDeCima);
+  const select = document.querySelector('.selected');
+  if (select !== null) {
+    const elementoDeCima = select.previousElementSibling;
+    if (select !== listaTarefa.firstChild) {
+      listaTarefa.insertBefore(select, elementoDeCima);
     }
   }
 }
 
 function baixo() {
-  const selecionado = document.querySelector('.selected');
-  if (selecionado !== null) {
-    const elementoDeBaixo = selecionado.nextElementSibling;
-    if (selecionado !== listaTarefa.lastChild) {
-      listaTarefa.insertBefore(selecionado, elementoDeBaixo.nextElementSibling);
+  const select = document.querySelector('.selected');
+  if (select !== null) {
+    const elementoDeBaixo = select.nextElementSibling;
+    if (select !== listaTarefa.lastChild) {
+      listaTarefa.insertBefore(select, elementoDeBaixo.nextElementSibling);
     }
   }
 }
