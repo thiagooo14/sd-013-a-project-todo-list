@@ -69,7 +69,7 @@ function removeItem() {  // criar uma função
 function removeTasksCompleted() { // criar uma função
   const getButtomRemoveCompleted = document.querySelector('#remover-finalizados');
   getButtomRemoveCompleted.addEventListener('click', (event) => { // criar o evento de click
-    const getCompleted = document.querySelector('.completed'); // que vai ser executado dentro das lis, portanto o caminho delas
+    const getCompleted = document.querySelectorAll('.completed'); // que vai ser executado dentro das lis, portanto o caminho delas
     for (let index = 0; index < getCompleted.length; index += 1) { // e para percorrer cada uma dessas lis
       getCompleted[index].remove(); // onde removeremos a classe completed caso ela já exista e caso ela não exista vamos criá-la usando o toggle
     }
