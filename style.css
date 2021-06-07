@@ -1,0 +1,142 @@
+body {
+    margin: 20%;
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgb(37, 95, 37);
+  }
+  
+  .icone {
+    margin-top: 10px;
+    width: 60px;
+    float: left;
+  }
+  
+  .mike {
+    padding-top: 30px;
+  }
+  
+  .center {
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    border-radius: 20px;
+    border: 3px solid rgb(240, 255, 175);
+    background-color: rgb(255, 158, 31);
+    padding: 10px;
+  }
+
+  .lista {
+    margin: auto;
+    border-radius: 20px;
+    width: 80%;
+    border: 3px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+  }
+
+  .botões {
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    border: 3px solid rgb(255, 158, 31);
+    background-color: rgb(255, 158, 31);
+    border-radius: 20px;
+    
+    padding: 10px;
+  }
+  
+  .titulo {
+    margin: auto;
+    width: 80%;
+    border-radius: 20px;
+    border: 3px solid rgb(240, 255, 175);
+    background-color: rgb(255, 158, 31);
+    padding: 10px;
+    font-size: 10px;
+  }
+  
+  header {
+    width: 100%;
+    height: 80px;
+    top: 0;
+    margin-bottom: 10px;
+    background-color: rgb(255, 219, 16);
+  }
+  
+  .colors {
+    margin: auto;
+    width: 80%;
+    border: 3px solid rgb(240, 255, 175);
+    background-color: rgb(255, 158, 31);
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .pixel {
+    height: 42px;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    background-color: white;
+  }
+  
+  .color {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+  }
+  
+  .tabela {
+    margin: auto;
+    border-collapse: collapse;
+  }
+  
+  .paleta , .btn {
+    margin: auto;
+  }
+  
+  #first-color {
+    background-color: black;
+  }
+  
+  .btn {
+    margin: 0;
+    top: 50%;
+    position: relative;
+    left: 47%;
+    border-radius: 20px;
+  }
+  
+  
+  .addbtn {
+    margin: 0;
+    border-radius: 20px;
+    background-color: green;
+    color: white;
+    border-color: greenyellow;
+    border-style: solid;
+  }
+
+  .delete-all {
+    margin: 5px;
+    border-radius: 20px;
+    background-color: rgb(128, 0, 0);
+    color: white;
+    border-color: rgb(32, 0, 0);
+    border-style: solid;
+  }
+
+  .remove-finish {
+    margin: 5px;
+    border-radius: 20px;
+    background-color: rgb(255, 217, 0);
+    color: rgb(0, 0, 0);
+    border-color: rgb(136, 127, 3);
+    border-style: solid;
+  }
+  
+  
