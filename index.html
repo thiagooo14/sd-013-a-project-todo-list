@@ -19,12 +19,13 @@
     <div id="lista-botoes">
       <input type="text" placeholder="Escreva uma tarefa" id="texto-tarefa" />
       <button id="criar-tarefa" onclick="addTask()">Enter</button>
-      <button id="mover-cima" onclick="moveUp()">Mover para cima</button>
-      <button id="mover-baixo" onclick="moveDown()">Mover para baixo</button>
+      <button id="mover-cima" onclick="move('up')">Mover para cima</button>
+      <button id="mover-baixo" onclick="move('down')">Mover para baixo</button>
       <ol id="lista-tarefas"></ol>
       <button id="apaga-tudo" onclick="clearList()">Limpar Lista</button>
       <button id="remover-finalizados" onclick="deleteComplete()">Limpar Finalizados</button>
       <button id="remover-selecionado" onclick="deleteSelected()">Limpar Slecionado</button>
+      <button  id="salvar-tarefas"  onclick="saveAll()">Salvar Lista</button>
     </div>
   </body>
   <script defer type="text/javascript" src="script.js"></script>

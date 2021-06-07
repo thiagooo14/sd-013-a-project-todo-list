@@ -1,6 +1,7 @@
 let arrayLi = [];
 let posAtual = 0;
 function addTask(evento) {
+  localStorage.clear()
   const elementText = document.getElementById('texto-tarefa').value;
   const list = document.getElementById('lista-tarefas');
   const elementList = document.createElement('li');
@@ -47,18 +48,27 @@ function deleteSelected() {
   }
 }
 
-function moveDown() {
-  removeAllSelectedLi();
-  posAtual++;
-  let moverDown = arrayLi[posAtual];
-  moverDown.classList.add('selected');
-}
-
-function moveUp() {
-  removeAllSelectedLi();
-  posAtual--;
-  let moverUp = arrayLi[posAtual];
-  moverUp.classList.add('selected');
+function move(direction) {
+  let newArrayLi = arrayLi;
+  if (direction === 'up') {
+    newArrayLi = swapArrayPossitions(
+      newArrayLi,
+      posAtual,
+      posAtual - 1 < 0 ? 0 : --posAtual
+    );
+  } else {
+    newArrayLi = swapArrayPossitions(
+      newArrayLi,
+      posAtual,
+      posAtual + 1 > arrayLi.length - 1 ? arrayLi.length - 1 : ++posAtual
+    );
+  }
+  console.log(arrayLi);
+  const lista = document.getElementById('lista-tarefas');
+  lista.innerHTML = '';
+  for (let i = 0; i < newArrayLi.length; i++) {
+    lista.appendChild(newArrayLi[i]);
+  }
 }
 
 function removeAllSelectedLi() {
@@ -69,3 +79,38 @@ function removeAllSelectedLi() {
     }
   }
 }
+
+function swapArrayPossitions(array, pos1, pos2) {
+  let aux = array[pos1];
+  array[pos1] = array[pos2];
+  array[pos2] = aux;
+  return array;
+}
+
+function saveAll() {
+  let savedObject = [];
+  for (let i = 0; i < arrayLi.length; i++) {
+    savedObject.push({
+      value: arrayLi[i].innerHTML,
+      class: arrayLi[i].className,
+    });
+  }
+  localStorage.setItem('arrayLi', JSON.stringify(savedObject));
+}
+
+function onLoad() {
+  const savedObject = JSON.parse(localStorage.getItem('arrayLi'));
+  if (savedObject) {
+    const lista = document.getElementById('lista-tarefas');
+    for (let i = 0; i < savedObject.length; i++) {
+      const elementList = document.createElement('li');
+      elementList.innerHTML = savedObject[i].value;
+      elementList.className = savedObject[i].class;
+      elementList.addEventListener('dblclick', finished);
+      elementList.addEventListener('click', changeSelectedColor);
+      lista.appendChild(elementList);
+    }
+  }
+}
+
+onLoad();

@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 body {
   background-color: rgb(255, 107, 102);
-  
 }
-header{
+header {
   font-family: Indie Flower, sans-serif;
   text-align: center;
   color: rgb(97, 26, 202);
@@ -19,7 +18,13 @@ header{
   border-radius: 10px;
   font-family: Indie Flower, sans-serif;
 }
-#criar-tarefa, #apaga-tudo, #remover-finalizados, #remover-selecionado, #mover-baixo, #mover-cima{
+#criar-tarefa,
+#apaga-tudo,
+#remover-finalizados,
+#remover-selecionado,
+#mover-baixo,
+#mover-cima,
+#salvar-tarefas {
   margin: 10px;
   border-radius: 5px;
   color: rgb(255, 255, 255);
@@ -27,7 +32,6 @@ header{
   font-family: Indie Flower, sans-serif;
   font-size: 20px;
 }
-
 
 #texto-tarefa {
   margin: 10px;
@@ -42,9 +46,8 @@ li {
   font-size: 30px;
 }
 .completed {
-  text-decoration: line-through solid rgb(0,0,0);
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 .selected {
-  background-color: rgb(128, 128, 128)
+  background-color: rgb(128, 128, 128);
 }
-
