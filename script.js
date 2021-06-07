@@ -1,4 +1,4 @@
-const inputi = document.getElementById("texto-tarefas");
+const inputi = document.getElementById("texto-tarefa");
 const button = document.getElementById("criar-tarefa");
 const listaDeTarefas = document.getElementById("lista-tarefas");
 
