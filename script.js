@@ -107,17 +107,38 @@ function salvar() {
 
 function seletados() {
   const deletarSeletado = document.querySelector('#remover-selecionado');
-
+  const selected = document.getElementsByClassName('selected');
   deletarSeletado.addEventListener('click', () => {
-    const selected = document.getElementsByClassName('selected');
     selected[0].parentNode.removeChild(selected[0]);
+  });
+}
+
+function moverCima() {
+  const upMove = document.querySelector('#mover-cima');
+
+  upMove.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected');
+    if (selecionado && selected[0].previousElementSibling) {
+      selected[0].parentNode.insertBefore(selected[0], selected[0].previousElementSibling);
+    }
+  });
+}
+
+function moverBaixo() {
+  const downMove = document.querySelector('#mover-baixo');
+
+  downMove.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected');
+    if (selecionado && selected[0].nextElementSibling) {
+      selected[0].parentNode.insertBefore(selected[0].nextElementSibling, selected[0]);
+    }
   });
 }
 
 function buttonsLi() {
   const listButtons = document.getElementById('buttonsList');
 
-  const idText = ['remover-selecionado', 'mover-cima', 'mover-baixo ', 'remover-finalizados',
+  const idText = ['remover-selecionado', 'mover-cima', 'mover-baixo', 'remover-finalizados',
     'apaga-tudo', 'salvar-tarefas'];
   const innerText = ['X', '⬆', '⬇', 'Limpar Completos', 'Limpar Lista', 'Salvar'];
 
@@ -139,6 +160,8 @@ function createDivButtons() {
   apagar();
   salvar();
   seletados();
+  moverCima();
+  moverBaixo();
 }
 
 window.onload = () => {
