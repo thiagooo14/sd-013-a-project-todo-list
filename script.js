@@ -47,7 +47,17 @@ let getOrderList = document.getElementById('lista-tarefas');
 getButton.addEventListener('click', function() {
   let createLi = document.createElement('li');
   getOrderList.appendChild(createLi);
+  createLi.classList.add('itens-lista');
+  createLi.style.backgroundColor = 'initial';
   let getTextIB = document.getElementById('texto-tarefa').value;
   createLi.innerText = getTextIB;
-  getInputBox.value = ' ';
-})
+  getInputBox.value = '';
+});
+
+// let getItemList = getOrderList.children;
+
+// getItemList.addEventListener('click', function() {
+//   if (backgroundColor === 'initial') {
+//     backgroundColor = rgb(128, 128, 128);
+//   }
+// })
