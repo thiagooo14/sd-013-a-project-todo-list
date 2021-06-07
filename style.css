@@ -51,6 +51,13 @@ header {
   font-weight: 700;
 }
 
+#texto-tarefa {
+  height: 40px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+}
+
 #criar-tarefa {
   margin: 25px 0;
   width: 110px;
@@ -74,6 +81,33 @@ header {
 }
 
 #apaga-tudo:active {
+  background-color: gray;
+  color: white;
+}
+
+#remover-finalizados {
+  margin: 25px 0;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#remover-finalizados:active {
+  background-color: gray;
+  color: white;
+}
+
+#salvar-tarefas {
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#salvar-tarefas:active {
   background-color: gray;
   color: white;
 }

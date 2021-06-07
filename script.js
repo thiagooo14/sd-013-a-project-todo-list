@@ -2,6 +2,7 @@
 /* eslint-disable no-use-before-define */
 window.onload = function load() {
   createTask();
+  saveTasks();
 };
 
 const taskList = document.querySelector('#lista-tarefas');
@@ -18,9 +19,9 @@ const createTask = () => {
       inputCreateTask.value = '';
     }
 
-    highlightTask();
-    completedTask();
     eraseTasks();
+    completedTask();
+    highlightTask();
     eraseSelected();
   });
 };
@@ -77,4 +78,15 @@ const eraseSelected = () => {
       }
     });
   });
+};
+
+const saveTasks = () => {
+  const btn = document.querySelector("#salvar-tarefas");
+  const myStorage = localStorage;
+
+  btn.addEventListener("click", () => {
+    myStorage.setItem("task-list", taskList.innerHTML);
+  });
+
+  taskList.innerHTML = myStorage.getItem("task-list");
 };
