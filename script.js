@@ -88,3 +88,29 @@ function removeSelecionado() {
 }
 
 botaoRemoveSelecionado.addEventListener('click', removeSelecionado);
+
+const moveCima = document.querySelector('#mover-cima');
+const moveBaixo = document.querySelector('#mover-baixo');
+
+function cima() {
+  const selecionado = document.querySelector('.selected');
+  if (selecionado !== null) {
+    const elementoDeCima = selecionado.previousElementSibling;
+    if (selecionado !== listaTarefa.firstChild) {
+      listaTarefa.insertBefore(selecionado, elementoDeCima);
+    }
+  }
+}
+
+function baixo() {
+  const selecionado = document.querySelector('.selected');
+  if (selecionado !== null) {
+    const elementoDeBaixo = selecionado.nextElementSibling;
+    if (selecionado !== listaTarefa.lastChild) {
+      listaTarefa.insertBefore(selecionado, elementoDeBaixo.nextElementSibling);
+    }
+  }
+}
+
+moveBaixo.addEventListener('click', baixo);
+moveCima.addEventListener('click', cima);
