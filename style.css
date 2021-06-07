@@ -3,3 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+header {
+  text-align: center;
+}
+
+main {
+  text-align: center;
+}
+
+#lista-tarefas {
+  width: 40%;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 10px;
+}
