@@ -1,22 +1,26 @@
+// inicia o reload trazendo as informações do localstorage e printando a ol
+let olTask = document.getElementById('lista-tarefas');
+let liTask = document.createElement('li');
+let localStTask = localStorage.getItem('task');
+olTask.innerHTML = localStTask;
+
+// for (let index = 0; index < localStTask.length; index += 1) {
+//   olTask.innerHTML = localStTask[index];
+// }
+
+// liTask.innerHTML = document.getElementById('texto-tarefa').value;
+// liTask.setAttribute('class', 'linha');
+// olTask.appendChild(liTask);
+// document.getElementById('texto-tarefa').value = '';
+
 function include() {
   let buttonCreate = document.getElementById('criar-tarefa');
 
   buttonCreate.addEventListener('click', () => {
-    let olTask = document.getElementById('lista-tarefas');
-    let liTask = document.createElement('li');
-    olTask.appendChild(liTask);
     liTask.innerHTML = document.getElementById('texto-tarefa').value;
-    document.getElementById('texto-tarefa').value = '';
-
     liTask.setAttribute('class', 'linha');
-
-    let li = document.getElementsByTagName('li');
-    for (let i = 0; i < li.length; i += 1) {
-      li[i].style.margin = '5px';
-      li[i].style.padding = '5px';
-      li[i].style.fontSize = '18px';
-      li[i].style.width = '200px';
-    }
+    olTask.appendChild(liTask);
+    document.getElementById('texto-tarefa').value = '';
   });
 }
 include();
@@ -53,7 +57,6 @@ function finishTask() {
 finishTask();
 
 // função para apagar todas as tarefas com clique no botão apagar tudo
-
 function deleteAll() {
   let buttonDelAll = document.getElementById('apaga-tudo');
 
@@ -69,6 +72,7 @@ function deleteAll() {
 }
 deleteAll();
 
+// Remove as tarefas marcadas como finalizadas
 function deleteFinished() {
   let buttonDelFinished = document.getElementById('remover-finalizados');
 
@@ -78,10 +82,20 @@ function deleteFinished() {
     let liTask = document.querySelectorAll('.linha');
 
     for (let i = 0; i < liTask.length; i += 1) {
-      if(liTask[i].classList.contains('completed')){
-      liTask[i].remove();
+      if (liTask[i].classList.contains('completed')) {
+        liTask[i].remove();
       }
     }
   }
 }
 deleteFinished();
+
+// botão salva as tarefas no localstorage
+function saveTasks() {
+  let buttonSaveTasks = document.getElementById('salvar-tarefas'); //traz o botão
+
+  buttonSaveTasks.addEventListener('click', function () {
+    localStorage.setItem('task', olTask.innerHTML);
+  }); // escuta o evento
+}
+saveTasks();

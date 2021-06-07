@@ -4,14 +4,20 @@
 } */
 
 .selected {
-background-color: rgb(128, 128, 128);
+  background-color: rgb(128, 128, 128);
 }
 
 ol {
-width: 300px;
+  width: 300px;
+}
+
+li {
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+  width: 200px;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0,0,0);
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
-
