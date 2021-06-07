@@ -5,8 +5,9 @@
 #criar-tarefa {
   width: 100px;
   height: 20px;
-  background-color: aqua;
+  background-color: rgb(88, 37, 37);
   border-radius: 30px;
+  color: azure;
 }
 
 .clicado {
@@ -15,4 +16,10 @@
 
 .completed {
   text-decoration: line-through;
+}
+
+#apaga-tudo {
+  border-radius: 10px;
+  background-color: rgb(3, 44, 44);
+  color: azure;
 }
