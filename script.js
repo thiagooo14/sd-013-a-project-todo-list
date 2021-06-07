@@ -19,3 +19,11 @@ function adicionaP () {
 adicionaP()
 
 //QUESTÃO 3
+function adicionaInput () {
+  let novoInput = document.createElement('input');
+  novoInput.setAttribute("id", "texto-tarefa");
+  novoInput.setAttribute("type", "text");
+  let paiInput = document.querySelector("header");
+  paiInput.appendChild(novoInput);
+}
+adicionaInput()
