@@ -30,13 +30,18 @@ button.addEventListener('click', function(){
                 break;
         };
     });
+
+    listLI.addEventListener('dblclick', function(){
+        listLI.classList.add('completed');
+    });
 });
 
 //remove todos os backgrounds das li
-function removeBG() {
-    let arrayLI = document.querySelectorAll('li');
 
-    for (let i = 0; i<arrayLI.length; i+=1) {
-        arrayLI[i].style.backgroundColor="";
+
+function removeBG() {
+    let lis = document.querySelectorAll('li');
+    for (let i = 0; i<lis.length; i+=1) {
+        lis[i].style.backgroundColor="";
     };
 };
