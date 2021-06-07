@@ -7,3 +7,11 @@ function desafio1() {
 }
 desafio1()
 
+function desafio2() {
+    let p = document.createElement("p");
+    p.innerText = "Clique duas vezes em um item para marcá-lo como completo"
+    p.setAttribute("id", "funcionamento")
+    let header = document.querySelector("header")
+    header.appendChild(p)
+}
+desafio2()
