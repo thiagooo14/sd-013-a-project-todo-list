@@ -2,6 +2,7 @@ const lista = document.querySelector('#lista-tarefas');
 const botaoCriarTarefa = document.querySelector('#criar-tarefa');
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
+const botaoSalvaTarefas = document.querySelector('#salvar-tarefas');
 const inputTarefa = document.querySelector('#texto-tarefa');
 
 function adicionaTarefa() {
@@ -33,15 +34,20 @@ lista.addEventListener('dblclick', function(event) {
   };
 })
 
-function apagadores() {
-  botaoApagaTudo.addEventListener('click', function() {
-    lista.innerHTML = '';
-  });
-  botaoApagaFinalizados.addEventListener('click', function() {
-    const finalizados = document.querySelectorAll('.completed');
-    for (let i = 0; i < finalizados.length; i += 1) {
-      lista.removeChild(finalizados[i]);
-    }
-  });
+botaoApagaTudo.addEventListener('click', function() {
+  lista.innerHTML = '';
+});
+botaoApagaFinalizados.addEventListener('click', function() {
+  const finalizados = document.querySelectorAll('.completed');
+  for (let i = 0; i < finalizados.length; i += 1) {
+    lista.removeChild(finalizados[i]);
+  }
+});
+botaoSalvaTarefas.addEventListener('click', function() {
+  localStorage.setItem('listaBabaca', lista.innerHTML)
+});
+function recuperaTarefas() {
+  let listaStorage = localStorage.getItem('listaBabaca');
+  lista.innerHTML = listaStorage;
 }
-apagadores();
+recuperaTarefas();
