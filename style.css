@@ -8,9 +8,21 @@ li {
 }
 
 .selected {
-  background-color: rgb(128,128,128);
+  background-color: rgb(128, 128, 128);
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0,0,0);
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+header {
+  background-color: green;
+  height: 40px;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 20px;
+}
+
+#funcionamento {
+  text-align: center;
 }

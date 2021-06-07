@@ -2,6 +2,7 @@ const createTaskButton = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const buttonClearAll = document.querySelector('#apaga-tudo');
 const buttonRemoveFinished = document.querySelector('#remover-finalizados');
+const buttonSaveTasks = document.querySelector('#salvar-tarefas');
 
 function createTask() {
   const taskTextInput = document.querySelector('#texto-tarefa').value;
@@ -48,7 +49,7 @@ function clearAll() {
 buttonClearAll.addEventListener('click', clearAll);
 
 
-// Requisito
+// Requisito 11
 function removeFinished() {
   let itemsForRemove = document.querySelectorAll('.completed');
   let allItems = document.querySelector('#lista-tarefas');
@@ -57,3 +58,19 @@ function removeFinished() {
   }
 }
 buttonRemoveFinished.addEventListener('click', removeFinished);
+
+// Requisito 12
+
+function saveTasks() {
+  let allItems = document.querySelector('#lista-tarefas');
+  console.log(allItems.innerHTML);
+  localStorage.setItem('tasks', allItems.innerHTML);
+}
+buttonSaveTasks.addEventListener('click', saveTasks);
+
+function recoverAllTasks() {
+  console.log(localStorage.getItem('tasks'));
+  taskList.innerHTML = localStorage.getItem('tasks');
+  focusColorList();
+}
+recoverAllTasks();
