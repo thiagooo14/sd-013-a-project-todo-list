@@ -1,5 +1,5 @@
-.comum {
-    background-color: yellow;
+.riscado {
+    text-decoration: line-through;
 }
 
 .selected {
