@@ -1,8 +1,8 @@
-const inputi = document.getElementById("texto-tarefa");
-const button = document.getElementById("criar-tarefa");
-const listaDeTarefas = document.getElementById("lista-tarefas");
+const inputi = document.getElementById('texto-tarefa');
+const button = document.getElementById('criar-tarefa');
+const listaDeTarefas = document.getElementById('lista-tarefas');
 
-//Referência Josué Lobo
+// Referência Josué Lobo//
 listaDeTarefas.addEventListener('click', (event) => {
   const alvo = event.target;
   if (alvo.className === 'item-list') {
@@ -17,18 +17,18 @@ listaDeTarefas.addEventListener('click', (event) => {
 });
 
 function adicionaTarefa() {
-  const CreateText = document.createElement("li");
+  const CreateText = document.createElement('li');
   listaDeTarefas.appendChild(CreateText);
-  CreateText.innerText= inputi.value;
-  inputi.value = "";
-  CreateText.className = "item-list"
-};
-button.addEventListener("click", adicionaTarefa);
-inputi.addEventListener("keypress", (g) => {
-  if (g.key === "Enter") {
+  CreateText.innerText = inputi.value;
+  inputi.value = '';
+  CreateText.className = 'item-list';
+}
+button.addEventListener('click', adicionaTarefa);
+inputi.addEventListener('keypress', (g) => {
+  if (g.key === 'Enter') {
     adicionaTarefa();
   }
-})
+});
 
 function riscaLinha(evento) {
   const alvo = evento.target;
