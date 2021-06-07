@@ -33,3 +33,29 @@ function doubleClick (value) {
 }
 
 listaTarefa.addEventListener('dblclick', doubleClick);
+
+const botaoApaga = document.querySelector('#apaga-tudo');
+
+function apaga () {
+  const lis = document.querySelectorAll('li');
+  for (let i = 0; i < lis.length; i += 1) {
+    let element = lis[i];
+    listaTarefa.removeChild(element);
+  }
+}
+
+botaoApaga.addEventListener('click', apaga);
+
+const botaoApagaSelecionados = document.querySelector('#remover-finalizados');
+
+function apagaSelecionados () {
+  const lis = document.querySelectorAll('li');
+  for (let i = 0; i < lis.length; i += 1) {
+    let element = lis[i];
+    if (element.classList.contains('completed')) {
+          listaTarefa.removeChild(element);
+    }
+  }
+}
+
+botaoApagaSelecionados.addEventListener('click', apagaSelecionados);
