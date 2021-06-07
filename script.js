@@ -3,6 +3,8 @@ const botaoCriarTarefa = document.querySelector('#criar-tarefa');
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
 const botaoSalvaTarefas = document.querySelector('#salvar-tarefas');
+const botaoMoveUp = document.querySelector('#mover-cima');
+const botaoMoveDown = document.querySelector('#mover-baixo');
 const inputTarefa = document.querySelector('#texto-tarefa');
 
 function adicionaTarefa() {
@@ -37,17 +39,40 @@ lista.addEventListener('dblclick', function(event) {
 botaoApagaTudo.addEventListener('click', function() {
   lista.innerHTML = '';
 });
+
 botaoApagaFinalizados.addEventListener('click', function() {
   const finalizados = document.querySelectorAll('.completed');
   for (let i = 0; i < finalizados.length; i += 1) {
     lista.removeChild(finalizados[i]);
   }
 });
+
 botaoSalvaTarefas.addEventListener('click', function() {
   localStorage.setItem('listaBabaca', lista.innerHTML)
 });
+
 function recuperaTarefas() {
   let listaStorage = localStorage.getItem('listaBabaca');
   lista.innerHTML = listaStorage;
 }
 recuperaTarefas();
+
+botaoMoveDown.addEventListener('click', function() {
+  const selecionado = document.querySelector('.selected');
+  if (selecionado !== null) {
+    const deBaixo = selecionado.nextElementSibling;
+    if (selecionado !== lista.lastChild) {
+      lista.insertBefore(selecionado, deBaixo.nextElementSibling);
+    }
+  }
+});
+
+botaoMoveUp.addEventListener('click', function() {
+  const selecionado = document.querySelector('.selected');
+  if (selecionado !== null) {
+    const deCima = selecionado.previousElementSibling;
+    if (selecionado !== lista.firstChild) {
+      lista.insertBefore(selecionado, deCima);
+    }
+  }
+});

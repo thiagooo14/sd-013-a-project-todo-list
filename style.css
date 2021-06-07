@@ -29,3 +29,7 @@ h1 {
 .completed {
   text-decoration: line-through solid black;
 }
+
+#botoesMove {
+  margin-top: 5px;
+}
