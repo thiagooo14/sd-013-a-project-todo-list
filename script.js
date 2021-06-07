@@ -42,9 +42,11 @@ function respondSingleClick(Event) {
 
   if (Event.target.className != 'completed') {
     Event.target.className = 'task-selected';
+    // Event.target.id = 'taskSelected'
     Event.target.style.backgroundColor = 'rgb(128,128,128)';          
   }  else {
     Event.target.className = 'completed';
+    Event.target.id = 'taskSelected'
     Event.target.style.backgroundColor = 'rgb(128,128,128)';              
   }
 }
@@ -53,6 +55,7 @@ function respondDoubleClick(Event) {
   let actualClass = Event.target.className;
   if (actualClass != 'completed') {
     Event.target.className = 'completed';
+    // Event.target.id = 'taskSelected'
     Event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
     Event.target.style.backgroundColor = 'rgb(255,255,255)';
   } else {
@@ -202,6 +205,17 @@ function fnMoverBaixo() {
 
 let btnMoverParaBaixo = document.querySelector('#mover-baixo');
 btnMoverParaBaixo.addEventListener('click', fnMoverBaixo);
+
+function fnRemoverSelecionado() {
+  let elTaskSelected = document.querySelectorAll('.task-selected,#taskSelected')[0];
+  if (elTaskSelected == null || elTaskSelected == undefined) {
+    return
+  }
+  elTaskSelected.remove();
+}
+
+let btnRemoverSelecionado = document.querySelector('#remover-selecionado');
+btnRemoverSelecionado.addEventListener('click', fnRemoverSelecionado);
 
 // function addListenerClickToList() {
 //   let listElements = document.getElementsByTagName('li');  
