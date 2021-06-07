@@ -18,7 +18,7 @@ function criarlist() {
     li.classList.toggle('listHover');
   }
 
-  li.addEventListener('dblclick', criarHover);
+  li.addEventListener('click', criarHover);
 
   let dbtn = document.createElement('button');
   dbtn.appendChild(document.createTextNode('Apagar'));
@@ -31,16 +31,9 @@ function criarlist() {
 }
 
 enterBotao.addEventListener('click', addListAfterClick);
-input.addEventListener('keypress', addListAfterKeypress);
 
 function addListAfterClick() {
   if (inputList() > 0) {
-    criarlist();
-  }
-}
-
-function addListAfterKeypress() {
-  if (inputList() > 0 && event.which === 13) {
     criarlist();
   }
 }
