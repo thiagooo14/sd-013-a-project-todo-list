@@ -3,11 +3,24 @@ const btnCreateItem = document.querySelector('#criar-tarefa');
 const textTask = document.querySelector('#texto-tarefa');
 const btnClearAll = document.querySelector('#apaga-tudo');
 const btnClearCompleted = document.querySelector('#remover-finalizados');
+const btnSaveTasks = document.querySelector('#salvar-tarefas');
 
 
 function clearLastSelected() {
   for (let index = 0; index < toDoList.childElementCount; index += 1) {
     toDoList.children[index].classList.remove('selected');
+  }
+}
+
+function loadTasks() {
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
+  let classes = JSON.parse(localStorage.getItem('classes'))
+
+  for (let index in tasks) {
+    let item = document.createElement('li');
+    let createdItem = toDoList.appendChild(item);
+    createdItem.className = classes[index];
+    createdItem.innerHTML = tasks[index];
   }
 }
 
@@ -22,6 +35,7 @@ btnCreateItem.addEventListener('click', function() {
   textTask.focus();
 });
 
+//Botão que elimina as tarefas que já foram completas
 btnClearCompleted.addEventListener('click', function() {
   for (let index = 0; index < toDoList.childElementCount; index += 1) {
     if(toDoList.children[index].classList.contains('completed')) {
@@ -38,6 +52,20 @@ btnClearAll.addEventListener('click', function() {
   for (let index = 0; index < listLength; index += 1) {
     toDoList.removeChild(toDoList.children[0]);
   }
+  // localStorage.removeItem('tasks');
+});
+
+btnSaveTasks.addEventListener('click', function() {
+  let tasks = [];
+  let classes = []
+
+  for (let index = 0; index < toDoList.childElementCount; index += 1) {
+    tasks.push(toDoList.children[index].textContent);
+    classes.push(toDoList.children[index].className);
+  }
+
+  localStorage.setItem('tasks',JSON.stringify(tasks));
+  localStorage.setItem('classes',JSON.stringify(classes));
 });
 
 //Listener que seleciona o item da lista
@@ -61,5 +89,5 @@ document.addEventListener('dblclick', function(event) {
 });
 
 window.onload = function() {
-
+  loadTasks();
 }
