@@ -1,6 +1,7 @@
 const getOl = document.getElementById('lista-tarefas');
 const getInputTask = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
+const btnClearAll  = document.getElementById('apaga-tudo');
 
 // Remove bacground aplicado
 function removeClass(value, classRemove) {
@@ -11,12 +12,7 @@ function removeClass(value, classRemove) {
 
 // Função taxa a task concluida.
 function stripeTask(event) {
-  const verify = event.target.classList.contains('completed');
-  if (!verify) {
-    event.target.classList.add('completed');
-  } else {
-    event.target.classList.remove('completed');
-  }
+  event.target.classList.toggle('completed');
 }
 
 // adiciona background color.
@@ -56,5 +52,14 @@ function getTask() {
   limparInput(getInputTask);
 }
 
+function clearTasks() {
+  const getSizeChildLi = document.querySelectorAll('li');
+  const getSizeOl = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < getSizeChildLi.length; index += 1) {
+    getSizeOl.removeChild(getSizeChildLi[index]);
+  }
+}
+
 // Evento que ao clicar `criar tarefa` chama função pegar texto, inserir na ol
 btnCreateTask.addEventListener('click', getTask);
+btnClearAll.addEventListener('click', clearTasks);
