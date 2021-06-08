@@ -9,21 +9,29 @@ btnAdd.addEventListener('click', function(){
   inputText.value = "";
 
   // Evento para pintar o fundo do texto:
-  itemList.addEventListener('click', function(){
-    itemList.style.backgroundColor = 'rgb(128,128,128)';
-    
-  })
+  let liList = document.getElementsByTagName('li');
+
+  for (let i = 0; i < liList.length; i += 1) {
+    liList[i].addEventListener('click', function(){
+      for (let j = 0; j < liList.length; j += 1) {
+        liList[j].style.backgroundColor = 'white';
+      }
+      liList[i].style.backgroundColor = 'rgb(128,128,128)';
+    })
+
+  }
 
   // Evento para riscar o texto:
-  itemList.addEventListener('dblclick', function(){
-    if (itemList.style.textDecoration = 'none') {
-      itemList.style.textDecoration = 'line-through';
-    }
-    // Evento para desriscar o texto:
-    itemList.addEventListener('dblclick', function(){
-      if (itemList.style.textDecoration = 'line-through') {
-      itemList.style.textDecoration = 'none';
+   itemList.addEventListener('dblclick', function(){
+     if (itemList.style.textDecoration = 'none') {
+       itemList.style.textDecoration = 'line-through';
      }
-    })  
+     // Evento para desriscar o texto:
+     itemList.addEventListener('dblclick', function(){
+       if (itemList.style.textDecoration = 'line-through') {
+       itemList.style.textDecoration = 'none';
+      }
+     })  
   })
 })
+
