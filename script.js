@@ -48,6 +48,12 @@ function createButton() {
   newClearButton.classList.add('btn');
   newClearButton.innerText = 'clear';
   inputBoxContainer.appendChild(newClearButton);
+
+  const btnClearCompleted = document.createElement('button');
+  btnClearCompleted.setAttribute('id', 'remover-finalizados');
+  btnClearCompleted.classList.add('btn');
+  btnClearCompleted.innerText = 'clear completed';
+  inputBoxContainer.appendChild(btnClearCompleted);
 }
 
 createButton();
@@ -94,3 +100,11 @@ getClearButton.addEventListener('click', function() {
 })
 
 // * Requisito 11;
+let getBtnClearComp = document.getElementById('remover-finalizados');
+
+getBtnClearComp.addEventListener('click', function() {
+  const getItensComp = document.querySelectorAll('.completed');
+  for (let index = 0; index < getItensComp.length; index += 1) {
+    getItensComp[index].remove();
+  }
+})
