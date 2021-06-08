@@ -5,8 +5,8 @@ function addTarefa(){
 
   botao.addEventListener("click", (() => {
     let texto = textoTarefa.value
-    if(textoTarefa === ""){
-      alert ("texto inválido");
+    if(texto === ""){
+      alert ("Erro, texto inválido");
       return;
     }
     const li = document.createElement('li');
@@ -18,3 +18,16 @@ function addTarefa(){
   }))
 }
 addTarefa()
+
+function color(){
+  const li = document.getElementsByTagName('li');
+  const ol = document.querySelector('ol');
+  ol.addEventListener("click", (event) => {
+    for(let i = 0; i < li.length; i += 1){
+      let lis = li[i];
+      lis.style.backgroundColor = "";
+    }
+    event.target.style.backgroundColor = "rgb(128,128,128)"
+  })
+}
+color()
