@@ -47,7 +47,7 @@ header {
 }
 
 #funcionamento {
-  margin: 30px 0;
+  margin: 20px;
   font-weight: 700;
 }
 
@@ -86,7 +86,7 @@ header {
 }
 
 #remover-finalizados {
-  margin: 25px 0;
+  margin-top: 25px;
   width: 110px;
   border: none;
   height: 35px;
@@ -95,6 +95,20 @@ header {
 }
 
 #remover-finalizados:active {
+  background-color: gray;
+  color: white;
+}
+
+#remover-selecionado {
+  margin: 25px 0;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#remover-selecionado:active {
   background-color: gray;
   color: white;
 }
@@ -108,6 +122,20 @@ header {
 }
 
 #salvar-tarefas:active {
+  background-color: gray;
+  color: white;
+}
+
+#mover-cima, #mover-baixo {
+  margin-top: 25px;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#mover-cima:active, #mover-baixo:active {
   background-color: gray;
   color: white;
 }
