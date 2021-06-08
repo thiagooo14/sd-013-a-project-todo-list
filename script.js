@@ -12,8 +12,12 @@ botao.addEventListener('click', () => {
       filho.style.backgroundColor = ''; 
     }
     e.target.style.backgroundColor = 'rgb(128, 128, 128)'; 
-   
+    
   }); 
+  elementList.addEventListener('dblclick', () =>{
+    elementList.classList.toggle('completed');
+
+  });
 });
 
 
