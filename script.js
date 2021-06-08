@@ -54,6 +54,8 @@ window.onload = function () {
   function waitItemSelect() {
     const itemSelect = document.getElementById('lista-tarefas');
     itemSelect.addEventListener('click', function(i) { markItem(i.target.id) }, false);
+
+    itemSelect.addEventListener('click', function(e) { moveItem(e.target.id) }, false);
   }
   waitItemSelect();
 
@@ -102,7 +104,20 @@ window.onload = function () {
   waitDeleteAllFinalized();
 
   function deleteSelected() {
-    const selected = document.querySelector('.selected').remove();
+    const selected = document.querySelector('.selected');
+    if (selected) {
+      selected.remove();
+      //localStorage.removeItem()
+      if (Storage) {
+        const elements = localStorage.getItem('tasks');
+        const objects = JSON.parse(elements);
+        if (objects) {
+          const filteringTarefas = objects.filter(tasks => tasks.tarefas !== selected.textContent);
+        }
+      }
+    } else {
+      alert('Selecione um ítem a ser apagado!');
+    }
   }
 
   function waitDeleteSelected() {
@@ -135,23 +150,25 @@ window.onload = function () {
   waitTasksSave();
 
   function moveItem() {
-    const move = document.querySelectorAll('li');
+    const move = document.querySelector('.selected');
     const buttonUp = document.getElementById('mover-cima');
     const buttonDown = document.getElementById('mover-baixo');
-    for (let i = 0; i < move.length; i += 1) {
-      move[i].addEventListener('click', function () {
-        buttonUp.addEventListener('click', function () {
-          if (move[i].previousElementSibling) {
-            move[i].parentNode.insertBefore(move[i], move[i].previousElementSibling);
-          }
-        })
-        buttonDown.addEventListener('click', function () {
-          if (move[i].nextElementSibling) {
-            move[i].parentNode.insertBefore(move[i].nextElementSibling, move[i]);
-          }
-        })
-      })
+    
+    if ((move) && (move.previousElementSibling)) { 
+      console.log(move);     
+      buttonUp.addEventListener('click', function () { 
+        const move = document.querySelector('.selected');  
+        move.parentNode.insertBefore(move, move.previousElementSibling); 
+        console.log(move);
+      })   
     }
-  }
+    if ((move) && (move.nextElementSibling)) {   
+      buttonDown.addEventListener('click', function () {  
+        const move = document.querySelector('.selected'); 
+        move.parentNode.insertBefore(move.nextElementSibling, move);  
+        console.log(move); 
+      })
+    }   
+}
   moveItem();
 };
