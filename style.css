@@ -10,4 +10,10 @@
 
 #lista-tarefas {
   font-family: sans-serif;
+  color: yellowgreen;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: black;
 }

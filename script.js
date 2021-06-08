@@ -40,7 +40,7 @@ botaoAdicionar.innerHTML = 'Adicionar';
 const inputText = document.querySelector('#texto-tarefa');
 const theList = document.querySelector('#lista-tarefas');
 
-// Cria função para adicionar o texto digitado na lista:
+// Cria função para adicionar na lista o texto digitado:
 
 function adicionar() {
   const listRow = document.createElement('li');
@@ -61,7 +61,7 @@ clique();
 
 // -------------------------------------------------------
 
-// COLORE ITEM DE CINZA (NO REPEAT) -> DESAFIOS 7 E 8
+// COLORE O BACKGROUND DO ITEM DE CINZA (NO REPEAT) -> DESAFIOS 7 E 8
 
 // Cria função que traz a cor cinza ao background do item clicado:
 
@@ -79,5 +79,21 @@ function trazOCinza(event) {
 }
 
 theList.addEventListener('click', trazOCinza);
+
+// -------------------------------------------------------
+
+// RISCA TAREFAS -> DESAFIO 9
+
+// Cria função que risca uma tarefa com um clique-duplo:
+
+function riscaTarefa(event) {
+  if (event.target.classList.contains('completed') === true) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+theList.addEventListener('dblclick', riscaTarefa);
 
 // -------------------------------------------------------
