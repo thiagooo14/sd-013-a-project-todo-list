@@ -1,14 +1,13 @@
 // inicia o reload trazendo as informações do localstorage e printando a ol
-let olTask = document.getElementById('lista-tarefas');
-let localStTask = localStorage.getItem('task');
+const olTask = document.getElementById('lista-tarefas');
+const localStTask = localStorage.getItem('task');
 olTask.innerHTML = localStTask;
 
 function include() {
-  let buttonCreate = document.getElementById('criar-tarefa');
+  const buttonCreate = document.getElementById('criar-tarefa');
 
   buttonCreate.addEventListener('click', () => {
-    let olTask = document.getElementById('lista-tarefas');
-    let liTask = document.createElement('li');
+    const liTask = document.createElement('li');
     liTask.innerHTML = document.getElementById('texto-tarefa').value;
     liTask.setAttribute('class', 'linha');
     olTask.appendChild(liTask);
@@ -50,29 +49,26 @@ finishTask();
 
 // função para apagar todas as tarefas com clique no botão apagar tudo
 function deleteAll() {
-  let buttonDelAll = document.getElementById('apaga-tudo');
-
-  buttonDelAll.addEventListener('click', searchLine);
+  const buttonDelAll = document.getElementById('apaga-tudo');
 
   function searchLine() {
     localStorage.clear();
-    let liTask = document.querySelectorAll('.linha');
+    const liTask = document.querySelectorAll('.linha');
 
     for (let i = 0; i < liTask.length; i += 1) {
       liTask[i].remove();
     }
   }
+  buttonDelAll.addEventListener('click', searchLine);
 }
 deleteAll();
 
 // Remove as tarefas marcadas como finalizadas
 function deleteFinished() {
-  let buttonDelFinished = document.getElementById('remover-finalizados');
-
-  buttonDelFinished.addEventListener('click', searchFinished);
+  const buttonDelFinished = document.getElementById('remover-finalizados');
 
   function searchFinished() {
-    let liTask = document.querySelectorAll('.linha');
+    const liTask = document.querySelectorAll('.linha');
 
     for (let i = 0; i < liTask.length; i += 1) {
       if (liTask[i].classList.contains('completed')) {
@@ -80,21 +76,22 @@ function deleteFinished() {
       }
     }
   }
+  buttonDelFinished.addEventListener('click', searchFinished);
 }
 deleteFinished();
 
 // botão salva as tarefas no localstorage
 function saveTasks() {
-  let buttonSaveTasks = document.getElementById('salvar-tarefas'); //traz o botão
+  const buttonSaveTasks = document.getElementById('salvar-tarefas'); // traz o botão
 
-  buttonSaveTasks.addEventListener('click', function () {
+  buttonSaveTasks.addEventListener('click', () => {
     localStorage.setItem('task', olTask.innerHTML);
   }); // escuta o evento
 }
 saveTasks();
 
 function moveUp() {
-  let liTask = document.querySelectorAll('.linha'); // array com as linhas
+  const liTask = document.querySelectorAll('.linha'); // array com as linhas
 
   for (let index = 0; index < liTask.length; index += 1) {
     if (liTask[index].className === 'linha selected' && index > 0) {
@@ -105,13 +102,15 @@ function moveUp() {
 moveUp();
 
 function moveDown() {
-  let liTask = document.querySelectorAll('.linha'); // array com as linhas
+  const liTask = document.querySelectorAll('.linha'); // array com as linhas
 
   for (let index = 0; index < liTask.length; index += 1) {
-    if (liTask[index].className === 'linha selected' && index < liTask.length) {
-      if (liTask.length >= 2 && liTask.length - index >= 2) {
-        olTask.insertBefore(liTask[index + 1], liTask[index]);
-      }
+    if (
+      (liTask[index].className === 'linha selected')
+      && (index < liTask.length)
+      && (liTask.length >= 2)
+      && (liTask.length - index >= 2)) {
+      olTask.insertBefore(liTask[index + 1], liTask[index]);
     }
   }
 }
@@ -119,12 +118,10 @@ moveDown();
 
 // Remove as tarefas selecionadas
 function deleteSelected() {
-  let buttonDelSelected = document.getElementById('remover-selecionado');
-
-  buttonDelSelected.addEventListener('click', searchSelected);
+  const buttonDelSelected = document.getElementById('remover-selecionado');
 
   function searchSelected() {
-    let liTask = document.querySelectorAll('.linha');
+    const liTask = document.querySelectorAll('.linha');
 
     for (let i = 0; i < liTask.length; i += 1) {
       if (liTask[i].classList.contains('selected')) {
@@ -132,5 +129,6 @@ function deleteSelected() {
       }
     }
   }
+  buttonDelSelected.addEventListener('click', searchSelected);
 }
 deleteSelected();
