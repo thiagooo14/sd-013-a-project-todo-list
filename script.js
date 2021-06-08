@@ -34,12 +34,20 @@ function createToDoList() {
 
 createToDoList();
 
-// * Requisito 5;
+// * Requisito 5 e 10(botões);
 function createButton() {
   const inputBoxContainer = document.querySelector('#input-box');
   const newButton = document.createElement('button');
   newButton.setAttribute('id', 'criar-tarefa');
+  newButton.classList.add('btn');
+  newButton.innerText = 'add';
   inputBoxContainer.appendChild(newButton);
+
+  const newClearButton = document.createElement('button');
+  newClearButton.setAttribute('id', 'apaga-tudo');
+  newClearButton.classList.add('btn');
+  newClearButton.innerText = 'clear';
+  inputBoxContainer.appendChild(newClearButton);
 }
 
 createButton();
@@ -73,3 +81,16 @@ getOrderList.addEventListener('dblclick', function(event) {
   let doubleClicked = event.target;
   doubleClicked.classList.toggle('completed');
 })
+
+// * Requisito 10;
+let getClearButton = document.getElementById('apaga-tudo');
+
+getClearButton.addEventListener('click', function() {
+  // const getItens = document.getElementsByTagName('li');
+  const getItens = document.querySelectorAll('.itens-lista');
+  for (let index = 0; index < getItens.length; index += 1) {
+    getItens[index].remove();
+  }
+})
+
+// * Requisito 11;

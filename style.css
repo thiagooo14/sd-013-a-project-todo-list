@@ -2,12 +2,14 @@ body {
   margin: 10px;
 }
 
-#criar-tarefa {
+.btn {
   width: 100px;
   height: 30px;
   border-radius: 15px;
   margin-left: 20px;
   padding: 9px;
+  line-height: 5px;
+  font-size: medium;
 }
 
 #texto-tarefa {
