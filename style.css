@@ -1,18 +1,62 @@
 body{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: center;
+  background-color:#c0e9f3;
+  color: #282A35;
+  font-size: 25px;
 }
 
+.back{
+  background-color:white;
+  border-radius: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-bottom: 10px;
+}
 .gray{
   background-color: rgb(128, 128, 128);
 }
 
 .completed{
-  text-decoration: line-through
+  text-decoration: line-through solid rgb(0, 0, 0)
 }
 
 #lista-tarefas{
-  margin-left: 430px;
+  margin-left: 200px;
   margin-right: 450px;
   font-size: 25px;
+}
+
+#criar-tarefa{
+  background-color:#04AA6D ;
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+
+}
+
+#remover-finalizados{
+  background-color:#df7d0d ;
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+}
+#apaga-tudo{
+  background-color:#cc3535  ;
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+#texto-tarefa{
+  font-size: 25px;
+}
+.imagem{
+  width: 250px;
+  padding: 30px;
+
+}
+
+#footer{
+  font-size:13px;
 }

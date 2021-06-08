@@ -5,8 +5,8 @@ function addText() {
   let textTarefa = document.getElementById('texto-tarefa').value;
   let list  = document.getElementById('lista-tarefas').innerHTML;
   list = list +"<li>"+textTarefa+"</li>";
-  
-  
+
+
   document.getElementById("lista-tarefas").innerHTML = list;
   document.getElementById('texto-tarefa').value = '';
 }
@@ -49,6 +49,4 @@ const listDesk = document.getElementById('lista-tarefas');
       listDesk.removeChild(risk[index]);
     }
   }
-
-
 
