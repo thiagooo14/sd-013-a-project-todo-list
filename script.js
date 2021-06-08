@@ -19,7 +19,7 @@ function stripeTask(event) {
   }
 }
 
-// adiciona background color 
+// adiciona background color.
 function addBgColor(event) {
   const getList = document.querySelectorAll('.task');
   removeClass(getList, 'apply-bg');
@@ -27,15 +27,15 @@ function addBgColor(event) {
 }
 
 // Limpar inputs
-function limparInput(valueInput) {
-  valueInput.value = '';
+function limparInput(input) {
+  input.value = '';
 }
 
 //  Aplica um evento click
 function eventClick(value) {
   for (let index = 0; index < value.length; index += 1) {
     value[index].addEventListener('click', addBgColor);
-    value[index].addEventListener('dblclick', stripeTask)
+    value[index].addEventListener('dblclick', stripeTask);
   }
 }
 
