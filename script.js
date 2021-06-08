@@ -63,3 +63,18 @@ function removeClass() {
 }
 
 removeClass();
+
+localStorage.getItem('lista');
+
+/// REMOVE A LINHA SELECIONADA
+function deletar() {
+  const selectede = document.querySelector('.selected');
+  const remover = document.querySelector('#remover-selecionado');
+  remover.addEventListener('click', deletar);
+
+  if (selectede) {
+    listTarefa.removeChild(selectede);
+  }
+}
+
+deletar();
