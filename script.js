@@ -4,6 +4,8 @@ const botao1 = document.querySelector("#criar-tarefa");
 const botao2 = document.querySelector("#apaga-tudo");
 const botao3 = document.querySelector("#remover-finalizados");
 const botao4 = document.querySelector("#salvar-tarefas");
+const botao5 = document.querySelector("#mover-cima");
+const botao6 = document.querySelector("#mover-baixo");
 const botao7 = document.querySelector("#remover-selecionado");
 
 
@@ -106,3 +108,35 @@ function removerSelecionado(){
 }
 
 botao7.addEventListener("click", removerSelecionado);
+
+
+
+// referência https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore e ajuda da sala de dúvidas.
+//insertBefore(); -> elementopai.insertBefore(novoElemento. elementoPosteior);
+function moverCima(){
+
+  let itemSelecionado = document.querySelector(".selected");
+  if(itemSelecionado !== null){
+    let elementoCima = itemSelecionado.previousElementSibling;
+    if(itemSelecionado !== lista.firstChild){
+      lista.insertBefore(itemSelecionado, elementoCima);
+    }
+  }
+
+}
+
+botao5.addEventListener("click",moverCima);
+
+function moverBaixo(){
+
+  let itemSelecionado = document.querySelector(".selected");
+  if(itemSelecionado !== null){
+    let elementoBaixo = itemSelecionado.nextElementSibling;
+    if(itemSelecionado !== lista.lastChild){
+      lista.insertBefore(itemSelecionado,elementoBaixo.nextElementSibling);
+    }
+  }
+
+}
+
+botao6.addEventListener("click",moverBaixo);
