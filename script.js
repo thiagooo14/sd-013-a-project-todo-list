@@ -15,6 +15,10 @@ function addTarefa(){
 
     textoTarefa.value = "";        // retorna o input limpo 
     textoTarefa.focus();          // continua com o cursor no input
+
+    li.addEventListener('dblclick',(event) =>{
+      event.target.classList.toggle('completed')
+    })
   }))
 }
 addTarefa()
@@ -31,3 +35,15 @@ function color(){
   })
 }
 color()
+
+function apagaTudo(){
+const botaoApaga = document.getElementById('apaga-tudo');
+const ol = document.querySelector('ol');
+const li = document.querySelector('li');
+
+botaoApaga.addEventListener("click", (() => {
+    ol.innerHTML = null; // remove todos os itens dentro da "ol"
+}))
+
+}
+apagaTudo()
