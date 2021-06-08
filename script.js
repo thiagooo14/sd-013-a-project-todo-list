@@ -1,6 +1,6 @@
 const button = document.getElementById('criar-tarefa');
 const textAdd = document.getElementById('texto-tarefa');
-const list = document.getElementById('lista-tarefas')
+const list = document.getElementById('lista-tarefas');
 
 button.addEventListener('click', increase);
 
@@ -10,19 +10,16 @@ function increase() {
   list.appendChild(item);
   textAdd.value = '';
 
-  item.addEventListener('click', mudaFundo);
+  let itemLista = document.getElementsByTagName('li');
 
-  function mudaFundo() {
-    item.style.backgroundColor = 'rgb(128,128,128)';
-  }
-
-  item.addEventListener('dblclick', riscar);
-
-  function riscar() {
-    if (item.style.textDecoration = 'none') {
-      item.style.textDecoration = 'line-through';
-    } else {
-      item.style.textDecoration = 'none';
-    }
-  };
+  for (let index = 0; index < itemLista.length; index += 1) {
+    itemLista[index].addEventListener('click', function(event) {
+      for (let refresh = 0; refresh < itemLista.length; refresh +=1) {
+        itemLista[refresh].style.backgroundColor = 'white';
+      }
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+  })
 }
+}
+
+
