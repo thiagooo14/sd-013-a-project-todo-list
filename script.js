@@ -38,3 +38,33 @@ function apagaTudo () {
 }
 document.getElementById('apaga-tudo').addEventListener('click',apagaTudo);
 
+function removeFinalizados () {
+  let finalizados = document.querySelectorAll('.completed');
+  for(let index = 0; index < finalizados.length; index += 1){
+      listaTarefas.removeChild(finalizados[index]);
+  }
+}
+document.getElementById('remover-finalizados').addEventListener('click',removeFinalizados);
+
+function removeSelecionado () {
+  for (let index = 0; index < tarefas.length; index += 1){
+      if (tarefas[index].style.backgroundColor === "rgb(128, 128, 128)"){
+         var selecionado = index;
+      }
+  }
+  if (selecionado !== undefined){
+      listaTarefas.removeChild(tarefas[selecionado]);
+  }
+}
+document.getElementById("remover-selecionado").addEventListener("click",removeSelecionado);
+
+//Referência: https://developer.mozilla.org/pt-BR/docs/Web/API/Storage/getItem
+window.onload = function () {
+  listaTarefas.innerHTML = localStorage.getItem('listaTarefas');
+}
+
+//Referência: https://developer.mozilla.org/pt-BR/docs/Web/API/Storage/setItem
+function salvaLista () {
+  localStorage.setItem('listaTarefas', listaTarefas.innerHTML);
+}
+document.getElementById('salvar-tarefas').addEventListener('click',salvaLista);
