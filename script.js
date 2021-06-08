@@ -1,22 +1,14 @@
 // inicia o reload trazendo as informações do localstorage e printando a ol
 let olTask = document.getElementById('lista-tarefas');
-let liTask = document.createElement('li');
 let localStTask = localStorage.getItem('task');
 olTask.innerHTML = localStTask;
-
-// for (let index = 0; index < localStTask.length; index += 1) {
-//   olTask.innerHTML = localStTask[index];
-// }
-
-// liTask.innerHTML = document.getElementById('texto-tarefa').value;
-// liTask.setAttribute('class', 'linha');
-// olTask.appendChild(liTask);
-// document.getElementById('texto-tarefa').value = '';
 
 function include() {
   let buttonCreate = document.getElementById('criar-tarefa');
 
   buttonCreate.addEventListener('click', () => {
+    let olTask = document.getElementById('lista-tarefas');
+    let liTask = document.createElement('li');
     liTask.innerHTML = document.getElementById('texto-tarefa').value;
     liTask.setAttribute('class', 'linha');
     olTask.appendChild(liTask);
@@ -63,6 +55,7 @@ function deleteAll() {
   buttonDelAll.addEventListener('click', searchLine);
 
   function searchLine() {
+    localStorage.clear();
     let liTask = document.querySelectorAll('.linha');
 
     for (let i = 0; i < liTask.length; i += 1) {
@@ -99,3 +92,45 @@ function saveTasks() {
   }); // escuta o evento
 }
 saveTasks();
+
+function moveUp() {
+  let liTask = document.querySelectorAll('.linha'); // array com as linhas
+
+  for (let index = 0; index < liTask.length; index += 1) {
+    if (liTask[index].className === 'linha selected' && index > 0) {
+      olTask.insertBefore(liTask[index], liTask[index - 1]);
+    }
+  }
+}
+moveUp();
+
+function moveDown() {
+  let liTask = document.querySelectorAll('.linha'); // array com as linhas
+
+  for (let index = 0; index < liTask.length; index += 1) {
+    if (liTask[index].className === 'linha selected' && index < liTask.length) {
+      if (liTask.length >= 2 && liTask.length - index >= 2) {
+        olTask.insertBefore(liTask[index + 1], liTask[index]);
+      }
+    }
+  }
+}
+moveDown();
+
+// Remove as tarefas selecionadas
+function deleteSelected() {
+  let buttonDelSelected = document.getElementById('remover-selecionado');
+
+  buttonDelSelected.addEventListener('click', searchSelected);
+
+  function searchSelected() {
+    let liTask = document.querySelectorAll('.linha');
+
+    for (let i = 0; i < liTask.length; i += 1) {
+      if (liTask[i].classList.contains('selected')) {
+        liTask[i].remove();
+      }
+    }
+  }
+}
+deleteSelected();
