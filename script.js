@@ -1,19 +1,14 @@
 
-window.onload = function backData() {
-  let listaOrd = document.getElementById('lista-tarefas');
-  listaOrd = localStorage.getItem('list');
-}
-
 window.onload = function () {
 
-  
-
-	let addTaskButton = document.getElementById('criar-tarefa')
+  let addTaskButton = document.getElementById('criar-tarefa')
 	let listaOrd = document.getElementById('lista-tarefas'); 
   let eraseButton = document.getElementById('apaga-tudo');
   let finalizedButton = document.getElementById('remover-finalizados');
   let saveButton = document.getElementById('salvar-tarefas');
   let eraseSelectedButton = document.getElementById('remover-selecionado');
+  let upButton = document.getElementById('mover-cima');
+  let downButton = document.getElementById('mover-baixo');
 	
   addTaskButton.addEventListener('click', addTask);
 
@@ -68,12 +63,14 @@ window.onload = function () {
     };
   }
 
-  saveButton.addEventListener('click', saveData);
+   saveButton.addEventListener('click', saveData);
 
   function saveData(){
-    olList = document.querySelectorAll('li');
-    localStorage.setItem('list', olList)
+    localStorage.clear();
+    localStorage.setItem('list', listaOrd.innerHTML);
   }
+  listaOrd.innerHTML = localStorage.getItem('list');
+  saveData();
 
   eraseSelectedButton.addEventListener('click', eraseSelected);
 
@@ -83,6 +80,30 @@ window.onload = function () {
       if(olList[m].classList.contains('selected') == true)
       olList[m].parentNode.removeChild(olList[m]);
     };
+  }
+
+  upButton.addEventListener('click', upItem);
+
+  function upItem (){
+    let selectedItem = document.querySelector('.selected');
+    if (selectedItem != null) {
+      if (selectedItem != listaOrd.firstChild) {
+        let itemBefore = selectedItem.previousSibling
+        listaOrd.insertBefore(selectedItem, itemBefore);
+      }
+    }
+  }
+
+  downButton.addEventListener('click', downItem);
+  
+  function downItem (){
+    let selectedItem = document.querySelector('.selected');
+    if (selectedItem != null) {
+      if (selectedItem != listaOrd.lastChild) {
+        let itemAfter = selectedItem.nextSibling
+        listaOrd.insertBefore(itemAfter, selectedItem);
+      }
+    }
   }
 
 };
