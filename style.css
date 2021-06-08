@@ -7,3 +7,21 @@
 .completed{
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+#botoes{
+  width: 220px;
+  height: 400px;
+  border: black solid 10px;
+  background-color: grey;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  display: inline-block;
+}
+.botao{ 
+  margin-left: 20px;
+  font-size: 12px;
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
+  border: red solid 2px;
+}
