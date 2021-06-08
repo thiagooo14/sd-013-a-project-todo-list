@@ -18,3 +18,7 @@ main {
   text-align: left;
   margin-top: 10px;
 }
+
+.apply-bg {
+  background-color: rgb(128,128,128);
+}
