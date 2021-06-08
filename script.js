@@ -1,28 +1,32 @@
 //Variaveis
-var listaTarefa = document.getElementById('lista-tarefas');
+const listaTarefa = document.getElementById('lista-tarefas');
 var lis = document.getElementsByTagName('li');
 var completadas = document.getElementsByClassName('completed');
 
 //Botao 'Adicionar'
-let button = document.createElement('button');
+const button = document.createElement('button');
 button.id = 'criar-tarefa';
-posicaoBotao1 = document.querySelector('#section-text');
+const posicaoBotao = document.querySelector('#section-text');
 button.innerHTML = "Adicionar";
-posicaoBotao1.appendChild(button);
+posicaoBotao.appendChild(button);
 
 //Botao 'Apagar todas as tarefas'
-let button2 = document.createElement('button');
+const button2 = document.createElement('button');
 button2.id = 'apaga-tudo';
-posicaoBotao2 = document.querySelector('#section-text');
 button2.innerHTML = "Apagar todas as tarefas";
-posicaoBotao2.appendChild(button2);
+posicaoBotao.appendChild(button2);
 
 //Botao 'Remover tarefas finalizadas'
-let button3 = document.createElement('button');
+const button3 = document.createElement('button');
 button3.id = 'remover-finalizados';
-posicaoBotao3 = document.querySelector('#section-text');
 button3.innerHTML = "Remover tarefas finalizadas";
-posicaoBotao3.appendChild(button3);
+posicaoBotao.appendChild(button3);
+
+//Botao 'Salvar Tarefas'
+const button4 = document.createElement('button');
+button4.id = 'salvar-tarefas';
+button4.innerHTML = "Salvar Tarefas";
+posicaoBotao.appendChild(button4);
 
 // Funcao para adicionar tarefas
 function adicionarLista() {    
@@ -71,8 +75,23 @@ function tarefasFinalizadas() {
     listaTarefa.querySelectorAll('.completed').forEach(n => n.remove());
 }
 
+//Funcao para salvar as tarefas
+function salvarTarefas() {
+    localStorage.setItem('listaSalva', listaTarefa.innerHTML);
+}
+
+//Funcao para carregar as tarefas salvas
+function carregarTarefas() {
+    if (localStorage.getItem('listaSalva')) {
+        listaTarefa.innerHTML = localStorage.getItem('listaSalva');
+    }
+}
+
+//Funcoes e eventos a serem executados na pagina
+adicionarLista();
+carregarTarefas();
 listaTarefa.addEventListener('click', corDeFundo);
 listaTarefa.addEventListener('dblclick', linhaRiscada);
-adicionarLista();
 button2.addEventListener('click', apagarTodasTarefas);
 button3.addEventListener('click', tarefasFinalizadas);
+button4.addEventListener('click', salvarTarefas);
