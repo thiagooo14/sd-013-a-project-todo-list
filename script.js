@@ -151,12 +151,16 @@ window.onload = function () {
     const movingUp = document.getElementById('mover-cima');
     movingUp.addEventListener('click', function () {
       const selected = document.querySelector('.selected');
-      up(selected); 
+      if (selected) {
+        up(selected); 
+      }
     })
     const movingDown= document.getElementById('mover-baixo');
     movingDown.addEventListener('click', function () {
       const selected = document.querySelector('.selected');
-      down(selected); 
+      if (selected) {
+        down(selected); 
+      }
     })
   }  
   click();
