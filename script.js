@@ -10,4 +10,5 @@ function criarTarefa() {
   lista.appendChild(li);
   input.value = null;
 };
+
 button.addEventListener("click", criarTarefa);
