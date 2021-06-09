@@ -4,7 +4,7 @@ window.onload = function () {
     const objects = JSON.parse(elements);
     if (objects) {
       for (let i = 0; i < objects.tarefas.length; i += 1) {
-        const tasksList = document.getElementById('lista-tarefas');
+        const tasks = document.getElementById('lista-tarefas');
         const newTasks = document.createElement('li');
         const contTasks = document.querySelectorAll('li');
         newTasks.id = contTasks.length + 1;
@@ -12,7 +12,7 @@ window.onload = function () {
         if (objects.decoration[i] !== 'none') {
           newTasks.classList.add('completed');
         }
-        tasksList.appendChild(newTasks);
+        tasks.appendChild(newTasks);
       }
     }
   }
@@ -53,7 +53,7 @@ window.onload = function () {
 
   function waitItemSelect() {
     const itemSelect = document.getElementById('lista-tarefas');
-    itemSelect.addEventListener('click', function(i) { markItem(i.target.id) }, false);
+    itemSelect.addEventListener('click', function (i) { markItem(i.target.id)}, false);
   }
   waitItemSelect();
 
@@ -70,7 +70,7 @@ window.onload = function () {
 
   function waitDoubleClick() {
     const itemSelect = document.getElementById('lista-tarefas');
-    itemSelect.addEventListener('dblclick', function (i) { doubleClick(i.target.id)}, false);
+    itemSelect.addEventListener('dblclick', function (i) { doubleClick(i.target.id); }, false);
   }
   waitDoubleClick();
 
@@ -105,7 +105,6 @@ window.onload = function () {
     const selected = document.querySelector('.selected');
     if (selected) {
       selected.remove();
-      //localStorage.removeItem()
       if (Storage) {
         const elements = localStorage.getItem('tasks');
         const objects = JSON.parse(elements);
