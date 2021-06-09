@@ -1,9 +1,9 @@
 window.onload = function(){
 
 // declarando variaveis..
-  var textInput = document.getElementById("texto-tarefa");
-  var buttonInputTesk = document.getElementById("criar-tarefa");
-  var itensOl = document.getElementById("lista-tarefas");
+  const textInput = document.getElementById("texto-tarefa");
+  const buttonInputTesk = document.getElementById("criar-tarefa");
+  const itensOl = document.getElementById("lista-tarefas");
 
   // função para adicionar tesks
   function addTask() {
@@ -23,18 +23,28 @@ window.onload = function(){
   // deixando fundo cinza 
   let allTegsLi = document.getElementsByTagName ("li");
 
-  function setGreyColor(eventColorGrey) {
-    let liEventSelected = eventColorGrey.target; // adicionando target na li para criar evento
-    // for in passeado em: https://www.w3schools.com/jsref/jsref_forin.asp
-    for (i in allTegsLi) {
+  function checkSelectGray() {
+    let selectedLi = document.querySelector('.liSelected');
+
+    if (selectedLi !== null) {
+      selectedLi.classList.remove('liSelected');
+    }
+  }
+
+  function setGrayColor(eventColorGray) {
+
+    let liEventSelected = eventColorGray.target; // adicionando target na li para criar evento
+    for (let i = 0; i < allTegsLi.length; i += 1) {
+      // método contains -> http://www.w3schools.com/java/ref_string_contains.asps
       if (liEventSelected === allTegsLi[i] && !(liEventSelected.classList.contains("liSelected"))) {
-        allTegsLi[i].classList.add("liSelected");
+        checkSelectGray();
+        allTegsLi[i].className = "liSelected";
       }
       else if (liEventSelected === allTegsLi[i] && liEventSelected.classList.contains("liSelected")) {
-        allTegsLi[i].classList.remove("liSelected");
+        allTegsLi[i].className = "";
       }
     }
   }
 
-  itensOl.addEventListener("click", setGreyColor);
+  itensOl.addEventListener("click", setGrayColor);
 }
