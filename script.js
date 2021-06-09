@@ -1,8 +1,8 @@
 const getOl = document.getElementById('lista-tarefas');
 const getInputTask = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
-const btnClearAll  = document.getElementById('apaga-tudo');
-const btnRemoveSelected = document.getElementById('remover-selecionado');
+const btnClearAll = document.getElementById('apaga-tudo');
+const btnRemoveSelected = document.getElementById('remover-finalizados');
 
 // Remove bacground aplicado
 function removeClass(value, classRemove) {
