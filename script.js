@@ -8,9 +8,9 @@ function addTar(){
   document.getElementById("texto-tarefa").value = "";
 }
 
-function applyGray(){
+/* function applyGray(){
   let y = document.getElementsByTagName("li")
-  let pixels = document.querySelector('#pixel-board');
+  let pixels = document.querySelector('#lista-tarefa');
 
   pixels.addEventListener('click', function(event){
     if (y.length > 0){
@@ -18,6 +18,6 @@ function applyGray(){
       event.target.style.backgroundColor = color;
     }
   });
-};
+}; */
 
 applyGray()
