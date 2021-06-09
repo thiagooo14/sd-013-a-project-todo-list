@@ -24,3 +24,11 @@ getOl.addEventListener('click', (evento) => {
   evento.target.classList.add('gray');
 });
 
+getOl.addEventListener('dblclick', (evento) => {
+  if (evento.target.classList.contains('completed')) {
+    evento.target.classList.remove('completed');
+  } else {
+    evento.target.classList.add('completed');
+  }  
+})
+
