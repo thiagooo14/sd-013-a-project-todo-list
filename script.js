@@ -16,14 +16,13 @@ function include() {
 }
 include();
 
-
-//evento para criar  tarefa a partir da tecla enter
- var inputNewTask = document.getElementById("texto-tarefa");
-inputNewTask.addEventListener("keyup", function(event) {
-var tecla = event.keyCode
+// evento para criar  tarefa a partir da tecla enter
+const inputNewTask = document.getElementById('texto-tarefa');
+inputNewTask.addEventListener('keyup', (event) => {
+  const tecla = event.keyCode;
   if (tecla === 13) {
-   event.preventDefault();
-   document.getElementById("criar-tarefa").click();
+    event.preventDefault();
+    document.getElementById('criar-tarefa').click();
   }
 });
 
@@ -58,19 +57,18 @@ function finishTask() {
 }
 finishTask();
 
-// // // função para marcar a tarefa como concluída após o clique no botão "marcar tarefa como concluída"
-// function finishTaskButtonOk() {
-//   const finishTaskButtonOk = document.getElementById('marcar-finalizado');
+// // função para marcar a tarefa como concluída após o clique no botão "marcar tarefa como concluída"
+function finishTaskButtonOk() {
+  const taskSelected = document.querySelector('.selected');
 
-//   finishTaskButtonOk.addEventListener('click', () => {
-
-//     for (let index = 0; index < arrayLi.length; index += 1) {
-//       if (arrayLi[index].classList.contains('completed')) {
-//         arrayLi[index].classList.remove('completed');
-//       }else {arrayLi[index].classList.add('completed');}
-//     }
-//   });
-// finishTaskButtonOk();
+  // for (let index = 0; index < arrayLi.length; index += 1) {
+  if (taskSelected.classList.contains('completed')) {
+    taskSelected.classList.remove('completed');
+  } else {
+    taskSelected.classList.add('completed');
+  }
+}
+finishTaskButtonOk();
 
 // função para apagar todas as tarefas com clique no botão apagar tudo
 function deleteAll() {
@@ -131,10 +129,11 @@ function moveDown() {
 
   for (let index = 0; index < liTask.length; index += 1) {
     if (
-      (liTask[index].className === 'linha selected')
-      && (index < liTask.length)
-      && (liTask.length >= 2)
-      && (liTask.length - index >= 2)) {
+      liTask[index].className === 'linha selected'
+      && index < liTask.length
+      && liTask.length >= 2
+      && liTask.length - index >= 2
+    ) {
       olTask.insertBefore(liTask[index + 1], liTask[index]);
     }
   }

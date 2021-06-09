@@ -1,16 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   background-image: url('background-black-risk.jpg');
   background-position-x: right;
   background-position-y: center;
   background-repeat: repeat;
   background-size: 100%;
-  color: rgb(0, 0, 0);
+  color: black;
 }
 
 header {
@@ -19,35 +20,38 @@ header {
   color: white;
 }
 
-#funcionamento {
-  display: none;
-}
-
-#tarefas,
-.buttons,
-#instrucoes {
+#tarefas , .buttons , #instrucoes {
   text-align: center;
   padding: 20px;
   margin: 20px;
-  background-color: rgba(255, 255, 255, 0.109);
+  background-color: rgba(255 , 255 , 255 , 0.109);
   border-radius: 5px;
+}
+
+#funcionamento {
+  display: none;
 }
 
 #instrucoes {
   text-align: left;
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(255 , 255 , 255 , 0.52);
   line-height: 20px;
 }
 
 button {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid white;
   margin: 10px;
   transition: all 0.5s;
   cursor: pointer;
   text-align: center;
+}
+
+.buttons button {
+  padding: 5px;
+  font-size: 10px;
 }
 
 button span {
@@ -76,8 +80,8 @@ button:hover span:after {
 }
 
 input {
-  margin: 10px 0 50px 0;
-  border: 1px solid rgba(128, 128, 128, 0.486);
+  margin: 10px 0 50px;
+  border: 1px solid rgba(128 , 128 , 128 , 0.486);
   border-radius: 5px;
   padding: 10px;
 }
@@ -85,7 +89,7 @@ input {
 ol {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  align-content: space-around;
   align-items: center;
   padding: 20px;
   background-color: none;
@@ -115,7 +119,7 @@ li {
 }
 
 .completed {
-  text-decoration: 2px line-through solid rgb(255, 0, 0);
+  text-decoration: 2px line-through solid red;
 }
 
 .completed::marker {
@@ -123,7 +127,7 @@ li {
 }
 
 .blue {
-  background-color: rgba(0, 0, 255, 0.603);
+  background-color: rgba(0 , 0 , 255 , 0.603);
   color: white;
 }
 
@@ -138,11 +142,11 @@ li {
 }
 
 .red {
-  background-color: rgba(255, 0, 0, 0.692);
+  background-color: rgba(255 , 0 , 0 , 0.692);
   color: white;
 }
 
 .danger {
-  background-color: rgb(255, 0, 0);
+  background-color: red;
   color: white;
 }
