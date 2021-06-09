@@ -68,3 +68,10 @@ header {
 .completed {
   text-decoration: line-through;
 }
+
+#apaga-tudo {
+  width: 100px;
+  height: 25px;
+  margin-left: 480px;
+  margin-top: 40px;
+}

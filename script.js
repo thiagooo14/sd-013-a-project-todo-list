@@ -1,3 +1,5 @@
+// Função para criar novas tarefas
+
 function addNewTask() {
   let getInputField = document.querySelector('#texto-tarefa');
   let getInputButton = document.querySelector('#criar-tarefa');
@@ -14,6 +16,8 @@ function addNewTask() {
 
 addNewTask();
 
+// Função background cinza
+
 let getOl = document.querySelector('#lista-tarefas');
 
 getOl.addEventListener('click', (evento) => {
@@ -24,6 +28,8 @@ getOl.addEventListener('click', (evento) => {
   evento.target.classList.add('gray');
 });
 
+// Função efeito riscado
+
 getOl.addEventListener('dblclick', (evento) => {
   if (evento.target.classList.contains('completed')) {
     evento.target.classList.remove('completed');
@@ -32,3 +38,10 @@ getOl.addEventListener('dblclick', (evento) => {
   }  
 })
 
+let buttonDelete = document.getElementById('apaga-tudo');
+
+function deleteTask () {
+  getOl.innerHTML = '';
+}
+
+buttonDelete.addEventListener('click', deleteTask);
