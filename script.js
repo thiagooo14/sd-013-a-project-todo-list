@@ -2,6 +2,7 @@ const getOl = document.getElementById('lista-tarefas');
 const getInputTask = document.getElementById('texto-tarefa');
 const btnCreateTask = document.getElementById('criar-tarefa');
 const btnClearAll  = document.getElementById('apaga-tudo');
+const btnRemoveSelected = document.getElementById('remover-selecionado');
 
 // Remove bacground aplicado
 function removeClass(value, classRemove) {
@@ -60,6 +61,18 @@ function clearTasks() {
   }
 }
 
+// Apaga selecionado
+function clearSelected() {
+  const getSizeChildLi = document.querySelectorAll('li');
+  const getSizeOl = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < getSizeChildLi.length; index += 1) {
+    if (getSizeChildLi[index].classList.contains('completed')) {
+      getSizeOl.removeChild(getSizeChildLi[index]);
+    }
+  }
+}
+
 // Evento que ao clicar `criar tarefa` chama função pegar texto, inserir na ol
 btnCreateTask.addEventListener('click', getTask);
 btnClearAll.addEventListener('click', clearTasks);
+btnRemoveSelected.addEventListener('click', clearSelected);
