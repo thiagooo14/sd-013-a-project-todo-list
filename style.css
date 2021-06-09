@@ -17,7 +17,6 @@ header {
   font-weight: 700;;
 }
 
-
 #funcionamento {
   font-weight: 500;
   font-size: 17px;
@@ -74,4 +73,13 @@ header {
   height: 25px;
   margin-left: 480px;
   margin-top: 40px;
+}
+
+#remover-finalizados {
+  width: 140px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  margin-top: 40px;
+  margin-left: 60px
 }

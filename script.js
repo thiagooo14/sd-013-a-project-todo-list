@@ -40,8 +40,15 @@ getOl.addEventListener('dblclick', (evento) => {
 
 let buttonDelete = document.getElementById('apaga-tudo');
 
-function deleteTask () {
+buttonDelete.addEventListener('click', () => {
   getOl.innerHTML = '';
-}
+})
 
-buttonDelete.addEventListener('click', deleteTask);
+let buttonFinalized = document.getElementById('remover-finalizados');
+
+buttonFinalized.addEventListener('click', () => {
+  let taskCompleted = document.querySelectorAll('.completed');
+    for (let i = 0; i < taskCompleted.length; i += 1) {
+      taskCompleted[i].remove();
+    }
+})
