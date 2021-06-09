@@ -6,6 +6,7 @@ const btnClearCompleted = document.querySelector('#remover-finalizados');
 const btnSaveTasks = document.querySelector('#salvar-tarefas');
 const btnMoveUp = document.querySelector('#mover-cima');
 const btnMoveDown = document.querySelector('#mover-baixo');
+const btnRemoveSelected = document.querySelector('#remover-selecionado');
 
 function clearLastSelected() {
   for (let index = 0; index < toDoList.childElementCount; index += 1) {
@@ -66,11 +67,6 @@ btnSaveTasks.addEventListener('click', function() {
   let taskClasses = [];
   let tasks = document.querySelectorAll('#lista-tarefas li');
 
-  // for (let index = 0; index < toDoList.childElementCount; index += 1) {
-  //   taskContents.push(toDoList.children[index].textContent);
-  //   taskClasses.push(toDoList.children[index].className);
-  // }
-
   for (let index = 0; index < tasks.length; index += 1) {
     taskContents.push(tasks[index].textContent);
     taskClasses.push(tasks[index].className);
@@ -126,6 +122,15 @@ btnMoveDown.addEventListener('click', function() {
   }
 });
 
+btnRemoveSelected.addEventListener('click', function() {
+  let listItems = document.querySelectorAll('.list-item');
+  
+  for (let index = 0; index < listItems.length; index += 1) {
+    if(listItems[index].classList.contains('selected')) {
+      listItems[index].remove();
+    }
+  }
+})
 
 //Listener que seleciona o item da lista
 document.addEventListener('click', function(event) {
