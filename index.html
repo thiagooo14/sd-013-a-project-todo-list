@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="style.css" />
-    <title>Todo List</title>
+    <title>Lista de Tarefas</title>
   </head>
   <body>
     <header>
@@ -14,16 +15,42 @@
         Clique duas vezes em um item para marcá-lo como completo
       </p>
     </header>
-    <input type="text" id="texto-tarefa" />
-    <ol id="lista-tarefas"></ol>
-    <div id="buttons">
-      <button id="criar-tarefa">Criar tarefa</button>
-      <button id="remover-finalizados">Remover finalizados</button>
-      <button id="remover-selecionado">Remover selecionado</button>
-      <button id="mover-cima" onclick="moveUp()">Mover para cima</button>
-      <button id="mover-baixo" onclick="moveDown()">Mover para baixo</button>
-      <button id="salvar-tarefas">Salvar tarefas</button>
-      <button id="apaga-tudo">Apagar tudo</button>
+
+    <div id="tarefas">
+      <input type="text" id="texto-tarefa" placeholder="Ex: Beber água" autofocus/>
+      <button id="criar-tarefa" class="blue"><span>Criar tarefa </span></button>
+      <ol id="lista-tarefas"></ol>
+    </div>
+
+    <div class="buttons">
+      <button id="mover-cima" class="yellow" onclick="moveUp()">
+        <span>Mover para cima </span>
+      </button>
+      <button id="mover-baixo" class="yellow" onclick="moveDown()">
+        <span>Mover para baixo </span>
+      </button>
+      <button id="marcar-finalizado" class="blue" onclick="finishTaskButtonOk()">
+        <span>Marcar como finalizado </span>
+      </button>
+      <button id="salvar-tarefas" class="green" onclick="saveTasks()">
+        <span>Salvar tarefas </span>
+      </button>
+      <button id="remover-selecionado" class="red" onclick="deleteSelected()">
+        <span>Remover <b>selecionado</b> </span>
+      </button>
+      <button id="remover-finalizados" class="red">
+        <span>Remover <b>finalizados</b> </span>
+      </button>
+      <button id="apaga-tudo" class="danger"><span>Apagar tudo </span></button>
+    </div>
+
+    <div id="instrucoes">
+     <h2>Instruções:</h2>
+<h3>1 - Não é necessário fazer login.</h3>
+<h3>2 - Para marcar uma tarefa como CONCLUÍDA, utilize o botão "Marcar como concluída" ou então um clique duplo em cima de uma tarefa específica.</h3>
+<h3>2 - Clique em salvar tarefas para poder visualizá-las sempre que abrir a página pelo navegador.</h3>
+<h3>3 - Escreva a nova tarefa e clique em "Criar tarefa" ou pressione a tecla "Enter" para incluir uma nova tarefa.</h3>
+      <h3>4 - <b>CUIDADO: </b>Ao clicar no botão APAGAR TUDO, pois ele apagará todas as suas tarefas cadastradas. Caso queira apagar uma tarefa específica, opte pelas opções "Remover selecionado" ou "Remover finalizados".</h3>
     </div>
     <script src="script.js"></script>
   </body>

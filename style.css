@@ -1,23 +1,148 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
-} */
+}
 
-.selected {
-  background-color: gray;
+body {
+  font-family: Roboto;
+  background-image: url('background-black-risk.jpg');
+  background-position-x: right;
+  background-position-y: center;
+  background-repeat: repeat;
+  background-size: 100%;
+  color: rgb(0, 0, 0);
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+#funcionamento {
+  display: none;
+}
+
+#tarefas,
+.buttons,
+#instrucoes {
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.109);
+  border-radius: 5px;
+}
+
+#instrucoes {
+  text-align: left;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 20px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
+  margin: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  text-align: center;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+input {
+  margin: 10px 0 50px 0;
+  border: 1px solid rgba(128, 128, 128, 0.486);
+  border-radius: 5px;
+  padding: 10px;
 }
 
 ol {
-  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: none;
 }
 
 li {
-  margin: 5px;
-  padding: 5px;
-  font-size: 18px;
-  width: 200px;
+  min-width: 10%;
+  max-width: 40%;
+  margin: 5px 20px;
+  padding: 10px;
+  font-size: 15px;
+  text-align: left;
+  border: 1px solid white;
+  border-radius: 5px;
+  word-wrap: break-word;
+  background-color: white;
+}
+
+::marker {
+  font-size: 10px;
+  color: white;
+}
+
+.selected {
+  background-color: gray;
+  color: white;
 }
 
 .completed {
-  text-decoration: line-through solid black;
+  text-decoration: 2px line-through solid rgb(255, 0, 0);
+}
+
+.completed::marker {
+  color: white;
+}
+
+.blue {
+  background-color: rgba(0, 0, 255, 0.603);
+  color: white;
+}
+
+.yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.green {
+  background-color: green;
+  color: white;
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.692);
+  color: white;
+}
+
+.danger {
+  background-color: rgb(255, 0, 0);
+  color: white;
 }

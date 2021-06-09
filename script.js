@@ -16,6 +16,17 @@ function include() {
 }
 include();
 
+
+//evento para criar  tarefa a partir da tecla enter
+ var inputNewTask = document.getElementById("texto-tarefa");
+inputNewTask.addEventListener("keyup", function(event) {
+var tecla = event.keyCode
+  if (tecla === 13) {
+   event.preventDefault();
+   document.getElementById("criar-tarefa").click();
+  }
+});
+
 // Troca a cor de background de uma 'li' quando clicada
 const arrayLi = document.getElementsByClassName('linha');
 const ol = document.getElementById('lista-tarefas');
@@ -46,6 +57,20 @@ function finishTask() {
   ol.addEventListener('dblclick', searchCompleted);
 }
 finishTask();
+
+// // // função para marcar a tarefa como concluída após o clique no botão "marcar tarefa como concluída"
+// function finishTaskButtonOk() {
+//   const finishTaskButtonOk = document.getElementById('marcar-finalizado');
+
+//   finishTaskButtonOk.addEventListener('click', () => {
+
+//     for (let index = 0; index < arrayLi.length; index += 1) {
+//       if (arrayLi[index].classList.contains('completed')) {
+//         arrayLi[index].classList.remove('completed');
+//       }else {arrayLi[index].classList.add('completed');}
+//     }
+//   });
+// finishTaskButtonOk();
 
 // função para apagar todas as tarefas com clique no botão apagar tudo
 function deleteAll() {
