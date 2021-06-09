@@ -60,21 +60,19 @@ function completeTask() {
 
   for(let i = 0; i < getTask.length; i += 1) {
     getTask[i].addEventListener("dblclick", function() {
-      getTask[i].classList.add("completed");
+      for(let j = 0; j < getTask.length; j += 1) {
+        if(getTask[i].classList.contains("completed")) {
+          getTask[i].classList.remove("completed");
+        } else { 
+          getTask[i].classList.add("completed");
+        }
+      }
     });
   }
   removeTask();
-  removeCompleteSelector();
 }
 
-function removeCompleteSelector() {
-  const completedTasks = document.querySelectorAll(".completed");
-  for(let i = 0; i < completedTasks.length; i += 1) {
-    completedTasks[i].addEventListener("dblclick", function() {
-      completedTasks[i].classList.remove("completed");
-    })
-  }
-}
+
 
 function removeTask() {
   const getRemoveButton = document.querySelector("#remover-finalizados");

@@ -14,3 +14,12 @@ body {
 .completed{
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+.updown-bar {
+  position: fixed;
+  right: 65%;
+  top: 27%;
+}
+.updown-bar button{
+  display: block;
+}
