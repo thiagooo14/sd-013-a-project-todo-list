@@ -72,8 +72,6 @@ function completeTask() {
   removeTask();
 }
 
-
-
 function removeTask() {
   const getRemoveButton = document.querySelector("#remover-finalizados");
 
@@ -94,5 +92,47 @@ function removeTasks() {
     for(let i = 0; i < getTasks.length; i += 1) {
       getTasks[i].remove()
     }
-  })
+    localStorage.clear();
+  });
+}
+
+//Bonus 
+const getUpButton = document.querySelector("#mover-cima");
+const getDownButton = document.querySelector("#mover-baixo");
+const getListTask = document.querySelector("#lista-tarefas");
+const getRemoveSelectButton = document.querySelector("#remover-selecionado");
+const getSaveButton = document.querySelector("#salvar-tarefas");
+
+getUpButton.addEventListener("click", () => {
+  const getTasks = document.querySelectorAll(".task-list");
+  const getSelectedTask = document.querySelector(".selected");
+  if (getSelectedTask !== null && getSelectedTask !== getTasks[0]) {
+    getListTask.insertBefore(getSelectedTask, getSelectedTask.previousSibling);
+  }
+});
+
+getDownButton.addEventListener("click", () => {
+  const getTasks = document.querySelectorAll(".task-list");
+  const getSelectedTask = document.querySelector(".selected");
+  if (getSelectedTask !== null && getSelectedTask !== getTasks[getTasks.length - 1]) {
+    getListTask.insertBefore(getSelectedTask.nextElementSibling, getSelectedTask);
+  }
+});
+
+getRemoveSelectButton.addEventListener("click", () => {
+  const getSelectedTask = document.querySelector(".selected");
+
+  getSelectedTask.remove();
+});
+
+getSaveButton.addEventListener("click", () => {
+  localStorage.setItem("tasks", getListTask.innerHTML);
+});
+
+window.onload = () => {
+  if (localStorage.getItem("tasks") !== null) {
+    getListTask.innerHTML += localStorage.getItem("tasks");
+  }
+  selectTask();
+  removeTasks();
 }
