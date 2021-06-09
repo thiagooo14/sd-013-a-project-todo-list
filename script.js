@@ -54,8 +54,6 @@ window.onload = function () {
   function waitItemSelect() {
     const itemSelect = document.getElementById('lista-tarefas');
     itemSelect.addEventListener('click', function(i) { markItem(i.target.id) }, false);
-
-    itemSelect.addEventListener('click', function(e) { moveItem(e.target.id) }, false);
   }
   waitItemSelect();
 
@@ -149,26 +147,29 @@ window.onload = function () {
   }
   waitTasksSave();
 
-  function moveItem() {
-    const move = document.querySelector('.selected');
-    const buttonUp = document.getElementById('mover-cima');
-    const buttonDown = document.getElementById('mover-baixo');
-    
-    if ((move) && (move.previousElementSibling)) { 
-      console.log(move);     
-      buttonUp.addEventListener('click', function () { 
-        const move = document.querySelector('.selected');  
-        move.parentNode.insertBefore(move, move.previousElementSibling); 
-        console.log(move);
-      })   
+  function click() {
+    const movingUp = document.getElementById('mover-cima');
+    movingUp.addEventListener('click', function () {
+      const selected = document.querySelector('.selected');
+      up(selected); 
+    })
+    const movingDown= document.getElementById('mover-baixo');
+    movingDown.addEventListener('click', function () {
+      const selected = document.querySelector('.selected');
+      down(selected); 
+    })
+  }  
+  click();
+
+  function up(e) {
+     if(e.previousElementSibling) {
+       e.parentElement.insertBefore(e, e.previousElementSibling);
+     }
+  }
+
+  function down(e) {
+    if(e.nextElementSibling) {
+      e.parentElement.insertBefore(e.nextElementSibling, e);
     }
-    if ((move) && (move.nextElementSibling)) {   
-      buttonDown.addEventListener('click', function () {  
-        const move = document.querySelector('.selected'); 
-        move.parentNode.insertBefore(move.nextElementSibling, move);  
-        console.log(move); 
-      })
-    }   
-}
-  moveItem();
+  }
 };
