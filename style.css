@@ -1,9 +1,21 @@
+body {
+  margin: auto;
+  text-align: center;
+  font-size: 1em;
+}
+
 .selected {
   background-color: rgb(128,128,128);
-  color: rgb(117, 195, 219);
+  color: rgb(18, 106, 133);
+  font-weight: 900;
 }
 
 .completed {
-  text-decoration: line-through;
-  color: blueviolet;
+  text-decoration: line-through solid rgb(0,0,0);
+  color: rgb(145, 172, 194);
+}
+
+ol li {
+  user-select: none;
+  font-size: 2em;
 }
