@@ -1,0 +1,30 @@
+body { 
+    background-color: rgb(43, 172, 43);
+}
+
+#main {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 300px;
+    margin-left: 30px;
+    margin-top: 50px;
+    padding: 15px 0px 0px 10px;
+}
+
+#criar-tarefa {
+    background-color: rgb(78, 78, 245);
+    color: aliceblue;
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 15px 5px 15px;
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+    
+}
+
+li {
+    
+}
