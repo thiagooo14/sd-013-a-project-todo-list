@@ -43,7 +43,7 @@ function apagaTudo() {
    /*  https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild */
     while (lista.firstChild) {
       lista.removeChild(lista.firstChild)
-    } 
+    }
   })
 }
 
@@ -53,13 +53,23 @@ function apagaFinalizados() {
   
   buttom.addEventListener('click', function() {
     while (finish.length > 0) finish[0].remove();
-    console.log('erro')
+  })
+}
+
+function apagarSelecionado() {
+  const buttom = document.getElementById('remover-selecionado');
+  const selected = document.getElementsByClassName('selected');
+  
+  buttom.addEventListener('click', function() {
+    if (selected.length > 0){
+    selected[0].remove();   
+    }
   })
 }
 
 window.onload = function() {
-  addNewTask();  
+  addNewTask();
   apagaTudo();
-  apagaFinalizados(); 
-}    
-
+  apagaFinalizados();
+  apagarSelecionado();
+}
