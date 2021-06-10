@@ -1,0 +1,11 @@
+.listaDeTarefas {
+  background-color: salmon;
+}
+
+div {
+  background-color: blue;
+}
+
+.clompeted {
+  text-decoration: line-through;
+}

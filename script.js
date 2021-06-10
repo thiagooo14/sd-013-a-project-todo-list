@@ -7,41 +7,33 @@ const removeFinalizados = document.querySelector("#remover-finalizados")
 const tarefa = document.getElementsByClassName ("tarefa")
 
 function addTarefa () {
-  const tarefa2 = document.createElement("li")
-  tarefa2.innerHTML = input.value
-  tarefa2.classList.add("tarefa2")
-  ol.appendChild(tarefa2)
+  const tarefa = document.createElement("li")
+  tarefa.innerHTML = input.value
+  tarefa.classList.add("tarefa")
+  ol.appendChild(tarefa)
   input.value = textoX
   clicarTarefa()
 }
+  button.addEventListener("click", addTarefa)
 
-function selecionarTarefa(event) {
-  event.target.classList.add("selecionada")
-}
+  function clicarTarefa () {
 
-function tarefaCompleta(event) {
-  event.target.classList.toggle("completa")
-}
-
-function clicarTarefa() {
-  for(let index = 0; index < tarefa.lenght; index++) {
-    tarefa[index].addEventListener("click", selecionarTarefa)
-    tarefa[index].addEventListener("dblclick", tarefaCompleta)
   }
-}
+  
+  function selecionar () {
+
+  }
 
 function removerFinalizado() {
-  let completo = document.getElementsByClassName("completo")
-  console.log(completo)
+  let completed = document.getElementsByClassName("completed")
+  console.log(completed)
   for(let index = 0; index < completo.length; i++){
-    completo[index].remove();
+    completed[index].remove();
   }
 }
+  removeFinalizados.addEventListener("click", removerFinalizado)
 
 function apagaTudo () {
   ol.innerHTML = textoX
 }
-
-button.addEventListener ('click', criaTarefa)
-removeFinalizados.addEventListener('click', removerFinalizados)
-apagarTudo.addEventListener('click', apagaTudo)
+  apagarTudo.addEventListener("click", apagaTudo)
