@@ -4,7 +4,9 @@ const buttonAdicionar = document.querySelector('#criar-tarefa');
 const buttonClear = document.querySelector('#apaga-tudo');
 const getLi = document.getElementsByTagName('li');
 const buttonSelected = document.querySelector('#remover-finalizados');
+const salvar = document.querySelector('#salvar-tarefas');
 
+//ADICIONA LISTAS
 function adicionar() {
   buttonAdicionar.addEventListener('click', adicionar);
   const lis = document.createElement('li');
@@ -19,8 +21,7 @@ function adicionar() {
 
 adicionar();
 
-// Desafio 7 foi com a ajuda de Thiago Carboneri
-
+//ADICIONA A CLASSE SELECTED
 function selectedClass() {
   listTarefa.addEventListener('click', (event) => {
     for (let index = 0; index < getLi.length; index += 1) {
@@ -32,6 +33,7 @@ function selectedClass() {
 
 selectedClass();
 
+//REMOVE E ADICIONA CLASSE COMPLETED
 function selectedClassB() {
   listTarefa.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
@@ -40,6 +42,7 @@ function selectedClassB() {
 
 selectedClassB();
 
+//APAGA TODA A LISTA
 function deleteList() {
   buttonClear.addEventListener('click', deleteList);
 
@@ -53,6 +56,7 @@ function deleteList() {
 
 deleteList();
 
+//REMOVE TODOS OS QUE TEM A CLASSE COMPLETED
 function removeClass() {
   const completed = document.querySelectorAll('.completed');
   buttonSelected.addEventListener('click', removeClass);
@@ -63,8 +67,6 @@ function removeClass() {
 }
 
 removeClass();
-
-localStorage.getItem('lista');
 
 /// REMOVE A LINHA SELECIONADA
 function deletar() {
@@ -78,3 +80,16 @@ function deletar() {
 }
 
 deletar();
+
+//SALVAR 
+if (localStorage.lista) {
+  document.getElementById('lista-tarefas').innerHTML = localStorage.lista;
+}
+
+function salvarLista() {
+  salvar.addEventListener('click', salvarLista);
+  let listas = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('lista', listas);
+}
+
+salvarLista();
