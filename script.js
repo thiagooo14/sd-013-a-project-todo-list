@@ -10,35 +10,28 @@ function increase() {
   list.appendChild(item);
   textAdd.value = '';
 
+
   const itemLista = document.getElementsByTagName('li');
 
   for (let index = 0; index < itemLista.length; index += 1) {
     itemLista[index].addEventListener('click', function (event) {
+
       for (let refresh = 0; refresh < itemLista.length; refresh += 1) {
         itemLista[refresh].style.backgroundColor = 'white';
       }
       event.target.style.backgroundColor = 'rgb(128,128,128)';
     });
   }
-
-  // for (let index = 0; index < itemLista.length; index += 1) {
-  //   itemLista[index].addEventListener('dblclick', function(event) {
-      
-  //     if (itemLista[index].style.textDecoration === 'none') {
-  //       event.target.style.textDecoration = 'line-through';
-  //       event.target.classList.add('completed');
-  //     } else {
-  //       itemLista[index].classList.remove('completed');
-  //       event.target.style.textDecoration = 'none';
-  //     }
-  //   });
-  // }
 }
 
-const botao = document.querySelector("#apaga-tudo");
+const itemLista = document.getElementById('lista-tarefas');
+console.log(itemLista)
+itemLista.addEventListener('dblclick', function(event) {
+  event.target.classList.toggle('completed')
+})
 
-botao.addEventListener('click', clicaBotao);
+const botaoReset = document.querySelector('#apaga-tudo');
 
-function clicaBotao() {
+botaoReset.addEventListener('click', function () {
   location.reload();
-}
+})
