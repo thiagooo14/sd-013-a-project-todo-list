@@ -7,11 +7,18 @@
 </head>
 <body>
   <header><h1>Minha Lista de Tarefas</h1></header>
+  <div class="text-buttons">
+    <div class="square">
+      <input id="texto-tarefa" type="text">
+    </div>
+    <div class="square">
+      <button id="criar-tarefa">Adicionar Tarefa</button>
+    </div>
+    <div class="square">
+      <button id="apaga-tudo">RESET</button>
+    </div>
+  </div>
   <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
-  <input id="texto-tarefa" type="text">
-  <button id="criar-tarefa">Adicionar Tarefa</button>
-  <button id="apaga-tudo">RESET</button>
-  <button id="remover-finalizados">Remove Concluídos</button>
   <ol id="lista-tarefas"></ol>
   <script src="script.js"></script>
 </body>

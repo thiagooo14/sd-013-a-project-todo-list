@@ -10,14 +10,13 @@ function increase() {
   list.appendChild(item);
   textAdd.value = '';
 
-
   const itemLista = document.getElementsByTagName('li');
 
   for (let index = 0; index < itemLista.length; index += 1) {
     itemLista[index].addEventListener('click', function (event) {
 
       for (let refresh = 0; refresh < itemLista.length; refresh += 1) {
-        itemLista[refresh].style.backgroundColor = 'white';
+        itemLista[refresh].style.backgroundColor = '#e9d8d8';
       }
       event.target.style.backgroundColor = 'rgb(128,128,128)';
     });
@@ -25,13 +24,13 @@ function increase() {
 }
 
 const itemLista = document.getElementById('lista-tarefas');
-console.log(itemLista)
-itemLista.addEventListener('dblclick', function(event) {
-  event.target.classList.toggle('completed')
-})
+
+itemLista.addEventListener('dblclick', function (event) {
+  event.target.classList.toggle('completed');
+});
 
 const botaoReset = document.querySelector('#apaga-tudo');
 
 botaoReset.addEventListener('click', function () {
   location.reload();
-})
+});
