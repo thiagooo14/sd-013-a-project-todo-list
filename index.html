@@ -11,13 +11,13 @@
   <main id="corpo">
   <header>Minha Lista de Tarefas</header>
   <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <div id="input-tarefa">
-    <input type="text" id="texto-tarefa">
-  </div>
-  <div id="ol-tarefas">
-    <ol id="lista-tarefas">
-    </ol>
-  </div>
+  <form action="" method="get" id="input-tarefa">
+    <label for="texto-tarefa">Insira a nova tarefa aqui:
+    <input type="text" name="tarefa" id="texto-tarefa">
+    <button type="submit" id="criar-tarefa">Criar tarefa</button>
+  </label>
+  </form>
+  <div id="ol-tarefas"></div>
   <script src="script.js"></script>
   </main>
 </body>

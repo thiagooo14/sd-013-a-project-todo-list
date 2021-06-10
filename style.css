@@ -4,27 +4,34 @@
   box-sizing: border-box;
 }
 
-header {
-  text-align: center;
-  background-color:rgb(64,196,255);
-  margin-left: auto;
-  margin-right: auto;
-  height: 40px;
-  padding-top: 10px;
-  margin-top: 60px;
-  border-radius: 4px;
+body {
+  padding-top: 50px;
 }
 
 main {
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
   width: 70%;
-  height: 500px;
-  border-radius: 4px;
+  height: 300px;
+  border-radius: 20px;
   background-color: rgb(178,235,242);
+  padding: 10px;
+  border: black solid 2px;
+}
+
+header{
+  text-align: center;
+  color:blue;
+  font-size: 35px;
+  border-bottom:solid 1px black;
+  border-radius: 10px;
 }
 
 p {
-  padding: 4px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+#texto-tarefa {
+  width: 400px;
 }
