@@ -108,11 +108,11 @@ li {
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 10px 10px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  background-color: rgb(70, 130, 180);
+  background-color: steelblue;
   margin-right: 10px;
 }
 
@@ -120,11 +120,11 @@ li {
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 10px 10px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  background-color: rgb(244, 164, 96);
+  background-color: sandybrown;
   margin-right: 10px;
 }
 
@@ -132,11 +132,11 @@ li {
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 10px 10px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  background-color: rgb(130, 175, 39);
+  background-color: rgb(130 , 175 , 39);
 }
 
 #remover-selecionado {
@@ -147,16 +147,16 @@ li {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  background-color: rgba(225, 49, 49, 0.905);
+  background-color: rgba(225 , 49 , 49 , 0.905);
   margin-right: 10px;
 }
 
-#mover-cima:hover, #mover-baixo:hover, #salvar-tarefas:hover {
+#mover-cima:hover , #mover-baixo:hover , #salvar-tarefas:hover {
   background-color: rgb(20 , 33 , 61);
   cursor: pointer;
 }
 
 #remover-selecionado:hover {
-  background-color: rgb(140, 33, 33);
+  background-color: rgb(140 , 33 , 33);
   cursor: pointer;
 }
