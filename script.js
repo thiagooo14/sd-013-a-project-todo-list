@@ -81,7 +81,7 @@ function deletar() {
 
 deletar();
 
-// SALVAR 
+// SALVAR DADOS
 if (localStorage.lista) {
   document.getElementById('lista-tarefas').innerHTML = localStorage.lista;
 }
