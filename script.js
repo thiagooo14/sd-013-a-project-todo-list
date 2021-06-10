@@ -10,24 +10,28 @@ createOl();
 const paiLi = document.getElementsByTagName('ol')[0];
 function createOlItem() {
   const input1 = document.getElementById('texto-tarefa').value;
-  if (input1.value === '') {
-    alert('item inválido');
+  const listItem = document.createElement('li');
+  listItem.innerHTML = input1;
+  document.getElementById('texto-tarefa').value = '';
+  paiLi.appendChild(listItem);
+}
+
+function classeCompleted(e) {
+  if (e.target.className.includes('completed') === true) {
+    e.target.classList.remove('completed');
   } else {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = input1;
-    document.getElementById('texto-tarefa').value = '';
-    paiLi.appendChild(listItem);
+    e.target.classList.add('completed');
   }
 }
 
-// onclick="document.getElementById('texto-tarefa').value = ''"
 function verifyLi() {
   const getLis = document.getElementsByTagName('li');
   for (let indice = 0; indice < getLis.length; indice += 1) {
+    getLis[indice].addEventListener('dblclick', classeCompleted);
     getLis[indice].addEventListener('click', (e) => {
       for (let i = 0; i < getLis.length; i += 1) {
-        getLis[i].classList = '';
-        e.target.classList = 'selected';
+        getLis[i].classList.remove('selected');
+        e.target.classList.add('selected');
       }
     });
   }
@@ -36,3 +40,5 @@ function verifyLi() {
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createOlItem);
 button.addEventListener('click', verifyLi);
+
+// DBL CLICK TO CHECK LIST;
