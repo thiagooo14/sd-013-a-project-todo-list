@@ -6,12 +6,17 @@ body {
     background-color: white;
     border-radius: 10px;
     width: 90%;
-    height: 300px;
+    height: auto;
+    box-sizing: border-box;
     margin-left: 30px;
     margin-top: 50px;
-    padding: 15px 0px 0px 10px;
+    padding: 15px 0px 10px 10px;
 }
 
+#botões-inferiores{
+
+    
+}
 #criar-tarefa {
     background-color: rgb(78, 78, 245);
     color: aliceblue;
@@ -27,4 +32,40 @@ body {
 
 li {
     
+}
+
+#apaga-tudo {
+    background-color: rgb(238, 14, 14);
+    color: aliceblue;
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 15px 5px 15px;
+    margin-left: 40px;
+}
+
+#remover-finalizados {
+    background-color: rgb(60, 95, 13);
+    color: aliceblue;
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 15px 5px 15px;
+    margin-left: 40px;
+}
+
+#salvar-tarefas {
+    background-color: rgb(33, 141, 141);
+    color: aliceblue;
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 15px 5px 15px;
+    margin-left: 40px;
+}
+
+#remover-selecionado {
+    background-color: rgb(166, 168, 26);
+    color: aliceblue;
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 15px 5px 15px;
+    margin-left: 40px;
 }
