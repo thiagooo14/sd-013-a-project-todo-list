@@ -2,6 +2,7 @@
 function adicionaTitulo() {
   const titulo = document.getElementsByTagName('body')[0];
   const header = document.createElement('header');
+  header.className = 'boxTitle';
   titulo.appendChild(header);
   const h1 = document.createElement('h1');
   h1.innerHTML = 'Minha Lista de Tarefas';
@@ -18,3 +19,12 @@ function addParagraph() {
   h1.appendChild(paragraph);
 }
 addParagraph();
+
+// Requisito 3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista
+function addInput() {
+  const corpo = document.getElementsByTagName('body')[0];
+  const saida = document.createElement('input');
+  saida.id = 'texto-tarefa';
+  corpo.appendChild(saida);
+}
+addInput();
