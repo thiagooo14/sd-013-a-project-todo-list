@@ -1,15 +1,15 @@
 body {
-  background-color:bisque;
+  background-color: bisque;
 }
 
 #funcionamento {
   font-size: 20px;
   font-style: italic;
-  font-weight: normal;
+  font-weight: 100;
 }
 
 .boxTitle {
-  text-align:left;
+  text-align: left;
   background-color: pink;
   border: 5px solid black;
   border-radius: 50px;

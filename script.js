@@ -22,9 +22,18 @@ addParagraph();
 
 // Requisito 3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista
 function addInput() {
-  const corpo = document.getElementsByTagName('body')[0];
+  const header = document.getElementsByTagName('header')[0];
   const saida = document.createElement('input');
   saida.id = 'texto-tarefa';
-  corpo.appendChild(saida);
+  header.appendChild(saida);
 }
 addInput();
+
+// Requisito 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
+function addListOrder() {
+  const getSaida = document.getElementsByTagName('input')[0];
+  const listOrder = document.createElement('ol');
+  listOrder.id = 'lista-tarefas';
+  getSaida.appendChild(listOrder);
+}
+addListOrder();
