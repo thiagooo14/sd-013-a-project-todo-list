@@ -17,7 +17,11 @@ botao.addEventListener('click', () => {
   elementList.addEventListener('dblclick', () => {
     elementList.classList.toggle('completed');
   });
-  btnApagaTudo.addEventListener('click', () => {
-    document.querySelector('li').remove(elementList);
-  });
+  
+});
+btnApagaTudo.addEventListener('click', () => {
+  let list = document.querySelectorAll('li');
+  for (let i of list) {
+    i.remove()
+  }
 });
