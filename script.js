@@ -23,20 +23,30 @@ window.onload = function () {
     const newTasks = document.createElement('li');
     const contTasks = document.querySelectorAll('li');
     newTasks.id = contTasks.length + 1;
-    if (inputValue.value === '' || inputValue.value === ' ') {
+    if (inputValue.value.indexOf(' ') === 0 || inputValue.value === '') {
       alert('Insira uma tarefa no campo.');
+      inputValue.focus();
     } else {
       newTasks.textContent = inputValue.value;
       tasksList.appendChild(newTasks);
       inputValue.value = '';
+      inputValue.focus();
     }
   }
 
   function waitCreateTasks() {
-    const createTasks = document.getElementById('criar-tarefa');
-    createTasks.addEventListener('click', addTasks, false);
+    document.getElementById('criar-tarefa').addEventListener('click', addTasks);
   }
   waitCreateTasks();
+
+  function waitCreateTasks2() {
+    document.querySelector('#texto-tarefa').addEventListener('keydown', function (e) {
+      if (e.keyCode === 13) {
+        addTasks();
+      }
+    });
+  }
+  waitCreateTasks2();
 
   function markItem(idItem) {
     const liItems = document.querySelectorAll('li');
