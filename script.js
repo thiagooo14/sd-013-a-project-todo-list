@@ -10,7 +10,7 @@ const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
 const saveListButton = document.getElementById('salvar-tarefas');
 
-function saveList() {;
+function saveList() {
   localStorage.setItem('taskList', taskList.innerHTML);
 }
 // tamanho do texto para marcar somente área escrita
