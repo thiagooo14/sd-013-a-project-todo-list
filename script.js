@@ -12,7 +12,7 @@ function createLi() {
   const tarefas = document.getElementById('lista-tarefas');
   const inputTarefa = document.getElementById('texto-tarefa');
   const btn = document.getElementById('criar-tarefa');
-  btn.addEventListener('click', (event) => {
+  btn.addEventListener('click', () => {
     const lista = document.createElement('li');
     lista.setAttribute('id', 'lista-li');
     lista.innerText = inputTarefa.value;
@@ -37,3 +37,15 @@ function mudaCorDoFundo() {
   });
 }
 mudaCorDoFundo();
+
+const btn = document.getElementById('apaga-tudo');
+function apagaTudo() {
+  // const listOl = document.getElementById('ol');
+  const listLi = document.querySelectorAll('li');
+  for (let index = 0; index < listLi.length; index += 1) {
+    const lista = listLi[index];
+    lista.remove();
+  }
+}
+// apagaTudo();
+btn.addEventListener('click', apagaTudo);
