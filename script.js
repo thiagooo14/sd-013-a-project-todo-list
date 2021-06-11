@@ -46,7 +46,23 @@ window.onload = function() {
             };
         }
     }
+    
+    function completedTask() {
+        const listI = document.getElementById('lista-tarefas');
+        listI.addEventListener('dblclick', function (f) {
+            risk(f.target.id)
+        });
+    }
+    completedTask()
 
-
-
+    function risk(done) {
+        const itens = document.querySelectorAll('li');
+        for (let i = 0; i < itens.length; i += 1) {
+            if (itens[i].id === done) {
+              document.getElementById(itens[i].id).classList.add('completed');
+            }else {
+               document.getElementById(itens[i].id).classList.remove('completed'); 
+            };
+        }
+}
 }
