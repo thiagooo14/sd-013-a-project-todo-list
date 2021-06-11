@@ -69,6 +69,23 @@ function taskAdd() {
     li.innerText = texto;
     ol.appendChild(li);
     input.value = '';
-  });
+    });
 }
 taskAdd();
+
+// Requisito 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)
+// e
+// Requisito 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
+function changeBackgroundColor() {
+  const getLi = document.getElementsByTagName('li');
+  const getOl = document.querySelector('ol');
+  getOl.addEventListener('click', (event) => {
+    for (let index = 0; index < getLi.length; index += 1) {
+      const li = getLi[index];
+      li.style.backgroundColor = 'rgb(128, 128, 128)';
+      li.style.backgroundColor = '';
+    }
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+};
+changeBackgroundColor();
