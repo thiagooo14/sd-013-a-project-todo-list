@@ -47,6 +47,13 @@ function apagaTudo() {
   paiLi.innerHTML = '';
 }
 
+const buttonClearCompleted = document.getElementById('remover-finalizados');
+buttonClearCompleted.addEventListener('click', () => {
+  const getLisCompleted = document.querySelectorAll('.completed');
+  for (let i = 0; i < getLisCompleted.length; i += 1) {
+    getLisCompleted[i].remove();
+  }
+});
 buttonClear.addEventListener('click', apagaTudo);
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createOlItem);
