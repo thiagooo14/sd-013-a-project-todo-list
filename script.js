@@ -25,15 +25,15 @@ function swampElem(paiElem,newElem,oldElem) {
 
 // mover elemento da lista de tarefas para cima
 const onButtonMoveDown = function() {
-  if (taskList.lastElementChild !== lastMarked) {
+  if (lastMarked && taskList.lastElementChild !== lastMarked) {
     swampElem(taskList, lastMarked.nextElementSibling, lastMarked); 
   }
 };
 
 // mover elemento da lista de tarefas para baixo
 const onButtonMoveUp = function() {
-  if (taskList.firstElementChild !== lastMarked) {
-    swampElem(taskList, lastMarked.previousElementSibling, lastMarked.nextElementSibling);
+  if (lastMarked && taskList.firstElementChild !== lastMarked) {
+    swampElem(taskList, lastMarked, lastMarked.previousElementSibling);
   }
 };
 
@@ -77,7 +77,9 @@ const cleanFinished = function () {
 };
 
 const selected = function () {
-    lastMarked.parentNode.removeChild(lastMarked);
+    if(lastMarked !== null) {
+      lastMarked.parentNode.removeChild(lastMarked);
+    }
 };
 
 // Listeners
