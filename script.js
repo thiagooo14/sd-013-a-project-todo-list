@@ -20,13 +20,18 @@ window.onload = function() {
     function clickSelect() {
         const clickButton = document.getElementById('criar-tarefa');
         clickButton.addEventListener('click', taskList);
-        clickButton.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                console.log('Enter');
+    }
+    clickSelect();
+
+    function enterSelect() {
+        const clickButton = document.getElementById('texto-tarefa');
+        clickButton.addEventListener('keydown', function (e) {
+            if (e.keyCode === 13) {
+                taskList();
             }
         });
     }
-    clickSelect();
+    enterSelect();
 
     function paintTask() {
         const listItens = document.getElementById('lista-tarefas');
@@ -57,12 +62,12 @@ window.onload = function() {
 
     function risk(done) {
         const itens = document.querySelectorAll('li');
-        for (let i = 0; i < itens.length; i += 1) {
-            if (itens[i].id === done) {
-              document.getElementById(itens[i].id).classList.add('completed');
-            }else {
-               document.getElementById(itens[i].id).classList.remove('completed'); 
-            };
+        const riskElements = document.getElementById(done).className;
+        if  (riskElements.indexOf('completed') !== -1){
+            document.getElementById(done).classList.remove('completed');
+        }else {
+            document.getElementById(done).classList.add('completed');
+            }
         }
 }
-}
+
