@@ -10,6 +10,7 @@ window.onload = function() {
         }else {
           listItem.textContent = contentTask.value;
            contentList.appendChild(listItem);
+           contentTask.value = '';
         }
      }
      function clickSelect() {
