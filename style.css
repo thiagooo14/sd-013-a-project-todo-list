@@ -69,3 +69,14 @@ li {
     padding: 5px 15px 5px 15px;
     margin-left: 40px;
 }
+
+.updown {
+    background-color: rgb(47, 26, 168);
+    color: rgb(245, 245, 245);
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 15px 5px 15px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-weight: 900 ;
+}
