@@ -5,37 +5,62 @@ const botaoCria = document.getElementById('criar-tarefa');
 const apagaTudo = document.getElementById('apaga-tudo');
 const marcacao = document.getElementsByClassName('completed');
 const removeComp = document.getElementById('remover-finalizados');
-const itens = document.querySelectorAll('.item');
+const itens = document.getElementsByTagName('li');
+
 // adiciona itens
-
-botaoCria.addEventListener('click', () => {
-  const item = document.createElement('li');
-  item.innerText = inputTarefa.value;
-  lista.appendChild(item);
-  inputTarefa.value = '';
-  item.className = 'item';
-  // adiciona evento de click já na criação da Li.
-  item.addEventListener('click', () => {
-    item.className = 'item completed';
-    item.add
-    item.style.backgroundColor = 'rgb(128, 128, 128)';
+function criarTarefa() {
+  botaoCria.addEventListener('click', () => {
+    const li = document.createElement('li');
+    li.innerText = inputTarefa.value;
+    lista.appendChild(li);
+    inputTarefa.value = '';
+    li.addEventListener('click', () => {
+      li.classList.add('completed');
+    });
+    li.addEventListener('dblclick', () => {
+      li.classList.remove('completed');
+    });
+    select();
   });
-  item.addEventListener('dblclick', () => {
-    item.className = 'item';
+}
+
+// testes
+function clearAll() {
+  apagaTudo.addEventListener('click', () => {
+    while (lista.firstChild) {
+      lista.removeChild(lista.firstChild);
+    }
   });
-});
+}
 
-// apagar tudo.
-apagaTudo.addEventListener('click', () => {
-  while (lista.firstChild) {
-    lista.removeChild(lista.firstChild);
+function clearCompleted() {
+  removeComp.addEventListener('click', () => {
+    for (let i = 0; i < marcacao.length; i += 1) {
+      while (i < marcacao.length) {
+        marcacao[i].remove();
+      }
+    }
+  });
+}
+
+// selecionar
+
+function deSelect() {
+  for (let i = 0; i < itens.length; i += 1) {
+    itens[i].classList.remove('selected');
   }
-});
+}
 
-// remover itens finalizados.
-
-removeComp.addEventListener('click', () => {
-  for (let i = 0; i <= marcacao.length; i += 1) {
-    marcacao[i].remove();
+function select() {
+  for (let i = 0; i < itens.length; i += 1) {
+    itens[i].addEventListener('click', (event) => {
+      deSelect();
+      const a = event;
+      a.target.classList.add('selected');
+    });
   }
-});
+}
+
+criarTarefa();
+clearAll();
+clearCompleted();
