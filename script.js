@@ -38,11 +38,15 @@ getOl.addEventListener('dblclick', (evento) => {
   }  
 })
 
+// Função apagar toda lista
+
 let buttonDelete = document.getElementById('apaga-tudo');
 
 buttonDelete.addEventListener('click', () => {
   getOl.innerHTML = '';
 })
+
+//Função remover finalizados
 
 let buttonFinalized = document.getElementById('remover-finalizados');
 
