@@ -3,7 +3,7 @@ const lista = document.getElementById('lista-tarefas');
 const inputText = document.getElementById('texto-tarefa');
 
 // Botão para adicionar:
-btnAdd.addEventListener('click', function(){
+btnAdd.addEventListener('click', function () {
   const itemList = document.createElement('li');
   itemList.innerText = inputText.value;
   lista.appendChild(itemList);
@@ -13,7 +13,7 @@ btnAdd.addEventListener('click', function(){
   let liList = document.getElementsByTagName('li');
 
   for (let i = 0; i < liList.length; i += 1) {
-    liList[i].addEventListener('click', function(){
+    liList[i].addEventListener('click', function () {
       for (let j = 0; j < liList.length; j += 1) {
         liList[j].style.backgroundColor = 'white';
       }
@@ -21,22 +21,23 @@ btnAdd.addEventListener('click', function(){
     })
   };
 
-  // Evento para marcar e desmarcar o item:
-  for (let i = 0; i < liList.length; i += 1) {
-    liList[i].addEventListener('dblclick', function(){
-        if (liList[i].style.textDecoration == 'none') {
-          liList[i].classList.add('completed');
-          liList[i].style.textDecoration = 'line-through';
-        } else if (liList[i].style.textDecoration = 'line-through') {
-          liList[i].classList.remove('completed');
-          liList[i].style.textDecoration = 'none';
-        }
-    })  
-  }
+    const listaOl = document.getElementById('lista-tarefas');
+    listaOl.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed');
+  })
 
   // Botão para limpar lista:
   const btnLimpa = document.getElementById('apaga-tudo');
-  btnLimpa.addEventListener('click', function() {
+    btnLimpa.addEventListener('click', function () {
     document.location.reload();
   })
+
+  const btnLimpaFinalizados = document.getElementById('remover-finalizados')
+    btnLimpaFinalizados.addEventListener('click', function (){
+    const removeFinalizados = document.getElementsByClassName('completed')
+    for (let i = 0; i < removeFinalizados.length; i += 1){
+    let removeItem = document.getElementById('lista-tarefas')
+    removeItem.removeChild(removeFinalizados[i])
+  }
 })
+});
