@@ -1,29 +1,24 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  padding-top: 50px;
-}
+} */
 
 main {
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
-  height: 300px;
+  width: 80%;
   border-radius: 20px;
-  background-color: rgb(178,235,242);
+  background-color: rgb(178, 235, 242);
   padding: 10px;
   border: black solid 2px;
 }
 
-header{
+header {
   text-align: center;
-  color:blue;
+  color: blue;
   font-size: 35px;
-  border-bottom:solid 1px black;
+  border-bottom: solid 1px black;
   border-radius: 10px;
 }
 

@@ -6,3 +6,17 @@ function createOrderedList() {
   lista.appendChild(listaOrdenada);
 }
 createOrderedList();
+
+// Cria a lista de tarefas as (li)
+function createLi() {
+  const tarefas = document.getElementById('lista-tarefas');
+  const inputTarefa = document.getElementById('texto-tarefa');
+  const btn = document.getElementById('criar-tarefa');
+  btn.addEventListener('click', function() {
+    const lista = document.createElement('li');
+    lista.innerText = inputTarefa.value;
+    tarefas.appendChild(lista);
+    inputTarefa.value = '';
+  });
+}
+createLi();
