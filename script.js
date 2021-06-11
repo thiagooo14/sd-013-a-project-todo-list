@@ -1,4 +1,4 @@
-window.onload = () =>{
+
   let buttonAddTask = document.getElementById("criar-tarefa");
   let inputText = document.getElementById('texto-tarefa');
   let list = document.getElementById('lista-tarefas');
@@ -19,4 +19,3 @@ window.onload = () =>{
   topicList.addEventListener('click', changeTopicColor);
 
   
-}
