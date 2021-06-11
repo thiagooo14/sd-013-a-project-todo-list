@@ -38,7 +38,7 @@
 // }
 // addListOrder();
 
-// // Requsito 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
+// Requsito 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
 // function addButton() {
 //   // const onlyInput = document.getElementsByTagName('input')[0];
 //   // const newDiv = document.createElement('div');
@@ -55,4 +55,20 @@
 // }
 // addButton();
 
+// Requsito 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
+// e
+// Requisito 6 - Ordene os itens da lista de tarefas por ordem de criação
+function taskAdd() {
+  const input = document.getElementById('texto-tarefa');
+  const button = document.getElementById('criar-tarefa');
+  const ol = document.getElementById('lista-tarefas');
 
+  button.addEventListener('click', function() {
+    const texto = input.value;
+    const li = document.createElement('li');
+    li.innerText = texto;
+    ol.appendChild(li);
+    input.value = '';
+  });
+}
+taskAdd();
