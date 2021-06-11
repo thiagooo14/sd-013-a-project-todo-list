@@ -1,43 +1,57 @@
 const btnAdd = document.getElementById('criar-tarefa');
-const lista = document.getElementById('lista-tarefas');
+const listaOl = document.getElementById('lista-tarefas');
 const inputText = document.getElementById('texto-tarefa');
+const listaLi = document.getElementsByTagName('li');
 
-// Botão para adicionar:
-btnAdd.addEventListener('click', function () {
+// Botão adicionar:
+function botaoAdicionar() {
   const itemList = document.createElement('li');
   itemList.innerText = inputText.value;
-  lista.appendChild(itemList);
-  inputText.value = "";
+  listaOl.appendChild(itemList);
+  inputText.value = '';
+}
+btnAdd.addEventListener('click', botaoAdicionar);
 
-  // Evento para pintar o fundo do texto:
-  let liList = document.getElementsByTagName('li');
+// Pinta fundo:
+function pintaFundo() {
+  listaOl.addEventListener('click', (event) => {
+    for (let i = 0; i < listaLi.length; i += 1) {
+      listaLi[i].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
+pintaFundo();
 
-  for (let i = 0; i < liList.length; i += 1) {
-    liList[i].addEventListener('click', function () {
-      for (let j = 0; j < liList.length; j += 1) {
-        liList[j].style.backgroundColor = 'white';
-      }
-      liList[i].style.backgroundColor = 'rgb(128,128,128)';
-    })
-  };
-
-    const listaOl = document.getElementById('lista-tarefas');
-    listaOl.addEventListener('dblclick', function (event) {
+// Marcar e desmarcar texto:
+function marcaItem() {
+  listaOl.addEventListener('dblclick', function (event) {
     event.target.classList.toggle('completed');
-  })
+  });
+}
+marcaItem();
 
-  // Botão para limpar lista:
-  const btnLimpa = document.getElementById('apaga-tudo');
-    btnLimpa.addEventListener('click', function () {
+// Botão para limpar lista:
+const btnLimpa = document.getElementById('apaga-tudo');
+function apagaLista() {
+  btnLimpa.addEventListener('click', function () {
     document.location.reload();
   })
+}
+apagaLista();
 
-  const btnLimpaFinalizados = document.getElementById('remover-finalizados')
-    btnLimpaFinalizados.addEventListener('click', function (){
+// Remover os marcados:
+const btnLimpaFinalizados = document.getElementById('remover-finalizados')
+
+function removeMarcados() {
+  btnLimpaFinalizados.addEventListener('click', function () {
     const removeFinalizados = document.getElementsByClassName('completed')
-    for (let i = 0; i < removeFinalizados.length; i += 1){
-    let removeItem = document.getElementById('lista-tarefas')
-    removeItem.removeChild(removeFinalizados[i])
-  }
-})
-});
+    for (let i = 0; i < removeFinalizados.length; i += 1) {
+      let removeItem = document.getElementById('lista-tarefas')
+      while (removeFinalizados.length > 0) {
+        removeItem.removeChild(removeFinalizados[i])
+      }
+    }
+  })
+}
+removeMarcados();
