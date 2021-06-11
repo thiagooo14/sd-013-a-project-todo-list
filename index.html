@@ -11,9 +11,12 @@
 
   <button id="criar-tarefa" onclick="addTar()">Criar Tarefa</button>
 
-  <ol id="lista-tarefas" onclick="addSelected(event)">
+  <ol id="lista-tarefas" onclick="addSelected(event)" ondblclick="riscaOp(event)">
     
   </ol>
+
+  <button id="apaga-tudo">Apagar tudo</button>
+  <button id="remover-finalizados">Apagar completos</button>
 
   <script src="script.js"></script>
 </body>
