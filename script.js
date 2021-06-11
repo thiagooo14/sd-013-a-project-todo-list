@@ -63,7 +63,7 @@ function removeItem() {  // criar uma função
     getOl.innerHTML = ''; // e esvaziar o que tiver dentro
   });
  }
- removeItem()
+ removeItem();
 
 // Requisito 11
 function removeTasksCompleted() { // criar uma função
@@ -75,4 +75,4 @@ function removeTasksCompleted() { // criar uma função
     }
   });
 }
-removeTasksCompleted()
+removeTasksCompleted();

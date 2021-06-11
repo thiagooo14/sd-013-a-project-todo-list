@@ -6,18 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
   <header>Minha Lista de Tarefas</header>
+  <br>
 
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  <p class="lead" id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   
-  <input type="text" class="texto-tarefa" id="texto-tarefa" />
-  <button id="criar-tarefa">Adicionar tarefa</button>
-  <button id="apaga-tudo">Apaga tudo</button>
-  <button id="remover-finalizados">Remover finalizados</button>
-
+  <input type="text" class="texto-tarefa form-control" id="texto-tarefa" placeholder="Digite sua tarefa aqui queridinha" aria-label="default input example" />
+  <br>
+  <button type="button" class="btn btn-outline-secondary" id="criar-tarefa">Adicionar tarefa</button>
+  <button type="button" class="btn btn-outline-secondary" id="apaga-tudo">Apaga tudo</button>
+  <button type="button" class="btn btn-outline-secondary" id="remover-finalizados">Remover finalizados</button>
+  
+  <br>
+  <br>
+  <br>
   <ol id="lista-tarefas"></ol>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <svg xmlns="http://www.w3.org/2000/svg" color="#f0f8fe" width="70" height="70" fill="currentColor" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8z"/>
+  </svg>
 
   <script type="text/javascript" src="script.js"></script>
 </body>

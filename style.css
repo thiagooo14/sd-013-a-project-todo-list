@@ -5,3 +5,29 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+header {
+  margin-top: 50px;
+  color: aliceblue;
+  font-size: 100px;
+  font-family: cursive;
+}
+
+body {
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1517315003714-a071486bd9ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80");
+}
+
+button {
+  margin-top: 100px;
+}
+
+ol {
+  margin-left: 200px;
+  width: 100px;
+}
+
+p {
+  color: #6b5e74;
+}
+
