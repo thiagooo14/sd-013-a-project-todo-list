@@ -34,3 +34,25 @@ const botaoReset = document.querySelector('#apaga-tudo');
 botaoReset.addEventListener('click', function () {
   location.reload();
 });
+
+const botaResetFinished = document.getElementById('remover-finalizados');
+const classCompleted = document.getElementsByTagName('li');
+
+botaResetFinished.addEventListener('click', function () {
+  if (itemLista.childNodes.classList === 'completed') {
+    itemLista.removeChild(classCompleted);
+  }
+})
+
+const buttonRemoveFinish = document.getElementById('remover-finalizados');
+let classeCompletada = document.getElementsByClassName('completed');
+
+buttonRemoveFinish.addEventListener('click', function () {
+  
+  for (let index = 0; index < classeCompletada.length; index += 1) {
+    let pai = document.getElementById('lista-tarefas');
+    while (classeCompletada.length > 0) {
+      pai.removeChild(classeCompletada[index]);
+    }
+  }
+})

@@ -12,28 +12,29 @@ header h1 {
 }
 
 .text-buttons {
+  max-width: 75%;
+  margin: auto;
 }
 
 #texto-tarefa {
   background-color: white;
   box-shadow: 15px 15px 15px;
+  margin-left: 25px;
 }
 
 .square {
   display: inline-block;
-  max-width: 33%;
-  margin-left: 150px;
+  margin-left: 25px;
 }
 
 #criar-tarefa {
-  margin-left: -130px;
   background-color: blueviolet;
   font-size: large;
   font-weight: bold;
   box-shadow: 15px 15px 15px;
 }
 
-#apaga-tudo {
+#apaga-tudo, #remover-finalizados {
   background-color: red;
   font-weight: bold;
   box-shadow: 15px 15px 15px;
