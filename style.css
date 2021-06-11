@@ -1,11 +1,38 @@
-.corCinza {
-    background-color: rgb(128, 128, 128);
+#corCinza {
+  background-color: gray;
 }
 
 .corBranca {
-    background-color: white;
+  background-color: white;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through solid black;
+}
+
+button {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+}
+
+#botoes {
+  padding: 30px 5px;
+}
+
+div {
+  display: inline-block;
+  margin: 2px;
+}
+
+.container {
+  width: 80%;
+}
+
+.btn-secondary {
+  margin: 5px;
+}
+
+#section-text {
+  margin: 10px;
 }

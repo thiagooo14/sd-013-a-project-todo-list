@@ -6,25 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
     <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
-<body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo </p>
-        
-    </header>
-    <section id="section-text">
-        <input id="texto-tarefa" type="text">
+<body class="container">
+    <div class="container">
+      <header class="container">
+          <h1 class="display-3">Minha Lista de Tarefas</h1>
+          <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo </p> 
+      </header>
+      <section class="container-sm" id="section-text">
+          <input id="texto-tarefa" type="text">
+          <div id="botao-adicionar"> </div>
+      </section>
+    <section class="container" id="section-list">
+        <ol id="lista-tarefas" class="list-group list-group-numbered"></ol>
     </section>
-    <section id="section-list">
-        <ol id="lista-tarefas">
-            
-        </ol>
-    </section>
-    
-    
-
-
+    <div class="container" id="botoes">
+        <div id="botao-apagar"> </div>
+        <div id="botao-remover"> </div>
+        <div id="botao-salvar"> </div>
+        <div id="botao-remover-selecionado"></div>
+        <div id="botao-cima-baixo"> </div>
+    </div>
+  </div>
   <script src="script.js"></script>  
 </body>
 </html>
