@@ -8,9 +8,15 @@ window.onload = () =>{
   function addTask(text){
     text = inputText;
     let li = document.createElement('li');
+    li.className = "list";
     li.innerText = inputText.value;
     list.appendChild(li);
     inputText.value = '';
 }
 
+  let topicList = document.querySelectorAll('.list');
+
+  topicList.addEventListener('click', changeTopicColor);
+
+  
 }
