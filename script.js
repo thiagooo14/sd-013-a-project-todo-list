@@ -29,7 +29,7 @@ window.addEventListener('load', dblMarkupTask);
 
 const completeTask = () => {
   listaTarefas.addEventListener('click', (event) => {
-    const li = document.getElementsByClassName('item');
+    const li = document.querySelectorAll('.item');
     for (let index = 0; index < li.length; index += 1) {
       li[index].classList.remove('selected');
     }
@@ -40,28 +40,24 @@ const completeTask = () => {
 window.addEventListener('load', completeTask);
 
 const moveUpTask = () => {
-  const buttonUp = document.querySelector('#mover-cima');
-  buttonUp.addEventListener('click', () => {
-    const element = document.querySelector('.selected');
-    if (element && element.previousElementSibling) {
-      listaTarefas.insertBefore(element, element.previousElementSibling);
-    }
-  });
+  const elementoSelecionado = document.querySelector('.selected');
+  if (elementoSelecionado && elementoSelecionado.previousElementSibling) {
+    listaTarefas.insertBefore(elementoSelecionado, elementoSelecionado.previousElementSibling);
+  }
 };
 
-window.addEventListener('click', moveUpTask);
+const buttonUp = document.querySelector('#mover-cima');
+buttonUp.addEventListener('click', moveUpTask);
 
 const moveDownTask = () => {
-  const buttonDown = document.querySelector('#mover-baixo');
-  buttonDown.addEventListener('click', () => {
-    const selectedElement = document.querySelector('.selected');
-    if (selectedElement && selectedElement.nextElementSibling) {
-      listaTarefas.insertBefore(selectedElement.nextElementSibling, selectedElement);
-    }
-  });
+  const elementoSelecionado = document.querySelector('.selected');
+  if (elementoSelecionado && elementoSelecionado.nextElementSibling) {
+    listaTarefas.insertBefore(elementoSelecionado.nextElementSibling, elementoSelecionado);
+  }
 };
 
-window.addEventListener('click', moveDownTask);
+const buttonDown = document.querySelector('#mover-baixo');
+buttonDown.addEventListener('click', moveDownTask);
 
 const deleteAllTasks = () => {
   const deleteTask = document.querySelector('#apaga-tudo');
