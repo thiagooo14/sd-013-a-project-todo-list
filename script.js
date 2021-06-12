@@ -20,8 +20,25 @@ function addTarefa(){
       event.target.classList.toggle('completed')
     })
   }))
+  
 }
 addTarefa()
+
+const inputEnter = () =>{
+  const listaTarefas = document.getElementById('lista-tarefas');
+  const textoTarefa = document.getElementById('texto-tarefa');
+
+  textoTarefa.addEventListener('keyup', (event) => {
+    if(event.keyCode === 13 && textoTarefa.value.length > 0){
+      let texto = textoTarefa.value;
+      const li = document.createElement('li');
+      listaTarefas.appendChild(li);
+      li.innerText = texto;
+      textoTarefa.value = "";
+    }
+  })
+}
+inputEnter()
 
 function color(){
   const li = document.getElementsByTagName('li');
@@ -39,7 +56,7 @@ color()
 function apagaTudo(){
 const botaoApaga = document.getElementById('apaga-tudo');
 const ol = document.querySelector('ol');
-const li = document.querySelector('li');
+// const li = document.querySelector('li');
 
 botaoApaga.addEventListener("click", (() => {
     ol.innerHTML = null; // remove todos os itens dentro da "ol"
@@ -47,3 +64,16 @@ botaoApaga.addEventListener("click", (() => {
 
 }
 apagaTudo()
+
+const removeItens = () => {
+  const botaoRemoveFin = document.getElementById('remover-finalizados');
+  
+  botaoRemoveFin.addEventListener('click', () => {
+    const tarefaCompleted = document.querySelectorAll('.completed');
+    const ol = document.getElementById('lista-tarefas');
+    for(let i = 0; i < tarefaCompleted.length; i += 1){
+      ol.removeChild(tarefaCompleted[i]);
+    }
+  })
+}
+removeItens()
