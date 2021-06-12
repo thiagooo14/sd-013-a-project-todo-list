@@ -6,8 +6,27 @@ header {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  background-color: rgb(25, 56, 230);
+  background-color: rgb(202, 209, 248);
   border-radius: 12px;
   height: 300px;
   width: 500px;
+}
+
+.bloco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.liCriada {
+  color: rgb(0, 13, 192);
+}
+
+.container-lista {
+  display: flex;
+  border: solid 1px black;
+  width: 500px;
+  height: 150px;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
