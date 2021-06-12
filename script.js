@@ -1,6 +1,6 @@
 function desafio1() {          // ajuda para desenvolver o projet: Greg, Aline, Leme -turma13A 
     let h1 = document.createElement("h1")             // somente criar 
-    h1.innerText = "Minha Lista de Tarefas";          //adciiona texto no h1
+    h1.innerText = "Minha Lista de Tarefas";          //adiciona texto no h1
     let header = document.createElement("header")     // cria elemento header
     header.appendChild(h1)             //adiciona elelmento h1 a um pai, através do pai, header
     document.body.appendChild(header)                 // adiciona header no body
@@ -27,24 +27,21 @@ function desafio3() {
 }
 desafio3()
 
-function desafio4(){
-    let ol = document.createElement("ol");
-    ol.setAttribute("id", "lista-tarefas");
-    let body = document.querySelector("body");
-    body.appendChild(ol);
+function desafio4() {
+    let ol = document.querySelector("ol")
+    document.body.appendChild(ol)
 }
-desafio4()
 
 function desafio5() {
-    let button = document.createElement("button");
-    button.setAttribute("id", "criar-tarefa");
-    button.innerHTML = "Adicionar"
-    let div = document.querySelector("div")
-    let textoTarefa = document.querySelector("#texto-tarefa")
-     div.appendChild(button);
+    
+     let div = document.querySelector("div")
+     let textoTarefa = document.querySelector("#texto-tarefa")
+     
+     let criarTarefa = document.getElementById("criar-tarefa")
+     div.appendChild(criarTarefa)
      let ol = document.querySelector("#lista-tarefas")
 
-     button.addEventListener("click", (() => {
+     criarTarefa.addEventListener("click", (() => { 
      let texto = textoTarefa.value 
          if (textoTarefa.value === "") {
              alert("valor inválido")
@@ -53,7 +50,8 @@ function desafio5() {
         
      let li = document.createElement("li") 
      li.innerText = texto
-     ol.appendChild(li) 
+     ol.appendChild(li)
+     div.appendChild(ol) 
      textoTarefa.value = ""; 
      textoTarefa.focus();    // focus= mantem o input selecionado.  
 
@@ -70,7 +68,7 @@ desafio5()
 function desafio7(){
   let liS = document.getElementsByTagName("li");
   let ol = document.querySelector("ol"); 
-  ol.addEventListener("click", (event) => {  //
+  ol.addEventListener("click", (event) => {  
    for ( let i= 0; i < liS.length; i +=1) {
        let li = liS[i]
        li.style.backgroundColor = "";
@@ -84,7 +82,7 @@ function desafio7(){
 }
 desafio7()
 
-function desafio9(event) {
+ const desafio9 = () => {
 
     //let lis =document.getElementsByTagName("li")
      //   console.log(lis)
@@ -95,23 +93,51 @@ function desafio9(event) {
 
        //    } ) 
         // }
-    //event.target.setAttribute("class", "completed") // if
-    //event.target.classList.toggle("completed")  // interruptor (liga-desliga)
+     // if
     
-    
-    let evento = event.target.style.textDecoration;
-    if ( evento == "line-through") {
-        event.target.style.textDecoration = 'none';
-        
-    
-    } else { 
-        event.target.style.textDecoration = "line-through"; 
-    }
-                 
-
+     //event.target.classList.toggle("completed")  // interruptor (liga-desliga)
+     const ol = document.querySelector("ol")
+     ol.addEventListener("dblclick", (event) => {
+         if (event.target.classList.contains("completed")) {      //se o evento tiver a classe completed
+          event.target.classList.remove("completed")
+          
+        } else {
+            event.target.classList.add("completed")
+        } 
+           
+     } )
+       
 }
-let olol = document.querySelector("#lista-tarefas")
- olol.addEventListener("dblclick", desafio9 )
+ desafio9()
+
+
+ function desafio10() {
+          
+     let apagaTudo = document.getElementById("apaga-tudo");
+     let div = document.querySelector("div");
+     div.appendChild(apagaTudo);
+     let ol = document.querySelector('ol');
+     let li = document.querySelector("li");
+     
+     apagaTudo.addEventListener('click', () => {
+             
+        ol.remove(li);
+            
+     })
+     } 
+     desafio10()  
+     
+     //let tarefas = document.querySelector("#texto-tarefa")
+       // tarefas = tarefas.value
+          //tarefas = texto-tarefa.value
+        // if (tarefas != ""){
+         // tarefas.value = "";
+        //}
+         
+     
+     
+ 
+ 
 
 
 
