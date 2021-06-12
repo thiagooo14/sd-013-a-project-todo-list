@@ -18,16 +18,27 @@
   //const topicList = document.querySelectorAll('.list');
 
   function changeTopicColor(e){      
-  const topicList = document.querySelectorAll('.list');
-
-    for(let aa of topicList){        
-      
-     aa.classList.remove('selected');
-      console.log(aa);
-  }   e.target.classList.add('selected');
+    const topicList = document.querySelectorAll('.list');
+      for(let lis of topicList){              
+        lis.classList.remove('selected');
+        e.target.classList.add('selected');
+  }   
   }  
   
   list.addEventListener('click',changeTopicColor);
   
+  function crossLine(e){
+    const topicList = document.querySelectorAll('.list');
+      console.log(e.target.classList.contains('completed'));
+      if(e.target.classList.contains('completed') == true){
+        e.target.classList.remove('completed');
+      }else{
+        e.target.classList.add('completed');
+      
+    }
+    
+  }  
+
+  list.addEventListener('dblclick', crossLine);
 
   
