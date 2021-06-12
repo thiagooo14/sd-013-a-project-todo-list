@@ -24,9 +24,18 @@ header {
 
 .container-lista {
   display: flex;
-  border: solid 1px black;
   width: 500px;
   height: 150px;
   flex-wrap: wrap;
   align-content: flex-start;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+.bloco {
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+  justify-content: space-around;
 }
