@@ -19,10 +19,10 @@ function createList() {
 
     
         function mudaCor(novaCor) {
-            const tasks = document.getElementsByTagName('li');
-            for(let index = 0; index < tasks.length; index += 1){
-                let listItem = tasks[index];
-                listItem.style.backgroundColor = null;
+            const listaTarefas = document.getElementsByTagName('li');
+            for(let index = 0; index < listaTarefas.length; index += 1){
+                let listItem = listaTarefas[index];
+                listItem.style.backgroundColor = 'rgb(255, 255, 255)';
             }
       
             novaCor.target.style.backgroundColor='rgb(128, 128, 128)';
@@ -31,8 +31,10 @@ function createList() {
 
 
 
-
-       
+      function riscar () {
+        listItem.classList.toggle('completed');
+      }
+      listItem.addEventListener('dblclick', riscar);
     
 
 }
