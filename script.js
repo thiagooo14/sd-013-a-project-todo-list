@@ -1,37 +1,81 @@
-// QUESTÃO 1
-function adicionaHeader () {
-  let novaHeader = document.createElement('header');
-  let novoH1 = document.createElement('h1');
-  novoH1.innerText = "Minha Lista de Tarefas"
-  novaHeader.appendChild(novoH1);
-  document.body.appendChild(novaHeader);
-}
-adicionaHeader()
+const createTaskButton = document.querySelector('#criar-tarefa');
+const taskList = document.querySelector('#lista-tarefas');
+const buttonClearAll = document.querySelector('#apaga-tudo');
+const buttonRemoveFinished = document.querySelector('#remover-finalizados');
+const buttonSaveTasks = document.querySelector('#salvar-tarefas');
+const buttonMoveUp = document.querySelector('#mover-cima');
+const buttonMoveDown = document.querySelector('#mover-baixo');
 
-// QUESTÃO 2
-function adicionaP () {
-  let novaP = document.createElement('p');
-  novaP.innerText = "Clique duas vezes em um item para marcá-lo como completo"
-  novaP.setAttribute("id", "funcionamento");
-  let elementoPai = document.querySelector("header");
-  elementoPai.appendChild(novaP);
+function createTask() {
+  const taskTextInput = document.querySelector('#texto-tarefa').value;
+  const newTask = document.createElement('li');
+  newTask.className = 'item-list';
+  newTask.innerHTML = taskTextInput;
+  taskList.appendChild(newTask);
+  document.querySelector('#texto-tarefa').value = '';
+  focusColorList();
 }
-adicionaP()
+createTaskButton.addEventListener('click', createTask);
 
-//QUESTÃO 3
-function adicionaInput () {
-  let novoInput = document.createElement('input');
-  novoInput.setAttribute("id", "texto-tarefa");
-  novoInput.setAttribute("type", "text");
-  let paiInput = document.querySelector("header");
-  paiInput.appendChild(novoInput);
+function focusColorList() {
+  const taskListItems = document.querySelectorAll('.item-list');
+  for (let index = 0; index < taskListItems.length; index += 1) {
+    taskListItems[index].addEventListener('click', changeColorFocus);
+    taskListItems[index].addEventListener('dblclick', setCompletedStatus)
+  }
 }
-adicionaInput()
+focusColorList();
 
-//QUESTÃO 4
-function adicionaLista () {
-  let listaOrdenada = document.createElement('ol');
-  listaOrdenada.setAttribute("id", "lista-tarefas");
-  document.body.appendChild(listaOrdenada);
+function changeColorFocus(event) {
+  let taskListItems = document.querySelectorAll('.item-list');
+  for (let index = 0; index < taskListItems.length; index += 1) {
+    taskListItems[index].style.backgroundColor = '';
+  }
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
 }
-adicionaLista()
+
+function setCompletedStatus(event) {
+  if (event.target.className == 'item-list completed') {
+    event.target.className = 'item-list';
+  } else {
+    event.target.className += ' completed';
+  }
+}
+
+
+// Requisito 10
+function clearAll() {
+  let itemsToClear = document.querySelector('#lista-tarefas');
+  itemsToClear.innerHTML = '';
+}
+buttonClearAll.addEventListener('click', clearAll);
+
+
+// Requisito 11
+function removeFinished() {
+  let itemsForRemove = document.querySelectorAll('.completed');
+  let allItems = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < itemsForRemove.length; index += 1) {
+    allItems.removeChild(itemsForRemove[index]);
+  }
+}
+buttonRemoveFinished.addEventListener('click', removeFinished);
+
+// Requisito 12
+
+function saveTasks() {
+  let allItems = document.querySelector('#lista-tarefas');
+  console.log(allItems.innerHTML);
+  localStorage.setItem('tasks', allItems.innerHTML);
+}
+buttonSaveTasks.addEventListener('click', saveTasks);
+
+function recoverAllTasks() {
+  console.log(localStorage.getItem('tasks'));
+  taskList.innerHTML = localStorage.getItem('tasks');
+  focusColorList();
+}
+recoverAllTasks();
+
+
+// Projeto feito com  a ajuda de OLávio Timotéo.
