@@ -1,22 +1,25 @@
 main{
 
-    background-color: white;
+    background-color: rgb(240, 220, 220);
     padding: 9%;
-    border-radius: 2%;
+    border-radius: 1%;
 }
 
 h1{
     color: white;
-    background-color: rgb(211, 37, 37);
+    font-size: 70px;
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: rgb(206, 135, 135);
     text-align: center;
     padding: 2%;
-    border-radius: 2%;
+    border-radius: 1%;
 }
 
 body{
     margin-right: 15%;
     margin-left: 15%;
-    background-color: rgb(211, 172, 172);
+    background-image: url('todolist.png');
 }
 
 .selected{
@@ -29,13 +32,24 @@ body{
 
 button{
     color: white;
+    font-style: unset;
     background-color: rgb(211, 37, 37);
     padding: 9px;
     border: rgb(214, 43, 43);
-    
+    justify-content: center;
 }
+
+.button{
+    display: flex;
+    justify-content:space-around;
+    font-size: 80px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
 input{
-    padding: 7px;
+    padding: 8px;
+    width: 600px;
     text-align: center;
     border: solid red 1px;
 }

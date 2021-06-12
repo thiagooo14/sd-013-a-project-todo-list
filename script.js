@@ -55,7 +55,7 @@ function clearList() {
 buttonClear.addEventListener('click', clearList);
 clearList()
 
-//remover itens selecionados
+//remover itens marcados
 const buttonRem = document.getElementById('remover-finalizados');
 
 function removeFin() {
@@ -66,4 +66,4 @@ function removeFin() {
 }
 buttonRem.addEventListener('click', removeFin);
 
-
+//salvar as tarefas
