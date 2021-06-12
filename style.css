@@ -2,11 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 body {
-  background-color: #FEF9EF;
+  background-color: rgb(254 , 249 , 239);
   font-size: 20px;
   font-family: 'Baloo Tammudu 2', cursive;
   display: flex;
@@ -22,7 +21,7 @@ body {
 
 .header h1 {
   font-weight: 550;
-  color: #2892B8;
+  color: rgb(40 , 146 , 184);
   font-size: 2.5em;
 }
 
@@ -35,8 +34,8 @@ body {
   border: 2px solid transparent;
 }
 
-.task:hover{
-  background-color: rgb(85,85,85);
+.task:hover {
+  background-color: rgb(85 , 85 , 85);
 }
 
 .selected {
@@ -49,11 +48,11 @@ body {
 }
 
 .main {
-  height: 100vh;
   padding: 0 20px;
-  border: 4px double #FEF9EF;
-  background-color: #FFCB77;
-  color: #141414;
+  border: 4px double rgb(254 , 249 , 239);
+  background-color: rgb(255 , 203 , 119);
+  color: rgb(20 , 20 , 20);
+  box-shadow: 6px 8px 5px gray;
 }
 
 .main button {
@@ -61,13 +60,13 @@ body {
   padding: 4px;
   border: 3px outset;
   border-radius: 4%;
-  font-family: 'Roboto Mono', monospace;
+  font-family: Roboto Mono, monospace;
   user-select: none;
 }
 
-.tasks-session label{
+.tasks-session label {
   font-size: 18px;
-  color: rgb(85,85,85);
+  color: rgb(85 , 85 , 85);
   display: flex;
   justify-content: start;
   height: 25px;
@@ -83,14 +82,14 @@ body {
   width: 60%;
   font-size: 20px;
   padding: 4px;
-  border: 2px solid #303030;
+  border: 2px solid rgb(48 , 48 , 48);
 }
 
 .tasks-board {
   display: flex;
   justify-content: start;
-  background-color: #FFCB77;
-  border: 4px groove #FEF9EF;
+  background-color: rgb(255 , 203 , 119);
+  border: 4px groove rgb(254 , 249 , 239);
 }
 
 #lista-tarefas {
@@ -98,40 +97,41 @@ body {
 }
 
 #criar-tarefa {
-  background-color: #17C3B2;
-  border-color: #17C3B2;
+  background-color: rgb(23 , 195 , 178);
+  border-color: rgb(23 , 195 , 178);
 }
 
 #criar-tarefa:hover {
-  background-color: #14ac9d;
-  border-color: #14ac9d;
+  background-color: rgb(20 , 172 , 157);
+  border-color: rgb(20 , 172 , 157);
 }
 
 #criar-tarefa:active {
   border-style: inset;
-  background-color: #17C3B2;
-  border-color: #14ac9d;
-}
-
-.remove-btns button {
-  background-color: #FE6D73;
-  border-color: #FE6D73;
-}
-
-.remove-btns button:hover {
-  background-color: #fe545b;
-  border-color: #fe545b;
-}
-
-.remove-btns button:active {
-  background-color: #FE6D73;
-  border-style: inset;
-  border-color: #fe545b;
+  background-color: rgb(23 , 195 , 178);
+  border-color: rgb(20 , 172 , 157);
 }
 
 .up-down {
   float: right;
 }
-.up-down buttons {
-  height: 30px;
+
+.up-down button {
+  font-size: 25px;
+}
+
+.remove-btns button {
+  background-color: rgb(254 , 109 , 115);
+  border-color: rgb(254 , 109 , 115);
+}
+
+.remove-btns button:hover {
+  background-color: rgb(254 , 84 , 91);
+  border-color: rgb(254 , 84 , 91);
+}
+
+.remove-btns button:active {
+  background-color: rgb( 254 , 109 , 115);
+  border-style: inset;
+  border-color: rgb(254 , 84 , 91);
 }
