@@ -1,3 +1,5 @@
+/* eslint-disable space-before-blocks */
+/* eslint-disable keyword-spacing */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable quotes */
 /* eslint-disable no-param-reassign */
@@ -39,6 +41,20 @@ function mudaBackground() {
   });
 }
 mudaBackground()
+
+// Desafio 9
+let listaAdd = document.querySelector('#lista-tarefas');
+
+function riscaTarefa(evento2){
+  let clicado = evento2.target;
+
+  if(clicado.classList.contains('completed')){
+    clicado.classList.remove('completed');
+  } else {
+    clicado.classList.add('completed');
+  }
+}
+listaAdd.addEventListener('dblclick', riscaTarefa);
 
 // Desafio 10
 // metodo location.reload retirado da URL: https://developer.mozilla.org/pt-BR/docs/Web/API/Location/reload
