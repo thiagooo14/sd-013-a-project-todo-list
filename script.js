@@ -40,4 +40,20 @@ window.onload = function() {
                 }   
             }
     }
-}
+    function doubleClick() {
+        const doubleClick = document.getElementById('lista-tarefas');
+        doubleClick.addEventListener('dblclick', function (event) {
+            clickDuplo(event.target.id);      
+        })
+    }
+    doubleClick();
+
+    function clickDuplo(id) {
+        const A = document.getElementById(id).className;
+        if (A.indexOf('completed') !== -1) {
+            document.getElementById(id).classList.remove('completed');
+        }else{
+                document.getElementById(id).classList.add('completed');
+        }  
+    }      
+} 
