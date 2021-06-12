@@ -1,0 +1,14 @@
+const setInput = () => {
+  const lista = document.querySelector('#lista-tarefas');
+  const botton = document.querySelector('#criar-tarefa');
+  const inputList = document.querySelector('#texto-tarefa');
+
+  botton.addEventListener('click', () => {
+    const setTask = document.createElement('li');
+    setTask.classList.add('task-list');
+    const taskContent = inputList.value;
+    setTask.innerText = taskContent;
+    lista.appendChild(setTask);
+  })
+}
+setInput();
