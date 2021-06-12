@@ -58,6 +58,7 @@ function questionEight() {
     }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }));
+
 }
 questionEight();
 
@@ -78,11 +79,10 @@ function questionTen() {
   const apagaTudo = document.getElementById('apaga-tudo');
   const div = document.querySelector('div');
   const ol = document.querySelector('ol');
-  const li = document.querySelector('li');
   div.appendChild(apagaTudo);
 
   apagaTudo.addEventListener('click', (() => {
-    ol.remove(li);
+      ol.innerHTML = null
   }));
 }
 questionTen();
@@ -90,14 +90,14 @@ questionTen();
 function questionEleven() {
   const button = document.getElementById('remover-finalizados');
   const div = document.querySelector('div');
-  const lis = document.getElementsByTagName('li');
-  const ol = document.querySelector('ol');
   div.appendChild(button);
 
   button.addEventListener('click', (() => {
+    const lis = document.querySelectorAll('.completed')
+    const ol = document.querySelector('ol');
     for (let i = 0; i < lis.length; i += 1) {
-      const li = lis[i];
-      ol.remove(li.classList.contains('completed'));
+      const li = lis[i]
+      ol.removeChild(li);
     }
   }));
 }
