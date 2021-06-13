@@ -25,10 +25,10 @@ function backgroundChange(){
   listaOl.addEventListener('click', (evento) =>{
     for(let i = 0; i < listaLi.length; i ++){
       let li = listaLi[i];
-      li.style.bagroundColor='red'
-      li.style.backgroundColor='';
+      li.style.bagroundColor = 'rgb(128,128,128)';
+      li.style.backgroundColor = '';
     }
-    evento.target.style.backgroundColor='red'
+    evento.target.style.backgroundColor = 'rgb(128,128,128)';
 
   })
 }
