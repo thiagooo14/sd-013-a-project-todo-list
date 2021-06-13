@@ -3,25 +3,25 @@ const button = document.getElementById("criar-tarefa");
 const lista = document.getElementById("lista-tarefas");
 const item = document.getElementsByClassName('lista');
 
-//Adicionando uma li 
+//Adicionando uma li
+//Adicionando eventlistener 'click' para colorir
+
 function criarTarefa() {
   const element = input.value;
   const li = document.createElement('li');
-  li.addEventListener('click', colorBackground);
   li.innerText = element;
   lista.appendChild(li);
   input.value = null;
-  
+  li.addEventListener('click', colorBackground);
+  li.addEventListener('dblclick', riscarTarefa);
 };
 button.addEventListener("click", criarTarefa);
 
-
-
-
 //Colorir background da li quando clicado
 function colorBackground(event) {
-  for(let i = 0; i < item.length; i += 1){
-    item[i].classList.remove('selected');
+  const task = document.getElementsByTagName('li');
+  for (let i of task) {
+    i.style.backgroundColor = null;
   }
-    event.target.classList.add('selected'); 
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
