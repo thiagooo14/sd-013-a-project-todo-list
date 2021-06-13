@@ -147,7 +147,7 @@ desafio7()
         //}
 
         function desafio11() {
-         let removerFinal = document.getElementById("remove-finalizados")
+         let removerFinal = document.getElementById("remover-finalizados")
          let div = document.querySelector("div");
          div.appendChild(removerFinal);
             removerFinal.addEventListener('click', () => {
