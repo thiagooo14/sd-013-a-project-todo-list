@@ -9,3 +9,11 @@
 .completed {
   text-decoration: line-through;
 }
+button{
+  background-color: greenyellow;
+  margin: 0.25%;
+  border-color: darkgreen;
+}
+body{
+  background-color: rgba(252, 252, 217, 0.411);
+}

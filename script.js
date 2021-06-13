@@ -1,13 +1,15 @@
 const criat = document.querySelector('#lista-tarefas');
+const movCima = document.querySelector('#mover-cima');
+const movBaixo = document.querySelector('#mover-baixo');
+const listaMain = document.querySelector('#lista-tarefas');
 
 function input() {
   const adi = document.querySelector('#criar-tarefa');
   adi.addEventListener('click', () => {
     const text = document.querySelector('#texto-tarefa');
-    const lis = document.querySelector('#lista-tarefas');
     const criaLi = document.createElement('li');
     criaLi.innerText = text.value;
-    lis.appendChild(criaLi);
+    listaMain.appendChild(criaLi);
     text.value = '';
   });
 }
@@ -41,7 +43,7 @@ function deletC() {
 }
 deletC();
 
-function final() {
+function removeFin() {
   const botRemFin = document.querySelector('#remover-finalizados');
   botRemFin.addEventListener('click', () => {
     const li = document.querySelectorAll('li');
@@ -52,9 +54,9 @@ function final() {
     }
   });
 }
-final();
+removeFin();
 
-function remove() {
+function removeSel() {
   const botRemSel = document.querySelector('#remover-selecionado');
   botRemSel.addEventListener('click', () => {
     const li = document.querySelectorAll('li');
@@ -65,4 +67,41 @@ function remove() {
     }
   });
 }
-remove();
+removeSel();
+
+const salvar = document.querySelector('#salvar-tarefas');
+
+function salvaTare() {
+  const lista = criat.innerHTML;
+  localStorage.setItem('teste', lista);
+}
+function t() {
+  const test = localStorage.getItem('teste');
+  criat.innerHTML = test;
+}
+t();
+salvar.addEventListener('click', salvaTare);
+
+function movUp() {
+  const lis = document.querySelectorAll('li');
+  for (let i = 0; i < lis.length; i += 1) {
+    if (lis[0].classList.contains('cor')) {
+      return alert('ação inválida');
+    } if (lis[i].classList.contains('cor')) {
+      const liPrev = lis[i];
+      listaMain.insertBefore(liPrev, lis[i].previousElementSibling);
+    }
+  }
+}
+movCima.addEventListener('click', movUp);
+function movDown() {
+  const lis = document.querySelectorAll('li');
+  for (let i = 0; i < lis.length; i += 1) {
+    if (lis[lis.length - 1].classList.contains('cor')) {
+      return alert('ação inválida');
+    } if (lis[i].classList.contains('cor')) {
+      listaMain.insertBefore(lis[i], lis[i + 1].nextElementSibling);
+    }
+  }
+}
+movBaixo.addEventListener('click', movDown);
