@@ -52,14 +52,13 @@ function risk() {
     });
 };
 
+//enquanto a UL tiver filho, ira remover o primeiro filho. https://stackoverflow.com/questions/18795028/javascript-remove-li-without-removing-ul
 function exclude() {
     let button = document.getElementById('apaga-tudo');
     button.addEventListener('click', function(){
-        for(let index =0; index <lis.length; index +=1){
-            if(lis[index].classList.contains('completed')){
-                lis[index].innerText="";
-            };
-        };
+        while (olList.firstChild) {
+            olList.removeChild(olList.firstChild);
+          }
     });
 };
 
