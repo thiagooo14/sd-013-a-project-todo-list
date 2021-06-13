@@ -8,12 +8,18 @@
 </head>
 <body>
     <header>
-        <h1>Minha Lista de Tarefas</h1>
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     </header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input id="texto-tarefa" type="text">
-    <button id="criar-tarefa">Criar Tarefa</button>
-    <ol></ol>
+    <form action="">
+      <label for="texto-tarefa">Criar</label>
+      <input id="texto-tarefa" type="text">
+      
+      <button type="button" id="criar-tarefa">Criar Tarefa</button>
+    </form>
+    
+    <ol id="lista-tarefas">
+    </ol>
     <script src="script.js"></script>
 </body>
 </html>

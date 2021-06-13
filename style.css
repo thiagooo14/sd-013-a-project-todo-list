@@ -2,3 +2,7 @@
     font-weight: ;
     top: 100px;
 }
+
+.selected {
+    background-color: rgb(128,128,128)
+}
