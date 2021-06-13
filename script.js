@@ -14,3 +14,16 @@ selectButton.addEventListener('click', () => {
   li.classList.add('item');
   Task.value = ''; 
 });
+
+// Requisito 7
+
+function selectedClass() { // criar uma função
+    const createOL = document.querySelector('ol'); 
+    createOL.addEventListener('click', (event) => { 
+      const createLI = document.getElementsByTagName('li'); 
+      for (let index = 0; index < createLI.length; index += 1) { 
+        createLI[index].classList.toggle('selected'); 
+      }
+    });
+}
+selectedClass();
