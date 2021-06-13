@@ -58,9 +58,21 @@ function exclude() {
     button.addEventListener('click', function(){
         while (olList.firstChild) {
             olList.removeChild(olList.firstChild);
-          }
+          };
+    });
+};
+
+function excludeDone(){
+    let button = document.getElementById('remover-finalizados');
+    
+    button.addEventListener('click', function(){
+        let liDone = document.querySelectorAll('.completed');
+        for (let i =0; i<liDone.length; i+=1){
+            olList.removeChild(liDone[i]);
+        };
     });
 };
 
 risk();
 exclude();
+excludeDone();
