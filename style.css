@@ -1,0 +1,10 @@
+body{ 
+    text-align: auto;
+}
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+
+#criar-tarefa { 
+    background-color: cadetblue;
+}
