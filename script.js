@@ -28,17 +28,36 @@
   list.addEventListener('click',changeTopicColor);
   
   function crossLine(e){
-    const topicList = document.querySelectorAll('.list');
-      console.log(e.target.classList.contains('completed'));
+
       if(e.target.classList.contains('completed') == true){
         e.target.classList.remove('completed');
       }else{
-        e.target.classList.add('completed');
-      
-    }
-    
+        e.target.classList.add('completed');      
+    }    
   }  
 
   list.addEventListener('dblclick', crossLine);
 
-  
+  let eraseAll = document.querySelector('#apaga-tudo');
+
+  function eraseAllTasks(){
+    const listTask = document.querySelectorAll('.list');
+    if(listTask.length != 0){
+      list.textContent = '';
+    }
+  }
+
+  eraseAll.addEventListener('click', eraseAllTasks);
+
+  eraseOkTasks = document.querySelector('#remover-finalizados');
+
+  function bttEraseOkTasks(e){ 
+    const listTask = document.querySelectorAll('.completed');
+    if(listTask.length != 0){
+      for(let lis of listTask){
+        list.removeChild(lis);
+      }
+    }
+  }
+
+  eraseOkTasks.addEventListener('click', bttEraseOkTasks);
