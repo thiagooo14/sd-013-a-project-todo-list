@@ -22,6 +22,7 @@ function desafio3() {
     input.setAttribute("id", "texto-tarefa");
     input.setAttribute("type", "input");  // chave, valor
     let div = document.createElement("div");
+    div.setAttribute("id", "todaTarefa")
     div.appendChild(input);
     let body = document.querySelector("body");
     body.appendChild(div);
@@ -180,6 +181,37 @@ desafio7()
      
      
      desafio12()
+
+     const divs = () => {
+     let divButton = document.createElement("div");
+     divButton.setAttribute("id", "buttons")
+     let criarTarefa = document.getElementById("criar-tarefa")
+     let salvarTarefa = document.getElementById('salvar-tarefas')
+     let removerFinalizados = document.getElementById("remover-finalizados")
+     let apagaTudo = document.getElementById("apaga-tudo")
+     divButton.appendChild(criarTarefa)
+     divButton.appendChild(salvarTarefa)
+     divButton.appendChild(removerFinalizados)
+     divButton.appendChild(apagaTudo)
+     
+     
+     let divText = document.createElement("div") 
+     divText.setAttribute('id', 'divTexto')
+     //let ol = document.querySelector("ol")
+     let input = document.getElementById("texto-tarefa")
+     divText.appendChild(input)
+     //divText.appendChild(ol)
+     let todaTarefa =document.getElementById("todaTarefa")
+     todaTarefa.appendChild(divText)
+     todaTarefa.appendChild(divButton)
+     todaTarefa.style.display="flex"
+     let divOl = document.getElementById("divDaOl")
+     todaTarefa.after(divOl)       // pegar a div irmã + .after (div que se der alocar)
+      
+    
+    }
+          divs()
+     
 
          
      
