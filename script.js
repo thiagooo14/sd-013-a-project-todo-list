@@ -32,6 +32,21 @@ button.addEventListener('click', function(){
                 break;
         };
     });
+
+    // insere a classe select na li
+    listLI.addEventListener('click', function () {
+        switch (listLI.classList.contains('select')) {
+            case true:
+                console.log("tem a classe select")
+                break;
+        
+            default:
+                removeAllSelect();
+                console.log("nao tem a classe select");
+                listLI.classList.add('select');
+                break;
+        };
+    });
 });
 
 //remove todos os backgrounds das li
@@ -64,7 +79,7 @@ function exclude() {
 
 function excludeDone(){
     let button = document.getElementById('remover-finalizados');
-    
+
     button.addEventListener('click', function(){
         let liDone = document.querySelectorAll('.completed');
         for (let i =0; i<liDone.length; i+=1){
@@ -73,6 +88,23 @@ function excludeDone(){
     });
 };
 
+function removeSelect(){
+    let button = document.getElementById('remover-selecionado');
+    button.addEventListener('click', function(){
+        let removeLi = document.querySelector('.select');
+        removeLi.remove();
+    });
+};
+
 risk();
 exclude();
 excludeDone();
+removeSelect();
+
+function removeAllSelect(){
+    for(let i = 0; i <lis.length; i +=1){
+        if(lis[i].classList.contains('select')){
+            lis[i].classList.remove('select');
+        };
+    };
+};
