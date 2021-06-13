@@ -22,6 +22,7 @@ function criarTarefa() {
   li.innerText = getTextoTarefa();
   lista.appendChild(li);
   clearTextoTarefa();
+  doubleClick();
   addListener();
 }
 
@@ -35,4 +36,10 @@ function clearSelection() {
   for (let i = 0; i < liArray.length; i+= 1) {
     liArray[i].style.backgroundColor = 'white';
   }
+}
+
+// Requirement 9
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event
+function doubleClick() {
+  li.addEventListener("dblclick", (event) => event.target.classList.toggle('completed'));
 }
