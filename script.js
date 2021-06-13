@@ -5,7 +5,7 @@ const item = document.getElementsByClassName('lista');
 
 //Adicionando uma li
 //Adicionando eventlistener 'click' para colorir
-
+//Adicionando eventListener 'dblclick' pra riscar o item
 function criarTarefa() {
   const element = input.value;
   const li = document.createElement('li');
@@ -24,4 +24,15 @@ function colorBackground(event) {
     i.style.backgroundColor = null;
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+//Adicionando função pra riscar com duplo click
+function riscarTarefa(event) {
+  if (event.target.classList.contains('completed')){
+    event.target.classList.remove('completed');
+    event.target.style.textDecoration = null;
+  } else {
+    event.target.classList.add('completed');
+    event.target.style.textDecoration ='line-through';
+  }
 }
