@@ -3,7 +3,8 @@ function desafio1() {          // ajuda para desenvolver o projet: Greg, Aline, 
     h1.innerText = "Minha Lista de Tarefas";          //adiciona texto no h1
     let header = document.createElement("header")     // cria elemento header
     header.appendChild(h1)             //adiciona elelmento h1 a um pai, através do pai, header
-    document.body.appendChild(header)                 // adiciona header no body
+    document.body.appendChild(header) 
+    h1.style.backgroundColor="white"              // adiciona header no body
 }
 desafio1()
 
@@ -28,9 +29,19 @@ function desafio3() {
 desafio3()
 
 function desafio4() {
-    let ol = document.querySelector("ol")
-    document.body.appendChild(ol)
+    let ol = document.querySelector("ol");
+    let div = document.querySelector("div")
+    div.appendChild(ol)
+    //article.appendChild(ol)
+    //let div2 = document.createElement("div")
+    //div2.setAttribute("id", "listaGeral")
+    //let div = document.getElementsByTagName("div")[0]
+    
+    //div2.appendChild(ol)
+    //document.body.appendChild(ol)
+   
 }
+desafio4()
 
 function desafio5() {
     
@@ -121,7 +132,8 @@ desafio7()
      
      apagaTudo.addEventListener('click', () => {
              
-        ol.remove(li);
+        ol.innerText = null
+        //ol.remove(li);
             
      })
      } 
@@ -133,6 +145,42 @@ desafio7()
         // if (tarefas != ""){
          // tarefas.value = "";
         //}
+
+        function desafio11() {
+         let removerFinal = document.getElementById("remove-finalizados")
+         let div = document.querySelector("div");
+         div.appendChild(removerFinal);
+            removerFinal.addEventListener('click', () => {
+             let finalizados = document.querySelectorAll(".completed")
+             let ol = document.querySelector("ol")
+             for ( let i= 0; i < finalizados.length; i += 1){
+             ol.removeChild(finalizados[i])
+            }
+        })
+    }
+                 
+     desafio11()
+
+     function desafio12() {
+         let salvarTarefas = document.querySelector("#salvar-tarefas");
+         let div = document.getElementsByTagName('div')[0];
+         div.appendChild(salvarTarefas);
+         let ool = document.querySelector("ol");
+           
+          salvarTarefas.addEventListener("click", () =>{
+           localStorage.setItem("salvo", ool.innerHTML) //chave valor: "salvo" & ool
+          })
+     }
+     window.onload = () =>{
+         let ool = document.querySelector("ol")
+         if (localStorage.getItem("salvo") !== null) {
+          ool.innerHTML += localStorage.getItem("salvo")
+         }
+     }
+     
+     
+     desafio12()
+
          
      
      
