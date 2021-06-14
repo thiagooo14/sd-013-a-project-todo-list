@@ -1,7 +1,8 @@
+const getOl = document.querySelector('#lista-tarefas');
+
 function addingNewTask() {
   const btnNewTask = document.querySelector('#criar-tarefa');
   const getInput = document.querySelector('#texto-tarefa');
-  const getOl = document.querySelector('#lista-tarefas');
   btnNewTask.addEventListener('click', () => {
     const newtask = document.createElement('li');
     getOl.appendChild(newtask);
@@ -23,8 +24,18 @@ function addClass(event) {
 }
 
 function addingBackground() {
-  const getOl = document.querySelector('#lista-tarefas');
   getOl.addEventListener('click', addClass);
 }
 
 addingBackground();
+
+function addCompleted(event) {
+  const evento = event.target;
+  evento.classList.toggle('completed');
+}
+
+function crossTask() {
+  getOl.addEventListener('dblclick', addCompleted);
+}
+
+crossTask();
