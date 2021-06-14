@@ -36,3 +36,27 @@ document.addEventListener('click', (event) => {
     selecionaTarefa(getEventElement);
   }
 });
+
+function completarTarefa (tarefaCompleta) {
+  const tarefaCompletaElement = document.querySelector('.completed');
+  if (tarefaCompletaElement === null) {
+    tarefaCompleta.classList.add('.completed');
+  } else if (tarefaCompleta.classList.contains('completed')) {
+    tarefaCompleta.classList.remove('.completed');
+  } else {
+    completarTarefa.classList.add('.completed');
+  }
+}
+
+function limparTarefasCompletas(itensCompletos) {
+  for (let index = 0; index < itensCompletos.length; index += 1) {
+    itensCompletos[index].remove();
+  }
+}
+
+document.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('tarefa')) {
+    const getEventElement = event.target;
+    completarTarefa(getEventElement);
+  }
+});
