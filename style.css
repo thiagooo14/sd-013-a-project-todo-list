@@ -1,0 +1,22 @@
+header {
+  text-align: center;
+}
+.container {
+  text-align: center;
+  align-items: center;
+}
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+.botoes {
+  display: flex;
+  margin-left: 500px;
+}
+#lista-tarefas {
+  text-align: center;
+  width: 400px;
+  margin-left: 450px;
+}
+.bcgray {
+  background-color: rgb(128, 128, 128);
+}
