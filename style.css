@@ -52,9 +52,8 @@ header {
   height: 25px;
 }
 
-h2 {
-  margin-top: 45px;
-  background-color: tomato;
+
+#funcionamento {
+  font-size: 30px;
   text-align: center;
 }
-
