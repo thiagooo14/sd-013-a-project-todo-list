@@ -11,16 +11,16 @@ function addTask() {
     document.getElementById('texto-tarefa').value = '';
   }
 }
-//debugger
-function changeItemBG() {
-  let input = document.querySelector('ol').children;
 
-  for (let i = 0; i < input.length; i += 1) {
-    input[i].addEventListener('click', () => {
-      item = input[i];
-      item.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
-  }
+function changeItemBackground() {
+  const input = document.querySelector('#lista-tarefas');
+
+  input.addEventListener('click', (event) => {
+    const getLists = document.querySelectorAll('.lista');
+    for (let i = 0; i < getLists.length; i += 1) {
+      getLists[i].classList.remove('lista');
+    } event.target.classList.add('lista');
+  });
 }
 
-//changeItemBG();
+changeItemBackground();
