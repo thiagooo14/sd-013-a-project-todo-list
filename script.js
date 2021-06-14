@@ -70,5 +70,7 @@ document.addEventListener('click', (event) => {
   if (event.target.id === 'remover-finalizados') {
     const listaCompleta = document.querySelectorAll('.completed');
     limparTarefasCompletas(listaCompleta)
-  }})
-  
+  }});
+
+// foi consultado do repositório dos alunos para completar esse projeto estava com algumas duvidas principalmente no requisito 5 porém conforme foi compreendido como fazer o req. 5 ficou mais fácil fazer os outros.
+// foi consultado a internet para fazer o req. 10, segue o link para a resolução: shorturl.at/cpvxG
