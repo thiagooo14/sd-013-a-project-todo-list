@@ -63,7 +63,7 @@ function taskAdd() {
   const button = document.getElementById('criar-tarefa');
   const ol = document.getElementById('lista-tarefas');
 
-  button.addEventListener('click', function() {
+  button.addEventListener('click', (event) => {
     const texto = input.value;
     const li = document.createElement('li');
     li.innerText = texto;
@@ -89,3 +89,32 @@ function changeBackgroundColor() {
   });
 };
 changeBackgroundColor();
+
+// Requisito 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
+function buttonClearALl() {
+  const btn = document.getElementById('apaga-tudo');
+
+  btn.addEventListener('click', (event) => {
+    const listaDeLi = document.querySelectorAll('li');
+    for (let i = 0; i < listaDeLi.length; i += 1) {
+      const lista = listaDeLi[i];
+      lista.remove();
+    }
+  });
+}
+buttonClearALl();
+
+// function taskAdd() {
+//   const input = document.getElementById('texto-tarefa');
+//   const button = document.getElementById('criar-tarefa');
+//   const ol = document.getElementById('lista-tarefas');
+
+//   button.addEventListener('click', (event) => {
+//     const texto = input.value;
+//     const li = document.createElement('li');
+//     li.innerText = texto;
+//     ol.appendChild(li);
+//     input.value = '';
+//     });
+// }
+// taskAdd();
