@@ -32,10 +32,10 @@ function doubleClick(){
 let ol = document.querySelector("ol");
 ol.addEventListener("dblclick", (event) => {
   
-  if (event.target.classList.contains("select")) {
-    event.target.classList.remove("select")
+  if (event.target.classList.contains("completed")) {
+    event.target.classList.remove("completed")
   } else {
-    event.target.classList.add("select")
+    event.target.classList.add("completed")
    } 
 } )
 }
