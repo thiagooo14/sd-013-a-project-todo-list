@@ -69,7 +69,7 @@ function taskAdd() {
     li.innerText = texto;
     ol.appendChild(li);
     input.value = '';
-    });
+  });
 }
 taskAdd();
 
@@ -87,7 +87,7 @@ function changeBackgroundColor() {
     }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
-};
+}
 changeBackgroundColor();
 
 // Requisito 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
@@ -103,18 +103,3 @@ function buttonClearALl() {
   });
 }
 buttonClearALl();
-
-// function taskAdd() {
-//   const input = document.getElementById('texto-tarefa');
-//   const button = document.getElementById('criar-tarefa');
-//   const ol = document.getElementById('lista-tarefas');
-
-//   button.addEventListener('click', (event) => {
-//     const texto = input.value;
-//     const li = document.createElement('li');
-//     li.innerText = texto;
-//     ol.appendChild(li);
-//     input.value = '';
-//     });
-// }
-// taskAdd();
