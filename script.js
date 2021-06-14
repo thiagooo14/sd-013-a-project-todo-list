@@ -9,30 +9,42 @@ let item = document.getElementsByClassName("item");
 
 
 
-function criarItens () {
-  btnAdd.addEventListener("click", () =>{
-  let itens = document.createElement('li');
-  listOrd.appendChild(itens);
-  itens.classList = "item"
-  itens.innerText = inputAdd.value
-  inputAdd.value = ""
-  listenerClick();
+function criarItens() {
+  btnAdd.addEventListener("click", () => {
+    let itens = document.createElement('li');
+    listOrd.appendChild(itens);
+    itens.classList = "item"
+    itens.innerText = inputAdd.value
+    inputAdd.value = ""
+    listenerClick();
   })
 }
 
 criarItens();
 
- //Criando background ao clicar nos itens 
+//Criando selected e background ao clicar nos itens 
 
-function listenerClick () {
-  for (let i = 0 ; i < item.length; i++){
+function listenerClick() {
+  for (let i = 0; i < item.length; i++) {
     item[i].addEventListener("click", () => {
-      adicionaClass()});
-    }
+      removeSelected()
+      item[i].classList.add("selected")
+      adicionaselected()
+    });
+  }
 }
 
-function adicionaClass (){
-for (let i = 0 ; i < item.length; i++){
-  item[i].style.backgroundColor= "rgb(128, 128, 128)"
+function adicionaselected() {
+  for (let i = 0; i < item.length; i++) {
+    if (item[i].classList.contains("selected")) {
+      item[i].style.backgroundColor = "rgb(128, 128, 128)"
+    }
+  }
+}
+
+function removeSelected() {
+  for (let i = 0; i < item.length; i++) {
+    item[i].classList.remove("selected")
+    item[i].style.backgroundColor = "white"
   }
 }
