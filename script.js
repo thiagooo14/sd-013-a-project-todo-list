@@ -63,3 +63,35 @@ button.addEventListener('click', createOlItem);
 button.addEventListener('click', verifyLi);
 
 // DBL CLICK TO CHECK LIST;
+
+const moveItemUp = document.getElementById('mover-cima');
+const moveItemDown = document.getElementById('mover-baixo');
+
+function moveUp() {
+  const getSelectedItem = document.querySelectorAll('li');
+  for (let i = 0; i < getSelectedItem.length; i += 1) {
+    if (getSelectedItem[i].classList.contains('selected') && i > 0) {
+      const textoItem = getSelectedItem[i].innerHTML;
+      getSelectedItem[i].innerHTML = getSelectedItem[i - 1].innerHTML;
+      getSelectedItem[i - 1].innerHTML = textoItem;
+      const selectAtual = document.querySelector('.selected');
+      selectAtual.classList.remove('selected');
+      getSelectedItem[i - 1].classList.add('selected');
+    }
+  }
+}
+
+function moveDown() {
+  const getSelectedItem = document.querySelectorAll('li');
+  for (let i = 0; i < getSelectedItem.length; i += 1) {
+    if (getSelectedItem[i].classList.contains('selected') && i + 1 < getSelectedItem.length) {
+      const GetIMore1 = getSelectedItem[i + 1].innerHTML;
+      getSelectedItem[i + 1].innerHTML = getSelectedItem[i].innerHTML;
+      getSelectedItem[i].innerHTML = GetIMore1;
+      getSelectedItem[i].classList.remove('selected');
+      getSelectedItem[i += 1].classList.add('selected');
+    }
+  }
+}
+moveItemUp.addEventListener('click', moveUp);
+moveItemDown.addEventListener('click', moveDown);
