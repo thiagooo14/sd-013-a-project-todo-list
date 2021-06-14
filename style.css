@@ -1,3 +1,6 @@
 header h1 {
   font-family: 'Viaoda Libre', cursive;
 }
+.select{
+  text-decoration: line-through;
+}

@@ -6,6 +6,7 @@ function criarLista() {
   let texto = document.querySelector('#texto-tarefa');
   li.innerHTML = texto.value;
   texto.value = '';
+  texto.focus();
   lista.appendChild(li);
   });
 }
@@ -19,13 +20,26 @@ function backgroundChange() {
   listaOl.addEventListener('click', (evento) => {
     for (let i = 0; i < listaLi.length; i ++) {
       let li = listaLi[i];
-      li.style.bagroundColor = 'rgb(128,128,128)';
+      li.style.backgroundColor = 'rgb(128,128,128)';
       li.style.backgroundColor = '';
     }
     evento.target.style.backgroundColor = 'rgb(128,128,128)';
   })
 }
 backgroundChange();
+
+function doubleClick(){
+let ol = document.querySelector("ol");
+ol.addEventListener("dblclick", (event) => {
+  
+  if (event.target.classList.contains("select")) {
+    event.target.classList.remove("select")
+  } else {
+    event.target.classList.add("select")
+   } 
+} )
+}
+doubleClick();
 
 function apagarTudo() {
   let btnApagar = document.querySelector('#apaga-tudo');
