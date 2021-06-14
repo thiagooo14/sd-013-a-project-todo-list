@@ -6,7 +6,7 @@ let btnAdd = document.getElementById("criar-tarefa");
 let listOrd = document.getElementById("lista-tarefas");
 let item = document.getElementsByClassName("item");
 let btnlimpar = document.getElementById("apaga-tudo")
-
+let btnRemConc = document.getElementById("remover-finalizados")
 
 
 /*criando itens apos clicar no botão adicionar*/
@@ -80,4 +80,15 @@ function clearList() {
 }
 
 clearList()
+
+// função que remove itens concluidos
+
+btnRemConc.addEventListener("click", clearCompleted)
+
+function clearCompleted() {
+  let itemConc = document.querySelectorAll(".completed")
+  for (let i = 0; i < itemConc.length; i++) {
+    listOrd.removeChild(itemConc[i]);
+  }
+}
 
