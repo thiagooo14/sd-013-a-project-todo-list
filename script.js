@@ -44,7 +44,10 @@ function verifyLi() {
 
 const buttonClear = document.getElementById('apaga-tudo');
 function apagaTudo() {
-  paiLi.innerHTML = '';
+  const getLis = document.querySelectorAll('li');
+  for (let i = 0; i < getLis.length; i += 1) {
+    getLis[i].remove();
+  }
 }
 
 const buttonClearCompleted = document.getElementById('remover-finalizados');
