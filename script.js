@@ -54,4 +54,4 @@ function apagarSelects() {
   }
 }
 
-apagarSelecionados.addEventListener('click', apagarSelects);  
+apagarSelecionados.addEventListener('click', apagarSelects);
