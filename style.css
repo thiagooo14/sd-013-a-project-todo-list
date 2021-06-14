@@ -34,7 +34,7 @@ header h1 {
   box-shadow: 15px 15px 15px;
 }
 
-#apaga-tudo, #remover-finalizados {
+#apaga-tudo, #remover-finalizados, #remover-selecionado {
   background-color: red;
   font-weight: bold;
   box-shadow: 15px 15px 15px;
