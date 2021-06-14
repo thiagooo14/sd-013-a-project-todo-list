@@ -140,6 +140,23 @@ document.addEventListener('click', function(event) {
       event.target.classList.add('selected');
     }
   });
+
+  //Listener que ao ter 2 cliques marca como completa a tarefa
+document.addEventListener('dblclick', function(event) {
+    if(event.target.classList.contains('list-item')) {
+      if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+        event.target.classList.remove('selected');
+      } else {
+        event.target.classList.add('completed');
+        event.target.classList.remove('selected');
+      }
+    }
+  });
+  
+  window.onload = function() {
+    loadTasks();
+  }
   
   
   
