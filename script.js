@@ -1,8 +1,8 @@
-
 const lista = document.querySelector('#lista-tarefas');
 const txt = document.querySelector('#texto-tarefa');
 const botaoApagar = document.querySelector('#apaga-tudo');
 const apagarSelecionados = document.querySelector('#remover-finalizados');
+const botao = document.querySelector('#criar-tarefa');
 
 function criar() {
   if (txt.value === '') {
@@ -30,11 +30,10 @@ function selecionar(value) {
 lista.addEventListener('click', selecionar);
 
 function doubleClick(value) {
-    alue.target.classList.toggle('completed');
+  value.target.classList.toggle('completed');
 }
 
 lista.addEventListener('dblclick', doubleClick);
-
 
 function apagar() {
   const list = document.querySelectorAll('li');
@@ -55,5 +54,4 @@ function apagarSelects() {
   }
 }
 
-apagarSelecionados.addEventListener('click', apagarSelects);
-  
+apagarSelecionados.addEventListener('click', apagarSelects);  
