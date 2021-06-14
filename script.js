@@ -5,6 +5,10 @@ let inputAdd = document.getElementById("texto-tarefa");
 let btnAdd = document.getElementById("criar-tarefa");
 let listOrd = document.getElementById("lista-tarefas");
 let item = document.getElementsByClassName("item");
+
+
+
+
 /*criando itens apos clicar no botão adicionar*/
 
 
@@ -17,6 +21,7 @@ function criarItens() {
     itens.innerText = inputAdd.value
     inputAdd.value = ""
     listenerClick();
+    dblclick()
   })
 }
 
@@ -48,3 +53,23 @@ function removeSelected() {
     item[i].style.backgroundColor = "white"
   }
 }
+
+// Adicionando função para o double click
+function dblclick (){
+  let itList = document.querySelectorAll(".item")
+    for(let i = 0 ; i < itList.length;i++){
+      itList[i].addEventListener("dblclick", completed)
+    }
+
+}
+
+function completed(e) {
+  if(e.target.classList.contains("completed")){
+    e.target.classList.remove("completed")
+  }else{
+    e.target.classList.add("completed")
+  }
+}
+
+
+
