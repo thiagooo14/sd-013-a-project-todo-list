@@ -5,7 +5,7 @@ let inputAdd = document.getElementById("texto-tarefa");
 let btnAdd = document.getElementById("criar-tarefa");
 let listOrd = document.getElementById("lista-tarefas");
 let item = document.getElementsByClassName("item");
-
+let btnlimpar = document.getElementById("apaga-tudo")
 
 
 
@@ -55,21 +55,29 @@ function removeSelected() {
 }
 
 // Adicionando função para o double click
-function dblclick (){
+function dblclick() {
   let itList = document.querySelectorAll(".item")
-    for(let i = 0 ; i < itList.length;i++){
-      itList[i].addEventListener("dblclick", completed)
-    }
+  for (let i = 0; i < itList.length; i++) {
+    itList[i].addEventListener("dblclick", completed)
+  }
 
 }
 
 function completed(e) {
-  if(e.target.classList.contains("completed")){
+  if (e.target.classList.contains("completed")) {
     e.target.classList.remove("completed")
-  }else{
+  } else {
     e.target.classList.add("completed")
   }
 }
 
+// funcao botão que limpa tudo
 
+function clearList() {
+  btnlimpar.addEventListener("click", () => {
+    listOrd.innerHTML = "";
+  });
+}
+
+clearList()
 
