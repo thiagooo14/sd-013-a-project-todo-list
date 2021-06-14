@@ -40,11 +40,11 @@ document.addEventListener('click', (event) => {
 function completarTarefa (tarefaCompleta) {
   const tarefaCompletaElement = document.querySelector('.completed');
   if (tarefaCompletaElement === null) {
-    tarefaCompleta.classList.add('.completed');
+    tarefaCompleta.classList.add('completed');
   } else if (tarefaCompleta.classList.contains('completed')) {
-    tarefaCompleta.classList.remove('.completed');
+    tarefaCompleta.classList.remove('completed');
   } else {
-    completarTarefa.classList.add('.completed');
+    completarTarefa.classList.add('completed');
   }
 }
 
@@ -53,6 +53,8 @@ function limparTarefasCompletas(itensCompletos) {
     itensCompletos[index].remove();
   }
 }
+
+
 
 document.addEventListener('dblclick', (event) => {
   if (event.target.classList.contains('tarefa')) {
