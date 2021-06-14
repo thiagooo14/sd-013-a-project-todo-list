@@ -54,11 +54,21 @@ function limparTarefasCompletas(itensCompletos) {
   }
 }
 
-
-
 document.addEventListener('dblclick', (event) => {
   if (event.target.classList.contains('tarefa')) {
     const getEventElement = event.target;
     completarTarefa(getEventElement);
   }
 });
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'apaga-tudo') {
+    while (listaDeTarefas.firstElementChild) {
+      listaDeTarefas.removeChild(listaDeTarefas.firstElementChild);
+    }
+  }
+  if (event.target.id === 'remover-finalizados') {
+    const listaCompleta = document.querySelectorAll('.completed');
+    limparTarefasCompletas(listaCompleta)
+  }})
+  
