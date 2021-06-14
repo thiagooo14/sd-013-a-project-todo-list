@@ -53,7 +53,6 @@ btnClearCompleted.addEventListener('click', function() {
     }
   });
 
-
 //Ao clicar botão remove todos os itens da lista
 btnClearAll.addEventListener('click', function() {
     let listItem = document.querySelectorAll('.list-item');
@@ -62,5 +61,85 @@ btnClearAll.addEventListener('click', function() {
       listItem[index].remove();
     }
   });
+
+  btnSaveTasks.addEventListener('click', function() {
+    let taskContents = [];
+    let taskClasses = [];
+    let tasks = document.querySelectorAll('#lista-tarefas li');
+  
+    for (let index = 0; index < tasks.length; index += 1) {
+      taskContents.push(tasks[index].textContent);
+      taskClasses.push(tasks[index].className);
+    }
+  
+    localStorage.setItem('taskContents',JSON.stringify(taskContents));
+    localStorage.setItem('taskClasses',JSON.stringify(taskClasses));
+  });
+
+  btnMoveUp.addEventListener('click', function() {
+    let listItem = document.querySelectorAll('.list-item');
+  
+    for (let index = 0; index < listItem.length; index += 1) {
+      let isSelectedItem = listItem[index].classList.contains('selected');
+      let isValidMovement = (index - 1 >= 0);
+  
+      if (isSelectedItem && isValidMovement) {
+        let selectedItem = listItem[index];
+        let previousElement = listItem[index - 1];
+        let auxiliar;
+  
+        auxiliar = previousElement.textContent;
+        previousElement.innerHTML = selectedItem.textContent;
+        selectedItem.innerHTML = auxiliar;
+  
+        auxiliar = previousElement.className;
+        previousElement.className = selectedItem.className;
+        selectedItem.className = auxiliar;
+      }
+    }
+  });
+  
+  btnMoveDown.addEventListener('click', function() {
+    let listItem = document.querySelectorAll('.list-item');
+  
+    for (let index = listItem.length-1; index >= 0; index -= 1) {
+      let isSelectedItem = listItem[index].classList.contains('selected');
+      let isValidMovement = (index + 1 < listItem.length);
+  
+      if (isSelectedItem && isValidMovement) {
+        let selectedItem = listItem[index];
+        let nextElement = listItem[index + 1];
+        let auxiliar;
+  
+        auxiliar = nextElement.textContent;
+        nextElement.innerHTML = selectedItem.textContent;
+        selectedItem.innerHTML = auxiliar;
+  
+        auxiliar = nextElement.className;
+        nextElement.className = selectedItem.className;
+        selectedItem.className = auxiliar;
+      }
+    }
+  });
+  
+  btnRemoveSelected.addEventListener('click', function() {
+    let listItems = document.querySelectorAll('.list-item');
+    
+    for (let index = 0; index < listItems.length; index += 1) {
+      if(listItems[index].classList.contains('selected')) {
+        listItems[index].remove();
+      }
+    }
+  })
+
+  //Listener que seleciona o item da lista
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('list-item')) {
+      console.log('item da lista foi clicado.');
+      clearLastSelected();
+      event.target.classList.add('selected');
+    }
+  });
+  
   
   
