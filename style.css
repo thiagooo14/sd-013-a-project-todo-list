@@ -1,12 +1,6 @@
-#criar-tarefa {position: absolute;
-    font-weight: ;
-    top: 100px;
-}
-
 .selected {
     background-color: grey
 }
-
 .completed {
     text-decoration: line-through solid black;
 }
