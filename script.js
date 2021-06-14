@@ -6,6 +6,7 @@ const buttonSaveTasks = document.querySelector('#salvar-tarefas');
 const buttonMoveUp = document.querySelector('#mover-cima');
 const buttonMoveDown = document.querySelector('#mover-baixo');
 
+// QUESTÃO 5
 function createTask() {
   const taskTextInput = document.querySelector('#texto-tarefa').value;
   const newTask = document.createElement('li');
@@ -26,6 +27,7 @@ function focusColorList() {
 }
 focusColorList();
 
+// QUESTÃO 7
 function changeColorFocus(event) {
   let taskListItems = document.querySelectorAll('.item-list');
   for (let index = 0; index < taskListItems.length; index += 1) {
@@ -34,6 +36,7 @@ function changeColorFocus(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)'
 }
 
+//QUESTÃO  8 e 9
 function setCompletedStatus(event) {
   if (event.target.className == 'item-list completed') {
     event.target.className = 'item-list';
