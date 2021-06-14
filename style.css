@@ -1,0 +1,59 @@
+#criar-tarefa {
+    width: 100px;
+    height: 20px;
+}
+
+li {
+    margin-left: 30px;
+}
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+header {
+  background-color:rgb(114, 250, 125);
+  height: 80px;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 5px;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-bottom: 30px;
+} 
+
+.bg {
+  background-image: url(foto.jpg);
+}
+
+#cabecalho {
+  justify-content: center;
+  padding: 0%;
+  height: 80px;
+}
+
+.butt {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(148, 214, 240);
+  border-bottom-style:dashed;
+  border-radius: 65px;
+  margin-left: 30%;
+  margin-top: 3px;
+  text-align:left; 
+}
+
+.tarefa {
+  margin-left: 45%;
+  margin-top: 25px;
+  height: 25px;
+}
+
+h2 {
+  margin-top: 45px;
+  background-color: rgb(24, 8, 5);
+  text-align: center;
+}

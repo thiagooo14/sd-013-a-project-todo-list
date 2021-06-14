@@ -1,17 +1,82 @@
-function firstQuestion() {
-  let h1 = document.createElement("h1");
-  h1.innerText = "Minha Lista de Tarefas";
-  let header = document.createElement("header");
-  header.appendChild(h1);
-  document.body.appendChild(header);
-}
-firstQuestion()
+const createTaskButton = document.querySelector('#criar-tarefa');
+const taskList = document.querySelector('#lista-tarefas');
+const buttonClearAll = document.querySelector('#apaga-tudo');
+const buttonRemoveFinished = document.querySelector('#remover-finalizados');
+const buttonSaveTasks = document.querySelector('#salvar-tarefas');
 
-function secondQuestion() {
-  let p = document.createElement("p");
-  p.innerText = "Clique duas vezes em um item para marcá-lo como completo";
-  p.setAttribute("id", "funcionamento");
-  let header = document.querySelector("header");
-  header.appendChild(p);
+// QUESTÃO 5
+function createTask() {
+  const taskTextInput = document.querySelector('#texto-tarefa').value;
+  const newTask = document.createElement('li');
+  newTask.className = 'item-list';
+  newTask.innerHTML = taskTextInput;
+  taskList.appendChild(newTask);
+  document.querySelector('#texto-tarefa').value = '';
+  focusColorList();
 }
-secondQuestion()
+createTaskButton.addEventListener('click', createTask);
+
+function focusColorList() {
+  const taskListItems = document.querySelectorAll('.item-list');
+  for (let index = 0; index < taskListItems.length; index += 1) {
+    taskListItems[index].addEventListener('click', changeColorFocus);
+    taskListItems[index].addEventListener('dblclick', setCompletedStatus)
+  }
+}
+focusColorList();
+
+// QUESTÃO 7
+function changeColorFocus(event) {
+  let taskListItems = document.querySelectorAll('.item-list');
+  for (let index = 0; index < taskListItems.length; index += 1) {
+    taskListItems[index].style.backgroundColor = '';
+  }
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
+}
+
+//QUESTÃO  8 e 9
+function setCompletedStatus(event) {
+  if (event.target.className == 'item-list completed') {
+    event.target.className = 'item-list';
+  } else {
+    event.target.className += ' completed';
+  }
+}
+
+
+// Requisito 10
+function clearAll() {
+  let itemsToClear = document.querySelector('#lista-tarefas');
+  itemsToClear.innerHTML = '';
+}
+buttonClearAll.addEventListener('click', clearAll);
+
+
+// Requisito 11
+function removeFinished() {
+  let itemsForRemove = document.querySelectorAll('.completed');
+  let allItems = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < itemsForRemove.length; index += 1) {
+    allItems.removeChild(itemsForRemove[index]);
+  }
+}
+buttonRemoveFinished.addEventListener('click', removeFinished);
+
+// Requisito 12
+
+function saveTasks() {
+  let allItems = document.querySelector('#lista-tarefas');
+  console.log(allItems.innerHTML);
+  localStorage.setItem('tasks', allItems.innerHTML);
+}
+buttonSaveTasks.addEventListener('click', saveTasks);
+
+function recoverAllTasks() {
+  console.log(localStorage.getItem('tasks'));
+  taskList.innerHTML = localStorage.getItem('tasks');
+  focusColorList();
+}
+recoverAllTasks();
+
+
+// Projeto feito com  a ajuda de Josué Lôbo, OLávio Timotéo e Adriana Barreto.
