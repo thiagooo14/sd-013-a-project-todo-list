@@ -1,0 +1,40 @@
+* {
+  font-family: sans-serif;
+}
+
+body {
+  text-align: center;
+}
+
+li {
+  text-align: left;
+}
+
+a {
+  border: solid 1px red;
+}
+
+#texto-tarefa {
+  width:60%;
+}
+
+#remove-finalizados {
+  background-color: rgb(24, 107, 240);
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#criar-tarefa {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#apaga-tudo {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
