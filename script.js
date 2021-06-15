@@ -1,14 +1,17 @@
-//elementos
+// elementos
+
 const inputi = document.getElementById('texto-tarefa');
 const listaDeTarefas = document.getElementById('lista-tarefas');
 
-//buttons
+// buttons
+
 const button = document.getElementById('criar-tarefa');
 const buttonDelet = document.getElementById('apaga-tudo');
 const buttonRemoved = document.getElementById('remover-finalizados');
 const buttonSave = document.getElementById('salvar-tarefas');
 
-//Função que adiciona tarefas
+// Função que adiciona tarefas
+
 function adicionaTarefa() {
   const CreateText = document.createElement('li');
   listaDeTarefas.appendChild(CreateText);
@@ -24,6 +27,7 @@ inputi.addEventListener('keypress', (g) => {
 });
 
 // Referência Josué Lobo//
+
 listaDeTarefas.addEventListener('click', (event) => {
   const alvo = event.target;
   if (alvo.className === 'item-list') {
@@ -37,7 +41,8 @@ listaDeTarefas.addEventListener('click', (event) => {
   }
 });
 
-//Função que rasura a linha
+// Função que rasura a linha
+
 function riscaLinha(evento) {
   const alvo = evento.target;
   if (alvo.classList.contains('completed')) {
@@ -48,22 +53,25 @@ function riscaLinha(evento) {
 }
 listaDeTarefas.addEventListener('dblclick', riscaLinha);
 
-//Função que apaga lista
+// Função que apaga lista
+
 function clearList() {
-  listaDeTarefas.innerHTML='';
+  listaDeTarefas.innerHTML = '';
 }
 buttonDelet.addEventListener('click', clearList);
 
-//Função removeConcluídos
+// Função removeConcluídos
+
 function removeDone() {
   const concluido = document.querySelectorAll('.completed');
   for (let i = 0; i < concluido.length; i += 1) {
     listaDeTarefas.removeChild(concluido[i]);
   }
 }
-buttonRemoved.addEventListener('click', removeDone)
+buttonRemoved.addEventListener('click', removeDone);
 
-//Funções salva-tarefa
+// Funções salva-tarefa
+
 function setLocalSave() {
   const gravarPag = listaDeTarefas.innerHTML;
   localStorage.setItem('save', gravarPag);
@@ -73,6 +81,6 @@ buttonSave.addEventListener('click', setLocalSave);
 function getLocalSave() {
   const salvaElementos = localStorage.getItem('save');
   if (salvaElementos !== null);
-  listaDeTarefas.innerHTML= salvaElementos;
+  listaDeTarefas.innerHTML = salvaElementos;
 }
-getLocalSave()
+getLocalSave();
