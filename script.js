@@ -16,9 +16,7 @@ function addTarefa(){
     textoTarefa.value = "";        // retorna o input limpo 
     textoTarefa.focus();          // continua com o cursor no input
 
-    li.addEventListener('dblclick',(event) =>{
-      event.target.classList.toggle('completed')
-    })
+
   }))
   
 }
@@ -53,6 +51,20 @@ function color(){
 }
 color()
 
+function riscarLi(){
+  const ol = document.querySelector('ol');
+
+  ol.addEventListener('dblclick', (event)=>{
+    if(event.target.classList.contains('completed')){
+      event.target.classList.remove('completed');
+    }else{
+      event.target.classList.add('completed');
+    }
+  })
+
+}
+riscarLi()
+
 function apagaTudo(){
 const botaoApaga = document.getElementById('apaga-tudo');
 const ol = document.querySelector('ol');
@@ -77,3 +89,24 @@ const removeItens = () => {
   })
 }
 removeItens()
+
+const salvarTarefas = () => {
+  const botaoSalvarTaf = document.getElementById('salvar-tarefas');
+  const ol = document.getElementById('lista-tarefas')
+  botaoSalvarTaf.addEventListener('click', () => {
+    
+    localStorage.setItem("tasks", ol.innerHTML);
+  });
+}
+salvarTarefas()
+window.onload = () => {
+  const ol = document.getElementById('lista-tarefas')
+  if(localStorage.getItem("tasks") !== null){
+    ol.innerHTML += localStorage.getItem("tasks");
+  }
+}
+
+// const upButton = () => {
+//   const getUpButton = document.getElementById('mover-cima');
+//   const liSelect = document.getElementsByTagName('.select');
+// }

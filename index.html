@@ -10,22 +10,56 @@
 </head>
 
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
+
+  <header class="container">
+    <div class="container2">
+      <h1>Minha Lista de Tarefas</h1>
+      <a href="https://www.betrybe.com/" target="_blank">
+        <img src="/trybe-logo.jpg" alt="trybe-logo" width="50px">
+      </a>
+    </div>
   </header>
-  <div>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </div>
-  <div>
-    <input id="texto-tarefa" type="input" placeholder="escreva sua tarefa">
-  </div>
-  <section>
-    <button id="criar-tarefa">Adicionar item</button>
-    <button id="apaga-tudo">Limpar lista</button>
-    <button id="remover-finalizados">Remover item completo</button>
-    <button id="salvar-tarefas">Salvar Tarefas</button>
-    <ol id="lista-tarefas"></ol>
+
+  <section class="container-input">
+    <div class="container-input2">
+
+      <div class="container-tarefa">
+        <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+        <input id="texto-tarefa" type="input" placeholder="escreva sua tarefa">
+        <button id="criar-tarefa">Adicionar item</button>
+
+        <section class="input-tarefa">
+          <div class="input-tarefa2">
+            <ol id="lista-tarefas"></ol>
+            <button id="apaga-tudo">Limpar lista</button>
+            <button id="remover-finalizados">Limpar completo</button>
+            <button id="salvar-tarefas">Salvar Tarefas</button>
+            <!-- <button id="mover-cima">⬆️</button> -->
+            
+              
+          </div>
+        </section>
+
+      </div>
+
+    </div>
   </section>
+
+  <footer class="rodape">
+    <div class="rodape2">
+      <div class="insta">
+      <a href="https://www.instagram.com/doouglasdrozda/" target="_blank">
+        <img class="social-img" src="/instagram-logo.png" alt="Instagram logo" width="50px"/>
+      </a>
+      <a href="https://www.linkedin.com/in/douglasdrozda/" target="_blank">
+        <img class="social-img" src="/linked-in-logo.png" alt="Linkedin logo" width="50px" />
+      </a>
+      <p>Douglas Drozda</p>
+      </div>
+    </div>
+  </footer>
+
+
   <script src="script.js"></script>
 </body>
 
