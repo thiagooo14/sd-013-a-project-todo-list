@@ -45,3 +45,14 @@ function checkTask() {
 }
 
 checkTask();
+
+function deleteTasks() {
+  const button = document.querySelector('#apaga-tudo');
+  const taskList = document.querySelector('#lista-tarefas');
+
+  button.addEventListener('click', () => {
+    taskList.innerHTML = '';
+  });
+}
+
+deleteTasks();
