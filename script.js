@@ -8,10 +8,6 @@ function addTask() {
       alert('Insira uma tarefa!');
     } else {
       const li = document.createElement('li');
-      /* const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      li.setAttribute('type', 'checkbox');
-      li.appendChild(checkbox); */
       li.appendChild(document.createTextNode(getInput));
       document.querySelector('#lista-tarefas').appendChild(li);
       document.querySelector('#texto-tarefa').value = '';
@@ -35,13 +31,14 @@ function selectTask() {
 selectTask();
 
 function checkTask() {
+  const input = document.querySelector('#lista-tarefas');
   //const isCLass = input.matches('.lista');
 
  /*  let isChecked = document.getElementsByClassName('completed');
   let isList = document.getElementsByClassName('lista'); */
   /* const getCurrentList = document.querySelector('.lista');
   const checkForClass = getCurrentList.classList.contains('lista');  */// true
-  const input = document.querySelector('.lista');
+  //input = document.querySelector('.lista');
   input.addEventListener('dblclick', (event) => {
     const getCurrentList = document.querySelector('.lista');
     const checkForClass = getCurrentList.classList.contains('lista');
