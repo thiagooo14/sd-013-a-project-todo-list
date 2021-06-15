@@ -1,16 +1,21 @@
 function addTask() {
-  const getInput = document.getElementById('texto-tarefa').value;
-  const ol = document.getElementById('lista-tarefas');
-  const li = document.createElement('li');
+  const button = document.querySelector('#criar-tarefa');
 
-  if (getInput === '') {
-    alert('Insira uma tarefa!');
-  } else {
-    li.appendChild(document.createTextNode(getInput));
-    ol.appendChild(li);
-    document.getElementById('texto-tarefa').value = '';
-  }
+  button.addEventListener('click', () => {
+    const getInput = document.querySelector('#texto-tarefa').value;
+
+    if (getInput === '') {
+      alert('Insira uma tarefa!');
+    } else {
+      const li = document.createElement('li');
+      li.appendChild(document.createTextNode(getInput));
+      document.querySelector('#lista-tarefas').appendChild(li);
+      document.querySelector('#texto-tarefa').value = '';
+    }
+  });
 }
+
+addTask();
 
 function changeItemBackground() {
   const input = document.querySelector('#lista-tarefas');
