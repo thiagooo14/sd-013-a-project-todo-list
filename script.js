@@ -32,20 +32,14 @@ selectTask();
 
 function checkTask() {
   const input = document.querySelector('#lista-tarefas');
-  //const isCLass = input.matches('.lista');
 
- /*  let isChecked = document.getElementsByClassName('completed');
-  let isList = document.getElementsByClassName('lista'); */
-  /* const getCurrentList = document.querySelector('.lista');
-  const checkForClass = getCurrentList.classList.contains('lista');  */// true
-  //input = document.querySelector('.lista');
   input.addEventListener('dblclick', (event) => {
-    const getCurrentList = document.querySelector('.lista');
-    const checkForClass = getCurrentList.classList.contains('lista');
-    if (checkForClass === true) {
-      event.target.classList.add('completed');
-    } else if (checkForClass === false) {
+    const textDecor = document.querySelector('.lista').classList.contains('completed');
+
+    if (textDecor === true) {
       event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
     }
   });
 }
