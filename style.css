@@ -16,13 +16,15 @@ a {
 
 #texto-tarefa {
   width:60%;
+  font-size: 18px;
 }
 
-#remove-finalizados {
+#remover-finalizados {
   background-color: rgb(24, 107, 240);
   color: white;
   padding: 10px;
   border-radius: 20px;
+  border: none;
 }
 
 #criar-tarefa {
@@ -30,6 +32,12 @@ a {
   color: white;
   padding: 10px;
   border-radius: 20px;
+  border: none;
+}
+
+#lista-tarefas, li {
+  border-radius: 1px solid black;
+  width: 700px;
 }
 
 #apaga-tudo {
@@ -37,4 +45,9 @@ a {
   color: white;
   padding: 10px;
   border-radius: 20px;
+  border: none;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
