@@ -16,7 +16,7 @@ olGrey.addEventListener('click', (event) => {
     if (event.target.classList.contains('grey')) {
       event.target.classList.remove('grey');
     } else {
-      for (let i of liGrey) {
+      for (const i of liGrey) {
         i.classList.remove('grey');
       }
       event.target.classList.add('grey');
@@ -36,19 +36,34 @@ olGrey.addEventListener('dblclick', (event) => {
 
 function removeTask() {
   const ol = document.querySelector('#lista-tarefas');
-    ol.innerHTML = null;
+  ol.innerHTML = null;
 }
 const apagar = document.getElementById('apaga-tudo');
 apagar.addEventListener('click', removeTask);
 
 function finishRemove() {
-  const finish = document.querySelector('.completed');
-  const ol = document.querySelector('#lista-tarefas');
+  const finish = document.querySelectorAll('.completed');
   for (let index = 0; index < finish.length; index += 1) {
     if (finish[index].classList.contains('completed')) {
-      ol.removeChild(finish[index]);
+      finish[index].remove();
     }
   }
 }
 const buttonFinish = document.getElementById('remover-finalizados');
 buttonFinish.addEventListener('click', finishRemove);
+
+function removeSelect (){
+  const selected = document.querySelector('.grey');
+  selected.remove()
+}
+  const apagaSelecionado = document.getElementById('remover-selecionado');
+  apagaSelecionado.addEventListener('click', removeSelect);
+
+function salvarTarefas() {
+  const lista = document.getElementById('lista-tarefas');
+  localStorage.setItem('listaSalva', lista.innerHTML);
+}
+const buttonSave = document.getElementById('salvar-tarefas');
+buttonSave.addEventListener('click', salvarTarefas);
+const lista = document.getElementById('lista-tarefas');
+lista.innerHTML = localStorage.listaSalva;
