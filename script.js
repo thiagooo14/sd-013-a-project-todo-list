@@ -56,3 +56,15 @@ function deleteTasks() {
 }
 
 deleteTasks();
+
+function removeCompleted() {
+  const button = document.querySelector('#remover-finalizados');
+
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.completed').forEach((element) => {
+      element.remove();
+    });
+  });
+}
+
+removeCompleted();
