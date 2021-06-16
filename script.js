@@ -36,10 +36,10 @@ olGrey.addEventListener('dblclick', (event) => {
 
 function removeTask() {
   const ol = document.querySelector('#lista-tarefas');
-  while (ol.hasChildNodes()) {
-    ol.removeChild(ol.firstChild);
-  }
+    ol.innerHTML = null;
 }
+const apagar = document.getElementById('apaga-tudo');
+apagar.addEventListener('click', removeTask);
 
 function finishRemove() {
   const finish = document.querySelector('.completed');
