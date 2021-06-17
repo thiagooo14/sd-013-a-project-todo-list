@@ -32,13 +32,11 @@ btnApagarTudo.addEventListener('click', function(){
 });
 
 btnRemoverFinalizados.addEventListener('click', function(){
-  const liIrmaos = olTarefa.children;
-  console.log(liIrmaos);
-
+  const liIrmaos = document.querySelectorAll('.li-style');
+  
   for (const i of liIrmaos) {
     if (i.classList.contains('completed') === true) {
-      liIrmaos.parentNode.removeChild(i)
+        i.remove()
     }
-  }
-  
+  }  
 });
