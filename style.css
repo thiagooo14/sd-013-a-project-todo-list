@@ -22,6 +22,7 @@ body {
   margin-top: 20px;
   margin-left: 10px;
   margin-bottom: 10px;
+  margin-right: 20px;
 }
 
 #lista-tarefas {
@@ -31,5 +32,9 @@ body {
 
 .select {
   background-color:  rgb(128,128,128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
