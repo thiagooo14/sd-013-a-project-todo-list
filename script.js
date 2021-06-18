@@ -141,7 +141,7 @@ document.addEventListener('click', function(event) {
     }
   });
 
-  //Listener que ao ter 2 cliques marca como completa a tarefa
+  //Listener que ao ter double-check marca como completa a tarefa
 document.addEventListener('dblclick', function(event) {
     if(event.target.classList.contains('list-item')) {
       if (event.target.classList.contains('completed')) {
