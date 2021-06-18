@@ -68,7 +68,7 @@ function removeCompleted() {
 }
 
 removeCompleted();
-/* 
+
 function saveList() {
   const button = document.querySelector('#salvar-tarefas');
   button.addEventListener('click', () => {
@@ -95,16 +95,19 @@ saveList();
 function restoreList() {
   const dataArray = window.localStorage.getItem('data');
 
-  for (let i = 0; i < dataArray.length; i += 1) {
-    const element = document.createElement('li');
-    const textNode = document.createTextNode(dataArray[i]);
-    element.appendChild(textNode);
+  if (dataArray !== null) {
+    const dataArray = window.localStorage.getItem('data');
+    for (let i = 0; i < dataArray.length; i += 1) {
+      const element = document.createElement('li');
+      const textNode = document.createTextNode(dataArray[i]);
+      element.appendChild(textNode);
 
-    const taskList = document.querySelector('#lista-tarefas');
-    taskList.appendChild(element);
+      const taskList = document.querySelector('#lista-tarefas');
+      taskList.appendChild(element);
+    }
   }
 }
 
-restoreList(); */
+restoreList();
 
 // Limpar window.localStorage.clear();
