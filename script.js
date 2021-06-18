@@ -49,6 +49,6 @@ const clearCompletedBtn = document.getElementById('remover-finalizados');
 clearCompletedBtn.addEventListener('click', function() {
   const completed = document.querySelectorAll('.completed');
   for (let i of completed) {
-    i.style.display = 'none';
+    i.remove();
   }
 })
