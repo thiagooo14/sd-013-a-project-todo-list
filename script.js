@@ -73,12 +73,12 @@ function saveList() {
   const button = document.querySelector('#salvar-tarefas');
   button.addEventListener('click', () => {
     if (typeof (Storage) !== 'undefined') {
-      const arrL = document.querySelector('#lista-tarefas').children;
+      const tasksArray = document.querySelector('#lista-tarefas').children;
 
       let taskList = '';
 
-      for (let i = 0; i < arrL.length; i += 1) {
-        taskList += arrL[i].textContent;
+      for (let i = 0; i < tasksArray.length; i += 1) {
+        taskList += tasksArray[i].textContent;
       }
 
       const lista = {
