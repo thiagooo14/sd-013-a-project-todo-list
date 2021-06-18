@@ -68,3 +68,43 @@ function removeCompleted() {
 }
 
 removeCompleted();
+
+function saveList() {
+  const button = document.querySelector('#salvar-tarefas');
+  button.addEventListener('click', () => {
+    if (typeof (Storage) !== 'undefined') {
+      const arrL = document.querySelector('#lista-tarefas').children;
+
+      let taskList = '';
+
+      for (let i = 0; i < arrL.length; i += 1) {
+        taskList += arrL[i].textContent;
+      }
+
+      const lista = {
+        data: taskList,
+      };
+
+      window.localStorage.setItem('data', taskList);
+    }
+  });
+}
+
+saveList();
+
+function restoreList() {
+  const dataArray = window.localStorage.getItem('data');
+
+  for (let i = 0; i < dataArray.length; i += 1) {
+    const element = document.createElement('li');
+    const textNode = document.createTextNode(dataArray[i]);
+    element.appendChild(textNode);
+
+    const taskList = document.querySelector('#lista-tarefas');
+    taskList.appendChild(element);
+  }
+}
+
+restoreList();
+
+// Limpar window.localStorage.clear();
