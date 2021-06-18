@@ -71,11 +71,11 @@ removeCompleted();
 
 function saveList() {
   const button = document.querySelector('#salvar-tarefas');
+
   button.addEventListener('click', () => {
     if (typeof (Storage) !== 'undefined') {
-      const tasksArray = document.querySelector('#lista-tarefas').children;
-
-      let taskList = '';
+      let tasksArray = document.querySelector('#lista-tarefas').innerHTML;
+      /* let taskList = '';
 
       for (let i = 0; i < tasksArray.length; i += 1) {
         taskList += tasksArray[i].textContent;
@@ -85,7 +85,11 @@ function saveList() {
         data: taskList,
       };
 
-      window.localStorage.setItem('data', taskList);
+      window.localStorage.setItem('data', taskList); */
+      /* let lista = {
+        data: tasksArray,
+      }; */
+      window.localStorage.setItem('data', JSON.stringify(tasksArray));
     }
   });
 }
@@ -93,10 +97,11 @@ function saveList() {
 saveList();
 
 function restoreList() {
-  const dataArray = window.localStorage.getItem('data');
+  //const dataArray = window.localStorage.getItem('data');
+  tasksArray = JSON.parse(window.localStorage.getItem('data'));
+  document.querySelector('#lista-tarefas').innerHTML = tasksArray;
 
-  if (dataArray !== null) {
-    const dataArray = window.localStorage.getItem('data');
+  /* if (dataArray !== null) {
     for (let i = 0; i < dataArray.length; i += 1) {
       const element = document.createElement('li');
       const textNode = document.createTextNode(dataArray[i]);
@@ -105,9 +110,7 @@ function restoreList() {
       const taskList = document.querySelector('#lista-tarefas');
       taskList.appendChild(element);
     }
-  }
+  } */
 }
-
-restoreList();
-
-// Limpar window.localStorage.clear();
+  
+restoreList(); // Limpar window.localStorage.clear();
