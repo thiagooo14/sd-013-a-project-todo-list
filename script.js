@@ -68,7 +68,7 @@ function removeCompleted() {
 }
 
 removeCompleted();
-
+/* 
 function saveList() {
   const button = document.querySelector('#salvar-tarefas');
   button.addEventListener('click', () => {
@@ -105,6 +105,6 @@ function restoreList() {
   }
 }
 
-restoreList();
+restoreList(); */
 
 // Limpar window.localStorage.clear();
