@@ -74,7 +74,7 @@ function saveList() {
 
   button.addEventListener('click', () => {
     if (typeof (Storage) !== 'undefined') {
-      let tasksArray = document.querySelector('#lista-tarefas').innerHTML;
+      const tasksArray = document.querySelector('#lista-tarefas').innerHTML;
       window.localStorage.setItem('data', JSON.stringify(tasksArray));
     }
   });
@@ -83,7 +83,7 @@ function saveList() {
 saveList();
 
 function restoreList() {
-  tasksArray = JSON.parse(window.localStorage.getItem('data'));
+  const tasksArray = JSON.parse(window.localStorage.getItem('data'));
   document.querySelector('#lista-tarefas').innerHTML = tasksArray;
 }
 
