@@ -38,6 +38,15 @@ function completedList() {
 
 completedList();
 
+function clearAll() {
+  btnClear.addEventListener('click', () => {
+    const taskList = document.querySelector('ol');
+    taskList.innerHTML = '';
+  });
+}
+
+clearAll();
+
 /* btnInput.onclick = () => {
   const taskItem = document.createElement('li');
   taskItem.innerText = taskText.value;
