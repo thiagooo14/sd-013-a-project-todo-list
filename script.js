@@ -3,6 +3,29 @@ const olTask = document.getElementById('lista-tarefas');
 const localStTask = localStorage.getItem('task');
 olTask.innerHTML = localStTask;
 
+// insere a data e hora atual de acordo com o s.o.
+function dateAtual() {
+  const timeDate = document.getElementById('time');
+  const dateAtual = new Date();
+  const dateDia = String(dateAtual.getDate()).padStart(2, '0');
+  const dateMes = String(dateAtual.getMonth() + 1).padStart(2, '0');
+  const dateAno = dateAtual.getFullYear();
+  const dateHora = dateAtual.getHours();
+  const dateMinuto = String(dateAtual.getMinutes()).padStart(2, '0');
+  timeDate.innerText =
+    dateDia +
+    '/' +
+    dateMes +
+    '/' +
+    dateAno +
+    '  -  ' +
+    dateHora +
+    ':' +
+    dateMinuto;
+}
+dateAtual();
+
+// função que inclui novas tarefas a partir do clique no botão incluír tarefa
 function include() {
   const buttonCreate = document.getElementById('criar-tarefa');
 
@@ -39,25 +62,27 @@ function changeSelected() {
       }
     }
     event.target.classList.add('selected');
+    ol.classList.remove('selected');
   }
   ol.addEventListener('click', changeIntoElements);
+  ol.classList.remove('selected');
 }
 changeSelected();
 
 // função para marcar a tarefa como concluída após o clique duplo
-function finishTask() {
   function searchCompleted(event) {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else {
-      event.target.classList.add('completed');
+      if (event.target.classList.contains('linha')) {
+        event.target.classList.add('completed');
+      }
     }
   }
   ol.addEventListener('dblclick', searchCompleted);
-}
-finishTask();
 
-// // função para marcar a tarefa como concluída após o clique no botão "marcar tarefa como concluída"
+
+// // função para marcar a tarefa como concluída após o clique no botão "marcar"
 function finishTaskButtonOk() {
   const taskSelected = document.querySelector('.selected');
 
@@ -68,29 +93,16 @@ function finishTaskButtonOk() {
     taskSelected.classList.add('completed');
   }
 }
-finishTaskButtonOk();
+
 
 // função para apagar todas as tarefas com clique no botão apagar tudo
 function deleteAll() {
-  const buttonDelAll = document.getElementById('apaga-tudo');
-
-  function searchLine() {
-    localStorage.clear();
-    const liTask = document.querySelectorAll('.linha');
-
-    for (let i = 0; i < liTask.length; i += 1) {
-      liTask[i].remove();
-    }
-  }
-  buttonDelAll.addEventListener('click', searchLine);
+  localStorage.clear();
+  document.location.reload();
 }
-deleteAll();
 
 // Remove as tarefas marcadas como finalizadas
 function deleteFinished() {
-  const buttonDelFinished = document.getElementById('remover-finalizados');
-
-  function searchFinished() {
     const liTask = document.querySelectorAll('.linha');
 
     for (let i = 0; i < liTask.length; i += 1) {
@@ -98,20 +110,13 @@ function deleteFinished() {
         liTask[i].remove();
       }
     }
-  }
-  buttonDelFinished.addEventListener('click', searchFinished);
 }
-deleteFinished();
 
 // botão salva as tarefas no localstorage
 function saveTasks() {
-  const buttonSaveTasks = document.getElementById('salvar-tarefas'); // traz o botão
-
-  buttonSaveTasks.addEventListener('click', () => {
-    localStorage.setItem('task', olTask.innerHTML);
-  }); // escuta o evento
+  localStorage.setItem('task', olTask.innerHTML);
+  alert('Tarefas salvas com sucesso!');
 }
-saveTasks();
 
 function moveUp() {
   const liTask = document.querySelectorAll('.linha'); // array com as linhas
@@ -129,10 +134,10 @@ function moveDown() {
 
   for (let index = 0; index < liTask.length; index += 1) {
     if (
-      liTask[index].className === 'linha selected'
-      && index < liTask.length
-      && liTask.length >= 2
-      && liTask.length - index >= 2
+      liTask[index].className === 'linha selected' &&
+      index < liTask.length &&
+      liTask.length >= 2 &&
+      liTask.length - index >= 2
     ) {
       olTask.insertBefore(liTask[index + 1], liTask[index]);
     }

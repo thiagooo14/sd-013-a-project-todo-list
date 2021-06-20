@@ -16,27 +16,78 @@ body {
 
 header {
   text-align: center;
-  padding: 20px;
+  padding-top: 20px;
   color: white;
 }
 
-#tarefas , .buttons , #instrucoes {
-  text-align: center;
-  padding: 20px;
-  margin: 20px;
-  background-color: rgba(255 , 255 , 255 , 0.109);
-  border-radius: 5px;
+#timer-atual {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+#date-atual {
+  color: white;
 }
 
 #funcionamento {
   display: none;
 }
 
+#include-task,
+.buttons,
+#instrucoes,
+#feedback {
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.109);
+  border-radius: 5px;
+}
+
+#tasks {
+  display: flex;
+  justify-content: center;
+}
+
 #instrucoes {
   text-align: left;
   font-size: 10px;
-  color: rgba(255 , 255 , 255 , 0.52);
+  color: rgba(255, 255, 255, 0.52);
   line-height: 20px;
+}
+
+#feedback {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 20px;
+}
+
+#feedback1 {
+  text-align: center;
+  width: 400px;
+  height: 300px;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+
+#donation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  height: 300px;
+  padding: 30px;
 }
 
 button {
@@ -47,6 +98,22 @@ button {
   transition: all 0.5s;
   cursor: pointer;
   text-align: center;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 20px;
+  background-color: rgba(128, 128, 128, 0.568);
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+#enviar-feedback {
+  font-size: 10px;
+  background-color: grey;
+  color: white;
+  align-content: flex-end;
 }
 
 .buttons button {
@@ -81,7 +148,7 @@ button:hover span:after {
 
 input {
   margin: 10px 0 50px;
-  border: 1px solid rgba(128 , 128 , 128 , 0.486);
+  border: 1px solid rgba(128, 128, 128, 0.486);
   border-radius: 5px;
   padding: 10px;
 }
@@ -98,7 +165,7 @@ ol {
 li {
   min-width: 10%;
   max-width: 40%;
-  margin: 5px 20px;
+  margin: 10px 20px;
   padding: 10px;
   font-size: 15px;
   text-align: left;
@@ -106,6 +173,10 @@ li {
   border-radius: 5px;
   word-wrap: break-word;
   background-color: white;
+}
+
+h3 {
+  margin-left: 20px;
 }
 
 ::marker {
@@ -127,7 +198,7 @@ li {
 }
 
 .blue {
-  background-color: rgba(0 , 0 , 255 , 0.603);
+  background-color: rgba(0, 0, 255, 0.603);
   color: white;
 }
 
@@ -142,11 +213,21 @@ li {
 }
 
 .red {
-  background-color: rgba(255 , 0 , 0 , 0.692);
+  background-color: rgba(255, 0, 0, 0.692);
   color: white;
 }
 
 .danger {
   background-color: red;
   color: white;
+}
+
+img {
+  border: 1px solid white;
+}
+
+@media print {
+  .noprint {
+    display: none;
+  }
 }

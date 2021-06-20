@@ -11,46 +11,125 @@
   <body>
     <header>
       <h1>Minha Lista de Tarefas</h1>
-      <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
-      </p>
+      <div id="timer-atual">
+        <p id="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+        <p id="time"></p>
+      </div>
     </header>
-
-    <div id="tarefas">
-      <input type="text" id="texto-tarefa" placeholder="Ex: Beber água" autofocus/>
-      <button id="criar-tarefa" class="blue"><span>Criar tarefa </span></button>
-      <ol id="lista-tarefas"></ol>
+    <!-- <div id="date-atual"></div> -->
+    <div id="include-task">
+      <input
+        type="text"
+        id="texto-tarefa"
+        class="noprint"
+        placeholder="Ex: Beber água"
+        autofocus
+      />
+      <button id="criar-tarefa" class="blue noprint">
+        <span>Criar tarefa </span>
+      </button>
+      <div id="tasks">
+        <ol id="lista-tarefas"></ol>
+      </div>
     </div>
 
-    <div class="buttons">
-      <button id="mover-cima" class="yellow" onclick="moveUp()">
+    <div class="buttons" class="noprint">
+      <button id="mover-cima" class="yellow noprint" onclick="moveUp()">
         <span>Mover para cima </span>
       </button>
-      <button id="mover-baixo" class="yellow" onclick="moveDown()">
+      <button id="mover-baixo" class="yellow noprint" onclick="moveDown()">
         <span>Mover para baixo </span>
       </button>
-      <button id="marcar-finalizado" class="blue" onclick="finishTaskButtonOk()">
+      <button
+        id="marcar-finalizado"
+        class="blue noprint"
+        onclick="finishTaskButtonOk()"
+      >
         <span>Marcar / Desmarcar</span>
       </button>
-      <button id="salvar-tarefas" class="green" onclick="saveTasks()">
+      <button id="salvar-tarefas" class="green noprint" onclick="saveTasks()">
         <span>Salvar tarefas </span>
       </button>
-      <button id="remover-selecionado" class="red" onclick="deleteSelected()">
+      <button
+        id="remover-selecionado"
+        class="red noprint"
+        onclick="deleteSelected()"
+      >
         <span>Remover <b>selecionado</b> </span>
       </button>
-      <button id="remover-finalizados" class="red">
+      <button id="remover-finalizados" class="red noprint" onclick="deleteFinished()">
         <span>Remover <b>finalizados</b> </span>
       </button>
-      <button id="apaga-tudo" class="danger"><span>Apagar tudo </span></button>
+      <button id="apaga-tudo" class="danger noprint" onclick="deleteAll()">
+        <span>Apagar tudo </span>
+      </button>
     </div>
 
-    <div id="instrucoes">
-     <h2>Instruções:</h2>
-<h3>1 - Não é necessário fazer login.</h3>
-<h3>2 - Para marcar uma tarefa como CONCLUÍDA, utilize o botão "Marcar como concluída" ou então um clique duplo em cima de uma tarefa específica.</h3>
-<h3>2 - Clique em salvar tarefas para poder visualizá-las sempre que abrir a página pelo navegador.</h3>
-<h3>3 - Escreva a nova tarefa e clique em "Criar tarefa" ou pressione a tecla "Enter" para incluir uma nova tarefa.</h3>
-      <h3>4 - <b>CUIDADO: </b>Ao clicar no botão APAGAR TUDO, pois ele apagará todas as suas tarefas cadastradas. Caso queira apagar uma tarefa específica, opte pelas opções "Remover selecionado" ou "Remover finalizados".</h3>
+    <div id="instrucoes" class="noprint">
+      <fieldset class="noprint">
+        <legend class="noprint"><h2>Instruções de uso:</h2></legend>
+
+        <h3>1 - Não é necessário fazer login.</h3>
+        <h3>
+          2 - Para marcar uma tarefa como CONCLUÍDA, utilize o botão "Marcar
+          como concluída" ou então um clique duplo em cima de uma tarefa
+          específica.
+        </h3>
+        <h3>
+          2 - Clique em salvar tarefas para poder visualizá-las sempre que abrir
+          a página pelo navegador.
+        </h3>
+        <h3>
+          3 - Escreva a nova tarefa e clique em "Criar tarefa" ou pressione a
+          tecla "Enter" para incluir uma nova tarefa.
+        </h3>
+        <h3>
+          4 - <b>CUIDADO: </b>Ao clicar no botão APAGAR TUDO, pois ele apagará
+          todas as suas tarefas cadastradas. Caso queira apagar uma tarefa
+          específica, opte pelas opções "Remover selecionado" ou "Remover
+          finalizados".
+        </h3>
+      </fieldset>
+    </div>
+
+    <div id="feedback" class="noprint">
+      <div id="feedback1" class="noprint">
+        <h4>
+          Esta ferramenta é totalmente GRATUITA, mas você pode melhorá-la ainda
+          mais. ENVIE SEU FEEDBACK! &#x2764;
+        </h4>
+        <br />
+        <textarea
+          name="text-feedback"
+          id="text-feedback"
+          rows="10"
+          maxlength="200"
+          class="noprint"
+        ></textarea
+        ><br />
+        <button type="submit" id="enviar-feedback" class="noprint">
+          Enviar feedback
+        </button>
+      </div>
+      <div id="donation" class="noprint">
+        <h4 class="noprint">
+          Se esta ferramenta te ajudou e você acredita que o desenvolvedor
+          merece um incentivo para continuar melhorando, DEIXE SUA DOAÇÃO
+          através do QR Code:
+        </h4>
+        <br />
+        <a
+          href="https://www.paypal.com/donate?hosted_button_id=EYAS6N2EJ6JKC"
+          target="_blank"
+          ><img
+            src="qr-code-donation.png"
+            alt="qr-code-donation"
+            id="qr-code-donation"
+            class="noprint"
+        /></a>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
