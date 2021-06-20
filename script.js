@@ -52,3 +52,28 @@ clearCompletedBtn.addEventListener('click', function() {
     i.remove();
   }
 })
+
+// Botão remover selecionado
+const clearSelectedBtn = document.getElementById('remover-selecionado');
+clearSelectedBtn.addEventListener('click', function() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+})
+
+// Botão mover cima
+const moveUpBtn = document.getElementById('mover-cima');
+moveUpBtn.addEventListener('click', function() {
+  const selected = document.querySelector('.selected');
+  if (selected.previousElementSibling) {
+    selected.parentNode.insertBefore(selected, selected.previousElementSibling);
+  }
+})
+
+// Botão mover baixo
+const moveDownBtn = document.getElementById('mover-baixo');
+moveDownBtn.addEventListener('click', function() {
+  const selected = document.querySelector('.selected');
+  if (selected.nextElementSibling) {
+    selected.parentNode.insertBefore(selected.nextElementSibling, selected);
+  }
+})
