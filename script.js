@@ -1,6 +1,8 @@
 let btnCriarTarefa = document.querySelector("#criar-tarefa");
 let campoInput = document.querySelector("#texto-tarefa");
 let listaOrd = document.querySelector("#lista-tarefas");
+let btnApagar = document.querySelector("#apaga-tudo");
+let btnFinalizados = document.querySelector("#remover-finalizados");
 
 btnCriarTarefa.addEventListener("click", function () {
     let novaTarefa = document.createElement("li");
@@ -29,6 +31,21 @@ function deselect() {
         itemSelecionado.classList.remove("select");
     }
   };
+
+  btnApagar.addEventListener("click", function () {
+      listaOrd.innerHTML = "";
+  });
+
+  btnFinalizados.addEventListener("click", function () {
+      let completedClass = document.querySelectorAll(".completed");
+
+      for (item of completedClass) {
+          item.remove();
+      }
+  })
+
+
+
 
 
 
