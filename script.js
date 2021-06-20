@@ -93,6 +93,9 @@ function moveItemUp() {
   const buttonUp = document.querySelector('#mover-cima');
 
   buttonUp.addEventListener('click', () => {
+    if (document.querySelector('.lista') === null) {
+      return;
+    }
     const parent = document.querySelector('.lista').parentNode;
     const previous = document.querySelector('.lista').previousElementSibling;
     const current = document.querySelector('.lista');
@@ -111,6 +114,9 @@ function moveItemDown() {
   const buttonDown = document.querySelector('#mover-baixo');
 
   buttonDown.addEventListener('click', () => {
+    if (document.querySelector('.lista') === null) {
+      return;
+    }
     const parent = document.querySelector('.lista').parentNode;
     const next = document.querySelector('.lista').nextElementSibling;
     const current = document.querySelector('.lista');
