@@ -1,3 +1,5 @@
+const taskListElement = document.querySelector('#lista-tarefas');
+
 function addTask() {
   const button = document.querySelector('#criar-tarefa');
 
@@ -9,7 +11,7 @@ function addTask() {
     } else {
       const li = document.createElement('li');
       li.appendChild(document.createTextNode(getInput));
-      document.querySelector('#lista-tarefas').appendChild(li);
+      taskListElement.appendChild(li);
       document.querySelector('#texto-tarefa').value = '';
     }
   });
@@ -18,7 +20,7 @@ function addTask() {
 addTask();
 
 function selectTask() {
-  const input = document.querySelector('#lista-tarefas');
+  const input = taskListElement;
 
   input.addEventListener('click', (event) => {
     const getLists = document.querySelectorAll('.lista');
@@ -30,8 +32,8 @@ function selectTask() {
 
 selectTask();
 
-function checkTask() {
-  const input = document.querySelector('#lista-tarefas');
+function markComplete() {
+  const input = taskListElement;
 
   input.addEventListener('dblclick', (event) => {
     const textDecor = document.querySelector('.lista').classList.contains('completed');
@@ -44,11 +46,11 @@ function checkTask() {
   });
 }
 
-checkTask();
+markComplete();
 
 function deleteTasks() {
   const button = document.querySelector('#apaga-tudo');
-  const taskList = document.querySelector('#lista-tarefas');
+  const taskList = taskListElement;
 
   button.addEventListener('click', () => {
     taskList.innerHTML = '';
@@ -69,12 +71,24 @@ function removeCompleted() {
 
 removeCompleted();
 
+function removeSelected() {
+  const button = document.querySelector('#remover-selecionado');
+
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.lista').forEach((element) => {
+      element.remove();
+    });
+  });
+}
+
+removeSelected();
+
 function saveList() {
   const button = document.querySelector('#salvar-tarefas');
 
   button.addEventListener('click', () => {
     if (typeof (Storage) !== 'undefined') {
-      const tasksArray = document.querySelector('#lista-tarefas').innerHTML;
+      const tasksArray = taskListElement.innerHTML;
       window.localStorage.setItem('data', JSON.stringify(tasksArray));
     }
   });
@@ -84,7 +98,7 @@ saveList();
 
 function restoreList() {
   const tasksArray = JSON.parse(window.localStorage.getItem('data'));
-  document.querySelector('#lista-tarefas').innerHTML = tasksArray;
+  taskListElement.innerHTML = tasksArray;
 }
 
 restoreList();
@@ -101,7 +115,7 @@ function moveItemUp() {
     const current = document.querySelector('.lista');
 
     if (previous === null) {
-      const listEnd = null;
+      console.log('Fim da lista.');
     } else {
       parent.insertBefore(current, previous);
     }
@@ -122,7 +136,7 @@ function moveItemDown() {
     const current = document.querySelector('.lista');
 
     if (next === null) {
-      const listEnd = null;
+      console.log('Fim da lista.');
     } else {
       parent.insertBefore(next, current);
     }
