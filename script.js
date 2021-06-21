@@ -15,13 +15,9 @@ newTaskBtn.addEventListener('click', function () {
 // Função selecionar
 function selectOnClick(element) {
   element.addEventListener('click', function () {
-    if (this.classList.contains('selected')) {
-      this.classList.remove('selected');
-    } else {
-      const selectedTask = document.querySelector('.selected');
-      if (selectedTask !== null) selectedTask.classList.remove('selected');
-      this.classList.add('selected');
-    }
+    const selectedTask = document.querySelector('.selected');
+    if (selectedTask) selectedTask.classList.remove('selected');
+    this.classList.add('selected');
   });
 }
 
@@ -46,34 +42,34 @@ clearBtn.addEventListener('click', function () {
 // Botão remover finalizados
 const clearCompletedBtn = document.getElementById('remover-finalizados');
 
-clearCompletedBtn.addEventListener('click', function() {
+clearCompletedBtn.addEventListener('click', function () {
   const completed = document.querySelectorAll('.completed');
   for (let i of completed) {
     i.remove();
   }
-})
+});
 
 // Botão remover selecionado
 const clearSelectedBtn = document.getElementById('remover-selecionado');
-clearSelectedBtn.addEventListener('click', function() {
+clearSelectedBtn.addEventListener('click', function () {
   const selected = document.querySelector('.selected');
   selected.remove();
-})
+});
 
 // Botão mover cima
 const moveUpBtn = document.getElementById('mover-cima');
-moveUpBtn.addEventListener('click', function() {
+moveUpBtn.addEventListener('click', function () {
   const selected = document.querySelector('.selected');
   if (selected && selected.previousElementSibling) {
     selected.parentNode.insertBefore(selected, selected.previousElementSibling);
   }
-})
+});
 
 // Botão mover para baixo
 const moveDownBtn = document.getElementById('mover-baixo');
-moveDownBtn.addEventListener('click', function() {
+moveDownBtn.addEventListener('click', function () {
   const selected = document.querySelector('.selected');
   if (selected && selected.nextElementSibling) {
     selected.parentNode.insertBefore(selected.nextElementSibling, selected);
   }
-})
+});
