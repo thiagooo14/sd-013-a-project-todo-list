@@ -4,6 +4,8 @@ let listaOrd = document.querySelector("#lista-tarefas");
 let btnApagar = document.querySelector("#apaga-tudo");
 let btnFinalizados = document.querySelector("#remover-finalizados");
 let btnRemoveSelecionado = document.querySelector("#remover-selecionado");
+let btnSalvarTarefa = document.querySelector("#salvar-tarefas");
+
 
 btnCriarTarefa.addEventListener("click", function () {
   let novaTarefa = document.createElement("li");
@@ -48,6 +50,26 @@ btnFinalizados.addEventListener("click", function () {
 btnRemoveSelecionado.addEventListener("click", function () {
   document.querySelector(".select").remove();
 })
+
+
+btnSalvarTarefa.addEventListener("click", function () {
+  let itemList = document.querySelector("#lista-tarefas").innerHTML;
+
+  localStorage.setItem('itemList', itemList);
+  
+});
+
+function elementoSalvo() {
+  if (localStorage.getItem('itemList')) {
+    listaOrd.innerHTML = localStorage.getItem('itemList');
+  }
+}
+
+elementoSalvo();
+
+
+
+
 
 
 
