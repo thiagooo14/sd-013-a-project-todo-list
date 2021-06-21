@@ -3,46 +3,51 @@ let campoInput = document.querySelector("#texto-tarefa");
 let listaOrd = document.querySelector("#lista-tarefas");
 let btnApagar = document.querySelector("#apaga-tudo");
 let btnFinalizados = document.querySelector("#remover-finalizados");
+let btnRemoveSelecionado = document.querySelector("#remover-selecionado");
 
 btnCriarTarefa.addEventListener("click", function () {
-    let novaTarefa = document.createElement("li");
-    listaOrd.appendChild(novaTarefa);
-    novaTarefa.innerText = campoInput.value;
-    campoInput.value = "";
+  let novaTarefa = document.createElement("li");
+  listaOrd.appendChild(novaTarefa);
+  novaTarefa.innerText = campoInput.value;
+  campoInput.value = "";
 
-    novaTarefa.addEventListener("click", function () {
-        deselect();
-        this.classList.add("select");
-    })
+  novaTarefa.addEventListener("click", function () {
+    deselect();
+    this.classList.add("select");
+  })
 
-    novaTarefa.addEventListener("dblclick", function () {
-        if (this.classList.contains("completed")) {
-            this.classList.remove("completed");
-        } else {
-            this.classList.add("completed");
-        }
-    })
+  novaTarefa.addEventListener("dblclick", function () {
+    if (this.classList.contains("completed")) {
+      this.classList.remove("completed");
+    } else {
+      this.classList.add("completed");
+    }
+  })
 });
 
 function deselect() {
-    let itemSelecionado = document.querySelector(".select");
-    
-    if (itemSelecionado) {
-        itemSelecionado.classList.remove("select");
-    }
-  };
+  let itemSelecionado = document.querySelector(".select");
 
-  btnApagar.addEventListener("click", function () {
-      listaOrd.innerHTML = "";
-  });
+  if (itemSelecionado) {
+    itemSelecionado.classList.remove("select");
+  }
+};
 
-  btnFinalizados.addEventListener("click", function () {
-      let completedClass = document.querySelectorAll(".completed");
+btnApagar.addEventListener("click", function () {
+  listaOrd.innerHTML = "";
+});
 
-      for (item of completedClass) {
-          item.remove();
-      }
-  })
+btnFinalizados.addEventListener("click", function () {
+  let completedClass = document.querySelectorAll(".completed");
+
+  for (item of completedClass) {
+    item.remove();
+  }
+})
+
+btnRemoveSelecionado.addEventListener("click", function () {
+  document.querySelector(".select").remove();
+})
 
 
 
