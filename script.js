@@ -69,7 +69,7 @@ moveUpBtn.addEventListener('click', function() {
   }
 })
 
-// Botão mover baixo
+// Botão mover para baixo
 const moveDownBtn = document.getElementById('mover-baixo');
 moveDownBtn.addEventListener('click', function() {
   const selected = document.querySelector('.selected');
