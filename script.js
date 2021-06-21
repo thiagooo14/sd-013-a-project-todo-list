@@ -64,7 +64,7 @@ clearSelectedBtn.addEventListener('click', function() {
 const moveUpBtn = document.getElementById('mover-cima');
 moveUpBtn.addEventListener('click', function() {
   const selected = document.querySelector('.selected');
-  if (selected.previousElementSibling) {
+  if (selected && selected.previousElementSibling) {
     selected.parentNode.insertBefore(selected, selected.previousElementSibling);
   }
 })
@@ -73,7 +73,7 @@ moveUpBtn.addEventListener('click', function() {
 const moveDownBtn = document.getElementById('mover-baixo');
 moveDownBtn.addEventListener('click', function() {
   const selected = document.querySelector('.selected');
-  if (selected.nextElementSibling) {
+  if (selected && selected.nextElementSibling) {
     selected.parentNode.insertBefore(selected.nextElementSibling, selected);
   }
 })
