@@ -1,0 +1,18 @@
+.completed {
+  text-decoration: line-through;
+}
+
+section {
+  display: flexbox;
+}
+
+button {
+  margin-bottom: 0;
+  padding: 2px 5px;
+  height: 30px;
+  color:black;
+}
+
+input {
+  height: 30px;
+}
