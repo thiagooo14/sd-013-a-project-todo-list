@@ -2,7 +2,7 @@ const butonAdd = document.querySelector("#criar-tarefa");
 const list = document.querySelector("#lista-tarefas");
 const texto = document.querySelector("#texto-tarefa");
 const li = document.getElementsByTagName("li");
-const butonApagar = document.querySelector("#remover-finalizados");
+const butonApagar = document.querySelector("#apaga-tudo");
 const butonSalvar = document.querySelector("#salvar-tarefas");
   
 function criarTarefa(){
@@ -35,13 +35,13 @@ function riscar(){
 
 function apagar(){
 butonApagar.addEventListener("click", () => {
-while(li.length>0){
-  for (let index = 0; index < li.length; index+=1) {
-    const filho = li[index];
-    list.removeChild(filho);     
-  }
-   }
-    })
+  while(li.length>0){
+    for (let index = 0; index < li.length; index+=1) {
+      const filho = li[index]; 
+      list.removeChild(filho);
+      }     
+    }
+})
 }apagar()
 
 if(localStorage.lista)
