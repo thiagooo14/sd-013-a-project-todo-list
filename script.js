@@ -1,6 +1,7 @@
 const btnInput = document.getElementById('criar-tarefa'); // botão de add tarefa
 const btnClear = document.getElementById('apaga-tudo'); // botão de apagar
 const taskText = document.getElementById('texto-tarefa'); // input com o texto da tarefa
+const btnClearCompleted = document.getElementById('remover-finalizados');
 // const taskList = document.getElementById('lista-tarefas'); // ol 
 // const taskList = document.querySelector('ol');
 
@@ -29,10 +30,7 @@ selectElement();
 function completedList() {
   const taskList = document.querySelector('ol');
   taskList.addEventListener('dblclick', (event) => {
-    const listItens = document.getElementsByTagName('li');
-    for (let index = 0; index < listItens.length; index += 1) {
-      event.target.classList.toggle('completed');
-    }
+  event.target.classList.toggle('completed');
   });
 }
 
@@ -47,32 +45,9 @@ function clearAll() {
 
 clearAll();
 
-/* btnInput.onclick = () => {
-  const taskItem = document.createElement('li');
-  taskItem.innerText = taskText.value;
-  taskList.appendChild(taskItem);
-  const listItem = document.getElementsByTagName('li');
-  for (let index = 0; index < listItem.length; index++) {
-    listItem[index].addEventListener('click', () => {
-      for (let j = 0; j < listItem.length; j += 1) {
-        if ((listItem[j].className === 'select') || (listItem[j].className === 'completed select')) {
-        listItem[j].classList.remove('select');
-        }
-      };
-      listItem[index].classList.add('select');
-      listItem[index].addEventListener('dblclick', () => {
-        if (listItem[index].className === 'select') {
-          listItem[index].classList.add('completed');
-          listItem[index].classList.remove('select');
-        } else if (listItem[index].className === 'completed select') {
-          listItem[index].classList.remove('completed');
-          listItem[index].classList.remove('select');
-        }
-      });
-    });
+btnClearCompleted.addEventListener('click', () => {
+  const taskCompletd = document.querySelectorAll('.completed');
+  for (let index = 0; index < taskCompletd.length; index += 1) {
+    taskCompletd[index].remove();
   }
-  taskText.value = '';
-
-};
- */
-
+});
