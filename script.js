@@ -16,8 +16,8 @@ function novaTarefa() {
 function selectedItem(item) {
   const selectedAtual = document.querySelector('.selected');
   const selected = item.target;
-  selected.classList.add('selected');
   selectedAtual.classList.remove('selected');
+  selected.classList.add('selected');
 }
 
 function markItem(item) {
