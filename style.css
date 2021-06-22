@@ -22,6 +22,7 @@ input {
 }
 
 ol {
-  display: flexbox;
+  display: flex;
+  flex-direction: column;
 }
 
