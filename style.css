@@ -16,3 +16,7 @@ button {
 input {
   height: 30px;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
