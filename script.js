@@ -1,5 +1,7 @@
 const criarTarefaBt = document.getElementById('criar-tarefa');
 const deletarTarefasBt = document.getElementById('apaga-tudo');
+const removerFinalizadosBt = document.getElementById('remover-finalizados');
+
 function novaTarefa() {
   const input = document.querySelector('input').value;
   const tarefa = document.createElement('li');
@@ -29,5 +31,13 @@ function deleteAll() {
   document.querySelector('.lista-tarefas').appendChild(lista);
 }
 
+function removeCompleted() {
+  const lista =document.querySelectorAll('.completed');
+  for (const item of lista) {
+    item.remove();
+  }
+}
+
 criarTarefaBt.addEventListener('click', novaTarefa);
 deletarTarefasBt.addEventListener('click', deleteAll);
+removerFinalizadosBt.addEventListener('click', removeCompleted);
