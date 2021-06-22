@@ -17,7 +17,11 @@ function selectedItem(item) {
 }
 
 function markItem(item) {
-  item.target.classList.add('completed');
+  if (item.target.classList.contains('completed')) {
+    item.target.classList.remove('completed');
+  } else {
+    item.target.classList.add('completed');
+  }
 }
 
 function novaTarefa() {

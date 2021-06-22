@@ -1,5 +1,5 @@
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 section {
@@ -10,7 +10,7 @@ button {
   margin-bottom: 0;
   padding: 2px 5px;
   height: 30px;
-  color:black;
+  color: black;
 }
 
 input {
@@ -18,5 +18,10 @@ input {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
+
+ol {
+  display: flexbox;
+}
+
