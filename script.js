@@ -73,7 +73,7 @@ function testPositionInitial() {
     console.log(atualPosition1);
     console.log(positions1[0]);
     valor = true;
-  } 
+  }
   return valor;
 }
 
@@ -89,7 +89,6 @@ function moveUp() {
       positions.push(parseInt(lista[i].style.order));
       if (parseInt(lista[i].style.order) === previosPosition) {
         lista[i].style.order = atualPosition;
-        // tarefaAtual.style.order = parseInt(lista[i - 1].style.order);
       }
     }
     tarefaAtual.style.order = previosPosition;
@@ -110,7 +109,7 @@ function testPositionFinal() {
     console.log(atualPosition1);
     console.log(positions1[positions1.length - 1]);
     valor = true;
-  } 
+  }
   return valor;
 }
 
