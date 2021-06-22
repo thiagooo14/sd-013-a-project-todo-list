@@ -1,0 +1,15 @@
+.estilo{
+    background-color: rgb(128,128,128);
+}
+.normal{
+    background-color: "none";
+    
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+#list {
+    background-color: white;
+}
