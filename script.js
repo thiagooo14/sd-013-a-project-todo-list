@@ -16,8 +16,8 @@ buttomNewTask.addEventListener('click', () => {
 // ===================================================================
 // clique no item e mude o fundo para cinza
 // ===================================================================
+const listaDeTarefas = document.getElementById('lista-tarefas');
 function backgroundGray() {
-  const listaDeTarefas = document.getElementById('lista-tarefas');
   listaDeTarefas.addEventListener('click', (e) => {
     if (e.target.classList.contains('tarefa')) {
       const listaLis = document.getElementsByClassName('tarefa');
@@ -35,7 +35,6 @@ backgroundGray();
 // clique no item duas vezes e classe 'completed' é adicionada a ele.
 // ===================================================================
 function taskComplete() {
-  const listaDeTarefas = document.getElementById('lista-tarefas');
   listaDeTarefas.addEventListener('dblclick', (e) => {
     if (e.target.classList.contains('tarefa')) {
       e.target.classList.toggle('completed');
@@ -48,7 +47,6 @@ taskComplete();
 // ===================================================================
 // Clique no botão e apaga todas as tarefas.
 // ===================================================================
-const listaDeTarefas = document.querySelector('#lista-tarefas');
 function removeItems() {
   const buttonRemove = document.querySelector('#apaga-tudo');
   buttonRemove.addEventListener('click', () => {
@@ -92,3 +90,23 @@ function removeSelected() {
 }
 
 removeSelected();
+
+// ===================================================================
+// Clique no botão e apaga tarefa selecionada.
+// ===================================================================
+function salveTasks() {
+  const buttonSave = document.querySelector('#salvar-tarefas');
+  buttonSave.addEventListener('click', () => {
+    const ol = document.querySelector('#lista-tarefas');
+    localStorage.setItem('itens', ol.innerHTML);
+  });
+}
+
+salveTasks();
+
+function setTasks() {
+  const ol = document.querySelector('#lista-tarefas');
+  ol.innerHTML = localStorage.getItem('itens');
+}
+
+setTasks();
