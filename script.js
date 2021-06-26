@@ -58,31 +58,53 @@ function removeSelecionado() {
   item.remove();
 }
 
+// A solução que eu encontrei faz o q foi pedido, entretando não é aceita pelo avaliador.
+// portanto a mesma foi descartada e foi usada a função insertBefore()
+// apesar disso decidi manter o codigo abaixo para fins de referencia de raciocinio.
+
+// function moveUp() {
+//   const lista = document.querySelectorAll('li');
+//   const tarefaSelecionada = document.querySelector('.selected');
+//   let tarefa = '';
+//   for (let i = 1; i < lista.length; i += 1) {
+//     if (lista[i] === tarefaSelecionada) {
+//       tarefa = lista[i - 1].innerHTML;
+//       lista[i - 1].innerHTML = tarefaSelecionada.innerHTML;
+//       tarefaSelecionada.textContent = tarefa;
+//       lista[i - 1].click();
+//     }
+//   }
+// }
+
+// function moveDown() {
+//   const lista = document.querySelectorAll('li');
+//   const tarefaSelecionada = document.querySelector('.selected');
+//   let tarefa = '';
+//   for (let i = lista.length - 2; i >= 0; i -= 1) {
+//     if (lista[i] === tarefaSelecionada) {
+//       tarefa = lista[i + 1].innerHTML;
+//       lista[i + 1].innerHTML = tarefaSelecionada.innerHTML;
+//       tarefaSelecionada.textContent = tarefa;
+//       lista[i + 1].click();
+//     }
+//   }
+// }
+
+// solução com base no site https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+
 function moveUp() {
-  const lista = document.querySelectorAll('li');
   const tarefaSelecionada = document.querySelector('.selected');
-  let tarefa = '';
-  for (let i = 1; i < lista.length; i += 1) {
-    if (lista[i] === tarefaSelecionada) {
-      tarefa = lista[i - 1].innerHTML;
-      lista[i - 1].innerHTML = tarefaSelecionada.innerHTML;
-      tarefaSelecionada.textContent = tarefa;
-      lista[i - 1].click();
-    }
+  const tarefaAterior = tarefaSelecionada.previousElementSibling;
+  if (tarefaAterior && tarefaSelecionada) {
+    tarefaSelecionada.parentElement.insertBefore(tarefaSelecionada, tarefaAterior);
   }
 }
 
 function moveDown() {
-  const lista = document.querySelectorAll('li');
   const tarefaSelecionada = document.querySelector('.selected');
-  let tarefa = '';
-  for (let i = lista.length - 2; i >= 0; i -= 1) {
-    if (lista[i] === tarefaSelecionada) {
-      tarefa = lista[i + 1].innerHTML;
-      lista[i + 1].innerHTML = tarefaSelecionada.innerHTML;
-      tarefaSelecionada.textContent = tarefa;
-      lista[i + 1].click();
-    }
+  const tarefaAterior = tarefaSelecionada.nextElementSibling;
+  if (tarefaAterior && tarefaSelecionada) {
+    tarefaSelecionada.parentElement.insertBefore(tarefaAterior, tarefaSelecionada);
   }
 }
 
