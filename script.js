@@ -94,18 +94,16 @@ function removeSelecionado() {
 
 function moveUp() {
   const tarefaSelecionada = document.querySelector('.selected');
-  const tarefaAterior = tarefaSelecionada.previousElementSibling;
-  if (tarefaAterior && tarefaSelecionada) {
-    tarefaSelecionada.parentElement.insertBefore(tarefaSelecionada, tarefaAterior);
-  }
+  let tarefaAterior;
+  if (tarefaSelecionada) tarefaAterior = tarefaSelecionada.previousElementSibling;
+  if (tarefaAterior) tarefaSelecionada.parentElement.insertBefore(tarefaSelecionada, tarefaAterior);
 }
 
 function moveDown() {
   const tarefaSelecionada = document.querySelector('.selected');
-  const tarefaAterior = tarefaSelecionada.nextElementSibling;
-  if (tarefaAterior && tarefaSelecionada) {
-    tarefaSelecionada.parentElement.insertBefore(tarefaAterior, tarefaSelecionada);
-  }
+  let tarefaAterior;
+  if (tarefaSelecionada) tarefaAterior = tarefaSelecionada.nextElementSibling;
+  if (tarefaAterior) tarefaSelecionada.parentElement.insertBefore(tarefaAterior, tarefaSelecionada);
 }
 
 function enter(event) { if (event.keyCode === 13) criarTarefaBt.click(); }
