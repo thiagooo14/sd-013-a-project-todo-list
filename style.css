@@ -23,3 +23,23 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+/* li {
+  float: left;
+  clear: both;
+  cursor: pointer;
+  user-select: none;
+}
+
+#controls-container {
+  padding-top: 10px;
+  clear: both;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+} */

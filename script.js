@@ -1,5 +1,4 @@
-const captureOl = document.getElementById('lista-tarefas');
-
+const captureOl = document.querySelector('#lista-tarefas');
 function addNewItem () {
   const btn = document.getElementById('criar-tarefa');
   const list = document.getElementById('lista-tarefas')
@@ -14,17 +13,18 @@ function addNewItem () {
 }
 addNewItem();
 
-function markItem () {
+function markItem() {
   captureOl.addEventListener('click', (event) => {
-    const captureLi = event.target;
-    console.log(captureLi)
-    if (captureLi.classList.contains('Selected')) {
-      captureLi.classList.remove('Selected')
+    const captureLi = document.getElementsByClassName('Item')
+    for (let index = 0; index < captureLi.length; index += 1) {
+      if (captureLi[index].classList.contains('Selected')) {
+        captureLi[index].classList.remove('Selected');
+      }
+      event.target.classList.add('Selected');
     }
-    captureLi.classList.add('Selected');
   });
 }
-markItem();
+markItem()
 
 function riskItem () {
   captureOl.addEventListener('dblclick', (event) => {
@@ -62,3 +62,4 @@ function moveUp() {
   });
 }
 moveUp();
+
