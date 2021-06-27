@@ -49,9 +49,22 @@ const requisito11 = () => {
   });
 };
 
+const requisito12 = () => {
+  const buttonErase = document.getElementById('remover-selecionado');
+  buttonErase.addEventListener('click', () => {
+    const selecteds = document.querySelectorAll('.selected');
+    const ol = document.getElementById('lista-tarefas');
+    for (let i = 0; i < selecteds.length; i += 1) {
+      let selected = selecteds[i];
+      selected.remove();
+    }
+  });
+};
+
 window.onload = () => {
   requisito4();
   requisito7();
   requisito10();
   requisito11();
+  requisito12();
 };
