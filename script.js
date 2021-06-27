@@ -37,8 +37,21 @@ const requisito10 = () => {
   });
 };
 
+const requisito11 = () => {
+  const buttonErase = document.getElementById('remover-finalizados');
+  buttonErase.addEventListener('click', () => {
+    const completeds = document.querySelectorAll('.completed');
+    const ol = document.getElementById('lista-tarefas');
+    for (let i = 0; i < completeds.length; i += 1) {
+      let completed = completeds[i];
+      completed.remove();
+    }
+  });
+};
+
 window.onload = () => {
   requisito4();
   requisito7();
   requisito10();
+  requisito11();
 };
