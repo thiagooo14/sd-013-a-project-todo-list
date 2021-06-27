@@ -21,9 +21,24 @@ const requisito7 = () => {
     }
     event.target.classList.add('selected');
   });
+  ol.addEventListener('dblclick', (event) => {
+    for (let i = 0; i < liS.length; i += 1) {
+      const li = liS[i];
+    }
+    event.target.classList.toggle('completed');
+  });
+};
+
+const requisito10 = () => {
+  const buttonErase = document.getElementById('apaga-tudo');
+  const ol = document.getElementById('lista-tarefas');
+  buttonErase.addEventListener('click', () => {
+    ol.innerHTML = '';
+  });
 };
 
 window.onload = () => {
   requisito4();
   requisito7();
+  requisito10();
 };
