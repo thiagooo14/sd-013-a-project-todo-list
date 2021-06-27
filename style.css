@@ -1,0 +1,25 @@
+* {
+  border: 0;
+  margin: 0;
+}
+
+#texto-tarefa {
+  border: 1px solid black;
+}
+
+#box {
+  display: table;
+}
+
+.Selected {
+  background-color: rgb(128, 128, 128);
+}
+
+
+#lista-tarefas {
+  background-color: white;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
