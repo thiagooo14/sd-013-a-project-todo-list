@@ -2,7 +2,8 @@ const btnInput = document.getElementById('criar-tarefa'); // botão de add taref
 const btnClear = document.getElementById('apaga-tudo'); // botão de apagar
 const taskText = document.getElementById('texto-tarefa'); // input com o texto da tarefa
 const btnClearCompleted = document.getElementById('remover-finalizados');
-// const taskList = document.getElementById('lista-tarefas'); // ol 
+const save = document.getElementById('salvar-tarefas');
+// const taskList = document.getElementById('lista-tarefas'); // ol
 // const taskList = document.querySelector('ol');
 
 btnInput.addEventListener('click', () => {
@@ -30,7 +31,7 @@ selectElement();
 function completedList() {
   const taskList = document.querySelector('ol');
   taskList.addEventListener('dblclick', (event) => {
-  event.target.classList.toggle('completed');
+    event.target.classList.toggle('completed');
   });
 }
 
@@ -51,3 +52,14 @@ btnClearCompleted.addEventListener('click', () => {
     taskCompletd[index].remove();
   }
 });
+
+save.addEventListener('click', () => {
+  const list = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('listaTarefas',list);
+});
+
+const listaSaved = () => {
+  if (localStorage.getItem(list)) {
+    taskText.innerHTML = localStorage.getItem(list);
+  }
+}

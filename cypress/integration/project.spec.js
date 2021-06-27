@@ -307,7 +307,7 @@ describe('9 - Clicar duas vezes em um item, faz com que ele seja riscado, indica
   });
 });
 
-describe.only('10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista', () => {
+describe('10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista', () => {
   beforeEach(() => {
     cy.viewport(1366, 768);
     cy.visit('./index.html');
