@@ -2,7 +2,7 @@ const btnInput = document.getElementById('criar-tarefa'); // botão de add taref
 const btnClear = document.getElementById('apaga-tudo'); // botão de apagar
 const taskText = document.getElementById('texto-tarefa'); // input com o texto da tarefa
 const btnClearCompleted = document.getElementById('remover-finalizados');
-const save = document.getElementById('salvar-tarefas');
+
 // const taskList = document.getElementById('lista-tarefas'); // ol
 // const taskList = document.querySelector('ol');
 
@@ -53,13 +53,26 @@ btnClearCompleted.addEventListener('click', () => {
   }
 });
 
-save.addEventListener('click', () => {
-  const list = document.getElementById('lista-tarefas').innerHTML;
+/* save.addEventListener('click', () => {
+  const list = document.getElementById('listaTarefas');
   localStorage.setItem('listaTarefas',list);
 });
 
-const listaSaved = () => {
-  if (localStorage.getItem(list)) {
-    taskText.innerHTML = localStorage.getItem(list);
-  }
-}
+function carregaLista() {
+  // console.log(localStorage.getItem('listaTarefas'));
+  const taskItem = document.getElementById('lista-tarefas');
+  taskItem.innerHTML = localStorage.getItem('listaTarefas');
+} */
+
+// window.onload = carregaLista();
+
+const ol = document.getElementById('lista-tarefas');
+
+const saveTasks = () => {
+  const saveBtn = document.getElementById('salvar-tarefas');
+  const myStorage = localStorage;
+  saveBtn.addEventListener('click',() => myStorage.setItem('taskList', ol.innerHTML))
+  ol.innerHTML = myStorage.getItem('taskList');
+};
+
+saveTasks();
