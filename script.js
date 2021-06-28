@@ -28,14 +28,15 @@ function markItem(item) {
 }
 
 function novaTarefa() {
-  const input = document.querySelector('input').value;
-  const tarefa = document.createElement('li');
-  tarefa.innerHTML = input;
-  tarefa.classList.add('tarefa');
-  document.querySelector('ol').appendChild(tarefa);
-  tarefa.addEventListener('click', selectedItem);
-  tarefa.addEventListener('dblclick', markItem);
-  document.querySelector('input').value = '';
+  if (myInput.value !== '') {
+    const tarefa = document.createElement('li');
+    tarefa.innerHTML = myInput.value;
+    tarefa.classList.add('tarefa');
+    document.querySelector('ol').appendChild(tarefa);
+    tarefa.addEventListener('click', selectedItem);
+    tarefa.addEventListener('dblclick', markItem);
+    document.querySelector('input').value = '';
+  }
 }
 
 function deleteAll() {
@@ -58,39 +59,7 @@ function removeSelecionado() {
   item.remove();
 }
 
-// A solução que eu encontrei faz o q foi pedido, entretando não é aceita pelo avaliador.
-// portanto a mesma foi descartada e foi usada a função insertBefore()
-// apesar disso decidi manter o codigo abaixo para fins de referencia de raciocinio.
-
-// function moveUp() {
-//   const lista = document.querySelectorAll('li');
-//   const tarefaSelecionada = document.querySelector('.selected');
-//   let tarefa = '';
-//   for (let i = 1; i < lista.length; i += 1) {
-//     if (lista[i] === tarefaSelecionada) {
-//       tarefa = lista[i - 1].innerHTML;
-//       lista[i - 1].innerHTML = tarefaSelecionada.innerHTML;
-//       tarefaSelecionada.textContent = tarefa;
-//       lista[i - 1].click();
-//     }
-//   }
-// }
-
-// function moveDown() {
-//   const lista = document.querySelectorAll('li');
-//   const tarefaSelecionada = document.querySelector('.selected');
-//   let tarefa = '';
-//   for (let i = lista.length - 2; i >= 0; i -= 1) {
-//     if (lista[i] === tarefaSelecionada) {
-//       tarefa = lista[i + 1].innerHTML;
-//       lista[i + 1].innerHTML = tarefaSelecionada.innerHTML;
-//       tarefaSelecionada.textContent = tarefa;
-//       lista[i + 1].click();
-//     }
-//   }
-// }
-
-// solução com base no site https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+// solução para moveUp e moveDown com base no site https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 
 function moveUp() {
   const tarefaSelecionada = document.querySelector('.selected');
