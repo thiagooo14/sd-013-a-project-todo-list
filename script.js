@@ -11,7 +11,10 @@ const taskList = document.getElementById('lista-tarefas');
 const deleteAllButton = document.getElementById('apaga-tudo');
 
 // Pega o botão de apagar elementos finalizados.
-const deleteCompletedButton = document.getElementById('remover-finalizados')
+const deleteCompletedButton = document.getElementById('remover-finalizados');
+
+// Pega o botão de apagar elemento selecionado.
+const deleteSelectedButton = document.getElementById('remover-selecionado');
 
 // Cria uma nova tarefa.
 function createNewTask() {
@@ -84,3 +87,13 @@ function deleteCompleted() {
 }
 // Excuta a função.
 deleteCompleted();
+
+// Adiciona um botão que, ao ser clicado, apaga o item selecionado.
+function deleteSelected () {
+  deleteSelectedButton.addEventListener('click', () => {
+    const selectedElement = document.getElementsByClassName('selected');
+    selectedElement[0].parentNode.removeChild(selectedElement[0])
+  })
+}
+// Excuta a função.
+deleteSelected();
