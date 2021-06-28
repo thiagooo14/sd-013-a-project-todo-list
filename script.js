@@ -8,7 +8,10 @@ const buttonCreateTask = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 
 // Pega o botão de apagar tudo.
-const deleteButton = document.getElementById('apaga-tudo');
+const deleteAllButton = document.getElementById('apaga-tudo');
+
+// Pega o botão de apagar elementos finalizados.
+const deleteCompletedButton = document.getElementById('remover-finalizados')
 
 // Cria uma nova tarefa.
 function createNewTask() {
@@ -38,7 +41,7 @@ function selectedTask() {
     for (let index = 0; index < allTask.length; index += 1) {
       if (allTask[index].classList.contains('selected')) {
         allTask[index].classList.remove('selected');
-      }
+      };
     }
     event.target.classList.add('selected');
   })
@@ -60,9 +63,24 @@ lineThrough();
 
 // Adiciona um botão que, ao ser clicado, apaga todos os itens da lista.
 function deleteAll() {
-  deleteButton.addEventListener('click', () => {
+  deleteAllButton.addEventListener('click', () => {
     taskList.innerHTML = null;
   })
 }
 // Excuta a função.
 deleteAll();
+
+// Adiciona um botão que, ao ser clicado, apaga somente os elementos finalizados da sua lista.
+function deleteCompleted() {
+  deleteCompletedButton.addEventListener('click', () => {
+    // Trata-se de um array que possui elementos com a classe 'completed'.
+    const completedTask = document.getElementsByClassName('completed');
+    // Verifica se existe algum elemento dentro do array. Enquanto houver algum elemento dentro do array completeTask...
+    while (completedTask.length > 0) {
+      // a constante buscará o pai do primeiro elemento do array e..
+      const father = completedTask[0].parentNode;
+      // e irá remover o filho desse pai, enquanto existir algum elemento dentro do array.
+      father.removeChild(completedTask[0]);
+    }
+  })
+}
