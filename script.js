@@ -5,15 +5,13 @@ const removerSelecionadoBt = document.getElementById('remover-selecionado');
 const moverAcima = document.getElementById('mover-cima');
 const moverAbaixo = document.getElementById('mover-baixo');
 const myInput = document.getElementById('texto-tarefa');
-const listaTarefas = document.querySelector('#lista-tarefas');
 const SalverTarefasBT = document.querySelector('#salvar-tarefas');
+const listaTarefas = document.getElementsByTagName('li');
 
 function selectedItem(item) {
   const selectedAtual = document.querySelector('.selected');
   const selected = item.target;
-  if ((selectedAtual) && (selectedAtual === selected)) {
-    selectedAtual.classList.remove('selected');
-  } else if (selectedAtual) {
+  if (selectedAtual) {
     selectedAtual.classList.remove('selected');
     selected.classList.add('selected');
   } else {
@@ -69,7 +67,7 @@ function moveUp() {
   if (tarefaSelecionada) tarefaAterior = tarefaSelecionada.previousElementSibling;
   if (tarefaAterior) {
     tarefaSelecionada.parentElement.insertBefore(tarefaSelecionada, tarefaAterior);
-    tarefaSelecionada.classList.remove('selected');
+    // tarefaSelecionada.classList.remove('selected');
   }
 }
 
@@ -79,18 +77,26 @@ function moveDown() {
   if (tarefaSelecionada) tarefaPosterior = tarefaSelecionada.nextElementSibling;
   if (tarefaPosterior) {
     tarefaSelecionada.parentElement.insertBefore(tarefaPosterior, tarefaSelecionada);
-    tarefaSelecionada.classList.remove('selected');
+    // tarefaSelecionada.classList.remove('selected');
   }
 }
 
-// todo -> arrumar a questão de carregar tarefas deletadas
 function salvarTarefas() {
-  localStorage.setItem('listaDeTarefas', listaTarefas.innerHTML);
+  const lista = document.querySelector('#lista-tarefas');
+  localStorage.setItem('Tarefas', lista.innerHTML);
 }
 
 function carregarTarefas() {
-  listaTarefas.innerHTML = localStorage.getItem('listaDeTarefas');
+  const lista = document.querySelector('#lista-tarefas');
+  lista.innerHTML = localStorage.getItem('Tarefas');
+  for (let i = 0; i < listaTarefas.length; i += 1) {
+    console.log(listaTarefas[i]);
+    listaTarefas[i].addEventListener('click', selectedItem);
+    listaTarefas[i].addEventListener('dblclick', markItem);
+  }
 }
+
+carregarTarefas();
 
 function enter(event) { if (event.keyCode === 13) criarTarefaBt.click(); }
 
@@ -102,4 +108,3 @@ removerSelecionadoBt.addEventListener('click', removeSelecionado);
 moverAcima.addEventListener('click', moveUp);
 moverAbaixo.addEventListener('click', moveDown);
 SalverTarefasBT.addEventListener('click', salvarTarefas);
-window.addEventListener('load', carregarTarefas);
