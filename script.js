@@ -43,7 +43,7 @@ const requisito11 = () => {
     const completeds = document.querySelectorAll('.completed');
     const ol = document.getElementById('lista-tarefas');
     for (let i = 0; i < completeds.length; i += 1) {
-      let completed = completeds[i];
+      const completed = completeds[i];
       completed.remove();
     }
   });
@@ -55,7 +55,7 @@ const requisito14 = () => {
     const selecteds = document.querySelectorAll('.selected');
     const ol = document.getElementById('lista-tarefas');
     for (let i = 0; i < selecteds.length; i += 1) {
-      let selected = selecteds[i];
+      const selected = selecteds[i];
       selected.remove();
     }
   });
@@ -72,6 +72,23 @@ const requisito12 = () => {
   }
 };
 
+// const requisito13 = () => {
+//   const cima = document.getElementById('mover-cima');
+//   const baixo = document.getElementById('mover-baixo');
+//   const ol = document.getElementById('lista-tarefas');
+//   const selected = document.querySelector('#selected');
+//   cima.addEventListener('click', () => {
+//     if (selected !== null && selected !== ol.firstChild) {
+//       ol.insertBefore(selected, selected.previousSibling);
+//     }
+//   });
+//   baixo.addEventListener('click', () => {
+//     if (selected !== null && selected !== ol.lastChild) {
+//       ol.insertBefore(selected.previousSibling, selected);
+//     }
+//   });
+// };
+
 window.onload = () => {
   requisito4();
   requisito7();
@@ -79,4 +96,5 @@ window.onload = () => {
   requisito11();
   requisito12();
   requisito14();
+  // requisito13();
 };
