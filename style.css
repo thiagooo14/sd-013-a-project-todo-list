@@ -3,6 +3,43 @@
   margin: 0;
 }
 
+body {
+  background-color: rgb(47 , 53 , 53);
+}
+
+body header {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 50px;
+  color: rgb(200 , 200 , 200);
+}
+
+body p {
+  color: rgb(200 , 200 , 200);
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: tomato;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: indianred;
+}
+
+input {
+  margin-left: 100px;
+}
+
+.Item {
+  background-color: violet;
+  cursor: pointer;
+  font-size: 30px;
+}
+
 #texto-tarefa {
   border: 1px solid black;
 }
@@ -12,12 +49,12 @@
 }
 
 .Selected {
-  background-color: rgb(128, 128, 128);
+  background-color: grey;
 }
 
 
 #lista-tarefas {
-  background-color: white;
+  background-color: tomato;
 }
 
 .completed {

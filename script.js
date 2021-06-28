@@ -1,11 +1,11 @@
 const captureOl = document.querySelector('#lista-tarefas');
-function addNewItem () {
+function addNewItem() {
   const btn = document.getElementById('criar-tarefa');
-  const list = document.getElementById('lista-tarefas')
+  const list = document.getElementById('lista-tarefas');
   btn.addEventListener('click', () => {
-    const newLi = document.createElement('li')
+    const newLi = document.createElement('li');
     const newText = list.appendChild(newLi);
-    newText.className = 'Item'
+    newText.className = 'Item';
     const inputText = document.getElementById('texto-tarefa');
     newText.innerHTML = `${inputText.value}`;
     inputText.value = '';
@@ -15,7 +15,7 @@ addNewItem();
 
 function markItem() {
   captureOl.addEventListener('click', (event) => {
-    const captureLi = document.getElementsByClassName('Item')
+    const captureLi = document.getElementsByClassName('Item');
     for (let index = 0; index < captureLi.length; index += 1) {
       if (captureLi[index].classList.contains('Selected')) {
         captureLi[index].classList.remove('Selected');
@@ -24,20 +24,19 @@ function markItem() {
     }
   });
 }
-markItem()
+markItem();
 
-function riskItem () {
+function riskItem() {
   captureOl.addEventListener('dblclick', (event) => {
     const captureLi = event.target;
-    if(captureLi.classList.contains('completed') ) {
+    if (captureLi.classList.contains('completed')) {
       captureLi.classList.remove('completed');
-    } else
-    captureLi.classList.add('completed');
+    } else captureLi.classList.add('completed');
   });
 }
 riskItem();
 
-function clearAll () {
+function clearAll() {
   const btnclear = document.getElementById('apaga-tudo');
   btnclear.addEventListener('click', () => {
     captureOl.innerHTML = '';
@@ -52,7 +51,7 @@ function clearCompleted() {
     for (let index = 0; index < completedTasks.length; index += 1) {
       completedTasks[index].remove();
     }
-  })
+  });
 }
 clearCompleted();
 
@@ -62,17 +61,17 @@ function moveUp() {
     const getSelected = document.querySelector('.Selected');
     const child1 = captureOl.firstChild;
     if (child1 !== getSelected && getSelected !== null) {
-    captureOl.insertBefore(getSelected, getSelected.previousSibling);
+      captureOl.insertBefore(getSelected, getSelected.previousSibling);
     }
   });
 }
 moveUp();
 
 function moveDown() {
-  const btnDown = document.querySelector('#mover-baixo')
+  const btnDown = document.querySelector('#mover-baixo');
   btnDown.addEventListener('click', () => {
     const getSelected = document.querySelector('.Selected');
-    const lastChild = captureOl.lastChild;
+    const { lastChild } = captureOl;
     if (lastChild !== getSelected && getSelected !== null) {
       captureOl.insertBefore(getSelected.nextSibling, getSelected);
     }
@@ -84,7 +83,16 @@ function removeSelected() {
   const btnRemove = document.querySelector('#remover-selecionado');
   btnRemove.addEventListener('click', () => {
     const getSelected = document.querySelector('.Selected');
-    getSelected.remove()
+    getSelected.remove();
   });
 }
 removeSelected();
+
+function saveData() {
+  const btnSave = document.querySelector('#salvar-tarefas');
+  btnSave.addEventListener('click', () => {
+    localStorage.setItem('texto', captureOl.innerHTML);
+  });
+}
+saveData();
+captureOl.innerHTML = localStorage.getItem('texto');
