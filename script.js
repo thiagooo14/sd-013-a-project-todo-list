@@ -35,7 +35,7 @@ const requisito10 = () => {
   buttonErase.addEventListener('click', () => {
     ol.innerHTML = '';
   });
-};
+};  
 
 const requisito11 = () => {
   const buttonErase = document.getElementById('remover-finalizados');
@@ -49,7 +49,7 @@ const requisito11 = () => {
   });
 };
 
-const requisito12 = () => {
+const requisito14 = () => {
   const buttonErase = document.getElementById('remover-selecionado');
   buttonErase.addEventListener('click', () => {
     const selecteds = document.querySelectorAll('.selected');
@@ -61,10 +61,22 @@ const requisito12 = () => {
   });
 };
 
+const requisito12 = () => {
+  const ol = document.getElementById('lista-tarefas');
+  const saveButton = document.getElementById('salvar-tarefas');
+  saveButton.addEventListener('click', () => {
+    localStorage.setItem('lista', ol.innerHTML);
+  });
+  if (localStorage.getItem('lista') !== null) {
+    ol.innerHTML = localStorage.getItem('lista');
+  }
+};
+
 window.onload = () => {
   requisito4();
   requisito7();
   requisito10();
   requisito11();
   requisito12();
+  requisito14();
 };
