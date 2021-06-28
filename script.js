@@ -1,5 +1,3 @@
-const list = document.querySelector("#lista-tarefas");
-const tasks = list.children;
 function createTask(text){
   let task = document.createElement("li");
   task.className = "task";
@@ -9,6 +7,7 @@ function createTask(text){
   return task;
 }
 function assignTaskToList(task){
+  let list = document.querySelector("#lista-tarefas");
   list.appendChild(task);
 }
 function setButtonToAddTask(){
@@ -22,6 +21,7 @@ function setButtonToAddTask(){
   })
 }
 function unselectTasks(){
+  let tasks = document.querySelectorAll(".task");
   for (let task of tasks) {
     task.classList.remove("selected");
   }
@@ -41,7 +41,9 @@ function setTaskToBeCompleted(task){
     }
   })
 }
+
 function deleteList(){
+  let list = document.querySelector("#lista-tarefas");
   list.innerHTML = '';
 }
 function setDeleteList(){
@@ -51,9 +53,11 @@ function setDeleteList(){
   })
 }
 function deleteCompleted(){
-  for(let task of tasks){
-    if(task.classList.contains("completed")){
-      task.parentNode.removeChild(task);
+  let list = document.querySelector(("#lista-tarefas"));
+  let items = list.children;
+  for(let item of items){
+    if(item.classList.contains("completed")){
+      list.removeChild(item);
     }
   }
 }
@@ -92,6 +96,8 @@ function loadList(){
   }
 }
 function moveUp(){
+  let tasks = document.querySelectorAll(".task");
+  let list = document.querySelector("#lista-tarefas");
   if(tasks[0] === undefined){
     alert("Nenhuma Tarefa na Lista!");
     return;
@@ -116,6 +122,8 @@ function setMoveUp(){
   })
 }
 function moveDown(){
+  let tasks = document.querySelectorAll(".task");
+  let list = document.querySelector("#lista-tarefas");
   if(tasks[0] === undefined){
     alert("Nenhuma Tarefa na Lista!");
     return;
@@ -140,6 +148,8 @@ function setMoveDown(){
   })
 }
 function removeSelected(){
+  let list = document.querySelector("#lista-tarefas");
+  let tasks = list.children;
   if(tasks[0] === undefined){
     alert("Nenhuma tarefa adicionada!");
     return;
@@ -167,4 +177,4 @@ window.onload = function() {
   setMoveDown();
   setRemoveSelected();
   loadList();
-}
+} 
