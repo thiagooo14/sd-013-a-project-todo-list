@@ -5,6 +5,8 @@ const removerSelecionadoBt = document.getElementById('remover-selecionado');
 const moverAcima = document.getElementById('mover-cima');
 const moverAbaixo = document.getElementById('mover-baixo');
 const myInput = document.getElementById('texto-tarefa');
+const listaTarefas = document.querySelector('#lista-tarefas');
+const SalverTarefasBT = document.querySelector('#salvar-tarefas');
 
 function selectedItem(item) {
   const selectedAtual = document.querySelector('.selected');
@@ -65,14 +67,29 @@ function moveUp() {
   const tarefaSelecionada = document.querySelector('.selected');
   let tarefaAterior;
   if (tarefaSelecionada) tarefaAterior = tarefaSelecionada.previousElementSibling;
-  if (tarefaAterior) tarefaSelecionada.parentElement.insertBefore(tarefaSelecionada, tarefaAterior);
+  if (tarefaAterior) {
+    tarefaSelecionada.parentElement.insertBefore(tarefaSelecionada, tarefaAterior);
+    tarefaSelecionada.classList.remove('selected');
+  }
 }
 
 function moveDown() {
   const tarefaSelecionada = document.querySelector('.selected');
-  let tarefaAterior;
-  if (tarefaSelecionada) tarefaAterior = tarefaSelecionada.nextElementSibling;
-  if (tarefaAterior) tarefaSelecionada.parentElement.insertBefore(tarefaAterior, tarefaSelecionada);
+  let tarefaPosterior;
+  if (tarefaSelecionada) tarefaPosterior = tarefaSelecionada.nextElementSibling;
+  if (tarefaPosterior) {
+    tarefaSelecionada.parentElement.insertBefore(tarefaPosterior, tarefaSelecionada);
+    tarefaSelecionada.classList.remove('selected');
+  }
+}
+
+// todo -> arrumar a questão de carregar tarefas deletadas
+function salvarTarefas() {
+  localStorage.setItem('listaDeTarefas', listaTarefas.innerHTML);
+}
+
+function carregarTarefas() {
+  listaTarefas.innerHTML = localStorage.getItem('listaDeTarefas');
 }
 
 function enter(event) { if (event.keyCode === 13) criarTarefaBt.click(); }
@@ -84,3 +101,5 @@ removerFinalizadosBt.addEventListener('click', removeCompleted);
 removerSelecionadoBt.addEventListener('click', removeSelecionado);
 moverAcima.addEventListener('click', moveUp);
 moverAbaixo.addEventListener('click', moveDown);
+SalverTarefasBT.addEventListener('click', salvarTarefas);
+window.addEventListener('load', carregarTarefas);
