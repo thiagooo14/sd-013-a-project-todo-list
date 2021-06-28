@@ -44,13 +44,19 @@ function apagaTudo () {
   blocoTarefa.innerHTML = inputZerado;
 };
 
+function removerSelecionados () {
+  const tarefasCompletas = document.querySelectorAll('.completed') 
+  for(let index = 0; index < tarefasCompletas.length; index++) {
+    blocoTarefa.removeChild(tarefasCompletas[index])
+  }
+}
 
-
+const removerSelecionado = document.querySelector('#remover-finalizados');
 
 window.onload = () => {
   botaoAddTarefa.addEventListener('click', adicionarTarefa);
   listaTarefass.addEventListener('click', selecionarTarefa);
   listaTarefass.addEventListener('dblclick', tarefaCompleta);
   apagarTudo.addEventListener('click', apagaTudo);
-
+  removerSelecionado.addEventListener('click', removerSelecionados);
 }
