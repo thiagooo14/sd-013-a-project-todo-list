@@ -42,3 +42,15 @@ function selectedTask() {
 }
 //Executa a função.
 selectedTask();
+
+// Ao clicar duas vezes em um item da lista, faz com que ele seja riscado,
+// sendo possível desfazer essa ação clicando novamente duas vezes no item.
+function lineThrough() {
+  taskList.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else event.target.classList.add('completed');
+  })
+}
+//Executa a função.
+lineThrough();
