@@ -16,6 +16,12 @@ const deleteCompletedButton = document.getElementById('remover-finalizados');
 // Pega o botão de apagar elemento selecionado.
 const deleteSelectedButton = document.getElementById('remover-selecionado');
 
+// Pega o botão de mover para cima o elemento selecionado.
+const moveUpButton = document.getElementById('mover-cima');
+
+// Pega o botão de mover para baixo o elemento selecionado.
+const moveDownButton = document.getElementById('mover-baixo');
+
 // Cria uma nova tarefa.
 function createNewTask() {
   buttonCreateTask.addEventListener('click', () => {
@@ -70,7 +76,7 @@ function deleteAll() {
     taskList.innerHTML = null;
   })
 }
-// Excuta a função.
+// Executa a função.
 deleteAll();
 
 // Adiciona um botão que, ao ser clicado, apaga somente os elementos finalizados da sua lista.
@@ -85,15 +91,41 @@ function deleteCompleted() {
     }
   })
 }
-// Excuta a função.
+// Executa a função.
 deleteCompleted();
 
 // Adiciona um botão que, ao ser clicado, apaga o item selecionado.
-function deleteSelected () {
+function deleteSelected() {
   deleteSelectedButton.addEventListener('click', () => {
     const selectedElement = document.getElementsByClassName('selected');
     selectedElement[0].parentNode.removeChild(selectedElement[0])
   })
 }
-// Excuta a função.
+// Executa a função.
 deleteSelected();
+
+// Adiciona um botão que, ao ser clicado, permite mover o item selecionado para cima.
+function moveUp() {
+  moveUpButton.addEventListener('click', () => {
+    let toMove = document.querySelector('.selected');
+    const selectedElement = document.getElementsByClassName('selected');
+    if (toMove && toMove.previousElementSibling) {
+      taskList.insertBefore(toMove, toMove.previousElementSibling);
+    }
+  })
+}
+// Executa a função.
+moveUp();
+
+// Adiciona um botão que, ao ser clicado, permite mover o item selecionado para baixo.
+function moveDown() {
+  moveDownButton.addEventListener('click', () => {
+    let toMove = document.querySelector('.selected');
+    const selectedElement = document.getElementsByClassName('selected');
+    if (toMove && toMove.nextElementSibling) {
+      taskList.insertBefore(toMove.nextElementSibling, toMove);
+    }
+  })
+}
+// Executa a função.
+moveDown();
