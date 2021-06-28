@@ -53,10 +53,34 @@ function removerSelecionados () {
 
 const removerSelecionado = document.querySelector('#remover-finalizados');
 
+function selecionarUma (event) {
+  const tarefasSelecionadas = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < tarefasSelecionadas.length; index ++) {
+    tarefasSelecionadas[index].classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
+
+function salvarTarefas () {
+  const salvo = blocoTarefa.innerHTML
+  localStorage.setItem('lista', salvo)
+}
+
+function chamarSalvos () {
+  const lista = localStorage.getItem('lista')
+  if(lista !== null) {
+    blocoTarefa.innerHTML = lista
+  }
+}
+
+const botaoSalvarTarefa = document.querySelector('#salvar-tarefas')
+
+
 window.onload = () => {
   botaoAddTarefa.addEventListener('click', adicionarTarefa);
   listaTarefass.addEventListener('click', selecionarTarefa);
   listaTarefass.addEventListener('dblclick', tarefaCompleta);
   apagarTudo.addEventListener('click', apagaTudo);
   removerSelecionado.addEventListener('click', removerSelecionados);
+  botaoAddTarefa.addEventListener('click', salvarTarefas)
 }
