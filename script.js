@@ -7,11 +7,14 @@ const buttonCreateTask = document.getElementById('criar-tarefa');
 // Pega a lista de tarefas.
 const taskList = document.getElementById('lista-tarefas');
 
+// Pega o botão de apagar tudo.
+const deleteButton = document.getElementById('apaga-tudo');
+
 // Cria uma nova tarefa.
 function createNewTask() {
   buttonCreateTask.addEventListener('click', () => {
     // Cria uma nova li.
-    let newTask = document.createElement('li');
+    const newTask = document.createElement('li');
     // Pega o texto do campo input.
     const textInput = inputField.value;
     // Coloca o texto do input dentro da li
@@ -20,7 +23,7 @@ function createNewTask() {
     taskList.appendChild(newTask);
     // Apaga o contúdo do campo input.
     inputField.value = null;
-  })
+  });
 }
 // Executa a função.
 createNewTask();
@@ -32,7 +35,7 @@ function selectedTask() {
   // então, adiciona uma classe (selected) à li clicada.
   taskList.addEventListener('click', (event) => {
     const allTask = document.querySelectorAll('li');
-    for (let index = 0; index < allTask.length; index +=1) {
+    for (let index = 0; index < allTask.length; index += 1) {
       if (allTask[index].classList.contains('selected')) {
         allTask[index].classList.remove('selected');
       }
@@ -40,7 +43,7 @@ function selectedTask() {
     event.target.classList.add('selected');
   })
 }
-//Executa a função.
+// Executa a função.
 selectedTask();
 
 // Ao clicar duas vezes em um item da lista, faz com que ele seja riscado,
@@ -50,7 +53,16 @@ function lineThrough() {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else event.target.classList.add('completed');
+  });
+}
+// Executa a função.
+lineThrough();
+
+// Adiciona um botão que, ao ser clicado, apaga todos os itens da lista.
+function deleteAll() {
+  deleteButton.addEventListener('click', () => {
+    taskList.innerHTML = null;
   })
 }
-//Executa a função.
-lineThrough();
+// Excuta a função.
+deleteAll();
