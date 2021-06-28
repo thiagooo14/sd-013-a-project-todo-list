@@ -23,3 +23,11 @@ function createNewTask() {
   })
 }
 createNewTask();
+
+// Ao clicar em um item da lista deve alterar a cor de fundo do item.
+function selectedTask() {
+  taskList.addEventListener('click', (event) => {
+    event.target.classList.add('selected');
+  })
+}
+selectedTask();
