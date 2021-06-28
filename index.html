@@ -8,28 +8,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div></div>
-  <header><h1>Minha Lista de Tarefas</h1></header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
- 
-  <section class="entrada-de-dados">
-    <input id="texto-tarefa" type="text">
-   
-    <button id="criar-tarefa">Adicionar</button>
-  </section>
 
-  <section class="lista-tarefas">
-    <ol id="lista-tarefas"></ol>
-  </section>
-
-  <section class="menu-inferior">
-    <button id="remover-selecionado">&#10006;</button>
-    <button id="mover-cima">⬆</button>
-    <button id="mover-baixo">⬇</button>
-    <button id="remover-finalizados">Limpar completos</button>
-    <button id="apaga-tudo">Limpar lista</button>
-    <button id="salvar-tarefas">Salvar lista</button>
-  </section>
+  <div class="container">
+    <main>    
+      <div>
+        <header>
+          <h1>Minha Lista de Tarefas</h1>
+          <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </header>
+        <section class="entrada-de-dados">
+          <input id="texto-tarefa" type="text">
+         
+          <button id="criar-tarefa">Adicionar</button>
+        </section>
+      
+        <section class="lista-tarefas">
+          <ol id="lista-tarefas"></ol>
+        </section>
+      </div>
+    
+      <section class="menu-inferior">
+        <button id="remover-selecionado">&#10006;</button>
+        <button id="mover-cima">⬆</button>
+        <button id="mover-baixo">⬇</button>
+        <button id="remover-finalizados">Limpar completos</button>
+        <button id="apaga-tudo">Limpar lista</button>
+        <button id="salvar-tarefas">Salvar lista</button>
+      </section>
+    </main>
+    <div class="img-wrapper">
+      <img src="BG.jpg" alt="">
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
