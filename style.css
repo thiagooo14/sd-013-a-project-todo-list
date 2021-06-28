@@ -6,6 +6,11 @@ div {
   background-color: blue;
 }
 
-.clompeted {
+.completed {
   text-decoration: line-through;
+}
+
+.selected {
+  color: rgb(128, 128, 128);
+  background-color: rgb(128, 128,128);
 }

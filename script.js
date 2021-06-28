@@ -1,39 +1,56 @@
-let textoX = ""
-const ol = document.querySelector("#lista-tarefas")
-const button = document.querySelector("#criar-tarefa")
-const input = document.querySelector("#texto-tarefa")
-const apagarTudo = document.querySelector("#apaga-tudo")
-const removeFinalizados = document.querySelector("#remover-finalizados")
-const tarefa = document.getElementsByClassName ("tarefa")
+const input = document.querySelector('texto-tarefa')
+const blocoTarefa = document.getElementById('lista-tarefas')
+const inputZerado = ""
 
-function addTarefa () {
-  const tarefa = document.createElement("li")
-  tarefa.innerHTML = input.value
-  tarefa.classList.add("tarefa")
-  ol.appendChild(tarefa)
-  input.value = textoX
-  clicarTarefa()
-}
-  button.addEventListener("click", addTarefa)
+const botaoAddTarefa = document.getElementById('criar-tarefa')
 
-  function clicarTarefa () {
+function adicionarTarefa () {
+  const listaTarefas = document.createElement('li')
+  listaTarefas.innerHTML = document.getElementById('texto-tarefa').value
+  listaTarefas.className = 'tarefa'
+  blocoTarefa.appendChild(listaTarefas)
+  document.getElementById('texto-tarefa').value = inputZerado
+};
 
+const tarefas = document.getElementsByClassName('tarefa')
+const listaTarefass = document.getElementById('lista-tarefas')
+
+function selecionarTarefa (event) {
+  const el = event;
+  for(const tarefa of tarefas) {
+    if(event.target.className.startsWith('tarefa')) {
+      tarefa.removeAttribute('style');
+      tarefa.removeAttribute('id');
+    }
+    if (event.target.className.startsWith('tarefa')) {
+      el.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      el.target.id = 'selected'
+    }
   }
-  
-  function selecionar () {
+};
 
+function tarefaCompleta (event) {
+  const el = event;
+  if(event.target.className == 'tarefa') {
+    el.target.className = 'completed';
+  } else if (event.target.className == 'tarefa completed') {
+    el.target.className = 'tarefa';
   }
+};
 
-function removerFinalizado() {
-  let completed = document.getElementsByClassName("completed")
-  console.log(completed)
-  for(let index = 0; index < completo.length; i++){
-    completed[index].remove();
-  }
-}
-  removeFinalizados.addEventListener("click", removerFinalizado)
+const apagarTudo = document.querySelector('#apaga-tudo')
 
 function apagaTudo () {
-  ol.innerHTML = textoX
+  blocoTarefa.innerHTML = inputZerado;
+};
+
+
+
+
+window.onload = () => {
+  botaoAddTarefa.addEventListener('click', adicionarTarefa);
+  listaTarefass.addEventListener('click', selecionarTarefa);
+  listaTarefass.addEventListener('dblclick', tarefaCompleta);
+  apagarTudo.addEventListener('click', apagaTudo);
+
 }
-  apagarTudo.addEventListener("click", apagaTudo)
