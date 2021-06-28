@@ -75,12 +75,12 @@ function deleteCompleted() {
   deleteCompletedButton.addEventListener('click', () => {
     // Trata-se de um array que possui elementos com a classe 'completed'.
     const completedTask = document.getElementsByClassName('completed');
-    // Verifica se existe algum elemento dentro do array. Enquanto houver algum elemento dentro do array completeTask...
+    // o While verifica se existe algum elemento dentro do array.
     while (completedTask.length > 0) {
-      // a constante buscará o pai do primeiro elemento do array e..
-      const father = completedTask[0].parentNode;
-      // e irá remover o filho desse pai, enquanto existir algum elemento dentro do array.
-      father.removeChild(completedTask[0]);
+      // o laço while irá verificar a constante pai do primeiro elemento do array e irá remover o filho desse pai, enquanto existir algum elemento dentro do array.
+      completedTask[0].parentNode.removeChild(completedTask[0]);
     }
   })
 }
+// Excuta a função.
+deleteCompleted();
