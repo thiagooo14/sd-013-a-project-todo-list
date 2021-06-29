@@ -4,6 +4,10 @@ const texto = document.querySelector("#texto-tarefa");
 const li = document.getElementsByTagName("li");
 const butonApagar = document.querySelector("#apaga-tudo");
 const butonSalvar = document.querySelector("#salvar-tarefas");
+const butonRemoveFinalizados = document.querySelector('#remover-finalizados');
+const completed = document.getElementsByClassName('completed');
+const butonRemoverSelecionado = document.querySelector('#remover-selecionado');
+
 
 function criarTarefa(){
   butonAdd.addEventListener('click', (event) => {
@@ -52,3 +56,26 @@ butonSalvar.addEventListener("click", () => {
   localStorage.setItem("lista", crhomeList)
 })
 }salvar () 
+
+function removerFinalizados () {
+    butonRemoveFinalizados.addEventListener('click', () => {
+        while(completed.length>0){
+            for (let index = 0; index < completed.length; index+=1) {
+                list.removeChild(completed[index])
+                
+            }
+        }
+    })
+}
+removerFinalizados();
+
+function deletar() {
+    const selectede = document.querySelector('.estilo');
+    const remover = document.querySelector('#remover-selecionado');
+    remover.addEventListener('click', deletar);
+    if (selectede) {
+      list.removeChild(selectede);
+    }
+  }
+  deletar();
+
