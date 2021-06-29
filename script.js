@@ -30,13 +30,8 @@ function selecionarTarefa (event) {
 };
 
 function tarefaCompleta (event) {
-  const el = event;
-  if(event.target.className == 'tarefa') {
-    el.target.className = 'completed';
-  } else if (event.target.className == 'tarefa completed') {
-    el.target.className = 'tarefa';
-  }
-};
+  event.target.classList.toggle('completed')
+}
 
 const apagarTudo = document.querySelector('#apaga-tudo')
 
@@ -44,14 +39,14 @@ function apagaTudo () {
   blocoTarefa.innerHTML = inputZerado;
 };
 
-function removerSelecionados () {
+function removerCompletos () {
   const tarefasCompletas = document.querySelectorAll('.completed') 
   for(let index = 0; index < tarefasCompletas.length; index++) {
     blocoTarefa.removeChild(tarefasCompletas[index])
   }
 }
 
-const removerSelecionado = document.querySelector('#remover-finalizados');
+const removerCompleto = document.querySelector('#remover-finalizados')
 
 function selecionarUma (event) {
   const tarefasSelecionadas = document.querySelectorAll('.tarefa');
@@ -60,6 +55,32 @@ function selecionarUma (event) {
   }
   event.target.classList.add('selected');
 }
+
+function removeSelecionado () {
+  const selected = document.querySelector('#selected');
+  if (selected !== null) {
+    selected.remove();
+  };
+}
+const removerSelecionado = document.getElementById('remover-selecionado');
+
+function moverPraCima() {
+  const selected = document.querySelector('#selected');
+  if (selected !== null && selected !== selected.parentNode.firstElementChild) { 
+    const tarefaAnterior = selected.previousElementSibling
+    selected.parentNode.insertBefore(tarefaAnterior, selected.nextElementSibling); 
+  }
+}
+const moverCima = document.querySelector('#mover-cima');
+
+function moverPraBaixo () {
+  const selected = document.querySelector('#selected');
+  if (selected !== null && selected !== selected.parentNode.lastElementChild) { 
+    let tarefaPosterior = selected.nextElementSibling
+    selected.parentNode.insertBefore(tarefaPosterior, selected.previousElementSibling); 
+  }
+}
+const moverBaixo = document.querySelector('#mover-baixo');
 
 function salvarTarefas () {
   const salvo = blocoTarefa.innerHTML
@@ -81,6 +102,10 @@ window.onload = () => {
   listaTarefass.addEventListener('click', selecionarTarefa);
   listaTarefass.addEventListener('dblclick', tarefaCompleta);
   apagarTudo.addEventListener('click', apagaTudo);
-  removerSelecionado.addEventListener('click', removerSelecionados);
-  botaoAddTarefa.addEventListener('click', salvarTarefas)
+  removerCompleto.addEventListener('click', removerCompletos);
+  botaoAddTarefa.addEventListener('click', salvarTarefas);
+  removerSelecionado.addEventListener('click', removeSelecionado);
+  moverCima.addEventListener('click', moverPraCima);
+  chamarSalvos ();
+  moverBaixo.addEventListener('click', moverPraBaixo)
 }
