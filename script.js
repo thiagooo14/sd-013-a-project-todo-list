@@ -66,18 +66,16 @@ const removerSelecionado = document.getElementById('remover-selecionado');
 
 function moverPraCima() {
   const selected = document.querySelector('#selected');
-  if (selected !== null && selected !== selected.parentNode.firstElementChild) { 
-    const tarefaAnterior = selected.previousElementSibling
-    selected.parentNode.insertBefore(tarefaAnterior, selected.nextElementSibling); 
+  if(selected !== null && selected !== blocoTarefa.firstElementChild) {
+    blocoTarefa.insertBefore(selected, selected.previousSibling)
   }
 }
 const moverCima = document.querySelector('#mover-cima');
 
 function moverPraBaixo () {
   const selected = document.querySelector('#selected');
-  if (selected !== null && selected !== selected.parentNode.lastElementChild) { 
-    let tarefaPosterior = selected.nextElementSibling
-    selected.parentNode.insertBefore(tarefaPosterior, selected.previousElementSibling); 
+  if (selected !== null && selected !== blocoTarefa.lastElementChild) { 
+    blocoTarefa.insertBefore(selected.nextElementSibling, selected)
   }
 }
 const moverBaixo = document.querySelector('#mover-baixo');
@@ -107,5 +105,5 @@ window.onload = () => {
   removerSelecionado.addEventListener('click', removeSelecionado);
   moverCima.addEventListener('click', moverPraCima);
   chamarSalvos ();
-  moverBaixo.addEventListener('click', moverPraBaixo)
+  moverBaixo.addEventListener('click', moverPraBaixo);
 }
