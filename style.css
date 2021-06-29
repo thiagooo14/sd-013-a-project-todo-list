@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color:  rgb(30, 253, 0);
+  background-color: rgb(30 , 253 , 0);
 }
 
 .container {
@@ -19,10 +19,7 @@ body {
 }
 
 .div-container {
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  margin-right: 20px;
+  margin: 20px;
 }
 
 #lista-tarefas {
@@ -31,10 +28,10 @@ body {
 }
 
 .selected {
-  background-color:  rgb(128,128,128);
+  background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
