@@ -70,12 +70,12 @@ function removerFinalizados () {
 removerFinalizados();
 
 function deletar() {
-    const selectede = document.querySelector('.estilo');
-    const remover = document.querySelector('#remover-selecionado');
-    remover.addEventListener('click', deletar);
-    if (selectede) {
-      list.removeChild(selectede);
-    }
+  const selectede = document.querySelector('.selected');
+  const remover = document.querySelector('#remover-selecionado');
+  remover.addEventListener('click', deletar);
+  if (selectede) {
+    listTarefa.removeChild(selectede);
   }
-  deletar();
+}
+deletar();
 
