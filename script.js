@@ -14,8 +14,10 @@
 //   }
 // }
 
+const listaTarefas = document.getElementById('lista-tarefas');
+
 function criarTarefa() {
-  const listaOrdenada = document.getElementById('lista-tarefas');
+  const listaOrdenada = listaTarefas;
   const tarefa = document.getElementById('texto-tarefa').value;
   const tarefaCriada = document.createElement('li');
   tarefaCriada.innerText = tarefa;
@@ -26,7 +28,7 @@ function criarTarefa() {
 
 function cinzaTexto(event) {
   const tarefa = event.target;
-  const parent = document.getElementById('lista-tarefas').childNodes;
+  const parent = listaTarefas.childNodes;
   for (let i = 0; i < parent.length; i += 1) {
     parent[i].classList.remove('selecao');
   }
@@ -49,7 +51,7 @@ function tachaTexto(event) {
 function apagaTudo() {
   // Modelo da funcao tirado deste site:
   // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
-  const parent = document.getElementById('lista-tarefas');
+  const parent = listaTarefas;
   localStorage.clear();
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
@@ -60,7 +62,7 @@ function apagaFinalizados() {
   //  Modelo da funcao tirado deste site:
   //  https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
   const listaTachada = document.querySelectorAll('.completed');
-  const parent = document.getElementById('lista-tarefas');
+  const parent = listaTarefas;
   for (let i = 0; i < listaTachada.length; i += 1) {
     const element = listaTachada[i];
     if (element.className.includes('completed')) {
@@ -70,8 +72,8 @@ function apagaFinalizados() {
 }
 
 function apagaSelecao() {
-  const parent = document.getElementById('lista-tarefas');
-  const children = document.getElementById('lista-tarefas').childNodes;
+  const parent = listaTarefas;
+  const children = listaTarefas.childNodes;
   for (let i = 0; i < children.length; i += 1) {
     const element = children[i];
     if (element.className.includes('selecao')) {
@@ -81,21 +83,20 @@ function apagaSelecao() {
 }
 
 function salvaLista() {
-
-  const lista = document.getElementById('lista-tarefas').innerHTML;
+  const lista = listaTarefas.innerHTML;
   localStorage.setItem('listaSalva', lista);
 }
 
 function retomaLista() {
   const lista = localStorage.getItem('listaSalva');
-  document.getElementById('lista-tarefas').innerHTML = lista;
+  listaTarefas.innerHTML = lista;
 }
 
 document.getElementById('criar-tarefa').addEventListener('click', criarTarefa);
 
-document.getElementById('lista-tarefas').addEventListener('click', cinzaTexto);
+listaTarefas.addEventListener('click', cinzaTexto);
 
-document.getElementById('lista-tarefas').addEventListener('dblclick', tachaTexto);
+listaTarefas.addEventListener('dblclick', tachaTexto);
 
 document.getElementById('apaga-tudo').addEventListener('click', apagaTudo);
 
