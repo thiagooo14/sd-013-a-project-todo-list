@@ -4,8 +4,27 @@ const inputTarefa = document.getElementById('texto-tarefa');
 const botaoCria = document.getElementById('criar-tarefa');
 const apagaTudo = document.getElementById('apaga-tudo');
 const marcacao = document.getElementsByClassName('completed');
-const removeComp = document.getElementById('remover-finalizados');
+const removeComps = document.getElementById('remover-finalizados');
 const itens = document.getElementsByTagName('li');
+const removeUnique = document.getElementById('remover-selecionado');
+
+// selecionar
+
+function deSelect() {
+  for (let i = 0; i < itens.length; i += 1) {
+    itens[i].classList.remove('selected');
+  }
+}
+
+function select() {
+  for (let i = 0; i < itens.length; i += 1) {
+    itens[i].addEventListener('click', (event) => {
+      deSelect();
+      const a = event;
+      a.target.classList.add('selected');
+    });
+  }
+}
 
 // adiciona itens
 function criarTarefa() {
@@ -34,7 +53,7 @@ function clearAll() {
 }
 
 function clearCompleted() {
-  removeComp.addEventListener('click', () => {
+  removeComps.addEventListener('click', () => {
     for (let i = 0; i < marcacao.length; i += 1) {
       while (i < marcacao.length) {
         marcacao[i].remove();
@@ -43,24 +62,15 @@ function clearCompleted() {
   });
 }
 
-// selecionar
-
-function deSelect() {
-  for (let i = 0; i < itens.length; i += 1) {
-    itens[i].classList.remove('selected');
-  }
-}
-
-function select() {
-  for (let i = 0; i < itens.length; i += 1) {
-    itens[i].addEventListener('click', (event) => {
-      deSelect();
-      const a = event;
-      a.target.classList.add('selected');
+function removeSelected() {
+  removeUnique.addEventListener('click', () => {
+    document.querySelectorAll('.selected').forEach((el) => {
+      el.remove();
     });
-  }
+  });
 }
 
 criarTarefa();
 clearAll();
 clearCompleted();
+removeSelected();
