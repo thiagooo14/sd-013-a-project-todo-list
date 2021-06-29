@@ -48,6 +48,17 @@ butonApagar.addEventListener("click", () => {
 })
 }apagar()
 
+
+function deletar() {
+    const selectede = document.querySelector('.estilo');
+    const remover = document.querySelector('#remover-selecionado');
+    remover.addEventListener('click', deletar);
+    if (selectede) {
+      list.removeChild(selectede);
+    }
+  }
+  deletar();
+
 if(localStorage.lista)
 {document.querySelector("#lista-tarefas").innerHTML = localStorage.lista}
 function salvar(){
@@ -69,13 +80,5 @@ function removerFinalizados () {
 }
 removerFinalizados();
 
-function deletar() {
-  const selectede = document.querySelector('.selected');
-  const remover = document.querySelector('#remover-selecionado');
-  remover.addEventListener('click', deletar);
-  if (selectede) {
-    list.removeChild(selectede);
-  }
-}
-deletar();
+
 
