@@ -1,3 +1,4 @@
+const list = document.querySelector("#lista-tarefas");
 function createTask(text){
   let task = document.createElement("li");
   task.className = "task";
@@ -53,10 +54,9 @@ function setDeleteList(){
   })
 }
 function deleteCompleted(){
-  let list = document.querySelector(("#lista-tarefas"));
-  let items = list.children;
-  for(let item of items){
-    if(item.classList.contains("completed")){
+  const itens = document.querySelectorAll('li');
+  for (let item of itens) {
+    if (item.classList.contains('completed')) {
       list.removeChild(item);
     }
   }
