@@ -6,7 +6,7 @@ const butonApagar = document.querySelector("#apaga-tudo");
 const butonSalvar = document.querySelector("#salvar-tarefas");
 const butonRemoveFinalizados = document.querySelector('#remover-finalizados');
 const completed = document.getElementsByClassName('completed');
-const butonRemoverSelecionado = document.querySelector('#remover-selecionado');
+
 
 
 function criarTarefa(){
@@ -74,7 +74,7 @@ function deletar() {
   const remover = document.querySelector('#remover-selecionado');
   remover.addEventListener('click', deletar);
   if (selectede) {
-    listTarefa.removeChild(selectede);
+    list.removeChild(selectede);
   }
 }
 deletar();
