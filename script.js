@@ -6,6 +6,7 @@ const markPosition = text.indexOf('tasks');
 const removeAll = document.getElementById('apaga-tudo');
 const removeCompleted = document.getElementById('remover-finalizados');
 const selectItemList = document.querySelectorAll('#lista-tarefas');
+const removeSelect = document.getElementById('remover-selecionado');
 // Referência: https://www.youtube.com/watch?v=k9MKdl5_2yc&t=1649s
 // Cria li (de forma ordenada por conta do html <ol>) e as adicina o id task
 function addTask() {
@@ -17,7 +18,7 @@ function addTask() {
 
     listItem.appendChild(taskText);
     orderedList.appendChild(listItem);
-    listItem.id = 'task';
+    listItem.className = 'task';
     // elemento.classList.add('tasks');
   }
 }
@@ -62,7 +63,7 @@ for (let i = 0; i < selectItemList.length; i += 1) {
 
 // Remove itens com a classe 'completed', porém ao criar nova tarefa retorna os já removidos.
 function removeItemsCompleted() {
-  const positions = document.querySelectorAll('#task');
+  const positions = document.querySelectorAll('.task');
 
   for (let i = 0; i < positions.length; i += 1) {
     if (positions[i].classList.contains('completed')) {
@@ -71,3 +72,14 @@ function removeItemsCompleted() {
   }
 }
 removeCompleted.addEventListener('click', removeItemsCompleted);
+
+function removeSelecionado() {
+  const position = document.querySelectorAll('.task');
+
+  for (let i = 0; i < position.length; i += 1) {
+    if (position[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      position[i].remove();
+    }
+  }
+}
+removeSelect.addEventListener('click', removeSelecionado);
