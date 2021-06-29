@@ -1,18 +1,18 @@
-window.onload = retomaLista;
-  function retomaLista() {
-    if (localStorage !== undefined) {
-      const listaStorage = localStorage;
-      for (let i = 0; i < listaStorage.length; i += 1) {
-        const tarefaCriada = document.createElement('li');
-        const tarefa = localStorage.key(i);
-        tarefaCriada.innerText = tarefa;
-        document.getElementById('lista-tarefas').appendChild(tarefaCriada);
-        if (listaStorage.getItem('i') === 'true') {
-        document.getElementsByName('li')[i].classList.add('selecao');
-        }
-      }
-    }
-  }
+// window.onload = retomaLista;
+// function retomaLista() {
+//   if (localStorage !== undefined) {
+//     const listaStorage = localStorage;
+//     for (let i = 0; i < listaStorage.length; i += 1) {
+//       const tarefaCriada = document.createElement('li');
+//       const tarefa = localStorage.key(i);
+//       tarefaCriada.innerText = tarefa;
+//       document.getElementById('lista-tarefas').appendChild(tarefaCriada);
+//       if (listaStorage.getItem('i') === 'true') {
+//         document.getElementsByName('li')[i].classList.add('selecao');
+//       }
+//     }
+//   }
+// }
 
 function criarTarefa() {
   const listaOrdenada = document.getElementById('lista-tarefas');
@@ -21,7 +21,7 @@ function criarTarefa() {
   tarefaCriada.innerText = tarefa;
   listaOrdenada.appendChild(tarefaCriada);
   document.getElementById('texto-tarefa').value = '';
-  localStorage.setItem(tarefa, 'false');
+  // localStorage.setItem(tarefa, 'false');
 }
 
 function cinzaTexto(event) {
@@ -47,8 +47,8 @@ function tachaTexto(event) {
 }
 
 function apagaTudo() {
-    //Modelo da funcao tirado deste site:
-    //https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+  // Modelo da funcao tirado deste site:
+  // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
   const parent = document.getElementById('lista-tarefas');
   localStorage.clear();
   while (parent.firstChild) {
@@ -80,6 +80,17 @@ function apagaSelecao() {
   }
 }
 
+function salvaLista() {
+
+  const lista = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('listaSalva', lista);
+}
+
+function retomaLista() {
+  const lista = localStorage.getItem('listaSalva');
+  document.getElementById('lista-tarefas').innerHTML = lista;
+}
+
 document.getElementById('criar-tarefa').addEventListener('click', criarTarefa);
 
 document.getElementById('lista-tarefas').addEventListener('click', cinzaTexto);
@@ -91,3 +102,7 @@ document.getElementById('apaga-tudo').addEventListener('click', apagaTudo);
 document.getElementById('remover-finalizados').addEventListener('click', apagaFinalizados);
 
 document.getElementById('remover-selecionado').addEventListener('click', apagaSelecao);
+
+document.getElementById('salvar-tarefas').addEventListener('click', salvaLista);
+
+retomaLista();
